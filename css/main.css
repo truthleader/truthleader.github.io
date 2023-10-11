@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #c6da44;
+  background: #b1ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2567,7 +2567,7 @@ ul.breadcrumb li + li:last-child {
   --content-bg-color: rgba(255,179,179,0.902);
 }
 body {
-  background: url("/_images/background.png");
+  background: url("/images/background.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
