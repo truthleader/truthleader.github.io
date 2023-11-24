@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>真理教教会</title>
+  
+  <subtitle>一个只属于我的宗教</subtitle>
+  <link href="https://truthleader.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://truthleader.github.io/"/>
+  <updated>2023-11-24T13:48:37.950Z</updated>
+  <id>https://truthleader.github.io/</id>
+  
+  <author>
+    <name>truthleader</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wallabysnightmare102-writeup</title>
+    <link href="https://truthleader.github.io/2023/11/24/wallabysnightmare102-writeup/"/>
+    <id>https://truthleader.github.io/2023/11/24/wallabysnightmare102-writeup/</id>
+    <published>2023-11-24T11:14:58.000Z</published>
+    <updated>2023-11-24T13:48:37.950Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;wallabysnightmare102-writeup&quot;&gt;&lt;a href=&quot;#wallabysnightmare102-writeup&quot; class=&quot;headerlink&quot; title=&quot;wallabysnightmare102_writeup&quot;&gt;&lt;/a&gt;wallabysnightmare102_writeup&lt;/h1&gt;&lt;p&gt;这是学校作业&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读书笔记《血酬定律——中国历史中的生存游戏》</title>
+    <link href="https://truthleader.github.io/2023/11/23/readingnote002/"/>
+    <id>https://truthleader.github.io/2023/11/23/readingnote002/</id>
+    <published>2023-11-23T13:21:48.000Z</published>
+    <updated>2023-11-23T13:23:22.649Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="待分类" scheme="https://truthleader.github.io/categories/%E5%BE%85%E5%88%86%E7%B1%BB/"/>
+    
+    
+    <category term="读书笔记" scheme="https://truthleader.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读书笔记《潜规则——中国历史中的真实游戏》</title>
+    <link href="https://truthleader.github.io/2023/11/23/readingnote001/"/>
+    <id>https://truthleader.github.io/2023/11/23/readingnote001/</id>
+    <published>2023-11-23T13:19:02.000Z</published>
+    <updated>2023-11-23T13:23:23.720Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="待分类" scheme="https://truthleader.github.io/categories/%E5%BE%85%E5%88%86%E7%B1%BB/"/>
+    
+    
+    <category term="读书笔记" scheme="https://truthleader.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RFC4251阅后总结</title>
+    <link href="https://truthleader.github.io/2023/11/11/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
+    <id>https://truthleader.github.io/2023/11/11/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/</id>
+    <published>2023-11-11T06:55:44.000Z</published>
+    <updated>2023-11-11T07:08:39.528Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;ps: 线索里的tab键都被吞了，正在处理中&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h1&gt;&lt;p&gt;来源 &lt;a href=&quot;https://datatracker.ietf.org/&quot;&gt;https://datatracker.ietf.org&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;IETF Internet Engineering Task Force&lt;/li&gt;
+&lt;li&gt;RFC Request for Comment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;线索&quot;&gt;&lt;a href=&quot;#线索&quot; class=&quot;headerlink&quot; title=&quot;线索&quot;&gt;&lt;/a&gt;线索&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="网络协议" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+    <category term="理论" scheme="https://truthleader.github.io/tags/%E7%90%86%E8%AE%BA/"/>
+    
+    <category term="阅后总结" scheme="https://truthleader.github.io/tags/%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>看图识地点</title>
+    <link href="https://truthleader.github.io/2023/11/05/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/"/>
+    <id>https://truthleader.github.io/2023/11/05/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</id>
+    <published>2023-11-05T11:49:20.000Z</published>
+    <updated>2023-11-05T12:03:41.017Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="社会工程学" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6/"/>
+    
+    
+    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="浅记" scheme="https://truthleader.github.io/tags/%E6%B5%85%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hackademic_RTB1_writeup</title>
+    <link href="https://truthleader.github.io/2023/10/25/hackademic-RTB1-writeup/"/>
+    <id>https://truthleader.github.io/2023/10/25/hackademic-RTB1-writeup/</id>
+    <published>2023-10-25T13:45:54.000Z</published>
+    <updated>2023-11-05T11:45:57.781Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;hackademic-RTB1-靶机名-writeup&quot;&gt;&lt;a href=&quot;#hackademic-RTB1-靶机名-writeup&quot; class=&quot;headerlink&quot; title=&quot;hackademic RTB1_靶机名_writeup&quot;&gt;&lt;/a&gt;hackademic RTB1_靶机名_writeup&lt;/h1&gt;&lt;p&gt;这是学校课程的作业，《红队&amp;#x2F;渗透 — 和我一起来打靶》也涉及了该靶机&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php反序列化浅记</title>
+    <link href="https://truthleader.github.io/2023/10/25/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/"/>
+    <id>https://truthleader.github.io/2023/10/25/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/</id>
+    <published>2023-10-25T04:59:35.000Z</published>
+    <updated>2023-11-05T11:46:00.600Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关键词：对象、类、成员变量、成员函数、父子类、序列化、反序列化、魔术方法、poc&lt;/p&gt;
+&lt;p&gt;感谢让我领略了php反序列化风采的K3zy前辈： &lt;a href=&quot;https://github.com/kkontheway&quot;&gt;https://github.com/kkontheway&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;</summary>
+    
+    
+    
+    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="ctf" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/ctf/"/>
+    
+    
+    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="浅记" scheme="https://truthleader.github.io/tags/%E6%B5%85%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hello_and_call_me_lord</title>
+    <link href="https://truthleader.github.io/2023/10/21/hello-and-call-me-lord/"/>
+    <id>https://truthleader.github.io/2023/10/21/hello-and-call-me-lord/</id>
+    <published>2023-10-21T12:24:22.000Z</published>
+    <updated>2023-11-05T11:45:59.400Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;你好👋&quot;&gt;&lt;a href=&quot;#你好👋&quot; class=&quot;headerlink&quot; title=&quot;你好👋&quot;&gt;&lt;/a&gt;你好👋&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2023/10/21/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;关于我的名字和这个教会&quot;&gt;&lt;a href=&quot;#关于我的名字和这个教会&quot; class=&quot;headerlink&quot; title=&quot;关于我的名字和这个教会&quot;&gt;&lt;/a&gt;关于我的名字和这个教会&lt;/h2&gt;&lt;p&gt;我是truthleader，也可以叫我真理教教主&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="About" scheme="https://truthleader.github.io/categories/About/"/>
+    
+    
+    <category term="me" scheme="https://truthleader.github.io/tags/me/"/>
+    
+  </entry>
+  
+</feed>
