@@ -712,4 +712,98 @@
         <tag>writeup</tag>
       </tags>
   </entry>
+  <entry>
+    <title>tommyboy-writeup</title>
+    <url>/2023/12/03/tommyboy-writeup/</url>
+    <content><![CDATA[<h1 id="tommyboy-writeup"><a href="#tommyboy-writeup" class="headerlink" title="tommyboy_writeup"></a>tommyboy_writeup</h1><p>这是学校作业</p>
+<span id="more"></span>
+<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机名：tommyboy 1<br>靶机作者：<a href="https://www.vulnhub.com/author/brian-johnson,256/">Brian Johnson</a><br>靶机链接1：<a href="https://www.vulnhub.com/entry/tommy-boy-1,157/">https://www.vulnhub.com/entry/tommy-boy-1,157/</a><br>靶机链接2:<a href="http://7ms.us/tommyboy">http://7ms.us/tommyboy</a><br>目标：5个flag和一个final message</p>
+</blockquote>
+<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h2><ol>
+<li>通过robots.txt泄露发现flag1</li>
+</ol>
+<h2 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h2><ol>
+<li>根据首页源码提示，得到提示链接，知道网站主目录</li>
+<li>浏览主目录的posts，发现一篇post的回复包含了flag2存放在什么文件的信息</li>
+</ol>
+<h2 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h2><ol>
+<li>根据主目录post回复中的提示，了解了一个存放图片的网站目录</li>
+<li>下载图片，用strings查看，发现了一串密文(一般有一定规律性，让人觉得很规整但看不懂的就是密文)</li>
+<li>通过在线md5工具解密该密文，得到一个单词</li>
+<li>用该单词作为网站主目录第二篇post的密码，成功访问该post内容</li>
+<li>根据该post提示，了解了靶机有一诡异的ftp服务，通过nmap不断扫描，直到发现多处来一个开放端口</li>
+<li>通过hydra爆破该服务密码，用户名根据post提示已经知道(记得将用户名添加到字典的第一行)</li>
+<li>爆破成功后登入ftp服务</li>
+<li>得到提示文本，发现一新目录，但是没讲具体位置，最后在8008端口的web服务上访问到该目录</li>
+<li>访问目录的回显提示，只有他和steve jobs可以访问其中的内容，通过脑洞猜测，试出来修改UA为iphone就能访问内容(脑洞什么根本没有的，只有抄的份)</li>
+<li>提示需要猜测网站正确的网页名，通过爆破得到网页名，我用的dirbuster(爆破不了一点，100线程就崩了，所以还是抄的)</li>
+<li>访问到网站网页，得到flag3和一hint，同时还有一个加密文件</li>
+</ol>
+<h2 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h2><ol>
+<li>根据hint中的提示，生成密码字典，我用的crunch</li>
+<li>用fcrackzip爆破成功得到3对用户名和密码，以及一个没有密码的用户名(错的)(前两对密码p用没有，第三对据hint是server的用户名和密码)</li>
+<li>通过wpscan扫描网站的用户</li>
+<li>对tom用户进行密码爆破，字典是rockyou，用wpscan爆破</li>
+<li>访问网站后台，在draft中得到密码提示，与hint中的第三对用户名密码拼接，通过ssh成功得到靶机shell</li>
+<li>ls发现了flag4</li>
+</ol>
+<h2 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h2><ol>
+<li>根据提示，在靶机根目录发.5.txt</li>
+<li>由于5.txt需要www-data权限，需要通过webshell来获得该权限，所以在&#x2F;var目录下查找网站根目录(由于有两个http端口，所以有两个根目录)</li>
+<li>发现可以在&#x2F;var&#x2F;thatsg0nnaleaveamark&#x2F;NickIzL33t&#x2F;P4TCH_4D4MS&#x2F;uploads写入webshell</li>
+<li>写入一句话木马，通过浏览器直接访问，用该webshell查看.5.txt内容</li>
+<li>拼接5个flag，解压loot.zip，通关该靶场</li>
+</ol>
+<h2 id="getroot"><a href="#getroot" class="headerlink" title="getroot"></a>getroot</h2><ol>
+<li>上传linpeas脚本探测，得知多种提权方式</li>
+<li>使用脏牛脚本提权</li>
+</ol>
+<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
+<p>robots.txt文件泄露<br>strings解插入隐写<br>hackbar修改User-agent<br>dirbuster网页名爆破<br>crunch密码生成器<br>fcrackzip zip密码爆破工具<br>wpscan(wordpress cms框架扫描器)扫描后台用户名和密码爆破<br>通过webshell获取www-data权限<br>linpeas linux提权漏洞扫描脚本<br>脏牛提权</p>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/03/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png"><br>robots.txt文件泄露发现的flag1<br><img src="/2023/12/03/tommyboy-writeup/12flag1.png"><br>首页源码提示<br><img src="/2023/12/03/tommyboy-writeup/13%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA1.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/14%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA2.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/15%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E7%BF%BB%E8%AF%91.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/16%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8C%87%E5%90%91%E9%93%BE%E6%8E%A5.png"><br>最终找到了网站主目录<br><img src="/2023/12/03/tommyboy-writeup/17%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%811.png"><br>发现新的网站目录<br><img src="/2023/12/03/tommyboy-writeup/18%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%812.png"><br>发现flag2<br><img src="/2023/12/03/tommyboy-writeup/19flag2.png"><br>发现图片，发现插入隐写<br><img src="/2023/12/03/tommyboy-writeup/21.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/22.png"><br>得到密码，解锁并查看第二篇post<br><img src="/2023/12/03/tommyboy-writeup/23.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/24%E5%85%A8%E6%96%87.png"><br>发现神必ftp端口<br><img src="/2023/12/03/tommyboy-writeup/25ftp%E7%AB%AF%E5%8F%A3.png"></p>
+<p>爆破ftp账号</p>
+<p><img src="/2023/12/03/tommyboy-writeup/27%E5%B0%86%E7%94%A8%E6%88%B7%E5%90%8D%E6%94%BE%E5%9C%A8%E5%AD%97%E5%85%B8%E5%89%8D%E9%9D%A2.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/28%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"><br>发现ftp服务存放的提示文本<br><img src="/2023/12/03/tommyboy-writeup/26%E4%B8%8B%E8%BD%BDreadme.png"><br><img src="/2023/12/03/tommyboy-writeup/29%E5%BE%97%E5%88%B0%E6%96%B0%E7%9B%AE%E5%BD%95.png"><br>发现8008网站的目录，根据提示修改UA，并爆破网页名<br><img src="/2023/12/03/tommyboy-writeup/31%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9B%AE%E5%BD%95.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/32%E6%9B%B4%E6%94%B9useragent%E6%88%90%E5%8A%9F%E8%AE%BF%E9%97%AE.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/33%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B41.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/34%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B42.png"><br>得到flag3和hint<br><img src="/2023/12/03/tommyboy-writeup/35flag3+hint.png"><br>爆破backups密码<br><img src="/2023/12/03/tommyboy-writeup/36%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/37tommyboy%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/38%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/39%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/41%E8%A7%A3%E5%8E%8B.png"><br>得到提示<br><img src="/2023/12/03/tommyboy-writeup/42%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>wpscan扫描爆破网站后台<br><img src="/2023/12/03/tommyboy-writeup/43%E9%80%9A%E8%BF%87wpscan%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%90%8D.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/44%E7%88%86%E7%A0%B4%E5%87%BA%E5%AF%86%E7%A0%81.png"><br>登陆后台查看draft<br><img src="/2023/12/03/tommyboy-writeup/45%E7%99%BB%E9%99%86%E5%90%8E%E5%8F%B0.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/46%E8%8E%B7%E5%BE%97%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA.png"><br>根据hint和draft提示，ssh连接靶机<br><img src="/2023/12/03/tommyboy-writeup/47ssh%E7%99%BB%E9%99%86.png"><br>查看flag4<br><img src="/2023/12/03/tommyboy-writeup/48flag4+%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>找到flag5<br><img src="/2023/12/03/tommyboy-writeup/49%E5%8F%91%E7%8E%B0flag5.png"><br>写webshell，获得www-data权限<br><img src="/2023/12/03/tommyboy-writeup/50%E5%88%B6%E4%BD%9Cwebshell.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/51%E9%80%9A%E8%BF%87webshell%E8%AF%BB%E5%8F%96flag5.png"><br>提权<br><img src="/2023/12/03/tommyboy-writeup/52%E9%80%9A%E8%BF%87linspea%E8%84%9A%E6%9C%AC%E6%8E%A2%E6%B5%8B%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/53%E8%8E%B7%E5%8F%9640616.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/54%E6%8F%90%E6%9D%83.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/55theend.png"><br>flag2和3<br><img src="/2023/12/03/tommyboy-writeup/flag2.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/flag3.png"></p>
+<p><img src="/2023/12/03/tommyboy-writeup/%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC%E6%B1%87%E6%80%BB.txt"></p>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
+<li>dirbuster以前没用过，不过图形化什么的确实挺方便</li>
+<li>linpeas这个脚本，功能十分强大</li>
+<li>脑洞不够，鬼知道stevejobs要改iphone，不过我想，可以讲所有苹果产品的UA搜集起来做成字典，用burpsuite爆破</li>
+<li>这个靶机，getroot是非必要的</li>
+<li>脏牛提权后不久，靶机就会死机，不知道其他提权方法会不会这样</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校给的ppt<br><a href="https://www.cnblogs.com/cute/p/16331359.html">https://www.cnblogs.com/cute/p/16331359.html</a> linpeas脚本介绍<br><a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS</a> linpeas github库<br><a href="https://www.exploit-db.com/exploits/40616">https://www.exploit-db.com/exploits/40616</a> 脏牛提权exp脚本</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+        <category>渗透</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
 </search>

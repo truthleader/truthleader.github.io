@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2023-11-24T13:48:37.950Z</updated>
+  <updated>2023-12-03T04:52:01.701Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tommyboy-writeup</title>
+    <link href="https://truthleader.github.io/2023/12/03/tommyboy-writeup/"/>
+    <id>https://truthleader.github.io/2023/12/03/tommyboy-writeup/</id>
+    <published>2023-12-03T04:46:13.000Z</published>
+    <updated>2023-12-03T04:52:01.701Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;tommyboy-writeup&quot;&gt;&lt;a href=&quot;#tommyboy-writeup&quot; class=&quot;headerlink&quot; title=&quot;tommyboy_writeup&quot;&gt;&lt;/a&gt;tommyboy_writeup&lt;/h1&gt;&lt;p&gt;这是学校作业&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+  </entry>
   
   <entry>
     <title>wallabysnightmare102-writeup</title>
