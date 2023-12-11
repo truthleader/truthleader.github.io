@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2023-12-03T04:52:01.701Z</updated>
+  <updated>2023-12-11T05:49:40.083Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bob_writeup</title>
+    <link href="https://truthleader.github.io/2023/12/11/bob_writeup/"/>
+    <id>https://truthleader.github.io/2023/12/11/bob_writeup/</id>
+    <published>2023-12-11T05:44:04.000Z</published>
+    <updated>2023-12-11T05:49:40.083Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>tommyboy-writeup</title>
