@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2023-12-11T05:49:40.083Z</updated>
+  <updated>2023-12-17T09:00:16.112Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -17,20 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ted:1 writeup</title>
+    <link href="https://truthleader.github.io/2023/12/17/Ted-1-writeup/"/>
+    <id>https://truthleader.github.io/2023/12/17/Ted-1-writeup/</id>
+    <published>2023-12-17T08:56:19.000Z</published>
+    <updated>2023-12-17T09:00:16.112Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;靶机简介&quot;&gt;&lt;a href=&quot;#靶机简介&quot; class=&quot;headerlink&quot; title=&quot;靶机简介&quot;&gt;&lt;/a&gt;靶机简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;靶机链接： &lt;a href=&quot;https://www.vulnhub.com/entry/ted-1,327/&quot;&gt;https://www.vulnhub.com/entry/ted-1,327/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>bob_writeup</title>
     <link href="https://truthleader.github.io/2023/12/11/bob_writeup/"/>
     <id>https://truthleader.github.io/2023/12/11/bob_writeup/</id>
     <published>2023-12-11T05:44:04.000Z</published>
-    <updated>2023-12-11T05:49:40.083Z</updated>
+    <updated>2023-12-11T05:50:11.306Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;靶机简介&quot;&gt;&lt;a href=&quot;#靶机简介&quot; class=&quot;headerlink&quot; title=&quot;靶机简介&quot;&gt;&lt;/a&gt;靶机简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;名称: Bob: 1.0.1&lt;br&gt;作者：&lt;a href=&quot;https://www.vulnhub.com/author/c0rruptedb1t,578/&quot;&gt;c0rruptedb1t&lt;/a&gt;&lt;br&gt;靶机链接1:&lt;a href=&quot;https://www.vulnhub.com/entry/bob-101,226/&quot;&gt;https://www.vulnhub.com/entry/bob-101,226/&lt;/a&gt;&lt;br&gt;靶机链接2:&lt;a href=&quot;http://c0rruptedb1t.com/vms/bob.html&quot;&gt;http://c0rruptedb1t.com/vms/bob.html&lt;/a&gt;&lt;br&gt;Your Goal is to get the flag in &amp;#x2F;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hints: Remember to look for hidden info&amp;#x2F;files &lt;/p&gt;</summary>
     
     
     
