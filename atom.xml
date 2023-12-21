@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2023-12-21T08:56:39.476Z</updated>
+  <updated>2023-12-21T09:43:11.315Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -21,8 +21,19 @@
     <link href="https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/"/>
     <id>https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/</id>
     <published>2023-12-21T08:56:39.000Z</published>
-    <updated>2023-12-21T08:56:39.476Z</updated>
+    <updated>2023-12-21T09:43:11.315Z</updated>
     
+    
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Hello&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;// 生成一些简单的输出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这是一个java代码，很明显能看出这是输出Hello, World的程序&lt;br&gt;但是，我们需要看懂&lt;br&gt;什么是看懂：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;知道对程序每个单词的称呼&lt;/li&gt;
+&lt;li&gt;知道程序每个单词的功能&lt;/li&gt;
+&lt;li&gt;知道单词与单词结合后的功能&lt;/li&gt;
+&lt;li&gt;知道如何运行程序&lt;/li&gt;
+&lt;li&gt;知道运行程序所需要的环境&lt;/li&gt;
+&lt;/ol&gt;</summary>
     
     
     
