@@ -1,6 +1,7 @@
-https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/
 https://truthleader.github.io/2023/12/17/Ted-1-writeup/
 https://truthleader.github.io/2023/12/11/bob_writeup/
+https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/
+https://truthleader.github.io/2023/12/24/dc-2-writeup/
 https://truthleader.github.io/2023/12/03/tommyboy-writeup/
 https://truthleader.github.io/2023/11/24/wallabysnightmare102-writeup/
 https://truthleader.github.io/2023/10/25/hackademic-RTB1-writeup/
@@ -21,6 +22,7 @@ https://truthleader.github.io/tags/writeup/
 https://truthleader.github.io/tags/me/
 https://truthleader.github.io/tags/%E6%B5%85%E8%AE%B0/
 https://truthleader.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/
+https://truthleader.github.io/tags/%E7%BC%96%E7%A8%8B/
 https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/
 https://truthleader.github.io/categories/About/
 https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/ctf/
@@ -28,3 +30,4 @@ https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E
 https://truthleader.github.io/categories/%E5%BE%85%E5%88%86%E7%B1%BB/
 https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/
 https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6/
+https://truthleader.github.io/categories/java/
