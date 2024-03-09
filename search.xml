@@ -225,8 +225,8 @@
         <category>网络协议</category>
       </categories>
       <tags>
-        <tag>理论</tag>
         <tag>阅后总结</tag>
+        <tag>🌟🌟🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -276,11 +276,10 @@
 ]]></content>
       <categories>
         <category>网络安全</category>
-        <category>渗透</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>writeup</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -361,12 +360,6 @@
 <li>有一个完善的标签和分类体系</li>
 </ol>
 ]]></content>
-      <categories>
-        <category>About</category>
-      </categories>
-      <tags>
-        <tag>me</tag>
-      </tags>
   </entry>
   <entry>
     <title>php反序列化浅记</title>
@@ -496,8 +489,7 @@
         <category>ctf</category>
       </categories>
       <tags>
-        <tag>技术</tag>
-        <tag>浅记</tag>
+        <tag>🌟🌟🌟🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -558,10 +550,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>待分类</category>
+        <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>读书笔记</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -622,10 +614,10 @@
 <h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>跟潜规则一书差不多，只是挖掘的更具象</p>
 ]]></content>
       <categories>
-        <category>待分类</category>
+        <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>读书笔记</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -715,11 +707,10 @@
 ]]></content>
       <categories>
         <category>网络安全</category>
-        <category>渗透</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>writeup</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -774,11 +765,10 @@
 ]]></content>
       <categories>
         <category>网络安全</category>
-        <category>渗透</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>writeup</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -802,8 +792,7 @@
         <category>社会工程学</category>
       </categories>
       <tags>
-        <tag>技术</tag>
-        <tag>浅记</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -847,11 +836,10 @@
 ]]></content>
       <categories>
         <category>网络安全</category>
-        <category>渗透</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>writeup</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -886,11 +874,10 @@
 ]]></content>
       <categories>
         <category>网络安全</category>
-        <category>渗透</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>writeup</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -933,7 +920,7 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>编程</tag>
+        <tag>🌟</tag>
       </tags>
   </entry>
   <entry>
@@ -971,11 +958,55 @@
 ]]></content>
       <categories>
         <category>网络安全</category>
-        <category>渗透</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>writeup</tag>
+        <tag>🌟</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>javadoc</title>
+    <url>/2024/01/30/javadoc/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<p>运行命令，生成文档注释对应的技术文档</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">javadoc 文件名 -d 指定目录</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>🌟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gigachad:1-writeup</title>
+    <url>/2024/03/09/gigachad-1-writeup/</url>
+    <content><![CDATA[<p>靶机地址:<a href="https://www.vulnhub.com/entry/gigachad-1,657/">https://www.vulnhub.com/entry/gigachad-1,657/</a></p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>开启的ftp服务是能匿名登录的</li>
+<li>根据ftp里那个的提示，了解了一个username，可以从web上获取一张藏有密码提示的图片</li>
+<li>图片里没有用到隐写，应该去google上搜图</li>
+<li>find可以找到，靶机里有个s-nail-privsec的SUID文件，在exploitdb上找相关的exp就能提权</li>
+</ol>
+<p>文章讲解：<br><a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899</a></p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2024/03/09/gigachad-1-writeup/drippinchad.png"><br><img src="/2024/03/09/gigachad-1-writeup/flag.png"><br><img src="/2024/03/09/gigachad-1-writeup/chad_real_identity.png"></p>
+<h1 id="有趣的东西"><a href="#有趣的东西" class="headerlink" title="有趣的东西"></a>有趣的东西</h1><h2 id="the-real-gigachad"><a href="#the-real-gigachad" class="headerlink" title="the real gigachad"></a>the real gigachad</h2><p>关于靶机根目录里留下的图片，可以获取一下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">演员的维基介绍 https://tr.wikipedia.org/wiki/Sefa_Zengin</span><br><span class="line"></span><br><span class="line">2003-2004 - Kurtlar Vadisi - Erdal Kömürcü</span><br><span class="line"></span><br><span class="line">土耳其惡狼谷 英文名:Valley of the Wolves 土耳其名:Kurtlar Vadisi</span><br><span class="line">Erdal Kömürcü是该系列的一名角色</span><br></pre></td></tr></table></figure>
+<p>大多数是土耳其语，并且目前的翻译软件比较垃圾，又懒得看，就只能给出这点东西了</p>
+<h2 id="rabbit-hole"><a href="#rabbit-hole" class="headerlink" title="rabbit hole"></a>rabbit hole</h2><p>dirsearch 扫描web的时候会冒出来一堆莫名其妙的东西，我也不知道这个叫什么，在 <a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a> 里被叫做兔子洞，但我直接搜会搜到别的东西</p>
+<p><a href="https://rabbithole.gg/">https://rabbithole.gg/</a><br>web3，学不会一点（−＿−；）</p>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>writeup</tag>
+        <tag>🌟</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我是真理教教主</title>
+    <url>/2024/01/30/%E6%88%91%E6%98%AF%E7%9C%9F%E7%90%86%E6%95%99%E6%95%99%E4%B8%BB/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>

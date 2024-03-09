@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2023-12-24T06:47:21.331Z</updated>
+  <updated>2024-03-09T09:27:30.895Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>dc-2-writeup</title>
-    <link href="https://truthleader.github.io/2023/12/24/dc-2-writeup/"/>
-    <id>https://truthleader.github.io/2023/12/24/dc-2-writeup/</id>
-    <published>2023-12-24T06:43:02.000Z</published>
-    <updated>2023-12-24T06:47:21.331Z</updated>
+    <title>gigachad:1-writeup</title>
+    <link href="https://truthleader.github.io/2024/03/09/gigachad-1-writeup/"/>
+    <id>https://truthleader.github.io/2024/03/09/gigachad-1-writeup/</id>
+    <published>2024-03-09T08:41:28.000Z</published>
+    <updated>2024-03-09T09:27:30.895Z</updated>
     
     
       
@@ -36,12 +36,75 @@
     
     <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
-    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我是真理教教主</title>
+    <link href="https://truthleader.github.io/2024/01/30/%E6%88%91%E6%98%AF%E7%9C%9F%E7%90%86%E6%95%99%E6%95%99%E4%B8%BB/"/>
+    <id>https://truthleader.github.io/2024/01/30/%E6%88%91%E6%98%AF%E7%9C%9F%E7%90%86%E6%95%99%E6%95%99%E4%B8%BB/</id>
+    <published>2024-01-30T13:31:58.000Z</published>
+    <updated>2024-03-09T08:41:52.178Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>javadoc</title>
+    <link href="https://truthleader.github.io/2024/01/30/javadoc/"/>
+    <id>https://truthleader.github.io/2024/01/30/javadoc/</id>
+    <published>2024-01-30T13:10:00.000Z</published>
+    <updated>2024-01-30T13:16:42.482Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="https://truthleader.github.io/categories/java/"/>
+    
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dc-2-writeup</title>
+    <link href="https://truthleader.github.io/2023/12/24/dc-2-writeup/"/>
+    <id>https://truthleader.github.io/2023/12/24/dc-2-writeup/</id>
+    <published>2023-12-24T06:43:02.000Z</published>
+    <updated>2024-01-30T13:15:00.424Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
+    
+    
+    <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -50,7 +113,7 @@
     <link href="https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/"/>
     <id>https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/</id>
     <published>2023-12-21T08:56:39.000Z</published>
-    <updated>2023-12-24T06:47:23.041Z</updated>
+    <updated>2024-01-30T13:15:04.442Z</updated>
     
     
     <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title class_&quot;&gt;Hello&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title function_&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;// 生成一些简单的输出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		System.out.println(&lt;span class=&quot;string&quot;&gt;&amp;quot;Hello, World!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -69,7 +132,7 @@
     <category term="java" scheme="https://truthleader.github.io/categories/java/"/>
     
     
-    <category term="编程" scheme="https://truthleader.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -78,7 +141,7 @@
     <link href="https://truthleader.github.io/2023/12/17/Ted-1-writeup/"/>
     <id>https://truthleader.github.io/2023/12/17/Ted-1-writeup/</id>
     <published>2023-12-17T08:56:19.000Z</published>
-    <updated>2023-12-24T06:47:45.009Z</updated>
+    <updated>2024-01-30T13:15:06.714Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;靶机简介&quot;&gt;&lt;a href=&quot;#靶机简介&quot; class=&quot;headerlink&quot; title=&quot;靶机简介&quot;&gt;&lt;/a&gt;靶机简介&lt;/h1&gt;&lt;blockquote&gt;
@@ -89,12 +152,10 @@
     
     <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
-    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -103,7 +164,7 @@
     <link href="https://truthleader.github.io/2023/12/11/bob_writeup/"/>
     <id>https://truthleader.github.io/2023/12/11/bob_writeup/</id>
     <published>2023-12-11T05:44:04.000Z</published>
-    <updated>2023-12-24T06:47:43.603Z</updated>
+    <updated>2024-01-30T13:14:58.305Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;靶机简介&quot;&gt;&lt;a href=&quot;#靶机简介&quot; class=&quot;headerlink&quot; title=&quot;靶机简介&quot;&gt;&lt;/a&gt;靶机简介&lt;/h1&gt;&lt;blockquote&gt;
@@ -115,12 +176,10 @@
     
     <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
-    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -129,7 +188,7 @@
     <link href="https://truthleader.github.io/2023/12/03/tommyboy-writeup/"/>
     <id>https://truthleader.github.io/2023/12/03/tommyboy-writeup/</id>
     <published>2023-12-03T04:46:13.000Z</published>
-    <updated>2023-12-03T04:52:01.701Z</updated>
+    <updated>2024-01-30T13:15:02.978Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;tommyboy-writeup&quot;&gt;&lt;a href=&quot;#tommyboy-writeup&quot; class=&quot;headerlink&quot; title=&quot;tommyboy_writeup&quot;&gt;&lt;/a&gt;tommyboy_writeup&lt;/h1&gt;&lt;p&gt;这是学校作业&lt;/p&gt;</summary>
@@ -138,12 +197,10 @@
     
     <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
-    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -152,7 +209,7 @@
     <link href="https://truthleader.github.io/2023/11/24/wallabysnightmare102-writeup/"/>
     <id>https://truthleader.github.io/2023/11/24/wallabysnightmare102-writeup/</id>
     <published>2023-11-24T11:14:58.000Z</published>
-    <updated>2023-11-24T13:48:37.950Z</updated>
+    <updated>2024-01-30T13:15:06.980Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;wallabysnightmare102-writeup&quot;&gt;&lt;a href=&quot;#wallabysnightmare102-writeup&quot; class=&quot;headerlink&quot; title=&quot;wallabysnightmare102_writeup&quot;&gt;&lt;/a&gt;wallabysnightmare102_writeup&lt;/h1&gt;&lt;p&gt;这是学校作业&lt;/p&gt;</summary>
@@ -161,12 +218,10 @@
     
     <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
-    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -175,17 +230,17 @@
     <link href="https://truthleader.github.io/2023/11/23/readingnote002/"/>
     <id>https://truthleader.github.io/2023/11/23/readingnote002/</id>
     <published>2023-11-23T13:21:48.000Z</published>
-    <updated>2023-11-23T13:23:22.649Z</updated>
+    <updated>2024-01-30T13:15:06.024Z</updated>
     
     
     <summary type="html">&lt;p&gt;在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了&lt;/p&gt;</summary>
     
     
     
-    <category term="待分类" scheme="https://truthleader.github.io/categories/%E5%BE%85%E5%88%86%E7%B1%BB/"/>
+    <category term="读书笔记" scheme="https://truthleader.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="读书笔记" scheme="https://truthleader.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -194,17 +249,17 @@
     <link href="https://truthleader.github.io/2023/11/23/readingnote001/"/>
     <id>https://truthleader.github.io/2023/11/23/readingnote001/</id>
     <published>2023-11-23T13:19:02.000Z</published>
-    <updated>2023-11-23T13:23:23.720Z</updated>
+    <updated>2024-01-30T13:15:05.412Z</updated>
     
     
     <summary type="html">&lt;p&gt;在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了&lt;/p&gt;</summary>
     
     
     
-    <category term="待分类" scheme="https://truthleader.github.io/categories/%E5%BE%85%E5%88%86%E7%B1%BB/"/>
+    <category term="读书笔记" scheme="https://truthleader.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="读书笔记" scheme="https://truthleader.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -213,7 +268,7 @@
     <link href="https://truthleader.github.io/2023/11/11/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
     <id>https://truthleader.github.io/2023/11/11/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/</id>
     <published>2023-11-11T06:55:44.000Z</published>
-    <updated>2023-11-11T07:08:39.528Z</updated>
+    <updated>2024-01-30T13:15:06.422Z</updated>
     
     
     <summary type="html">&lt;p&gt;ps: 线索里的tab键都被吞了，正在处理中&lt;/p&gt;
@@ -232,9 +287,9 @@
     <category term="网络协议" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
     
     
-    <category term="理论" scheme="https://truthleader.github.io/tags/%E7%90%86%E8%AE%BA/"/>
-    
     <category term="阅后总结" scheme="https://truthleader.github.io/tags/%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="🌟🌟🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F%F0%9F%8C%9F%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -243,7 +298,7 @@
     <link href="https://truthleader.github.io/2023/11/05/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/"/>
     <id>https://truthleader.github.io/2023/11/05/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</id>
     <published>2023-11-05T11:49:20.000Z</published>
-    <updated>2023-11-05T12:03:41.017Z</updated>
+    <updated>2024-01-30T13:14:55.685Z</updated>
     
     
       
@@ -261,9 +316,7 @@
     <category term="社会工程学" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6/"/>
     
     
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="浅记" scheme="https://truthleader.github.io/tags/%E6%B5%85%E8%AE%B0/"/>
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -272,7 +325,7 @@
     <link href="https://truthleader.github.io/2023/10/25/hackademic-RTB1-writeup/"/>
     <id>https://truthleader.github.io/2023/10/25/hackademic-RTB1-writeup/</id>
     <published>2023-10-25T13:45:54.000Z</published>
-    <updated>2023-11-24T13:24:06.217Z</updated>
+    <updated>2024-01-30T13:15:02.530Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;hackademic-RTB1-靶机名-writeup&quot;&gt;&lt;a href=&quot;#hackademic-RTB1-靶机名-writeup&quot; class=&quot;headerlink&quot; title=&quot;hackademic RTB1_靶机名_writeup&quot;&gt;&lt;/a&gt;hackademic RTB1_靶机名_writeup&lt;/h1&gt;&lt;p&gt;这是学校课程的作业，《红队&amp;#x2F;渗透 — 和我一起来打靶》也涉及了该靶机&lt;/p&gt;</summary>
@@ -281,12 +334,10 @@
     
     <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
-    <category term="渗透" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
+    
+    <category term="🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -295,7 +346,7 @@
     <link href="https://truthleader.github.io/2023/10/25/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/"/>
     <id>https://truthleader.github.io/2023/10/25/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/</id>
     <published>2023-10-25T04:59:35.000Z</published>
-    <updated>2023-11-05T11:46:00.600Z</updated>
+    <updated>2024-01-30T13:15:04.921Z</updated>
     
     
     <summary type="html">&lt;p&gt;关键词：对象、类、成员变量、成员函数、父子类、序列化、反序列化、魔术方法、poc&lt;/p&gt;
@@ -309,9 +360,7 @@
     <category term="ctf" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/ctf/"/>
     
     
-    <category term="技术" scheme="https://truthleader.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-    <category term="浅记" scheme="https://truthleader.github.io/tags/%E6%B5%85%E8%AE%B0/"/>
+    <category term="🌟🌟🌟🌟" scheme="https://truthleader.github.io/tags/%F0%9F%8C%9F%F0%9F%8C%9F%F0%9F%8C%9F%F0%9F%8C%9F/"/>
     
   </entry>
   
@@ -320,7 +369,7 @@
     <link href="https://truthleader.github.io/2023/10/21/hello-and-call-me-lord/"/>
     <id>https://truthleader.github.io/2023/10/21/hello-and-call-me-lord/</id>
     <published>2023-10-21T12:24:22.000Z</published>
-    <updated>2023-11-05T11:45:59.400Z</updated>
+    <updated>2024-01-30T13:15:03.536Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;你好👋&quot;&gt;&lt;a href=&quot;#你好👋&quot; class=&quot;headerlink&quot; title=&quot;你好👋&quot;&gt;&lt;/a&gt;你好👋&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2023/10/21/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg&quot;&gt;&lt;/p&gt;
@@ -328,10 +377,6 @@
     
     
     
-    <category term="About" scheme="https://truthleader.github.io/categories/About/"/>
-    
-    
-    <category term="me" scheme="https://truthleader.github.io/tags/me/"/>
     
   </entry>
   
