@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>truthleader</title>
+</head>
+<body>
+    <h1>
+        <a href="/"><%= config.title %></a>
+        <a href="/"><%= config.subtitle %></a>
+    </h1>
+    <p><%= config.description%></p>
+    <h2>
+        <a href="<%- url_for(config.archive_dir)%>">archive</a>
+        <a href="/about/">about</a>
+    </h2>
+    <%- body %>
+    <h3>categories</h3>
+    <ul>
+        <% site.categories.each(category=>{ %>
+            <li>
+                <a href="<%- url_for(category.path) %>">
+                    <%- category.name  %> 
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <h3>tags</h3>
+    <ul>
+        <% site.tags.each(tag=>{ %>
+            <li>
+                <a href="<%- url_for(tag.path) %>">
+                    <%- tag.name  %> 
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>

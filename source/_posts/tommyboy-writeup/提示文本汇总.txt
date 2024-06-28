@@ -1,0 +1,79 @@
+	
+
+Michelle/Tommy,
+
+This is f’d up.
+
+I am currently working to restore the company’s online ordering system, but we are having some problems getting it restored from backup.  Unfortunately, only Big Tom had the passwords to log into the system.  I can’t find his passwords anywhere.  All I can find so far is a note from our IT guy Nick (whose last day was yesterday) saying:
+
+Hey Richy,
+
+So you asked me to do a write-up of everything I know about the Callahan server so the next moron who is hired to support you idiots can get up to speed faster.
+
+Here’s everything I know:
+
+    You guys are all hopeless sheep :-/
+    The Callahan Auto Web site is usually pretty stable.  But if for some reason the page is ever down, you guys will probably go out of business.  But, thanks to *me* there’s a backup called callahanbak.bak that you can just rename to index.html and everything will be good again.
+        IMPORTANT: You have to do this under Big Tom’s account via SSH to perform this restore.  Warning: Big Tom always forgets his account password.  Warning #2: I screwed up his system account when I created it on the server, so it’s not called what it should be called.  Eh, I can’t remember (don’t care) but just look at the list of users on the system and you’ll figure it out.
+
+    I left a few other bits of information in my home folder, which the new guy can access via FTP.  Oh, except I should mention that the FTP server is super flaky and I haven’t had the time (i.e. I don’t give a fat crap) to fix it.  Basically I couldn’t get it running on the standard port, so I put it on a port that most scanners would get exhausted looking for.  And to make matters more fun, the server seems to go online at the top of the hour for 15 minutes, then down for 15 minutes, then up again, then down again.  Now it’s somebody else’s problem (did I mention I don’t give a rat’s behind?).
+
+    You asked me to leave you with my account password for the server, and instead of laughing in your face (which is what I WANTED to do), I just reset my account (“nickburns” in case you’re dumb and can’t remember) to a very, VERY easy to guess password.  I removed my SSH access because I *DON’T* want you calling me in case of an emergency.  But my creds still work on FTP.  Your new fresh fish can connect using my credentials and if he/she has half a brain.
+
+Good luck, schmucks!
+
+LOL
+
+-Nick
+
+Michelle/Tommy…WTF are we going to do?!?!  If this site stays down, WE GO OUT OF BUSINESS!!!1!!1!!!!!!!
+
+
+
+To my replacement:
+
+If you're reading this, you have the unfortunate job of taking over IT responsibilities
+from me here at Callahan Auto.  HAHAHAHAHAAH! SUCKER!  This is the worst job ever!  You'll be
+surrounded by stupid monkeys all day who can barely hit Ctrl+P and wouldn't know a fax machine
+from a flame thrower!
+
+Anyway I'm not completely without mercy.  There's a subfolder called "NickIzL33t" on this server
+somewhere. I used it as my personal dropbox on the company's dime for years.  Heh. LOL.
+I cleaned it out (no naughty pix for you!) but if you need a place to dump stuff that you want
+to look at on your phone later, consider that folder my gift to you.
+
+Oh by the way, Big Tom's a moron and always forgets his passwords and so I made an encrypted
+.zip of his passwords and put them in the "NickIzL33t" folder as well.  But guess what?
+He always forgets THAT password as well.  Luckily I'm a nice guy and left him a hint sheet.
+
+Good luck, schmuck!
+
+LOL.
+
+-Nick
+
+
+Big Tom,
+
+Your password vault is protected with (yep, you guessed it) a PASSWORD!  
+And because you were choosing stupidiculous passwords like "password123" and "brakepad" I
+enforced new password requirements on you...13 characters baby! MUAHAHAHAHAH!!!
+
+Your password is your wife's nickname "bev" (note it's all lowercase) plus the following:
+
+* One uppercase character
+* Two numbers
+* Two lowercase characters
+* One symbol
+* The year Tommy Boy came out in theaters
+
+Yeah, fat man, that's a lot of keys to push but make sure you type them altogether in one 
+big chunk ok?  Heh, "big chunk."  A big chunk typing big chunks.  That's funny.
+
+LOL
+
+-Nick
+
+bev,%%@@^1995
+
+B34rcl4wsZ4l1nskyTinyHeadEditButtonButtcrack 
