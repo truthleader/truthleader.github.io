@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/AveMujica.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/AveMujica.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/AveMujica.png">
+  <link rel="mask-icon" href="/images/AveMujica.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"truthleader.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="tommyboy_writeup这是学校作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tommyboy-writeup">
+<meta property="og:url" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/index.html">
+<meta property="og:site_name" content="真理教教会">
+<meta property="og:description" content="tommyboy_writeup这是学校作业">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/12flag1.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/13%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA1.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/14%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA2.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/15%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E7%BF%BB%E8%AF%91.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/16%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8C%87%E5%90%91%E9%93%BE%E6%8E%A5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/17%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%811.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/18%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%812.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/19flag2.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/21.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/22.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/23.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/24%E5%85%A8%E6%96%87.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/25ftp%E7%AB%AF%E5%8F%A3.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/27%E5%B0%86%E7%94%A8%E6%88%B7%E5%90%8D%E6%94%BE%E5%9C%A8%E5%AD%97%E5%85%B8%E5%89%8D%E9%9D%A2.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/28%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/26%E4%B8%8B%E8%BD%BDreadme.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/29%E5%BE%97%E5%88%B0%E6%96%B0%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/31%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/32%E6%9B%B4%E6%94%B9useragent%E6%88%90%E5%8A%9F%E8%AE%BF%E9%97%AE.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/33%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B41.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/34%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B42.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/35flag3+hint.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/36%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/37tommyboy%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/38%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/39%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/41%E8%A7%A3%E5%8E%8B.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/42%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/43%E9%80%9A%E8%BF%87wpscan%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%90%8D.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/44%E7%88%86%E7%A0%B4%E5%87%BA%E5%AF%86%E7%A0%81.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/45%E7%99%BB%E9%99%86%E5%90%8E%E5%8F%B0.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/46%E8%8E%B7%E5%BE%97%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/47ssh%E7%99%BB%E9%99%86.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/48flag4+%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/49%E5%8F%91%E7%8E%B0flag5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/50%E5%88%B6%E4%BD%9Cwebshell.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/51%E9%80%9A%E8%BF%87webshell%E8%AF%BB%E5%8F%96flag5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/52%E9%80%9A%E8%BF%87linspea%E8%84%9A%E6%9C%AC%E6%8E%A2%E6%B5%8B%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/53%E8%8E%B7%E5%8F%9640616.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/54%E6%8F%90%E6%9D%83.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/55theend.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/flag2.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/flag3.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC%E6%B1%87%E6%80%BB.txt">
+<meta property="article:published_time" content="2023-12-03T04:46:13.000Z">
+<meta property="article:modified_time" content="2024-01-30T13:15:02.978Z">
+<meta property="article:author" content="truthleader">
+<meta property="article:tag" content="🌟">
+<meta property="article:tag" content="writeup">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png">
+
+<link rel="canonical" href="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>tommyboy-writeup | 真理教教会</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="真理教教会" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">真理教教会</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习是美德，知识是财富，求道是目的</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/truthleader" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          tommyboy-writeup
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-12-03 12:46:13" itemprop="dateCreated datePublished" datetime="2023-12-03T12:46:13+08:00">2023-12-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-01-30 21:15:02" itemprop="dateModified" datetime="2024-01-30T21:15:02+08:00">2024-01-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="tommyboy-writeup"><a href="#tommyboy-writeup" class="headerlink" title="tommyboy_writeup"></a>tommyboy_writeup</h1><p>这是学校作业</p>
+<span id="more"></span>
+<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机名：tommyboy 1<br>靶机作者：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/author/brian-johnson,256/">Brian Johnson</a><br>靶机链接1：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/tommy-boy-1,157/">https://www.vulnhub.com/entry/tommy-boy-1,157/</a><br>靶机链接2:<a target="_blank" rel="noopener" href="http://7ms.us/tommyboy">http://7ms.us/tommyboy</a><br>目标：5个flag和一个final message</p>
+</blockquote>
+<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h2><ol>
+<li>通过robots.txt泄露发现flag1</li>
+</ol>
+<h2 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h2><ol>
+<li>根据首页源码提示，得到提示链接，知道网站主目录</li>
+<li>浏览主目录的posts，发现一篇post的回复包含了flag2存放在什么文件的信息</li>
+</ol>
+<h2 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h2><ol>
+<li>根据主目录post回复中的提示，了解了一个存放图片的网站目录</li>
+<li>下载图片，用strings查看，发现了一串密文(一般有一定规律性，让人觉得很规整但看不懂的就是密文)</li>
+<li>通过在线md5工具解密该密文，得到一个单词</li>
+<li>用该单词作为网站主目录第二篇post的密码，成功访问该post内容</li>
+<li>根据该post提示，了解了靶机有一诡异的ftp服务，通过nmap不断扫描，直到发现多处来一个开放端口</li>
+<li>通过hydra爆破该服务密码，用户名根据post提示已经知道(记得将用户名添加到字典的第一行)</li>
+<li>爆破成功后登入ftp服务</li>
+<li>得到提示文本，发现一新目录，但是没讲具体位置，最后在8008端口的web服务上访问到该目录</li>
+<li>访问目录的回显提示，只有他和steve jobs可以访问其中的内容，通过脑洞猜测，试出来修改UA为iphone就能访问内容(脑洞什么根本没有的，只有抄的份)</li>
+<li>提示需要猜测网站正确的网页名，通过爆破得到网页名，我用的dirbuster(爆破不了一点，100线程就崩了，所以还是抄的)</li>
+<li>访问到网站网页，得到flag3和一hint，同时还有一个加密文件</li>
+</ol>
+<h2 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h2><ol>
+<li>根据hint中的提示，生成密码字典，我用的crunch</li>
+<li>用fcrackzip爆破成功得到3对用户名和密码，以及一个没有密码的用户名(错的)(前两对密码p用没有，第三对据hint是server的用户名和密码)</li>
+<li>通过wpscan扫描网站的用户</li>
+<li>对tom用户进行密码爆破，字典是rockyou，用wpscan爆破</li>
+<li>访问网站后台，在draft中得到密码提示，与hint中的第三对用户名密码拼接，通过ssh成功得到靶机shell</li>
+<li>ls发现了flag4</li>
+</ol>
+<h2 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h2><ol>
+<li>根据提示，在靶机根目录发.5.txt</li>
+<li>由于5.txt需要www-data权限，需要通过webshell来获得该权限，所以在&#x2F;var目录下查找网站根目录(由于有两个http端口，所以有两个根目录)</li>
+<li>发现可以在&#x2F;var&#x2F;thatsg0nnaleaveamark&#x2F;NickIzL33t&#x2F;P4TCH_4D4MS&#x2F;uploads写入webshell</li>
+<li>写入一句话木马，通过浏览器直接访问，用该webshell查看.5.txt内容</li>
+<li>拼接5个flag，解压loot.zip，通关该靶场</li>
+</ol>
+<h2 id="getroot"><a href="#getroot" class="headerlink" title="getroot"></a>getroot</h2><ol>
+<li>上传linpeas脚本探测，得知多种提权方式</li>
+<li>使用脏牛脚本提权</li>
+</ol>
+<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
+<p>robots.txt文件泄露<br>strings解插入隐写<br>hackbar修改User-agent<br>dirbuster网页名爆破<br>crunch密码生成器<br>fcrackzip zip密码爆破工具<br>wpscan(wordpress cms框架扫描器)扫描后台用户名和密码爆破<br>通过webshell获取www-data权限<br>linpeas linux提权漏洞扫描脚本<br>脏牛提权</p>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/03/old/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png"><br>robots.txt文件泄露发现的flag1<br><img src="/2023/12/03/old/tommyboy-writeup/12flag1.png"><br>首页源码提示<br><img src="/2023/12/03/old/tommyboy-writeup/13%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA1.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/14%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA2.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/15%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E7%BF%BB%E8%AF%91.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/16%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8C%87%E5%90%91%E9%93%BE%E6%8E%A5.png"><br>最终找到了网站主目录<br><img src="/2023/12/03/old/tommyboy-writeup/17%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%811.png"><br>发现新的网站目录<br><img src="/2023/12/03/old/tommyboy-writeup/18%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%812.png"><br>发现flag2<br><img src="/2023/12/03/old/tommyboy-writeup/19flag2.png"><br>发现图片，发现插入隐写<br><img src="/2023/12/03/old/tommyboy-writeup/21.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/22.png"><br>得到密码，解锁并查看第二篇post<br><img src="/2023/12/03/old/tommyboy-writeup/23.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/24%E5%85%A8%E6%96%87.png"><br>发现神必ftp端口<br><img src="/2023/12/03/old/tommyboy-writeup/25ftp%E7%AB%AF%E5%8F%A3.png"></p>
+<p>爆破ftp账号</p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/27%E5%B0%86%E7%94%A8%E6%88%B7%E5%90%8D%E6%94%BE%E5%9C%A8%E5%AD%97%E5%85%B8%E5%89%8D%E9%9D%A2.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/28%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"><br>发现ftp服务存放的提示文本<br><img src="/2023/12/03/old/tommyboy-writeup/26%E4%B8%8B%E8%BD%BDreadme.png"><br><img src="/2023/12/03/old/tommyboy-writeup/29%E5%BE%97%E5%88%B0%E6%96%B0%E7%9B%AE%E5%BD%95.png"><br>发现8008网站的目录，根据提示修改UA，并爆破网页名<br><img src="/2023/12/03/old/tommyboy-writeup/31%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9B%AE%E5%BD%95.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/32%E6%9B%B4%E6%94%B9useragent%E6%88%90%E5%8A%9F%E8%AE%BF%E9%97%AE.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/33%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B41.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/34%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B42.png"><br>得到flag3和hint<br><img src="/2023/12/03/old/tommyboy-writeup/35flag3+hint.png"><br>爆破backups密码<br><img src="/2023/12/03/old/tommyboy-writeup/36%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/37tommyboy%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/38%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/39%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/41%E8%A7%A3%E5%8E%8B.png"><br>得到提示<br><img src="/2023/12/03/old/tommyboy-writeup/42%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>wpscan扫描爆破网站后台<br><img src="/2023/12/03/old/tommyboy-writeup/43%E9%80%9A%E8%BF%87wpscan%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%90%8D.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/44%E7%88%86%E7%A0%B4%E5%87%BA%E5%AF%86%E7%A0%81.png"><br>登陆后台查看draft<br><img src="/2023/12/03/old/tommyboy-writeup/45%E7%99%BB%E9%99%86%E5%90%8E%E5%8F%B0.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/46%E8%8E%B7%E5%BE%97%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA.png"><br>根据hint和draft提示，ssh连接靶机<br><img src="/2023/12/03/old/tommyboy-writeup/47ssh%E7%99%BB%E9%99%86.png"><br>查看flag4<br><img src="/2023/12/03/old/tommyboy-writeup/48flag4+%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>找到flag5<br><img src="/2023/12/03/old/tommyboy-writeup/49%E5%8F%91%E7%8E%B0flag5.png"><br>写webshell，获得www-data权限<br><img src="/2023/12/03/old/tommyboy-writeup/50%E5%88%B6%E4%BD%9Cwebshell.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/51%E9%80%9A%E8%BF%87webshell%E8%AF%BB%E5%8F%96flag5.png"><br>提权<br><img src="/2023/12/03/old/tommyboy-writeup/52%E9%80%9A%E8%BF%87linspea%E8%84%9A%E6%9C%AC%E6%8E%A2%E6%B5%8B%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/53%E8%8E%B7%E5%8F%9640616.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/54%E6%8F%90%E6%9D%83.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/55theend.png"><br>flag2和3<br><img src="/2023/12/03/old/tommyboy-writeup/flag2.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/flag3.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC%E6%B1%87%E6%80%BB.txt"></p>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
+<li>dirbuster以前没用过，不过图形化什么的确实挺方便</li>
+<li>linpeas这个脚本，功能十分强大</li>
+<li>脑洞不够，鬼知道stevejobs要改iphone，不过我想，可以讲所有苹果产品的UA搜集起来做成字典，用burpsuite爆破</li>
+<li>这个靶机，getroot是非必要的</li>
+<li>脏牛提权后不久，靶机就会死机，不知道其他提权方法会不会这样</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校给的ppt<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cute/p/16331359.html">https://www.cnblogs.com/cute/p/16331359.html</a> linpeas脚本介绍<br><a target="_blank" rel="noopener" href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS</a> linpeas github库<br><a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/40616">https://www.exploit-db.com/exploits/40616</a> 脏牛提权exp脚本</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>一杯咖啡钱能温暖一个人的心</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="truthleader WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>truthleader
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/" title="tommyboy-writeup">https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%F0%9F%8C%9F/" rel="tag"># 🌟</a>
+              <a href="/tags/writeup/" rel="tag"># writeup</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/11/24/old/wallabysnightmare102-writeup/" rel="prev" title="wallabysnightmare102-writeup">
+      <i class="fa fa-chevron-left"></i> wallabysnightmare102-writeup
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/12/11/old/bob_writeup/" rel="next" title="bob_writeup">
+      bob_writeup <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tommyboy-writeup"><span class="nav-number">1.</span> <span class="nav-text">tommyboy_writeup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%B6%E6%9C%BA%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">靶机简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">攻击思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#flag1"><span class="nav-number">3.1.</span> <span class="nav-text">flag1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag2"><span class="nav-number">3.2.</span> <span class="nav-text">flag2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag3"><span class="nav-number">3.3.</span> <span class="nav-text">flag3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag4"><span class="nav-number">3.4.</span> <span class="nav-text">flag4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flag5"><span class="nav-number">3.5.</span> <span class="nav-text">flag5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getroot"><span class="nav-number">3.6.</span> <span class="nav-text">getroot</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8A%80%E6%9C%AF"><span class="nav-number">4.</span> <span class="nav-text">工具和技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E8%BF%87%E7%A8%8B%E5%8F%8A%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">渗透过程及结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%8F%8D%E6%80%9D"><span class="nav-number">6.</span> <span class="nav-text">总结反思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="truthleader"
+      src="/images/AveMujica.png">
+  <p class="site-author-name" itemprop="name">truthleader</p>
+  <div class="site-description" itemprop="description">学习是美德，知识是财富，求道是目的</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/truthleader" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;truthleader" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://maonie.top/" title="https:&#x2F;&#x2F;maonie.top" rel="noopener" target="_blank">maonie</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.benben.work/" title="https:&#x2F;&#x2F;blog.benben.work" rel="noopener" target="_blank">benben</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rickk1c137.github.io/" title="https:&#x2F;&#x2F;rickk1c137.github.io&#x2F;" rel="noopener" target="_blank">rickk</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://mogo.work/" title="https:&#x2F;&#x2F;mogo.work" rel="noopener" target="_blank">tyc</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://0666-lzyt.top/" title="https:&#x2F;&#x2F;0666-lzyt.top&#x2F;" rel="noopener" target="_blank">lzy</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">truthleader</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">12k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">39 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'Ov23liFKtoWwe3mBPY9l',
+      clientSecret: '2a45858fd265c69969a2bf3f90a43a159c4c96ff',
+      repo        : 'truthleader.github.io',
+      owner       : 'truthleader',
+      admin       : ['truthleader'],
+      id          : 'f289b1ef4afabe68720bde6e1d268928',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

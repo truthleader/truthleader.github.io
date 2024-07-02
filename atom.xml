@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>真理教教会</title>
-  
+  <icon>https://truthleader.github.io/icon.png</icon>
   <subtitle>学习是美德，知识是财富，求道是目的</subtitle>
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>吞吐信息的巨鲸</title>
-    <link href="https://truthleader.github.io/2024/03/20/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%97%85/"/>
-    <id>https://truthleader.github.io/2024/03/20/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%97%85/</id>
+    <link href="https://truthleader.github.io/2024/03/20/old/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%97%85/"/>
+    <id>https://truthleader.github.io/2024/03/20/old/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%97%85/</id>
     <published>2024-03-20T13:11:16.000Z</published>
     <updated>2024-03-20T13:39:38.025Z</updated>
     
@@ -41,8 +41,8 @@
   
   <entry>
     <title>gigachad:1-writeup</title>
-    <link href="https://truthleader.github.io/2024/03/09/gigachad-1-writeup/"/>
-    <id>https://truthleader.github.io/2024/03/09/gigachad-1-writeup/</id>
+    <link href="https://truthleader.github.io/2024/03/09/old/gigachad-1-writeup/"/>
+    <id>https://truthleader.github.io/2024/03/09/old/gigachad-1-writeup/</id>
     <published>2024-03-09T08:41:28.000Z</published>
     <updated>2024-03-09T09:27:30.895Z</updated>
     
@@ -67,22 +67,9 @@
   </entry>
   
   <entry>
-    <title>我是真理教教主</title>
-    <link href="https://truthleader.github.io/2024/01/30/%E6%88%91%E6%98%AF%E7%9C%9F%E7%90%86%E6%95%99%E6%95%99%E4%B8%BB/"/>
-    <id>https://truthleader.github.io/2024/01/30/%E6%88%91%E6%98%AF%E7%9C%9F%E7%90%86%E6%95%99%E6%95%99%E4%B8%BB/</id>
-    <published>2024-01-30T13:31:58.000Z</published>
-    <updated>2024-03-09T08:41:52.178Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>javadoc</title>
-    <link href="https://truthleader.github.io/2024/01/30/javadoc/"/>
-    <id>https://truthleader.github.io/2024/01/30/javadoc/</id>
+    <link href="https://truthleader.github.io/2024/01/30/old/javadoc/"/>
+    <id>https://truthleader.github.io/2024/01/30/old/javadoc/</id>
     <published>2024-01-30T13:10:00.000Z</published>
     <updated>2024-01-30T13:16:42.482Z</updated>
     
@@ -106,8 +93,8 @@
   
   <entry>
     <title>dc-2-writeup</title>
-    <link href="https://truthleader.github.io/2023/12/24/dc-2-writeup/"/>
-    <id>https://truthleader.github.io/2023/12/24/dc-2-writeup/</id>
+    <link href="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/"/>
+    <id>https://truthleader.github.io/2023/12/24/old/dc-2-writeup/</id>
     <published>2023-12-24T06:43:02.000Z</published>
     <updated>2024-01-30T13:15:00.424Z</updated>
     
@@ -133,8 +120,8 @@
   
   <entry>
     <title>Hello-World-powered-by-Java</title>
-    <link href="https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/"/>
-    <id>https://truthleader.github.io/2023/12/21/Hello-World-powered-by-Java/</id>
+    <link href="https://truthleader.github.io/2023/12/21/old/Hello-World-powered-by-Java/"/>
+    <id>https://truthleader.github.io/2023/12/21/old/Hello-World-powered-by-Java/</id>
     <published>2023-12-21T08:56:39.000Z</published>
     <updated>2024-01-30T13:15:04.442Z</updated>
     
@@ -161,8 +148,8 @@
   
   <entry>
     <title>Ted:1 writeup</title>
-    <link href="https://truthleader.github.io/2023/12/17/Ted-1-writeup/"/>
-    <id>https://truthleader.github.io/2023/12/17/Ted-1-writeup/</id>
+    <link href="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/"/>
+    <id>https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/</id>
     <published>2023-12-17T08:56:19.000Z</published>
     <updated>2024-01-30T13:15:06.714Z</updated>
     
@@ -184,8 +171,8 @@
   
   <entry>
     <title>bob_writeup</title>
-    <link href="https://truthleader.github.io/2023/12/11/bob_writeup/"/>
-    <id>https://truthleader.github.io/2023/12/11/bob_writeup/</id>
+    <link href="https://truthleader.github.io/2023/12/11/old/bob_writeup/"/>
+    <id>https://truthleader.github.io/2023/12/11/old/bob_writeup/</id>
     <published>2023-12-11T05:44:04.000Z</published>
     <updated>2024-01-30T13:14:58.305Z</updated>
     
@@ -208,8 +195,8 @@
   
   <entry>
     <title>tommyboy-writeup</title>
-    <link href="https://truthleader.github.io/2023/12/03/tommyboy-writeup/"/>
-    <id>https://truthleader.github.io/2023/12/03/tommyboy-writeup/</id>
+    <link href="https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/"/>
+    <id>https://truthleader.github.io/2023/12/03/old/tommyboy-writeup/</id>
     <published>2023-12-03T04:46:13.000Z</published>
     <updated>2024-01-30T13:15:02.978Z</updated>
     
@@ -229,8 +216,8 @@
   
   <entry>
     <title>wallabysnightmare102-writeup</title>
-    <link href="https://truthleader.github.io/2023/11/24/wallabysnightmare102-writeup/"/>
-    <id>https://truthleader.github.io/2023/11/24/wallabysnightmare102-writeup/</id>
+    <link href="https://truthleader.github.io/2023/11/24/old/wallabysnightmare102-writeup/"/>
+    <id>https://truthleader.github.io/2023/11/24/old/wallabysnightmare102-writeup/</id>
     <published>2023-11-24T11:14:58.000Z</published>
     <updated>2024-01-30T13:15:06.980Z</updated>
     
@@ -250,8 +237,8 @@
   
   <entry>
     <title>读书笔记《血酬定律——中国历史中的生存游戏》</title>
-    <link href="https://truthleader.github.io/2023/11/23/readingnote002/"/>
-    <id>https://truthleader.github.io/2023/11/23/readingnote002/</id>
+    <link href="https://truthleader.github.io/2023/11/23/old/readingnote002/"/>
+    <id>https://truthleader.github.io/2023/11/23/old/readingnote002/</id>
     <published>2023-11-23T13:21:48.000Z</published>
     <updated>2024-01-30T13:15:06.024Z</updated>
     
@@ -269,8 +256,8 @@
   
   <entry>
     <title>读书笔记《潜规则——中国历史中的真实游戏》</title>
-    <link href="https://truthleader.github.io/2023/11/23/readingnote001/"/>
-    <id>https://truthleader.github.io/2023/11/23/readingnote001/</id>
+    <link href="https://truthleader.github.io/2023/11/23/old/readingnote001/"/>
+    <id>https://truthleader.github.io/2023/11/23/old/readingnote001/</id>
     <published>2023-11-23T13:19:02.000Z</published>
     <updated>2024-01-30T13:15:05.412Z</updated>
     
@@ -288,8 +275,8 @@
   
   <entry>
     <title>RFC4251阅后总结</title>
-    <link href="https://truthleader.github.io/2023/11/11/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
-    <id>https://truthleader.github.io/2023/11/11/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/</id>
+    <link href="https://truthleader.github.io/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
+    <id>https://truthleader.github.io/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/</id>
     <published>2023-11-11T06:55:44.000Z</published>
     <updated>2024-01-30T13:15:06.422Z</updated>
     
@@ -318,8 +305,8 @@
   
   <entry>
     <title>看图识地点</title>
-    <link href="https://truthleader.github.io/2023/11/05/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/"/>
-    <id>https://truthleader.github.io/2023/11/05/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</id>
+    <link href="https://truthleader.github.io/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/"/>
+    <id>https://truthleader.github.io/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</id>
     <published>2023-11-05T11:49:20.000Z</published>
     <updated>2024-01-30T13:14:55.685Z</updated>
     
@@ -345,8 +332,8 @@
   
   <entry>
     <title>hackademic_RTB1_writeup</title>
-    <link href="https://truthleader.github.io/2023/10/25/hackademic-RTB1-writeup/"/>
-    <id>https://truthleader.github.io/2023/10/25/hackademic-RTB1-writeup/</id>
+    <link href="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/"/>
+    <id>https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/</id>
     <published>2023-10-25T13:45:54.000Z</published>
     <updated>2024-01-30T13:15:02.530Z</updated>
     
@@ -366,8 +353,8 @@
   
   <entry>
     <title>php反序列化浅记</title>
-    <link href="https://truthleader.github.io/2023/10/25/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/"/>
-    <id>https://truthleader.github.io/2023/10/25/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/</id>
+    <link href="https://truthleader.github.io/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/"/>
+    <id>https://truthleader.github.io/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/</id>
     <published>2023-10-25T04:59:35.000Z</published>
     <updated>2024-01-30T13:15:04.921Z</updated>
     
@@ -389,13 +376,13 @@
   
   <entry>
     <title>hello_and_call_me_lord</title>
-    <link href="https://truthleader.github.io/2023/10/21/hello-and-call-me-lord/"/>
-    <id>https://truthleader.github.io/2023/10/21/hello-and-call-me-lord/</id>
+    <link href="https://truthleader.github.io/2023/10/21/old/hello-and-call-me-lord/"/>
+    <id>https://truthleader.github.io/2023/10/21/old/hello-and-call-me-lord/</id>
     <published>2023-10-21T12:24:22.000Z</published>
     <updated>2024-01-30T13:15:03.536Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;你好👋&quot;&gt;&lt;a href=&quot;#你好👋&quot; class=&quot;headerlink&quot; title=&quot;你好👋&quot;&gt;&lt;/a&gt;你好👋&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2023/10/21/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;h1 id=&quot;你好👋&quot;&gt;&lt;a href=&quot;#你好👋&quot; class=&quot;headerlink&quot; title=&quot;你好👋&quot;&gt;&lt;/a&gt;你好👋&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2023/10/21/old/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;关于我的名字和这个教会&quot;&gt;&lt;a href=&quot;#关于我的名字和这个教会&quot; class=&quot;headerlink&quot; title=&quot;关于我的名字和这个教会&quot;&gt;&lt;/a&gt;关于我的名字和这个教会&lt;/h2&gt;&lt;p&gt;我是truthleader，也可以叫我真理教教主&lt;/p&gt;</summary>
     
     
