@@ -21,36 +21,20 @@
     var CONFIG = {"hostname":"truthleader.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="靶机简介 靶机链接： https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;dc-2,311&#x2F;靶机链接： http:&#x2F;&#x2F;www.five86.com&#x2F;dc-2.html系列：- DC   攻击流程getshell 绑定ip和域名 通过wpscan获取用户名，并用cewl获取密码，制作成两个字典 msf爆破，得到两个账户 通过其中一个账户，得到shell  提权 绕过rbash 尝试切换另一个">
+  <meta name="description" content="这是吾爱破解上的软件破解入门教程, https:&#x2F;&#x2F;www.52pojie.cn&#x2F;thread-1358649-1-1.html浅尝辄止了一下,记录一点小小的收获 软件破解是逆向工程的一个分支,是绕过软件创作者的使用限制的技术要破解的有两个方面:  注册验证 反调试  注册验证也就是向软件证明自己的身份,来告诉创作者:我是付过钱的 验证方法有:本地验证和网络验证本地验证又有:  重启验证:注册不过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dc-2-writeup">
-<meta property="og:url" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/index.html">
+<meta property="og:title" content="wanwan破解-心得">
+<meta property="og:url" content="https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/index.html">
 <meta property="og:site_name" content="真理教教会">
-<meta property="og:description" content="靶机简介 靶机链接： https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;dc-2,311&#x2F;靶机链接： http:&#x2F;&#x2F;www.five86.com&#x2F;dc-2.html系列：- DC   攻击流程getshell 绑定ip和域名 通过wpscan获取用户名，并用cewl获取密码，制作成两个字典 msf爆破，得到两个账户 通过其中一个账户，得到shell  提权 绕过rbash 尝试切换另一个">
+<meta property="og:description" content="这是吾爱破解上的软件破解入门教程, https:&#x2F;&#x2F;www.52pojie.cn&#x2F;thread-1358649-1-1.html浅尝辄止了一下,记录一点小小的收获 软件破解是逆向工程的一个分支,是绕过软件创作者的使用限制的技术要破解的有两个方面:  注册验证 反调试  注册验证也就是向软件证明自己的身份,来告诉创作者:我是付过钱的 验证方法有:本地验证和网络验证本地验证又有:  重启验证:注册不过">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/-">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/10%E7%BD%91%E7%BB%9C.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/11.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/12flag1.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/13user.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/14password.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/15brute.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/16flag2.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/17getshell.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/18%E8%83%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/19flag4.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/20%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/21root.png">
-<meta property="og:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/22finalflag.png">
-<meta property="article:published_time" content="2023-12-24T06:43:02.000Z">
-<meta property="article:modified_time" content="2024-01-30T13:15:00.424Z">
+<meta property="article:published_time" content="2024-08-04T03:35:44.000Z">
+<meta property="article:modified_time" content="2024-08-04T04:17:28.090Z">
 <meta property="article:author" content="truthleader">
-<meta property="article:tag" content="🌟">
-<meta property="article:tag" content="writeup">
+<meta property="article:tag" content="学后感">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/-">
 
-<link rel="canonical" href="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/">
+<link rel="canonical" href="https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -63,7 +47,7 @@
   };
 </script>
 
-  <title>dc-2-writeup | 真理教教会</title>
+  <title>wanwan破解-心得 | 真理教教会</title>
   
 
 
@@ -221,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/AveMujica.png">
@@ -234,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          dc-2-writeup
+          wanwan破解-心得
         </h1>
 
         <div class="post-meta">
@@ -243,23 +227,21 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-12-24 14:43:02" itemprop="dateCreated datePublished" datetime="2023-12-24T14:43:02+08:00">2023-12-24</time>
+              <time title="Created: 2024-08-04 11:35:44 / Modified: 12:17:28" itemprop="dateCreated datePublished" datetime="2024-08-04T11:35:44+08:00">2024-08-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-01-30 21:15:00" itemprop="dateModified" datetime="2024-01-30T21:15:00+08:00">2024-01-30</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                  <a href="/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">逆向工程</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">软件破解</span></a>
                 </span>
             </span>
 
@@ -276,14 +258,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>404</span>
+              <span>795</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -295,35 +277,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机链接： <a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a><br>靶机链接： <a target="_blank" rel="noopener" href="http://www.five86.com/dc-2.html">http://www.five86.com/dc-2.html</a><br>系列：- <a target="_blank" rel="noopener" href="https://www.vulnhub.com/series/dc,199/">DC</a></p>
-</blockquote>
-<p><img src="/2023/12/24/old/dc-2-writeup/-"></p>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li>绑定ip和域名</li>
-<li>通过wpscan获取用户名，并用cewl获取密码，制作成两个字典</li>
-<li>msf爆破，得到两个账户</li>
-<li>通过其中一个账户，得到shell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>绕过rbash</li>
-<li>尝试切换另一个账户，成功</li>
-<li>sudo -l发现git的委派权限</li>
-<li>git提权</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>cewl通过爬虫生成字典<br>rbash绕过</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>查看网络<br><img src="/2023/12/24/old/dc-2-writeup/10%E7%BD%91%E7%BB%9C.png"><br>绑定域名和ip<br><img src="/2023/12/24/old/dc-2-writeup/11.png"><br>第一个flag<br><img src="/2023/12/24/old/dc-2-writeup/12flag1.png"><br>制作网站登录爆破字典，爆出账户密码<br><img src="/2023/12/24/old/dc-2-writeup/13user.png"><br><img src="/2023/12/24/old/dc-2-writeup/14password.png"><br><img src="/2023/12/24/old/dc-2-writeup/15brute.png"><br><img src="/2023/12/24/old/dc-2-writeup/16flag2.png"><br>拿shell<br><img src="/2023/12/24/old/dc-2-writeup/17getshell.png"><br>提权<br><img src="/2023/12/24/old/dc-2-writeup/18%E8%83%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4.png"><br><img src="/2023/12/24/old/dc-2-writeup/19flag4.png"><br><img src="/2023/12/24/old/dc-2-writeup/20%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90.png"><br><img src="/2023/12/24/old/dc-2-writeup/21root.png"><br><img src="/2023/12/24/old/dc-2-writeup/22finalflag.png"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><p>在打DC-2的时候，在最后的提权阶段，感受到了急躁<br>首先就是，在得到了flag2，得到了两个用户和密码的时候，没有去试ssh，而是先去看了writeup<br>然后就是里面cd命令回显rbash的时候，没有首先去搜rbash，而是去看了一眼writeup<br>最后就是，绕过rbash之后，也没有尝试使用su进行用户切换，而是去看了一眼writeup<br>受不了了</p>
+        <p>这是吾爱破解上的软件破解入门教程, <a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1358649-1-1.html">https://www.52pojie.cn/thread-1358649-1-1.html</a><br>浅尝辄止了一下,记录一点小小的收获</p>
+<p>软件破解是逆向工程的一个分支,是绕过软件创作者的使用限制的技术<br>要破解的有两个方面:</p>
 <ol>
-<li>不要放过任何的回显</li>
-<li>尝试每一个账户，在可登录的任何地方</li>
-<li>每每感受到了障碍，就明晰进入下一步可能可以做什么？需要什么信息？当前有什么信息？可以用信息来干嘛？</li>
+<li>注册验证</li>
+<li>反调试</li>
 </ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p><a target="_blank" rel="noopener" href="https://gtfobins.github.io/gtfobins/git/#sudo">https://gtfobins.github.io/gtfobins/git/#sudo</a> 提权<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1720937">https://cloud.tencent.com/developer/article/1720937</a> 修改环境变量中的PATH<br><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/system/188989.html">https://www.freebuf.com/articles/system/188989.html</a> rbash绕过</p>
-</blockquote>
+<h1 id="注册验证"><a href="#注册验证" class="headerlink" title="注册验证"></a>注册验证</h1><p>也就是向软件证明自己的身份,来告诉创作者:我是付过钱的</p>
+<p>验证方法有:本地验证和网络验证<br>本地验证又有:</p>
+<ol>
+<li>重启验证:注册不过期,例如使用注册码后,软件在注册表创建“已注册”的标志,每次软件打开都会先读取一次注册表</li>
+<li>非重启验证:注册会过期,例如账号密码验证,每次重启软件都要重新输入账号密码</li>
+</ol>
+<p>这套教程只讲解本地验证的破解方法</p>
+<h1 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h1><p>其手段大致四类:</p>
+<ol>
+<li>通过环境查看手段,判断是否有调试器打开,例如看进程</li>
+<li>对用户正在使用调试器的行为进行动态识别,是不是正在用调试器对软件进行调试和修改</li>
+<li>对软件完整性进行检测,例如把加壳后的软件解壳,软件的体积和内容发生更改后,会被检测到</li>
+<li>干扰处理:就是让你看不懂,加壳、加花、虚拟化代码</li>
+</ol>
+<h1 id="如何破解"><a href="#如何破解" class="headerlink" title="如何破解?"></a>如何破解?</h1><p>用反汇编器和调试器下断点,找关键代码,并进行适当的修改——打补丁<br>常用的工具例如ida和ollydbg<br>然后,要用吾爱破解专用ollydbg,因为有插件</p>
+<h2 id="怎么下断点"><a href="#怎么下断点" class="headerlink" title="怎么下断点?"></a>怎么下断点?</h2><ol>
+<li>关键字<br>软件的内容分为指令和数据,在指令和数据区搜索“登录失败”之类的关键词就能锁定关键代码的位置</li>
+<li>api<br>通常软件的弹窗、按钮等的功能都是对系统api的调用,而不是软件开发者花时间自己的写的<br>搜索对应的api,下断点<br>动态调试这个软件<br>就能找打关键指令的位置</li>
+</ol>
+<h2 id="找到关键指令了-下一步-打补丁"><a href="#找到关键指令了-下一步-打补丁" class="headerlink" title="找到关键指令了,下一步?打补丁"></a>找到关键指令了,下一步?打补丁</h2><p>阅读它,你需要能看懂汇编代码,你需要了解寄存器,你需要着重学习push、pop、call、ret、jmp和各种变体指令,如果你能懂call stack就更好了<br>PS: call stack 这个wanwan破解并没有教,如果你感兴趣,你可以穿越到几个月前访问begin.re学习这个知识,它下架了:(</p>
+<p>假如这是个要本地登录的软件<br>你可能看指令的时候,看到“登录成功”和“登录失败”的弹窗指令,它们挨的很近<br>你只需要找到附近的je指令(也可能是jle或jge)改成jmp,跳过“登录失败”的弹窗指令,来到“登录成功”的指令</p>
+<p>这会导致什么结果呢?你怎么登录都会显示“登录成功”,因为你无法“登录失败”</p>
+<h1 id="总之"><a href="#总之" class="headerlink" title="总之"></a>总之</h1><p>破解的流程是:<br>找关键代码》分析〉跳过失败的指令》破解成功</p>
 
     </div>
 
@@ -354,7 +336,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://truthleader.github.io/2023/12/24/old/dc-2-writeup/" title="dc-2-writeup">https://truthleader.github.io/2023/12/24/old/dc-2-writeup/</a>
+    <a href="https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/" title="wanwan破解-心得">https://truthleader.github.io/2024/08/04/wanwan破解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -365,8 +347,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%F0%9F%8C%9F/" rel="tag"># 🌟</a>
-              <a href="/tags/writeup/" rel="tag"># writeup</a>
+              <a href="/tags/%E5%AD%A6%E5%90%8E%E6%84%9F/" rel="tag"># 学后感</a>
           </div>
 
         
@@ -375,13 +356,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/12/21/old/Hello-World-powered-by-Java/" rel="prev" title="Hello-World-powered-by-Java">
-      <i class="fa fa-chevron-left"></i> Hello-World-powered-by-Java
+    <a href="/2024/03/09/old/gigachad-1-writeup/" rel="prev" title="gigachad:1-writeup">
+      <i class="fa fa-chevron-left"></i> gigachad:1-writeup
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/01/30/old/javadoc/" rel="next" title="javadoc">
-      javadoc <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -441,7 +419,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%B6%E6%9C%BA%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">靶机简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">攻击流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#getshell"><span class="nav-number">2.1.</span> <span class="nav-text">getshell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-number">2.2.</span> <span class="nav-text">提权</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8A%80%E6%9C%AF"><span class="nav-number">3.</span> <span class="nav-text">工具和技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E8%BF%87%E7%A8%8B%E5%8F%8A%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">渗透过程及结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%8F%8D%E6%80%9D"><span class="nav-number">5.</span> <span class="nav-text">总结反思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E9%AA%8C%E8%AF%81"><span class="nav-number">1.</span> <span class="nav-text">注册验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E8%B0%83%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">反调试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A0%B4%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">如何破解?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E4%B8%8B%E6%96%AD%E7%82%B9"><span class="nav-number">3.1.</span> <span class="nav-text">怎么下断点?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%BE%E5%88%B0%E5%85%B3%E9%94%AE%E6%8C%87%E4%BB%A4%E4%BA%86-%E4%B8%8B%E4%B8%80%E6%AD%A5-%E6%89%93%E8%A1%A5%E4%B8%81"><span class="nav-number">3.2.</span> <span class="nav-text">找到关键指令了,下一步?打补丁</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E4%B9%8B"><span class="nav-number">4.</span> <span class="nav-text">总之</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -635,7 +613,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'truthleader.github.io',
       owner       : 'truthleader',
       admin       : ['truthleader'],
-      id          : '929cbb5ae1a547ef45da795a2fa82c3a',
+      id          : '49343fb631d7bafe662ce42fdd71d216',
         language: 'zh-CN',
       distractionFreeMode: true
     });

@@ -202,6 +202,120 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/" class="post-title-link" itemprop="url">wanwan破解-心得</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-04 11:35:44 / Modified: 12:17:28" itemprop="dateCreated datePublished" datetime="2024-08-04T11:35:44+08:00">2024-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">逆向工程</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">软件破解</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>795</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这是吾爱破解上的软件破解入门教程, <a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1358649-1-1.html">https://www.52pojie.cn/thread-1358649-1-1.html</a><br>浅尝辄止了一下,记录一点小小的收获</p>
+<p>软件破解是逆向工程的一个分支,是绕过软件创作者的使用限制的技术<br>要破解的有两个方面:</p>
+<ol>
+<li>注册验证</li>
+<li>反调试</li>
+</ol>
+<h1 id="注册验证"><a href="#注册验证" class="headerlink" title="注册验证"></a>注册验证</h1><p>也就是向软件证明自己的身份,来告诉创作者:我是付过钱的</p>
+<p>验证方法有:本地验证和网络验证<br>本地验证又有:</p>
+<ol>
+<li>重启验证:注册不过期,例如使用注册码后,软件在注册表创建“已注册”的标志,每次软件打开都会先读取一次注册表</li>
+<li>非重启验证:注册会过期,例如账号密码验证,每次重启软件都要重新输入账号密码</li>
+</ol>
+<p>这套教程只讲解本地验证的破解方法</p>
+<h1 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h1><p>其手段大致四类:</p>
+<ol>
+<li>通过环境查看手段,判断是否有调试器打开,例如看进程</li>
+<li>对用户正在使用调试器的行为进行动态识别,是不是正在用调试器对软件进行调试和修改</li>
+<li>对软件完整性进行检测,例如把加壳后的软件解壳,软件的体积和内容发生更改后,会被检测到</li>
+<li>干扰处理:就是让你看不懂,加壳、加花、虚拟化代码</li>
+</ol>
+<h1 id="如何破解"><a href="#如何破解" class="headerlink" title="如何破解?"></a>如何破解?</h1><p>用反汇编器和调试器下断点,找关键代码,并进行适当的修改——打补丁<br>常用的工具例如ida和ollydbg<br>然后,要用吾爱破解专用ollydbg,因为有插件</p>
+<h2 id="怎么下断点"><a href="#怎么下断点" class="headerlink" title="怎么下断点?"></a>怎么下断点?</h2><ol>
+<li>关键字<br>软件的内容分为指令和数据,在指令和数据区搜索“登录失败”之类的关键词就能锁定关键代码的位置</li>
+<li>api<br>通常软件的弹窗、按钮等的功能都是对系统api的调用,而不是软件开发者花时间自己的写的<br>搜索对应的api,下断点<br>动态调试这个软件<br>就能找打关键指令的位置</li>
+</ol>
+<h2 id="找到关键指令了-下一步-打补丁"><a href="#找到关键指令了-下一步-打补丁" class="headerlink" title="找到关键指令了,下一步?打补丁"></a>找到关键指令了,下一步?打补丁</h2><p>阅读它,你需要能看懂汇编代码,你需要了解寄存器,你需要着重学习push、pop、call、ret、jmp和各种变体指令,如果你能懂call stack就更好了<br>PS: call stack 这个wanwan破解并没有教,如果你感兴趣,你可以穿越到几个月前访问begin.re学习这个知识,它下架了:(</p>
+<p>假如这是个要本地登录的软件<br>你可能看指令的时候,看到“登录成功”和“登录失败”的弹窗指令,它们挨的很近<br>你只需要找到附近的je指令(也可能是jle或jge)改成jmp,跳过“登录失败”的弹窗指令,来到“登录成功”的指令</p>
+<p>这会导致什么结果呢?你怎么登录都会显示“登录成功”,因为你无法“登录失败”</p>
+<h1 id="总之"><a href="#总之" class="headerlink" title="总之"></a>总之</h1><p>破解的流程是:<br>找关键代码》分析〉跳过失败的指令》破解成功</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/03/09/old/gigachad-1-writeup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1077,101 +1191,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/23/old/readingnote001/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/23/old/readingnote001/" class="post-title-link" itemprop="url">读书笔记《潜规则——中国历史中的真实游戏》</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-23 21:19:02" itemprop="dateCreated datePublished" datetime="2023-11-23T21:19:02+08:00">2023-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-01-30 21:15:05" itemprop="dateModified" datetime="2024-01-30T21:15:05+08:00">2024-01-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>502</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/23/old/readingnote001/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1243,20 +1262,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1329,7 +1348,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">38 mins.</span>
+    <span title="Reading time total">41 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
