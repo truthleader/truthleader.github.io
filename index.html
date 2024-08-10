@@ -202,6 +202,204 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/10/int-80h/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/10/int-80h/" class="post-title-link" itemprop="url">int_80h</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-10 09:58:30 / Modified: 10:01:01" itemprop="dateCreated datePublished" datetime="2024-08-10T09:58:30+08:00">2024-08-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>481</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html">https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html</a></p>
+<p>虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言</p>
+<h1 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h1><p>linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE</p>
+<p>其中,汇编产生的程序,其运行时的内容都在USER SPACE,int 80h在这里出现</p>
+<h1 id="其工作流程是"><a href="#其工作流程是" class="headerlink" title="其工作流程是:"></a>其工作流程是:</h1><ol>
+<li>准备参数:<ol>
+<li><code>%eax</code>寄存器：用于存放系统调用号，即要执行的系统调用的唯一标识符。</li>
+<li><code>%ebx</code>、<code>%ecx</code>、<code>%edx</code>等寄存器：用于按顺序存放系统调用所需的参数。对于需要超过三个参数的系统调用，可能还会使用<code>%esi</code>、<code>%edi</code>和<code>%ebp</code>寄存器，或者在内存中分配空间并通过寄存器传递指向该空间的指针。</li>
+</ol>
+</li>
+<li>保存上下文,例如USERSPACE里的下一条指令,FLAGS和重要的寄存器数据,它们都会推送到栈里</li>
+<li>跳转到中断描述符表（IDT）(或者中断向量符表)的第0x80项:中断服务例程（ISR）(下面有解释👇)</li>
+<li>根据寄存器的内容,执行特定的系统调用</li>
+<li>执行完之后,从内核态转到用户态 这个过程叫IRET</li>
+<li>pop被保存的上下文,即来到int80h下的第一条指令</li>
+</ol>
+<h1 id="中断向量符表"><a href="#中断向量符表" class="headerlink" title="中断向量符表"></a>中断向量符表</h1><p>Interrupt Descriptor Table</p>
+<p>其前身(不确定)Interrupt Vector Table</p>
+<p>在内存的最底部,段地址和偏移地址都为0的地方,存在名为Interrupt Vector Table的数据结构<br>其包含256个条目,每个条目有4bytes,每个条目都是一个内存地址称为中断向量</p>
+<p>其中第0x80项:中断服务例程（ISR）会读取<code>%eax</code>寄存器中的系统调用号，并根据该号码查找并调用相应的系统调用处理函数</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>int 80h是进行系统调用的方法</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/05/how-to-correct-grammar-effectively/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/05/how-to-correct-grammar-effectively/" class="post-title-link" itemprop="url">how-to-correct-grammar-effectively</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-08-05 13:07:00" itemprop="dateCreated datePublished" datetime="2024-08-05T13:07:00+08:00">2024-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-10 10:00:51" itemprop="dateModified" datetime="2024-08-10T10:00:51+08:00">2024-08-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%8B%B1%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">英语</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>146</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=A5uz6LWeLPM">https://www.youtube.com/watch?v=A5uz6LWeLPM</a></p>
+<p>磨听力时看到的视频,讲了如何学习英语语法并有效寻找纠正语法错误的方法</p>
+<p>这分为一下几个步骤:</p>
+<ol>
+<li>找出语法错误和弱项</li>
+<li>确认问题属于:form or function  (用法错误还是压根不认识不会用)</li>
+<li>制作template 把句型提取出来 用n种方式补全 (I haven’t ··· yet today )</li>
+</ol>
+<p>关于步骤一,平时没有积累,不知道弱项怎么办的?<br>网上找篇文章,读个2-3遍,用自己的英语写一遍,丢给AI</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,10 +423,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-08-04 11:35:44 / Modified: 12:19:35" itemprop="dateCreated datePublished" datetime="2024-08-04T11:35:44+08:00">2024-08-04</time>
+              <time title="Created: 2024-08-04 11:35:44" itemprop="dateCreated datePublished" datetime="2024-08-04T11:35:44+08:00">2024-08-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-10 10:00:50" itemprop="dateModified" datetime="2024-08-10T10:00:50+08:00">2024-08-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -340,10 +544,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-03-09 16:41:28 / Modified: 17:27:30" itemprop="dateCreated datePublished" datetime="2024-03-09T16:41:28+08:00">2024-03-09</time>
+              <time title="Created: 2024-03-09 16:41:28" itemprop="dateCreated datePublished" datetime="2024-03-09T16:41:28+08:00">2024-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-10 10:00:47" itemprop="dateModified" datetime="2024-08-10T10:00:47+08:00">2024-08-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -527,7 +737,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-01-30 21:15:00" itemprop="dateModified" datetime="2024-01-30T21:15:00+08:00">2024-01-30</time>
+                <time title="Modified: 2024-08-10 10:00:47" itemprop="dateModified" datetime="2024-08-10T10:00:47+08:00">2024-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -643,7 +853,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-01-30 21:15:04" itemprop="dateModified" datetime="2024-01-30T21:15:04+08:00">2024-01-30</time>
+                <time title="Modified: 2024-08-10 10:00:50" itemprop="dateModified" datetime="2024-08-10T10:00:50+08:00">2024-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -844,7 +1054,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-01-30 21:14:58" itemprop="dateModified" datetime="2024-01-30T21:14:58+08:00">2024-01-30</time>
+                <time title="Modified: 2024-08-10 10:00:46" itemprop="dateModified" datetime="2024-08-10T10:00:46+08:00">2024-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1002,196 +1212,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/24/old/wallabysnightmare102-writeup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/24/old/wallabysnightmare102-writeup/" class="post-title-link" itemprop="url">wallabysnightmare102-writeup</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-24 19:14:58" itemprop="dateCreated datePublished" datetime="2023-11-24T19:14:58+08:00">2023-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-01-30 21:15:06" itemprop="dateModified" datetime="2024-01-30T21:15:06+08:00">2024-01-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>415</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="wallabysnightmare102-writeup"><a href="#wallabysnightmare102-writeup" class="headerlink" title="wallabysnightmare102_writeup"></a>wallabysnightmare102_writeup</h1><p>这是学校作业</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/24/old/wallabysnightmare102-writeup/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/23/old/readingnote002/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/23/old/readingnote002/" class="post-title-link" itemprop="url">读书笔记《血酬定律——中国历史中的生存游戏》</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-23 21:21:48" itemprop="dateCreated datePublished" datetime="2023-11-23T21:21:48+08:00">2023-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-01-30 21:15:06" itemprop="dateModified" datetime="2024-01-30T21:15:06+08:00">2024-01-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>412</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/23/old/readingnote002/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1263,14 +1283,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1343,13 +1363,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">12k</span>
+    <span title="Symbols count total">13k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">41 mins.</span>
+    <span title="Reading time total">43 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
