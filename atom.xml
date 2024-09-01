@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2024-08-10T02:01:01.474Z</updated>
+  <updated>2024-09-01T03:23:24.224Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>int_80h</title>
+    <title>serialize_private_and_protected</title>
+    <link href="https://truthleader.github.io/2024/09/01/serialize-private-and-protected/"/>
+    <id>https://truthleader.github.io/2024/09/01/serialize-private-and-protected/</id>
+    <published>2024-09-01T00:14:39.000Z</published>
+    <updated>2024-09-01T03:23:24.224Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;php反序列化如何同时处理private和protected类型的变量&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ctf" scheme="https://truthleader.github.io/categories/ctf/"/>
+    
+    <category term="web" scheme="https://truthleader.github.io/categories/ctf/web/"/>
+    
+    
+    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>basectf_week1_wp</title>
+    <link href="https://truthleader.github.io/2024/08/18/basectf-week1-wp/"/>
+    <id>https://truthleader.github.io/2024/08/18/basectf-week1-wp/</id>
+    <published>2024-08-18T04:01:06.000Z</published>
+    <updated>2024-08-18T04:10:55.747Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;misc部分基本都空着,如果也想要wp,请问&lt;a href=&quot;https://maonie.top/&quot;&gt;https://maonie.top/&lt;/a&gt;&lt;br&gt;basectf官网:basectf.fun&lt;br&gt;这是week1的wp&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="ctf" scheme="https://truthleader.github.io/categories/ctf/"/>
+    
+    
+    <category term="writeup - basectf" scheme="https://truthleader.github.io/tags/writeup-basectf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>逆向之什么是int 80h</title>
     <link href="https://truthleader.github.io/2024/08/10/int-80h/"/>
     <id>https://truthleader.github.io/2024/08/10/int-80h/</id>
     <published>2024-08-10T01:58:30.000Z</published>
-    <updated>2024-08-10T02:01:01.474Z</updated>
+    <updated>2024-08-21T03:23:51.397Z</updated>
     
     
       

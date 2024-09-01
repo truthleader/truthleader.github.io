@@ -23,13 +23,13 @@
 
   <meta name="description" content="https:&#x2F;&#x2F;0xinfection.github.io&#x2F;reversing&#x2F;pages&#x2F;part-22-asm-program-1-moving-immediate-data.html 虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言 内存空间linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE 其中,汇编产生的程序,其运行时的内容都在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="int_80h">
+<meta property="og:title" content="逆向之什么是int 80h">
 <meta property="og:url" content="https://truthleader.github.io/2024/08/10/int-80h/index.html">
 <meta property="og:site_name" content="真理教教会">
 <meta property="og:description" content="https:&#x2F;&#x2F;0xinfection.github.io&#x2F;reversing&#x2F;pages&#x2F;part-22-asm-program-1-moving-immediate-data.html 虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言 内存空间linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE 其中,汇编产生的程序,其运行时的内容都在">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-08-10T01:58:30.000Z">
-<meta property="article:modified_time" content="2024-08-10T02:01:01.474Z">
+<meta property="article:modified_time" content="2024-08-21T03:23:51.397Z">
 <meta property="article:author" content="truthleader">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>int_80h | 真理教教会</title>
+  <title>逆向之什么是int 80h | 真理教教会</title>
   
 
 
@@ -218,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          int_80h
+          逆向之什么是int 80h
         </h1>
 
         <div class="post-meta">
@@ -227,10 +227,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-08-10 09:58:30 / Modified: 10:01:01" itemprop="dateCreated datePublished" datetime="2024-08-10T09:58:30+08:00">2024-08-10</time>
+              <time title="Created: 2024-08-10 09:58:30" itemprop="dateCreated datePublished" datetime="2024-08-10T09:58:30+08:00">2024-08-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-21 11:23:51" itemprop="dateModified" datetime="2024-08-21T11:23:51+08:00">2024-08-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -324,7 +330,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://truthleader.github.io/2024/08/10/int-80h/" title="int_80h">https://truthleader.github.io/2024/08/10/int-80h/</a>
+    <a href="https://truthleader.github.io/2024/08/10/int-80h/" title="逆向之什么是int 80h">https://truthleader.github.io/2024/08/10/int-80h/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -347,7 +353,10 @@
     <a href="/2024/08/05/how-to-correct-grammar-effectively/" rel="prev" title="how-to-correct-grammar-effectively">
       <i class="fa fa-chevron-left"></i> how-to-correct-grammar-effectively
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/08/18/basectf-week1-wp/" rel="next" title="basectf_week1_wp">
+      basectf_week1_wp <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -423,20 +432,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -503,13 +512,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">13k</span>
+    <span title="Symbols count total">16k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">43 mins.</span>
+    <span title="Reading time total">52 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
