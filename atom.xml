@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2024-09-01T03:23:24.224Z</updated>
+  <updated>2024-09-10T14:02:33.280Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>md5-extension-attack</title>
+    <link href="https://truthleader.github.io/2024/09/10/md5-extension-attack/"/>
+    <id>https://truthleader.github.io/2024/09/10/md5-extension-attack/</id>
+    <published>2024-09-10T08:39:46.000Z</published>
+    <updated>2024-09-10T14:02:33.280Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="web" scheme="https://truthleader.github.io/categories/web/"/>
+    
+    <category term="crypto" scheme="https://truthleader.github.io/categories/web/crypto/"/>
+    
+    
+    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>serialize_private_and_protected</title>
@@ -449,22 +476,6 @@
     
     
     <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hello_and_call_me_lord</title>
-    <link href="https://truthleader.github.io/2023/10/21/old/hello-and-call-me-lord/"/>
-    <id>https://truthleader.github.io/2023/10/21/old/hello-and-call-me-lord/</id>
-    <published>2023-10-21T12:24:22.000Z</published>
-    <updated>2024-01-30T13:15:03.536Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;你好👋&quot;&gt;&lt;a href=&quot;#你好👋&quot; class=&quot;headerlink&quot; title=&quot;你好👋&quot;&gt;&lt;/a&gt;你好👋&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2023/10/21/old/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;关于我的名字和这个教会&quot;&gt;&lt;a href=&quot;#关于我的名字和这个教会&quot; class=&quot;headerlink&quot; title=&quot;关于我的名字和这个教会&quot;&gt;&lt;/a&gt;关于我的名字和这个教会&lt;/h2&gt;&lt;p&gt;我是truthleader，也可以叫我真理教教主&lt;/p&gt;</summary>
-    
-    
-    
     
   </entry>
   
