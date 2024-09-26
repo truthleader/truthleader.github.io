@@ -1252,6 +1252,12 @@
 <p>再次回顾上面的代码<br>random的md5实际上是填充后的结果<br>如果将md5和extension作为输入,再算一次,就能得到random+padding+extension的md5值</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$md5 = $_POST[&#x27;md5&#x27;];</span><br><span class="line"></span><br><span class="line">if (md5($random . $extension) !== $md5)</span><br></pre></td></tr></table></figure>
 <p>代码的这一部分<br>只要构造extension&#x3D;padding+extension,就能控制靶机网页的md5计算过程,使其计算出计划中的新md5值</p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><blockquote>
+<p><a href="https://github.com/iagox86/hash_extender">https://github.com/iagox86/hash_extender</a></p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://luoingly.top/post/md5-length-extension-attack/">https://luoingly.top/post/md5-length-extension-attack/</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>web</category>
