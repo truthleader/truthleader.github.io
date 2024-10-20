@@ -6,7 +6,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2024-09-12T14:34:11.821Z</updated>
+  <updated>2024-10-20T03:30:08.465Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>swagger-未授权api</title>
+    <link href="https://truthleader.github.io/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/"/>
+    <id>https://truthleader.github.io/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/</id>
+    <published>2024-10-19T00:41:00.000Z</published>
+    <updated>2024-10-20T03:30:08.465Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在挖src（挖了个p），我复盘了一下让学长看，学长认为我不够深入，要对看到的每个组件进行深入学习，看看有哪些洞留个印象，以后挖洞容易看出来，也会快很多&lt;/p&gt;
+&lt;p&gt;所以，这篇漏洞记录会写下针对某组件的信息搜集方式和利用方式&lt;br&gt;&lt;del&gt;顺便挖个公益&lt;/del&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="src" scheme="https://truthleader.github.io/categories/src/"/>
+    
+    
+    <category term="笔记 - 漏洞记录" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>md5-extension-attack</title>
@@ -453,29 +473,6 @@
     
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php反序列化浅记</title>
-    <link href="https://truthleader.github.io/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/"/>
-    <id>https://truthleader.github.io/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/</id>
-    <published>2023-10-25T04:59:35.000Z</published>
-    <updated>2024-08-10T02:03:33.300Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;关键词：对象、类、成员变量、成员函数、父子类、序列化、反序列化、魔术方法、poc&lt;/p&gt;
-&lt;p&gt;感谢让我领略了php反序列化风采的K3zy前辈： &lt;a href=&quot;https://github.com/kkontheway&quot;&gt;https://github.com/kkontheway&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;</summary>
-    
-    
-    
-    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="ctf" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/ctf/"/>
-    
-    
-    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

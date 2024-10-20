@@ -21,20 +21,18 @@
     var CONFIG = {"hostname":"truthleader.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="https:&#x2F;&#x2F;0xinfection.github.io&#x2F;reversing&#x2F;pages&#x2F;part-22-asm-program-1-moving-immediate-data.html 虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言 内存空间linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE 其中,汇编产生的程序,其运行时的内容都在">
-<meta property="og:type" content="article">
-<meta property="og:title" content="逆向之什么是int 80h">
-<meta property="og:url" content="https://truthleader.github.io/2024/08/10/int-80h/index.html">
+  <meta name="description" content="学习是美德，知识是财富，求道是目的">
+<meta property="og:type" content="website">
+<meta property="og:title" content="真理教教会">
+<meta property="og:url" content="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="真理教教会">
-<meta property="og:description" content="https:&#x2F;&#x2F;0xinfection.github.io&#x2F;reversing&#x2F;pages&#x2F;part-22-asm-program-1-moving-immediate-data.html 虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言 内存空间linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE 其中,汇编产生的程序,其运行时的内容都在">
+<meta property="og:description" content="学习是美德，知识是财富，求道是目的">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-10T01:58:30.000Z">
-<meta property="article:modified_time" content="2024-08-21T03:23:51.397Z">
 <meta property="article:author" content="truthleader">
-<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="关键词等待施工">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://truthleader.github.io/2024/08/10/int-80h/">
+<link rel="canonical" href="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0-%E6%BC%8F%E6%B4%9E%E8%AE%B0%E5%BD%95/">
 
 
 <script id="page-configurations">
@@ -42,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>逆向之什么是int 80h | 真理教教会</title>
+  <title>Tag: 笔记 - 漏洞记录 | 真理教教会</title>
   
 
 
@@ -198,178 +196,57 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content tag">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/10/int-80h/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          逆向之什么是int 80h
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-08-10 09:58:30" itemprop="dateCreated datePublished" datetime="2024-08-10T09:58:30+08:00">2024-08-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-21 11:23:51" itemprop="dateModified" datetime="2024-08-21T11:23:51+08:00">2024-08-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span><br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>481</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p><a target="_blank" rel="noopener" href="https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html">https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html</a></p>
-<p>虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言</p>
-<h1 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h1><p>linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE</p>
-<p>其中,汇编产生的程序,其运行时的内容都在USER SPACE,int 80h在这里出现</p>
-<h1 id="其工作流程是"><a href="#其工作流程是" class="headerlink" title="其工作流程是:"></a>其工作流程是:</h1><ol>
-<li>准备参数:<ol>
-<li><code>%eax</code>寄存器：用于存放系统调用号，即要执行的系统调用的唯一标识符。</li>
-<li><code>%ebx</code>、<code>%ecx</code>、<code>%edx</code>等寄存器：用于按顺序存放系统调用所需的参数。对于需要超过三个参数的系统调用，可能还会使用<code>%esi</code>、<code>%edi</code>和<code>%ebp</code>寄存器，或者在内存中分配空间并通过寄存器传递指向该空间的指针。</li>
-</ol>
-</li>
-<li>保存上下文,例如USERSPACE里的下一条指令,FLAGS和重要的寄存器数据,它们都会推送到栈里</li>
-<li>跳转到中断描述符表（IDT）(或者中断向量符表)的第0x80项:中断服务例程（ISR）(下面有解释👇)</li>
-<li>根据寄存器的内容,执行特定的系统调用</li>
-<li>执行完之后,从内核态转到用户态 这个过程叫IRET</li>
-<li>pop被保存的上下文,即来到int80h下的第一条指令</li>
-</ol>
-<h1 id="中断向量符表"><a href="#中断向量符表" class="headerlink" title="中断向量符表"></a>中断向量符表</h1><p>Interrupt Descriptor Table</p>
-<p>其前身(不确定)Interrupt Vector Table</p>
-<p>在内存的最底部,段地址和偏移地址都为0的地方,存在名为Interrupt Vector Table的数据结构<br>其包含256个条目,每个条目有4bytes,每个条目都是一个内存地址称为中断向量</p>
-<p>其中第0x80项:中断服务例程（ISR）会读取<code>%eax</code>寄存器中的系统调用号，并根据该号码查找并调用相应的系统调用处理函数</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>int 80h是进行系统调用的方法</p>
-
-    </div>
-
-    
-    
-    
-        <div class="reward-container">
-  <div>一杯咖啡钱能温暖一个人的心</div>
-  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
-    Donate
-  </button>
-  <div id="qr" style="display: none;">
-      
-      <div style="display: inline-block;">
-        <img src="/images/wechatpay.png" alt="truthleader WeChat Pay">
-        <p>WeChat Pay</p>
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">笔记 - 漏洞记录
+          <small>Tag</small>
+        </h2>
       </div>
 
-  </div>
-</div>
-
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>truthleader
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="https://truthleader.github.io/2024/08/10/int-80h/" title="逆向之什么是int 80h">https://truthleader.github.io/2024/08/10/int-80h/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
-</div>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2024/08/05/how-to-correct-grammar-effectively/" rel="prev" title="how-to-correct-grammar-effectively">
-      <i class="fa fa-chevron-left"></i> how-to-correct-grammar-effectively
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/08/18/basectf-week1-wp/" rel="next" title="basectf_week1_wp">
-      basectf_week1_wp <i class="fa fa-chevron-right"></i>
-    </a></div>
+      
+    <div class="collection-year">
+      <span class="collection-header">2024</span>
     </div>
-      </footer>
-    
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2024-10-19T08:41:00+08:00"
+              content="2024-10-19">
+          10-19
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/" itemprop="url">
+            <span itemprop="name">swagger-未授权api</span>
+          </a>
+      </div>
+
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -416,7 +293,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%A9%BA%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">内存空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E6%98%AF"><span class="nav-number">2.</span> <span class="nav-text">其工作流程是:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E7%AC%A6%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">中断向量符表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -599,25 +475,6 @@
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : 'Ov23liFKtoWwe3mBPY9l',
-      clientSecret: '2a45858fd265c69969a2bf3f90a43a159c4c96ff',
-      repo        : 'truthleader.github.io',
-      owner       : 'truthleader',
-      admin       : ['truthleader'],
-      id          : '0599a4d7116599230699c483b3ac843c',
-        language: 'zh-CN',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
 
 </body>
 </html>
