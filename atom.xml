@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<follow_challenge>
-    <feedId>82702855053529088</feedId>
-    <userId>82675066209593344</userId>
-</follow_challenge>
 <feed xmlns="http://www.w3.org/2005/Atom">
+  <follow_challenge>
+      <feedId>82702855053529088</feedId>
+      <userId>82675066209593344</userId>
+  </follow_challenge>
   <title>真理教教会</title>
   <icon>https://truthleader.github.io/icon.png</icon>
   <subtitle>学习是美德，知识是财富，求道是目的</subtitle>
