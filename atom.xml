@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+This message is used to verify that this feed (feedId:82702855053529088) belongs to me (userId:82675066209593344). Join me in enjoying the next generation information browser https://follow.is.
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>真理教教会</title>
   <icon>https://truthleader.github.io/icon.png</icon>
@@ -6,7 +7,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2024-10-20T03:30:08.465Z</updated>
+  <updated>2024-11-22T09:09:11.976Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -15,6 +16,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rssfollow——how_to_authorize_your_hexo_blog</title>
+    <link href="https://truthleader.github.io/2024/11/22/other/Rssfollow-how-to-authorize-your-hexo-blog/"/>
+    <id>https://truthleader.github.io/2024/11/22/other/Rssfollow-how-to-authorize-your-hexo-blog/</id>
+    <published>2024-11-22T08:50:35.000Z</published>
+    <updated>2024-11-22T09:09:11.976Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;记一下怎么方便的在hexo上添加rssfollow的认证信息&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="使用心得" scheme="https://truthleader.github.io/categories/%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"/>
+    
+    
+    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>swagger-未授权api</title>
@@ -38,8 +58,8 @@
   
   <entry>
     <title>md5-extension-attack</title>
-    <link href="https://truthleader.github.io/2024/09/10/md5-extension-attack/"/>
-    <id>https://truthleader.github.io/2024/09/10/md5-extension-attack/</id>
+    <link href="https://truthleader.github.io/2024/09/10/ctf/md5-extension-attack/"/>
+    <id>https://truthleader.github.io/2024/09/10/ctf/md5-extension-attack/</id>
     <published>2024-09-10T08:39:46.000Z</published>
     <updated>2024-09-12T14:34:11.821Z</updated>
     
@@ -65,8 +85,8 @@
   
   <entry>
     <title>serialize_private_and_protected</title>
-    <link href="https://truthleader.github.io/2024/09/01/serialize-private-and-protected/"/>
-    <id>https://truthleader.github.io/2024/09/01/serialize-private-and-protected/</id>
+    <link href="https://truthleader.github.io/2024/09/01/ctf/serialize-private-and-protected/"/>
+    <id>https://truthleader.github.io/2024/09/01/ctf/serialize-private-and-protected/</id>
     <published>2024-09-01T00:14:39.000Z</published>
     <updated>2024-09-01T03:23:24.224Z</updated>
     
@@ -86,8 +106,8 @@
   
   <entry>
     <title>basectf_week1_wp</title>
-    <link href="https://truthleader.github.io/2024/08/18/basectf-week1-wp/"/>
-    <id>https://truthleader.github.io/2024/08/18/basectf-week1-wp/</id>
+    <link href="https://truthleader.github.io/2024/08/18/ctf/basectf-week1-wp/"/>
+    <id>https://truthleader.github.io/2024/08/18/ctf/basectf-week1-wp/</id>
     <published>2024-08-18T04:01:06.000Z</published>
     <updated>2024-08-18T04:10:55.747Z</updated>
     
@@ -105,8 +125,8 @@
   
   <entry>
     <title>逆向之什么是int 80h</title>
-    <link href="https://truthleader.github.io/2024/08/10/int-80h/"/>
-    <id>https://truthleader.github.io/2024/08/10/int-80h/</id>
+    <link href="https://truthleader.github.io/2024/08/10/reverse/int-80h/"/>
+    <id>https://truthleader.github.io/2024/08/10/reverse/int-80h/</id>
     <published>2024-08-10T01:58:30.000Z</published>
     <updated>2024-08-21T03:23:51.397Z</updated>
     
@@ -130,8 +150,8 @@
   
   <entry>
     <title>how-to-correct-grammar-effectively</title>
-    <link href="https://truthleader.github.io/2024/08/05/how-to-correct-grammar-effectively/"/>
-    <id>https://truthleader.github.io/2024/08/05/how-to-correct-grammar-effectively/</id>
+    <link href="https://truthleader.github.io/2024/08/05/other/how-to-correct-grammar-effectively/"/>
+    <id>https://truthleader.github.io/2024/08/05/other/how-to-correct-grammar-effectively/</id>
     <published>2024-08-05T05:07:00.000Z</published>
     <updated>2024-08-10T02:00:51.497Z</updated>
     
@@ -155,8 +175,8 @@
   
   <entry>
     <title>wanwan破解-心得</title>
-    <link href="https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/"/>
-    <id>https://truthleader.github.io/2024/08/04/wanwan%E7%A0%B4%E8%A7%A3/</id>
+    <link href="https://truthleader.github.io/2024/08/04/reverse/wanwan%E7%A0%B4%E8%A7%A3/"/>
+    <id>https://truthleader.github.io/2024/08/04/reverse/wanwan%E7%A0%B4%E8%A7%A3/</id>
     <published>2024-08-04T03:35:44.000Z</published>
     <updated>2024-08-10T02:00:50.842Z</updated>
     
@@ -454,25 +474,6 @@
     
     
     <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hackademic_RTB1_writeup</title>
-    <link href="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/"/>
-    <id>https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/</id>
-    <published>2023-10-25T13:45:54.000Z</published>
-    <updated>2024-08-10T02:00:48.707Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;hackademic-RTB1-靶机名-writeup&quot;&gt;&lt;a href=&quot;#hackademic-RTB1-靶机名-writeup&quot; class=&quot;headerlink&quot; title=&quot;hackademic RTB1_靶机名_writeup&quot;&gt;&lt;/a&gt;hackademic RTB1_靶机名_writeup&lt;/h1&gt;&lt;p&gt;这是学校课程的作业，《红队&amp;#x2F;渗透 — 和我一起来打靶》也涉及了该靶机&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    
-    <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
     
   </entry>
   
