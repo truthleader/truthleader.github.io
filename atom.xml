@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-This message is used to verify that this feed (feedId:82702855053529088) belongs to me (userId:82675066209593344). Join me in enjoying the next generation information browser https://follow.is.
+<follow_challenge>
+    <feedId>82702855053529088</feedId>
+    <userId>82675066209593344</userId>
+</follow_challenge>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>真理教教会</title>
   <icon>https://truthleader.github.io/icon.png</icon>
