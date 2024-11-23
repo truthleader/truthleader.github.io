@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://truthleader.github.io/about/index.html</loc>
+    
+    <lastmod>2024-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://truthleader.github.io/2024/11/23/other/arl-web-add-cTask-quickly/</loc>
     
     <lastmod>2024-11-23</lastmod>
@@ -32,15 +41,6 @@
     <loc>https://truthleader.github.io/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/</loc>
     
     <lastmod>2024-10-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://truthleader.github.io/about/index.html</loc>
-    
-    <lastmod>2024-09-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
