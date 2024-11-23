@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <follow_challenge>
-      <feedId>82702855053529088</feedId>
-      <userId>82675066209593344</userId>
+    <feedId>82702855053529088</feedId>
+    <userId>82675066209593344</userId>
   </follow_challenge>
   <title>真理教教会</title>
   <icon>https://truthleader.github.io/icon.png</icon>
@@ -10,7 +10,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2024-11-22T09:09:11.976Z</updated>
+  <updated>2024-11-23T02:54:43.935Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -21,18 +21,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>arl_web_add_cTask_quickly</title>
+    <link href="https://truthleader.github.io/2024/11/23/other/arl-web-add-cTask-quickly/"/>
+    <id>https://truthleader.github.io/2024/11/23/other/arl-web-add-cTask-quickly/</id>
+    <published>2024-11-23T02:29:44.000Z</published>
+    <updated>2024-11-23T02:54:43.935Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="其他" scheme="https://truthleader.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Rssfollow——how_to_authorize_your_hexo_blog</title>
     <link href="https://truthleader.github.io/2024/11/22/other/Rssfollow-how-to-authorize-your-hexo-blog/"/>
     <id>https://truthleader.github.io/2024/11/22/other/Rssfollow-how-to-authorize-your-hexo-blog/</id>
     <published>2024-11-22T08:50:35.000Z</published>
-    <updated>2024-11-22T09:09:11.976Z</updated>
+    <updated>2024-11-23T02:30:36.013Z</updated>
     
     
     <summary type="html">&lt;p&gt;记一下怎么方便的在hexo上添加rssfollow的认证信息&lt;/p&gt;</summary>
     
     
     
-    <category term="使用心得" scheme="https://truthleader.github.io/categories/%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"/>
+    <category term="其他" scheme="https://truthleader.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
     
     <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
@@ -156,7 +181,7 @@
     <link href="https://truthleader.github.io/2024/08/05/other/how-to-correct-grammar-effectively/"/>
     <id>https://truthleader.github.io/2024/08/05/other/how-to-correct-grammar-effectively/</id>
     <published>2024-08-05T05:07:00.000Z</published>
-    <updated>2024-08-10T02:00:51.497Z</updated>
+    <updated>2024-11-23T02:30:12.674Z</updated>
     
     
       
@@ -169,7 +194,7 @@
     
     
     
-    <category term="英语" scheme="https://truthleader.github.io/categories/%E8%8B%B1%E8%AF%AD/"/>
+    <category term="其他" scheme="https://truthleader.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
     
     <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
@@ -447,33 +472,6 @@
     <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
     
     <category term="网络协议" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
-    
-    
-    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>看图识地点</title>
-    <link href="https://truthleader.github.io/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/"/>
-    <id>https://truthleader.github.io/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/</id>
-    <published>2023-11-05T11:49:20.000Z</published>
-    <updated>2024-08-10T02:00:42.534Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="社会工程学" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6/"/>
     
     
     <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>

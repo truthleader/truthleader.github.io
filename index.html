@@ -202,6 +202,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/11/23/other/arl-web-add-cTask-quickly/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/23/other/arl-web-add-cTask-quickly/" class="post-title-link" itemprop="url">arl_web_add_cTask_quickly</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-11-23 10:29:44 / Modified: 10:54:43" itemprop="dateCreated datePublished" datetime="2024-11-23T10:29:44+08:00">2024-11-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>175</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>由于arl开一个task扫C段，不会像扫域名一样给每个C段各分一个任务，反而把所有C段放一个任务里，这就导致内存占用过大，便宜服务器跑了会报错<br>所以我用脚本快速创建多个任务，一个任务一个C段<br>ps:最好的方法是改ARL，但感觉太麻烦了</p>
+<p>脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">token=<span class="string">&quot;&quot;</span></span><br><span class="line">policy_id=<span class="string">&quot;&quot;</span></span><br><span class="line">ua=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;C段文件&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    lines=file.readlines()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(lines)+<span class="number">12</span>):</span><br><span class="line">    data=&#123;<span class="string">&quot;policy_id&quot;</span>:policy_id,<span class="string">&quot;name&quot;</span>:<span class="string">&quot;默认名&quot;</span>+<span class="built_in">str</span>(i),<span class="string">&quot;task_tag&quot;</span>:<span class="string">&quot;task&quot;</span>,<span class="string">&quot;target&quot;</span>:lines[i]&#125;</span><br><span class="line">    time.sleep(<span class="number">1</span>) <span class="comment"># 对你的服务器好一点</span></span><br><span class="line">    <span class="comment"># 记得该IP</span></span><br><span class="line">    response=requests.post(<span class="string">&quot;https://IP:5003/api/task/policy/&quot;</span>,json=data,headers=&#123;<span class="string">&#x27;token&#x27;</span>:token,<span class="string">&quot;user-agent&quot;</span>:ua&#125;,verify=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/11/22/other/Rssfollow-how-to-authorize-your-hexo-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -225,17 +310,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-11-22 16:50:35 / Modified: 17:09:11" itemprop="dateCreated datePublished" datetime="2024-11-22T16:50:35+08:00">2024-11-22</time>
+              <time title="Created: 2024-11-22 16:50:35" itemprop="dateCreated datePublished" datetime="2024-11-22T16:50:35+08:00">2024-11-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-11-23 10:30:36" itemprop="dateModified" datetime="2024-11-23T10:30:36+08:00">2024-11-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" itemprop="url" rel="index"><span itemprop="name">使用心得</span></a>
+                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
                 </span>
             </span>
 
@@ -815,7 +906,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-10 10:00:51" itemprop="dateModified" datetime="2024-08-10T10:00:51+08:00">2024-08-10</time>
+                <time title="Modified: 2024-11-23 10:30:12" itemprop="dateModified" datetime="2024-11-23T10:30:12+08:00">2024-11-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -823,7 +914,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%8B%B1%E8%AF%AD/" itemprop="url" rel="index"><span itemprop="name">英语</span></a>
+                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
                 </span>
             </span>
 
@@ -1098,96 +1189,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/01/30/old/javadoc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/01/30/old/javadoc/" class="post-title-link" itemprop="url">javadoc</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-01-30 21:10:00" itemprop="dateCreated datePublished" datetime="2024-01-30T21:10:00+08:00">2024-01-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-10 10:03:32" itemprop="dateModified" datetime="2024-08-10T10:03:32+08:00">2024-08-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>32</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<p>运行命令，生成文档注释对应的技术文档</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc 文件名 -d 指定目录</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1259,14 +1260,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1345,7 +1346,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">55 mins.</span>
+    <span title="Reading time total">56 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
