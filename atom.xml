@@ -10,7 +10,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2024-11-23T02:54:43.935Z</updated>
+  <updated>2025-04-17T08:18:04.580Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -19,6 +19,105 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Latex_test</title>
+    <link href="https://truthleader.github.io/2025/04/17/Latex-test/"/>
+    <id>https://truthleader.github.io/2025/04/17/Latex-test/</id>
+    <published>2025-04-17T08:11:26.000Z</published>
+    <updated>2025-04-17T08:18:04.580Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="其他" scheme="https://truthleader.github.io/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>BBC-6-Minutes-English-003</title>
+    <link href="https://truthleader.github.io/2025/03/08/Listen_English/BBC-6-Minutes-English-003/"/>
+    <id>https://truthleader.github.io/2025/03/08/Listen_English/BBC-6-Minutes-English-003/</id>
+    <published>2025-03-08T12:32:17.000Z</published>
+    <updated>2025-03-08T13:57:12.170Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="English - 精听" scheme="https://truthleader.github.io/categories/English-%E7%B2%BE%E5%90%AC/"/>
+    
+    
+    <category term="BBC_6_Minute_English" scheme="https://truthleader.github.io/tags/BBC-6-Minute-English/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BBC-6-Minutes-English_002</title>
+    <link href="https://truthleader.github.io/2025/02/22/Listen_English/BBC-6-Minutes-English-002/"/>
+    <id>https://truthleader.github.io/2025/02/22/Listen_English/BBC-6-Minutes-English-002/</id>
+    <published>2025-02-22T11:25:53.000Z</published>
+    <updated>2025-02-23T06:35:10.528Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="English - 精听" scheme="https://truthleader.github.io/categories/English-%E7%B2%BE%E5%90%AC/"/>
+    
+    
+    <category term="BBC_6_Minute_English" scheme="https://truthleader.github.io/tags/BBC-6-Minute-English/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BBC_6_Minutes_English_001</title>
+    <link href="https://truthleader.github.io/2025/02/19/Listen_English/BBC-6-Minutes-English-001/"/>
+    <id>https://truthleader.github.io/2025/02/19/Listen_English/BBC-6-Minutes-English-001/</id>
+    <published>2025-02-19T12:01:57.000Z</published>
+    <updated>2025-02-20T13:04:41.208Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;我决定好好的锻炼我的英文听力，尽管我的阅读能力还行并且有翻译加持，尽管我的专业并没有要求我拥有一个好听力，再尽管好听力对我的专业的相关职业的好处是难以预见的，我还是要练听力，&lt;br&gt;这不是因为什么实用主义或者任何方面的功利主义，只是因为我不爽，不爽于听到英文时的各种难受，痛恨自己对此的无能，痛恨自己与某些可能特别特别有价值的信息失之交臂。&lt;/p&gt;
+&lt;p&gt;我发现实用主义的心态，抑或者是把自己的欲望当作第一优先级的东西（理智上），最终都会让我得到失望的结果：尽管娱乐时我很享受，但当时我也感到不甘和愤怒，我发现我的观念再如何虚无主义，我总是想要先把享乐的东西搁置，有着去努力拼搏的冲动，我甚至自我催眠，对某种“更伟大的欲望和享乐”去奋斗&lt;/p&gt;
+&lt;p&gt;但这是对虚无缥缈的幻想的追求，而不是虚无的现实本身&lt;br&gt;我转而发掘我的另一面——我的不甘和愤怒&lt;/p&gt;
+&lt;p&gt;这让我发掘了一些点子，例如说我想挖SRC，分析业务，但网页那么多，我想快速的先把业务都罗列出来，但是又没有现成的工具和范式，我就想着去写一个关系图谱的软件，开源的代码太多，所以我就想着自己写（在学pyQt5的图形化）&lt;/p&gt;
+&lt;p&gt;还有我开始做出了行动和改变，根据过往经验，我在家一般都是懒散的，除了享乐和以享乐为最终目的的所谓“干正事”，就不做什么别的了。但我很愤怒，我磨平我的不爽：我在每节课之前都把要上的内容预习（顺便做完对应的张杰习题）、我开始学PyQt5、我试图提升我的听力、我试图更扎实的学信息安全&lt;/p&gt;
+&lt;p&gt;我感觉我在三天内做的事比我在寒假做的事更多，我不知道这是怎么做到的，就因为所谓的愤怒和不满？&lt;/p&gt;
+&lt;p&gt;ps：最近信息安全的东西学的真的真的很少，每天在家就是刷b站、玩游戏、看小说、锻炼（很随便的练），回到学校主要也是搞高等数学、物理、离散数学之类的&lt;/p&gt;
+&lt;p&gt;该精听了&lt;br&gt;(该点子来自deepseek， 6 minutes 也是deepseek推荐，感谢深度求索🙏)&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="English - 精听" scheme="https://truthleader.github.io/categories/English-%E7%B2%BE%E5%90%AC/"/>
+    
+    
+    <category term="BBC_6_Minute_English" scheme="https://truthleader.github.io/tags/BBC-6-Minute-English/"/>
+    
+  </entry>
   
   <entry>
     <title>arl_web_add_cTask_quickly</title>
@@ -69,7 +168,7 @@
     <link href="https://truthleader.github.io/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/"/>
     <id>https://truthleader.github.io/2024/10/19/src/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/swagger-%E6%8E%A2%E7%B4%A2%E6%9C%AA%E6%8E%88%E6%9D%83/</id>
     <published>2024-10-19T00:41:00.000Z</published>
-    <updated>2024-10-20T03:30:08.465Z</updated>
+    <updated>2024-10-20T08:08:24.737Z</updated>
     
     
     <summary type="html">&lt;p&gt;在挖src（挖了个p），我复盘了一下让学长看，学长认为我不够深入，要对看到的每个组件进行深入学习，看看有哪些洞留个印象，以后挖洞容易看出来，也会快很多&lt;/p&gt;
@@ -357,7 +456,7 @@
     <link href="https://truthleader.github.io/2023/12/11/old/bob_writeup/"/>
     <id>https://truthleader.github.io/2023/12/11/old/bob_writeup/</id>
     <published>2023-12-11T05:44:04.000Z</published>
-    <updated>2024-08-10T02:00:46.322Z</updated>
+    <updated>2024-08-10T02:03:32.034Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;靶机简介&quot;&gt;&lt;a href=&quot;#靶机简介&quot; class=&quot;headerlink&quot; title=&quot;靶机简介&quot;&gt;&lt;/a&gt;靶机简介&lt;/h1&gt;&lt;blockquote&gt;
@@ -390,91 +489,6 @@
     
     
     <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>wallabysnightmare102-writeup</title>
-    <link href="https://truthleader.github.io/2023/11/24/old/wallabysnightmare102-writeup/"/>
-    <id>https://truthleader.github.io/2023/11/24/old/wallabysnightmare102-writeup/</id>
-    <published>2023-11-24T11:14:58.000Z</published>
-    <updated>2024-08-10T02:03:37.547Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;wallabysnightmare102-writeup&quot;&gt;&lt;a href=&quot;#wallabysnightmare102-writeup&quot; class=&quot;headerlink&quot; title=&quot;wallabysnightmare102_writeup&quot;&gt;&lt;/a&gt;wallabysnightmare102_writeup&lt;/h1&gt;&lt;p&gt;这是学校作业&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    
-    <category term="writeup" scheme="https://truthleader.github.io/tags/writeup/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读书笔记《血酬定律——中国历史中的生存游戏》</title>
-    <link href="https://truthleader.github.io/2023/11/23/old/readingnote002/"/>
-    <id>https://truthleader.github.io/2023/11/23/old/readingnote002/</id>
-    <published>2023-11-23T13:21:48.000Z</published>
-    <updated>2024-08-10T02:01:33.240Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="读书笔记" scheme="https://truthleader.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>读书笔记《潜规则——中国历史中的真实游戏》</title>
-    <link href="https://truthleader.github.io/2023/11/23/old/readingnote001/"/>
-    <id>https://truthleader.github.io/2023/11/23/old/readingnote001/</id>
-    <published>2023-11-23T13:19:02.000Z</published>
-    <updated>2024-08-10T02:03:33.906Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="读书笔记" scheme="https://truthleader.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RFC4251阅后总结</title>
-    <link href="https://truthleader.github.io/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/"/>
-    <id>https://truthleader.github.io/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/</id>
-    <published>2023-11-11T06:55:44.000Z</published>
-    <updated>2024-08-10T02:03:35.080Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;ps: 线索里的tab键都被吞了，正在处理中&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;来源&quot;&gt;&lt;a href=&quot;#来源&quot; class=&quot;headerlink&quot; title=&quot;来源&quot;&gt;&lt;/a&gt;来源&lt;/h1&gt;&lt;p&gt;来源 &lt;a href=&quot;https://datatracker.ietf.org/&quot;&gt;https://datatracker.ietf.org&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;IETF Internet Engineering Task Force&lt;/li&gt;
-&lt;li&gt;RFC Request for Comment&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;线索&quot;&gt;&lt;a href=&quot;#线索&quot; class=&quot;headerlink&quot; title=&quot;线索&quot;&gt;&lt;/a&gt;线索&lt;/h1&gt;</summary>
-    
-    
-    
-    <category term="网络安全" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"/>
-    
-    <category term="网络协议" scheme="https://truthleader.github.io/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
-    
-    
-    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

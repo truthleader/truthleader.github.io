@@ -202,6 +202,432 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/10/reverse/int-80h/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/10/reverse/int-80h/" class="post-title-link" itemprop="url">逆向之什么是int 80h</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-08-10 09:58:30" itemprop="dateCreated datePublished" datetime="2024-08-10T09:58:30+08:00">2024-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-21 11:23:51" itemprop="dateModified" datetime="2024-08-21T11:23:51+08:00">2024-08-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>481</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html">https://0xinfection.github.io/reversing/pages/part-22-asm-program-1-moving-immediate-data.html</a></p>
+<p>虽然文章给了很多信息,但对某些核心的要点表述太多,还好我有文心一言</p>
+<h1 id="内存空间"><a href="#内存空间" class="headerlink" title="内存空间"></a>内存空间</h1><p>linux系统的内存空间分为:USER SPACE 和 LINUX KERNEL SPACE</p>
+<p>其中,汇编产生的程序,其运行时的内容都在USER SPACE,int 80h在这里出现</p>
+<h1 id="其工作流程是"><a href="#其工作流程是" class="headerlink" title="其工作流程是:"></a>其工作流程是:</h1><ol>
+<li>准备参数:<ol>
+<li><code>%eax</code>寄存器：用于存放系统调用号，即要执行的系统调用的唯一标识符。</li>
+<li><code>%ebx</code>、<code>%ecx</code>、<code>%edx</code>等寄存器：用于按顺序存放系统调用所需的参数。对于需要超过三个参数的系统调用，可能还会使用<code>%esi</code>、<code>%edi</code>和<code>%ebp</code>寄存器，或者在内存中分配空间并通过寄存器传递指向该空间的指针。</li>
+</ol>
+</li>
+<li>保存上下文,例如USERSPACE里的下一条指令,FLAGS和重要的寄存器数据,它们都会推送到栈里</li>
+<li>跳转到中断描述符表（IDT）(或者中断向量符表)的第0x80项:中断服务例程（ISR）(下面有解释👇)</li>
+<li>根据寄存器的内容,执行特定的系统调用</li>
+<li>执行完之后,从内核态转到用户态 这个过程叫IRET</li>
+<li>pop被保存的上下文,即来到int80h下的第一条指令</li>
+</ol>
+<h1 id="中断向量符表"><a href="#中断向量符表" class="headerlink" title="中断向量符表"></a>中断向量符表</h1><p>Interrupt Descriptor Table</p>
+<p>其前身(不确定)Interrupt Vector Table</p>
+<p>在内存的最底部,段地址和偏移地址都为0的地方,存在名为Interrupt Vector Table的数据结构<br>其包含256个条目,每个条目有4bytes,每个条目都是一个内存地址称为中断向量</p>
+<p>其中第0x80项:中断服务例程（ISR）会读取<code>%eax</code>寄存器中的系统调用号，并根据该号码查找并调用相应的系统调用处理函数</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>int 80h是进行系统调用的方法</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/05/other/how-to-correct-grammar-effectively/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/05/other/how-to-correct-grammar-effectively/" class="post-title-link" itemprop="url">how-to-correct-grammar-effectively</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-08-05 13:07:00" itemprop="dateCreated datePublished" datetime="2024-08-05T13:07:00+08:00">2024-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-11-23 10:30:12" itemprop="dateModified" datetime="2024-11-23T10:30:12+08:00">2024-11-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>146</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=A5uz6LWeLPM">https://www.youtube.com/watch?v=A5uz6LWeLPM</a></p>
+<p>磨听力时看到的视频,讲了如何学习英语语法并有效寻找纠正语法错误的方法</p>
+<p>这分为一下几个步骤:</p>
+<ol>
+<li>找出语法错误和弱项</li>
+<li>确认问题属于:form or function  (用法错误还是压根不认识不会用)</li>
+<li>制作template 把句型提取出来 用n种方式补全 (I haven’t ··· yet today )</li>
+</ol>
+<p>关于步骤一,平时没有积累,不知道弱项怎么办的?<br>网上找篇文章,读个2-3遍,用自己的英语写一遍,丢给AI</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/08/04/reverse/wanwan%E7%A0%B4%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/08/04/reverse/wanwan%E7%A0%B4%E8%A7%A3/" class="post-title-link" itemprop="url">wanwan破解-心得</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-08-04 11:35:44" itemprop="dateCreated datePublished" datetime="2024-08-04T11:35:44+08:00">2024-08-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-10 10:00:50" itemprop="dateModified" datetime="2024-08-10T10:00:50+08:00">2024-08-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">逆向工程</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">软件破解</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>820</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这是吾爱破解上的软件破解入门教程, <a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1358649-1-1.html">https://www.52pojie.cn/thread-1358649-1-1.html</a><br>浅尝辄止了一下,记录一点小小的收获</p>
+<p>软件破解是逆向工程的一个分支,是绕过软件创作者的使用限制的技术<br>要破解的有两个方面:</p>
+<ol>
+<li>注册验证</li>
+<li>反调试</li>
+</ol>
+<h1 id="注册验证"><a href="#注册验证" class="headerlink" title="注册验证"></a>注册验证</h1><p>也就是向软件证明自己的身份,来告诉创作者:我是付过钱的</p>
+<p>验证方法有:本地验证和网络验证<br>本地验证又有:</p>
+<ol>
+<li>重启验证:注册不过期,例如使用注册码后,软件在注册表创建“已注册”的标志,每次软件打开都会先读取一次注册表</li>
+<li>非重启验证:注册会过期,例如账号密码验证,每次重启软件都要重新输入账号密码</li>
+</ol>
+<p>这套教程只讲解本地验证的破解方法</p>
+<h1 id="反调试"><a href="#反调试" class="headerlink" title="反调试"></a>反调试</h1><p>其手段大致四类:</p>
+<ol>
+<li>通过环境查看手段,判断是否有调试器打开,例如看进程</li>
+<li>对用户正在使用调试器的行为进行动态识别,是不是正在用调试器对软件进行调试和修改</li>
+<li>对软件完整性进行检测,例如把加壳后的软件解壳,软件的体积和内容发生更改后,会被检测到</li>
+<li>干扰处理:就是让你看不懂,加壳、加花、虚拟化代码</li>
+</ol>
+<h1 id="如何破解"><a href="#如何破解" class="headerlink" title="如何破解?"></a>如何破解?</h1><p>用反汇编器和调试器下断点,找关键代码,并进行适当的修改——打补丁<br>常用的工具例如ida和ollydbg<br>然后,要用吾爱破解专用ollydbg,因为有插件</p>
+<h2 id="怎么下断点"><a href="#怎么下断点" class="headerlink" title="怎么下断点?"></a>怎么下断点?</h2><ol>
+<li>关键字<br>软件的内容分为指令和数据,在指令和数据区搜索“登录失败”之类的关键词就能锁定关键代码的位置</li>
+<li>api<br>通常软件的弹窗、按钮等的功能都是对系统api的调用,而不是软件开发者花时间自己的写的<br>搜索对应的api,下断点<br>动态调试这个软件<br>就能找打关键指令的位置</li>
+</ol>
+<h2 id="找到关键指令了-下一步-打补丁"><a href="#找到关键指令了-下一步-打补丁" class="headerlink" title="找到关键指令了,下一步?打补丁"></a>找到关键指令了,下一步?打补丁</h2><p>阅读它,你需要能看懂汇编代码,你需要了解寄存器,你需要着重学习push、pop、call、ret、jmp和各种变体指令,如果你能懂call stack就更好了<br>PS: call stack 这个wanwan破解并没有教,如果你感兴趣,你可以穿越到几个月前访问begin.re学习这个知识,它下架了:(</p>
+<p>假如这是个要本地登录的软件<br>你可能看指令的时候,看到“登录成功”和“登录失败”的弹窗指令,它们挨的很近<br>你只需要找到附近的je指令(也可能是jle或jge)改成jmp,跳过“登录失败”的弹窗指令,来到“登录成功”的指令</p>
+<p>这会导致什么结果呢?你怎么登录都会显示“登录成功”,因为你无法“登录失败”</p>
+<h1 id="总之"><a href="#总之" class="headerlink" title="总之"></a>总之</h1><p>破解的流程是:<br>找关键代码》分析〉跳过失败的指令》破解成功</p>
+<p>我不太想在软件破解上更进一步,卖破解软件是要吃牢饭的</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/03/09/old/gigachad-1-writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/AveMujica.png">
+      <meta itemprop="name" content="truthleader">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/03/09/old/gigachad-1-writeup/" class="post-title-link" itemprop="url">gigachad:1-writeup</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-03-09 16:41:28" itemprop="dateCreated datePublished" datetime="2024-03-09T16:41:28+08:00">2024-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-08-10 10:00:47" itemprop="dateModified" datetime="2024-08-10T10:00:47+08:00">2024-08-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>306</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>靶机地址:<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/gigachad-1,657/">https://www.vulnhub.com/entry/gigachad-1,657/</a></p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>开启的ftp服务是能匿名登录的</li>
+<li>根据ftp里那个的提示，了解了一个username，可以从web上获取一张藏有密码提示的图片</li>
+<li>图片里没有用到隐写，应该去google上搜图</li>
+<li>find可以找到，靶机里有个s-nail-privsec的SUID文件，在exploitdb上找相关的exp就能提权</li>
+</ol>
+<p>文章讲解：<br><a target="_blank" rel="noopener" href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a><br><a target="_blank" rel="noopener" href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899</a></p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2024/03/09/old/gigachad-1-writeup/drippinchad.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/flag.png"><br><img src="/2024/03/09/old/gigachad-1-writeup/chad_real_identity.png"></p>
+<h1 id="有趣的东西"><a href="#有趣的东西" class="headerlink" title="有趣的东西"></a>有趣的东西</h1><h2 id="the-real-gigachad"><a href="#the-real-gigachad" class="headerlink" title="the real gigachad"></a>the real gigachad</h2><p>关于靶机根目录里留下的图片，可以获取一下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">演员的维基介绍 https://tr.wikipedia.org/wiki/Sefa_Zengin</span><br><span class="line"></span><br><span class="line">2003-2004 - Kurtlar Vadisi - Erdal Kömürcü</span><br><span class="line"></span><br><span class="line">土耳其惡狼谷 英文名:Valley of the Wolves 土耳其名:Kurtlar Vadisi</span><br><span class="line">Erdal Kömürcü是该系列的一名角色</span><br></pre></td></tr></table></figure>
+<p>大多数是土耳其语，并且目前的翻译软件比较垃圾，又懒得看，就只能给出这点东西了</p>
+<h2 id="rabbit-hole"><a href="#rabbit-hole" class="headerlink" title="rabbit hole"></a>rabbit hole</h2><p>dirsearch 扫描web的时候会冒出来一堆莫名其妙的东西，我也不知道这个叫什么，在 <a target="_blank" rel="noopener" href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a> 里被叫做兔子洞，但我直接搜会搜到别的东西</p>
+<p><a target="_blank" rel="noopener" href="https://rabbithole.gg/">https://rabbithole.gg/</a><br>web3，学不会一点（−＿−；）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/01/30/old/javadoc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -640,7 +1066,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-10 10:00:46" itemprop="dateModified" datetime="2024-08-10T10:00:46+08:00">2024-08-10</time>
+                <time title="Modified: 2024-08-10 10:03:32" itemprop="dateModified" datetime="2024-08-10T10:03:32+08:00">2024-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -798,397 +1224,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/24/old/wallabysnightmare102-writeup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/24/old/wallabysnightmare102-writeup/" class="post-title-link" itemprop="url">wallabysnightmare102-writeup</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-24 19:14:58" itemprop="dateCreated datePublished" datetime="2023-11-24T19:14:58+08:00">2023-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-10 10:03:37" itemprop="dateModified" datetime="2024-08-10T10:03:37+08:00">2024-08-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>415</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="wallabysnightmare102-writeup"><a href="#wallabysnightmare102-writeup" class="headerlink" title="wallabysnightmare102_writeup"></a>wallabysnightmare102_writeup</h1><p>这是学校作业</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/24/old/wallabysnightmare102-writeup/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/23/old/readingnote002/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/23/old/readingnote002/" class="post-title-link" itemprop="url">读书笔记《血酬定律——中国历史中的生存游戏》</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-23 21:21:48" itemprop="dateCreated datePublished" datetime="2023-11-23T21:21:48+08:00">2023-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-10 10:01:33" itemprop="dateModified" datetime="2024-08-10T10:01:33+08:00">2024-08-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>412</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/23/old/readingnote002/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/23/old/readingnote001/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/23/old/readingnote001/" class="post-title-link" itemprop="url">读书笔记《潜规则——中国历史中的真实游戏》</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-23 21:19:02" itemprop="dateCreated datePublished" datetime="2023-11-23T21:19:02+08:00">2023-11-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-10 10:03:33" itemprop="dateModified" datetime="2024-08-10T10:03:33+08:00">2024-08-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>502</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在整理笔记库的时候发现的，尽管内容浅薄，但是存着吃灰也可惜，就发了</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/23/old/readingnote001/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/AveMujica.png">
-      <meta itemprop="name" content="truthleader">
-      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="真理教教会">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">RFC4251阅后总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-11-11 14:55:44" itemprop="dateCreated datePublished" datetime="2023-11-11T14:55:44+08:00">2023-11-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-08-10 10:03:35" itemprop="dateModified" datetime="2024-08-10T10:03:35+08:00">2024-08-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="index"><span itemprop="name">网络协议</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ps: 线索里的tab键都被吞了，正在处理中</p>
-<hr>
-<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><p>来源 <a target="_blank" rel="noopener" href="https://datatracker.ietf.org/">https://datatracker.ietf.org</a></p>
-<ul>
-<li>IETF Internet Engineering Task Force</li>
-<li>RFC Request for Comment</li>
-</ul>
-<h1 id="线索"><a href="#线索" class="headerlink" title="线索"></a>线索</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1260,20 +1295,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1330,7 +1365,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1340,13 +1375,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">17k</span>
+    <span title="Symbols count total">24k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">56 mins.</span>
+    <span title="Reading time total">1:20</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
