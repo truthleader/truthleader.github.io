@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"truthleader.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="靶机简介 靶机链接： https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;ted-1,327&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ted:1 writeup">
+<meta property="og:url" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/index.html">
+<meta property="og:site_name" content="真理教教会">
+<meta property="og:description" content="靶机简介 靶机链接： https:&#x2F;&#x2F;www.vulnhub.com&#x2F;entry&#x2F;ted-1,327&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/1%E7%BD%91%E7%BB%9C.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/11%E4%B8%BB%E9%A1%B5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/12%E8%AE%A4%E8%AF%81%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/13%E5%AD%97%E5%85%B8.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/14.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/15.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/16%E6%88%90%E5%8A%9F.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/17session%E6%B3%A8%E5%85%A5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/18fantanshell%E8%AF%AD%E5%8F%A5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/19%E6%8B%BF%E5%88%B0shell.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/20%E6%8F%90%E6%9D%83.png">
+<meta property="article:published_time" content="2023-12-17T16:56:19.000Z">
+<meta property="article:modified_time" content="2025-11-21T01:23:57.301Z">
+<meta property="article:author" content="truthleader">
+<meta property="article:tag" content="writeup">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/1%E7%BD%91%E7%BB%9C.png">
+
+
+<link rel="canonical" href="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/","path":"2023/12/17/old/Ted-1-writeup/","title":"Ted:1 writeup"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Ted:1 writeup | 真理教教会</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="真理教教会" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">真理教教会</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习是美德，知识是财富，求道是目的</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%B6%E6%9C%BA%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">靶机简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">攻击流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%BFshell"><span class="nav-number">2.1.</span> <span class="nav-text">拿shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-number">2.2.</span> <span class="nav-text">提权</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8A%80%E6%9C%AF"><span class="nav-number">3.</span> <span class="nav-text">工具和技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E8%BF%87%E7%A8%8B%E5%8F%8A%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">渗透过程及结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%8F%8D%E6%80%9D"><span class="nav-number">5.</span> <span class="nav-text">总结反思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">truthleader</p>
+  <div class="site-description" itemprop="description">学习是美德，知识是财富，求道是目的</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/12/17/old/Ted-1-writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="truthleader">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Ted:1 writeup | 真理教教会">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ted:1 writeup
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-12-17 16:56:19" itemprop="dateCreated datePublished" datetime="2023-12-17T16:56:19+00:00">2023-12-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-11-21 01:23:57" itemprop="dateModified" datetime="2025-11-21T01:23:57+00:00">2025-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>303</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机链接： <a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/ted-1,327/">https://www.vulnhub.com/entry/ted-1,327/</a><br><span id="more"></span></p>
+<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2><ol>
+<li>http进去时登录验证界面</li>
+<li>用户名密码都好猜的要死，但是密码正确后要提示转成hash，使出来时sha256:英文字母大写</li>
+<li>进去后是一个文件包含的页面</li>
+<li>通过session注入的方式注入一句话反弹shell，然后再包含，得到shell</li>
+<li>session注入方式，是注入user_pref键，注入内容需全部转成urlencode形式<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2></li>
+<li>sudo -l 发现能以root权限无密码执行apt-get命令，以此提权<h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1><a target="_blank" rel="noopener" href="https://tool.oschina.net/encrypt?type=2">https://tool.oschina.net/encrypt?type=2</a> hash加密<br><a target="_blank" rel="noopener" href="https://www.iamwawa.cn/daxiaoxie.html">https://www.iamwawa.cn/daxiaoxie.html</a> 英文大小写转换</li>
+</ol>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><p>网络<br><img src="/2023/12/17/old/Ted-1-writeup/1网络.png" alt><br>查看web页面<br><img src="/2023/12/17/old/Ted-1-writeup/11主页.png" alt><br><img src="/2023/12/17/old/Ted-1-writeup/12认证页面.png" alt><br>制作字典并爆破<br><img src="/2023/12/17/old/Ted-1-writeup/13字典.png" alt><br><img src="/2023/12/17/old/Ted-1-writeup/14.png" alt><br><img src="/2023/12/17/old/Ted-1-writeup/15.png" alt><br><img src="/2023/12/17/old/Ted-1-writeup/16成功.png" alt><br>撕开口子拿shell<br><img src="/2023/12/17/old/Ted-1-writeup/17session注入.png" alt><br><img src="/2023/12/17/old/Ted-1-writeup/18fantanshell语句.png" alt><br><img src="/2023/12/17/old/Ted-1-writeup/19拿到shell.png" alt><br>提权<br><img src="/2023/12/17/old/Ted-1-writeup/20提权.png" alt></p>
+<h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1><ol>
+<li>靶机真短</li>
+<li>不过session注入是一个非常好的思路</li>
+<li>user_pref什么的，还有sudo-l只执行apt-get太刻意了<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校资料<br><a target="_blank" rel="noopener" href="https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/">https://ab-alex.github.io/2019/06/11/php%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</a> session路径参考<br><a target="_blank" rel="noopener" href="https://gtfobins.github.io/">https://gtfobins.github.io/</a> 提权方式参考</p>
+</blockquote>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/writeup/" rel="tag"># writeup</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/11/old/bob_writeup/" rel="prev" title="bob_writeup">
+                  <i class="fa fa-angle-left"></i> bob_writeup
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/21/old/Hello-World-powered-by-Java/" rel="next" title="Hello-World-powered-by-Java">
+                  Hello-World-powered-by-Java <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">truthleader</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">24k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:21</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

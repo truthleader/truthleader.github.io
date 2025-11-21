@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"truthleader.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="hackademic RTB1_靶机名_writeup这是学校课程的作业，《红队&#x2F;渗透 — 和我一起来打靶》也涉及了该靶机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hackademic_RTB1_writeup">
+<meta property="og:url" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/index.html">
+<meta property="og:site_name" content="真理教教会">
+<meta property="og:description" content="hackademic RTB1_靶机名_writeup这是学校课程的作业，《红队&#x2F;渗透 — 和我一起来打靶》也涉及了该靶机">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/1.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/2.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/3.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/4.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/5.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/6.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/7.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/8.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/9.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/10.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/11.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/12.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/13.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/14.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/15.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/16.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/17.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/18.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/19.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/20.png">
+<meta property="og:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/21.png">
+<meta property="article:published_time" content="2023-10-25T21:45:54.000Z">
+<meta property="article:modified_time" content="2025-11-21T01:23:57.342Z">
+<meta property="article:author" content="truthleader">
+<meta property="article:tag" content="writeup">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/1.png">
+
+
+<link rel="canonical" href="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/","path":"2023/10/25/old/hackademic-RTB1-writeup/","title":"hackademic_RTB1_writeup"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>hackademic_RTB1_writeup | 真理教教会</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="真理教教会" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">真理教教会</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习是美德，知识是财富，求道是目的</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hackademic-RTB1-%E9%9D%B6%E6%9C%BA%E5%90%8D-writeup"><span class="nav-number">1.</span> <span class="nav-text">hackademic RTB1_靶机名_writeup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%B6%E6%9C%BA%E7%AE%80%E4%BB%8B"><span class="nav-number">2.</span> <span class="nav-text">靶机简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%BB%E5%87%BB%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">攻击流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86"><span class="nav-number">3.1.</span> <span class="nav-text">信息搜集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%BFshell"><span class="nav-number">3.2.</span> <span class="nav-text">拿shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-number">3.3.</span> <span class="nav-text">提权</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%92%8C%E6%8A%80%E6%9C%AF"><span class="nav-number">4.</span> <span class="nav-text">工具和技术</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%97%E9%80%8F%E8%BF%87%E7%A8%8B%E5%8F%8A%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">渗透过程及结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E5%8F%8D%E6%80%9D"><span class="nav-number">6.</span> <span class="nav-text">总结反思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">truthleader</p>
+  <div class="site-description" itemprop="description">学习是美德，知识是财富，求道是目的</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/10/25/old/hackademic-RTB1-writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="truthleader">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="真理教教会">
+      <meta itemprop="description" content="学习是美德，知识是财富，求道是目的">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="hackademic_RTB1_writeup | 真理教教会">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hackademic_RTB1_writeup
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-10-25 21:45:54" itemprop="dateCreated datePublished" datetime="2023-10-25T21:45:54+00:00">2023-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-11-21 01:23:57" itemprop="dateModified" datetime="2025-11-21T01:23:57+00:00">2025-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>799</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="hackademic-RTB1-靶机名-writeup"><a href="#hackademic-RTB1-靶机名-writeup" class="headerlink" title="hackademic RTB1_靶机名_writeup"></a>hackademic RTB1_靶机名_writeup</h1><p>这是学校课程的作业，《红队/渗透 — 和我一起来打靶》也涉及了该靶机<br><span id="more"></span></p>
+<h1 id="靶机简介"><a href="#靶机简介" class="headerlink" title="靶机简介"></a>靶机简介</h1><blockquote>
+<p>靶机名：hackademic RTB1<br>靶机链接：<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/hackademic-rtb1,17/">https://www.vulnhub.com/entry/hackademic-rtb1,17/</a><br>描述：This is the first realistic hackademic challenge (root this box) by mr.pr0n<br>    Download the target and get root.<br>    After all, try to read the contents of the file ‘key.txt’ in the root directory.<br>    Enjoy!</p>
+</blockquote>
+<h1 id="攻击流程"><a href="#攻击流程" class="headerlink" title="攻击流程"></a>攻击流程</h1><p>ps:具体攻击过程请看<strong>渗透过程及结果</strong></p>
+<h2 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h2><ol>
+<li>nmap扫描端口发现80端口开放，访问自动跳转目录Hackerademic_RTB1</li>
+<li>dirsearch目录遍历，发现文件夹wp-admin，进入后台登陆页面</li>
+<li>访问网页首页，依次点击直到点击<code>Uncategoried</code>，发现参数cat，是有sql注入漏洞的<h2 id="拿shell"><a href="#拿shell" class="headerlink" title="拿shell"></a>拿shell</h2></li>
+<li>sqlmap注入后，查看wordpress数据库下的wp_users，获取网站用户和密码的hash值，通过sqlmap的自带功能爆破hash值获得密码</li>
+<li>GerogeMiller用户的权限较大，登陆后的网页东西更多，可以更改网站设置选项，其中有<code>是否开启upload</code>的选项，也可以设定上传文件的允许格式，这里添加php</li>
+<li>上传kali自带的php反弹shell脚本，目录为<code>/usr/share/webshells/php/php-reverse-shell.php</code>，修改脚本的ip和端口参数为渗透机</li>
+<li>本地nc开启端口监听；网站上传完文件后会提示上传到了哪个目录，直接访问，和本地nc的监听端口连接，getshell<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2></li>
+<li><code>sudo -l</code>发现当前的用户不是sudoer</li>
+<li>寻找suid可执行文件，也没有找到能用的</li>
+<li><code>uname -a</code>查看当前靶机内核版本，<code>2.6.31.5-127.fc12.1686</code></li>
+<li><code>searchsploit 2.6.3|grep &quot;Local Pri&quot;</code>寻找内核漏洞提取脚本，cp到<code>/var/www/html</code></li>
+<li>渗透机开启apache服务，在拿到的shell上用<code>wget</code>下载内核漏洞脚本，并用靶机的gcc命令编译执行</li>
+<li>15285.c这个脚本可以root靶机 <code>Linux Kernel 2.6.36-rc8 - &#39;RDS Protocal&#39; Local Privilege Escalation</code><h1 id="工具和技术"><a href="#工具和技术" class="headerlink" title="工具和技术"></a>工具和技术</h1></li>
+</ol>
+<blockquote>
+<p>nmap<br>dirsearch<br>sqlmap<br>kali自带的反弹shell脚本和提取脚本<br>nc监听端口<br>通过渗透机的apache网站下载脚本至靶机<br><code>searchsploit</code><br>内核提取漏洞</p>
+</blockquote>
+<h1 id="渗透过程及结果"><a href="#渗透过程及结果" class="headerlink" title="渗透过程及结果"></a>渗透过程及结果</h1><ol>
+<li>信息搜集<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/1.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/2.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/3.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/4.png" alt></li>
+<li>sqlmap注入<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/5.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/6.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/7.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/8.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/9.png" alt></li>
+<li>上传webshell<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/10.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/11.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/12.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/13.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/14.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/15.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/16.png" alt></li>
+<li>getshell和普通的信息搜集<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/17.png" alt></li>
+<li>内核漏洞测试，root靶机<br><img src="/2023/10/25/old/hackademic-RTB1-writeup/18.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/19.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/20.png" alt><br><img src="/2023/10/25/old/hackademic-RTB1-writeup/21.png" alt><h1 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h1></li>
+</ol>
+<blockquote>
+<p>首先，sqlmap确实是很好用的工具，尤其对我这种手注基础薄弱的人来说更是如此，这是我的短板<br>kali的自带脚本十分的有用，我应该多多了解一下的<br>内核漏洞是十分基础和重要的漏洞利用方式，但是根据系统内核版本模糊地查询漏洞脚本一个一个试——太累了、太慢了、太粗糙了，摸索或学习一套快速方便的工作流因此而言是十分重要的<br>关于内核漏洞的原理，这东西可钻研的东西可多了，但如果真的要学习这个东西：需要扎实的计算机构成原理、系统运行方式基础，这些东西我根本没有</p>
+</blockquote>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><blockquote>
+<p>学校给的writeup</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/writeup/" rel="tag"># writeup</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/25/old/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%B5%85%E8%AE%B0/" rel="prev" title="php反序列化浅记">
+                  <i class="fa fa-angle-left"></i> php反序列化浅记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/" rel="next" title="看图识地点">
+                  看图识地点 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">truthleader</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">24k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:21</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
