@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>portswigger_authentication</title>
+    <url>/2025/11/24/portswigger-authentication/</url>
+    <content><![CDATA[<h1 id="漏洞产生原因"><a href="#漏洞产生原因" class="headerlink" title="漏洞产生原因"></a>漏洞产生原因</h1><ol>
+<li>无法充分抵御爆破</li>
+<li>逻辑缺陷或poor coding(?)</li>
+</ol>
+<span id="more"></span>
+<h1 id="基于密码的认证机制"><a href="#基于密码的认证机制" class="headerlink" title="基于密码的认证机制"></a>基于密码的认证机制</h1><h2 id="用户名"><a href="#用户名" class="headerlink" title="用户名"></a>用户名</h2><ol>
+<li>查找潜在公开的用户名<ol>
+<li>profile，可能profile里的名字是用户名</li>
+<li>http报文里的email，可能包含管理员的邮箱，而邮箱可能包含管理员的用户名</li>
+</ol>
+</li>
+<li>判断用户名的recognizable pattern</li>
+<li>尝试 username enumeration<ol>
+<li>检查status code</li>
+<li>检查 error 信息</li>
+<li>检查 response times</li>
+</ol>
+</li>
+</ol>
+<h2 id="密码"><a href="#密码" class="headerlink" title="密码"></a>密码</h2><ol>
+<li>检查密码policy</li>
+<li>根据policy，用户习惯等准备字典</li>
+<li>爆破</li>
+</ol>
+<h2 id="lab1"><a href="#lab1" class="headerlink" title="lab1"></a>lab1</h2><p>官网提供的字典<br><a href="https://portswigger.net/web-security/authentication/auth-lab-usernames">https://portswigger.net/web-security/authentication/auth-lab-usernames</a><br><a href="https://portswigger.net/web-security/authentication/auth-lab-passwords">https://portswigger.net/web-security/authentication/auth-lab-passwords</a></p>
+<p>lab: <a href="https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-different-responses">https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-different-responses</a></p>
+<p>直接用burpsuite的集群炸弹</p>
+<p>但感觉这样太低效，而且可以user enumeration，所以先枚举用户名</p>
+<p><img src="/2025/11/24/portswigger-authentication/image.png" alt="alt text"></p>
+<p>用户名acid</p>
+<p>接下来爆密码</p>
+<p><img src="/2025/11/24/portswigger-authentication/image-1.png" alt></p>
+<p>密码shadow</p>
+<h2 id="lab2"><a href="#lab2" class="headerlink" title="lab2"></a>lab2</h2><p>lab: <a href="https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-subtly-different-responses">https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-subtly-different-responses</a></p>
+]]></content>
+      <categories>
+        <category>portswigger</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第二周</title>
+    <url>/2025/11/24/%E7%AC%AC%E4%BA%8C%E5%91%A8/</url>
+    <content><![CDATA[<span id="more"></span>
+<h1 id="11月24日-周一"><a href="#11月24日-周一" class="headerlink" title="11月24日 周一"></a>11月24日 周一</h1><p>先继续列昨天没列完的</p>
+<ul>
+<li>[ ] authentication</li>
+<li>[ ] business logic</li>
+<li>[ ] information disclosure</li>
+<li>[ ] command injection</li>
+<li>[ ] access control</li>
+<li>[ ] file upload</li>
+<li>[ ] race conditions</li>
+<li>[ ] ssrf</li>
+<li>[ ] xxe</li>
+<li>[ ] nosql</li>
+<li>[ ] api test</li>
+<li>[ ] web cache deception</li>
+<li>[ ] path traversal</li>
+<li>[ ] sql injection</li>
+<li>[ ] xss</li>
+<li>[ ] csrf</li>
+<li>[ ] cros</li>
+<li>[ ] clickjacking</li>
+<li>[ ] dom-based</li>
+<li>[ ] web sockets</li>
+<li>[ ] deserialization</li>
+<li>[ ] web llm</li>
+<li>[ ] graphql api</li>
+<li>[ ] server-side template injection</li>
+<li>[ ] web cache poisoning</li>
+<li>[ ] http host header</li>
+<li>[ ] http request smuggling</li>
+<li>[ ] oauth authentication</li>
+<li>[ ] jwt attack</li>
+<li>[ ] prototype pollution</li>
+<li>[ ] essential skills</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>第一周</title>
     <url>/2025/11/19/%E7%AC%AC%E4%B8%80%E5%91%A8/</url>
-    <content><![CDATA[<p>我现在需要发展以下能力：</p>
+    <content><![CDATA[<span id="more"></span>
+<p>我现在需要发展以下能力：</p>
 <ol>
 <li>精通web全部种类的漏洞</li>
 <li>前端js逆向</li>
@@ -43,9 +126,34 @@
 <h2 id="热力学-气体动理论"><a href="#热力学-气体动理论" class="headerlink" title="热力学 气体动理论"></a>热力学 气体动理论</h2><p>气体动理论是研究气体热现象的微观理论</p>
 <p>阿伏伽德罗常数</p>
 <script type="math/tex; mode=display">
-N_a = 6.022\times10^{23}\quad mol^{-1}</script><script type="math/tex; mode=display">
-</script><p>回家了</p>
+N_a = 6.022\times10^{23}\quad mol^{-1}</script><p>回家了</p>
 <p>测试一下图片顶不顶用<br><img src="/2025/11/19/%E7%AC%AC%E4%B8%80%E5%91%A8/Snipaste_2025-11-21_19-51-04.png" alt="alt text"></p>
+<p>哦，回家路上看了个讲贝叶斯主义的书，完全看不懂</p>
+<hr>
+<p>捣鼓了那个winget</p>
+<ol>
+<li>换了个源</li>
+<li>他妈的垃圾winget不能自动刷新环境变量，还得我打命令，只能弄一个批处理凑合着用了</li>
+</ol>
+<hr>
+<p>所以终于可以弄portswigger了嘛</p>
+<p>哦，还不能，因为要将手机微信聊天的部分备份到电脑上</p>
+<p>为什么呢，因为要给某个项目进行数据备份</p>
+<h1 id="11月22号-周六"><a href="#11月22号-周六" class="headerlink" title="11月22号 周六"></a>11月22号 周六</h1><p>早上起来进行了一次《囚徒健身》<br>项目是4<em>10举腿和4</em>10桥</p>
+<p>再多不行了，再多就要身体其他部位代偿了</p>
+<p>还有一件事，鼻喉上火痛死我了，为什么会上火呢？</p>
+<h1 id="11月23号-周日"><a href="#11月23号-周日" class="headerlink" title="11月23号 周日"></a>11月23号 周日</h1><p>一回家就变懒了</p>
+<p>哦，那个脉脉会员自动退款没关，真服了，今天申请退款，</p>
+<hr>
+<p>列一下portswigger的攻略顺序，过去打过的排后面，没打过的放前面，不然没有正反馈</p>
+<ul>
+<li>[ ] authentication</li>
+<li>[ ] business logic</li>
+<li>[ ] information disclosure</li>
+<li>[ ] command injection</li>
+<li>[ ] path traversal</li>
+<li>[ ] sql injection</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
