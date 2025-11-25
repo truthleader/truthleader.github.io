@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git rebase VS merge</title>
+    <url>/2025/11/25/Git-rebase-VS-merge/</url>
+    <content><![CDATA[<span id="more"></span>
+<p>因为在两台电脑上我都各自进行了博客的写作，导致发生了冲突</p>
+]]></content>
+  </entry>
+  <entry>
     <title>portswigger_authentication</title>
     <url>/2025/11/24/portswigger-authentication/</url>
     <content><![CDATA[<h1 id="漏洞产生原因"><a href="#漏洞产生原因" class="headerlink" title="漏洞产生原因"></a>漏洞产生原因</h1><ol>
@@ -80,6 +87,30 @@
 <li>[ ] prototype pollution</li>
 <li>[ ] essential skills</li>
 </ul>
+<hr>
+<p>在算法课上弄了会portswigger<br>回宿舍age of history 3<br>吃午饭<br>刷b站<br>现在是tm晚上6点了，我在干什么</p>
+<hr>
+<p>铸剑杯预选赛惨败，原因复盘如下：</p>
+<ol>
+<li>没有用ctf一把梭</li>
+<li>没有pwn✌</li>
+<li>没有取证✌</li>
+</ol>
+<p>哦对了，现在是23点41分，但因为没有写博客，所以睡不着了，冒着惹怒室友的风险写博客</p>
+<ul>
+<li>[ ] 博客的git branch分叉了，研究一下</li>
+<li>[ ] 继续写portswigger</li>
+<li>[ ] 今天没有锻炼，明天补</li>
+<li>[ ] 给博客加评论功能</li>
+<li>[ ] 建一个安全·博客·交流群</li>
+<li>[ ] 将钓鱼总结写掉</li>
+</ul>
+<p>睡觉</p>
+<h1 id="11月25号-周二"><a href="#11月25号-周二" class="headerlink" title="11月25号 周二"></a>11月25号 周二</h1><p>早起上课，看到一本有意思的书《意识光谱》，刚开始看<br>然后，物理课上琢磨光，眼睛是一种电磁波检测器，当电场磁场左脚踩右脚撞到我的视网膜，就会和我的感光细胞和视纤细胞发生作用，然后我的身体就是到了光的振幅和频率</p>
+<p>中午，去锻炼，做了引体向上和倒立<br>顺带一提，锻炼的时候正好有个女士在单杠上做卷腹，因为近视所以没看清，但应该是十分美丽的，印象里带了个灯罩帽和牛仔裤</p>
+<p>吃完中饭，去玩了会age of history，刷了会B站，然后敲了国际人才英语选修课，开始做事情</p>
+<hr>
+<p>tm的truthleader，你在干什么，现在是8点25了，别刷B站了</p>
 ]]></content>
   </entry>
   <entry>
