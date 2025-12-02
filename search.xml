@@ -3,7 +3,11 @@
   <entry>
     <title>马原复习</title>
     <url>/2025/12/02/%E9%A9%AC%E5%8E%9F%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">markmap:</span><br><span class="line">  colorFreezeLevel: 2</span><br><span class="line">---</span><br><span class="line"># Markdown</span><br><span class="line"># Syntax</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">markmap:</span><br><span class="line">  colorFreezeLevel: 2</span><br><span class="line">---</span><br><span class="line"># Markdown</span><br><span class="line"># Syntax</span><br></pre></td></tr></table></figure>
+<div class="markmap-wrap">
+      <script type="application/json">{"content":"","children":[{"content":"Markdown","children":[],"payload":{"tag":"h1","lines":"4,5"}},{"content":"Syntax","children":[],"payload":{"tag":"h1","lines":"5,6"}}]}</script>
+      <script type="application/json">{"colorFreezeLevel":2}</script>
+    </div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
