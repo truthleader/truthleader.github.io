@@ -254,7 +254,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:49" itemprop="dateModified" datetime="2025-12-02T01:15:49+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -498,6 +498,10 @@
 <li>vocal 声音 to be vocal for someone 代表支持某人</li>
 <li>to try the worksheet with a quiz for this programme</li>
 </ol>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
       
     </div>
@@ -560,7 +564,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:49" itemprop="dateModified" datetime="2025-12-02T01:15:49+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -674,7 +678,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:50" itemprop="dateModified" datetime="2025-12-02T01:15:50+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -714,6 +718,10 @@
           <p>由于arl开一个task扫C段，不会像扫域名一样给每个C段各分一个任务，反而把所有C段放一个任务里，这就导致内存占用过大，便宜服务器跑了会报错<br>所以我用脚本快速创建多个任务，一个任务一个C段<br>ps:最好的方法是改ARL，但感觉太麻烦了</p>
 <p>脚本：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">token=<span class="string">&quot;&quot;</span></span><br><span class="line">policy_id=<span class="string">&quot;&quot;</span></span><br><span class="line">ua=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;C段文件&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    lines=file.readlines()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(lines)+<span class="number">12</span>):</span><br><span class="line">    data=&#123;<span class="string">&quot;policy_id&quot;</span>:policy_id,<span class="string">&quot;name&quot;</span>:<span class="string">&quot;默认名&quot;</span>+<span class="built_in">str</span>(i),<span class="string">&quot;task_tag&quot;</span>:<span class="string">&quot;task&quot;</span>,<span class="string">&quot;target&quot;</span>:lines[i]&#125;</span><br><span class="line">    time.sleep(<span class="number">1</span>) <span class="comment"># 对你的服务器好一点</span></span><br><span class="line">    <span class="comment"># 记得该IP</span></span><br><span class="line">    response=requests.post(<span class="string">&quot;https://IP:5003/api/task/policy/&quot;</span>,json=data,headers=&#123;<span class="string">&#x27;token&#x27;</span>:token,<span class="string">&quot;user-agent&quot;</span>:ua&#125;,verify=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
       
     </div>
@@ -776,7 +784,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:50" itemprop="dateModified" datetime="2025-12-02T01:15:50+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -883,7 +891,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:50" itemprop="dateModified" datetime="2025-12-02T01:15:50+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -991,7 +999,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:49" itemprop="dateModified" datetime="2025-12-02T01:15:49+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1043,6 +1051,10 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/iagox86/hash_extender">https://github.com/iagox86/hash_extender</a></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://luoingly.top/post/md5-length-extension-attack/">https://luoingly.top/post/md5-length-extension-attack/</a></p>
 </blockquote>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
       
     </div>
@@ -1105,7 +1117,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:49" itemprop="dateModified" datetime="2025-12-02T01:15:49+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1216,7 +1228,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:49" itemprop="dateModified" datetime="2025-12-02T01:15:49+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1323,7 +1335,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:50" itemprop="dateModified" datetime="2025-12-02T01:15:50+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1381,6 +1393,10 @@
 <p>在内存的最底部,段地址和偏移地址都为0的地方,存在名为Interrupt Vector Table的数据结构<br>其包含256个条目,每个条目有4bytes,每个条目都是一个内存地址称为中断向量</p>
 <p>其中第0x80项:中断服务例程（ISR）会读取<code>%eax</code>寄存器中的系统调用号，并根据该号码查找并调用相应的系统调用处理函数</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>int 80h是进行系统调用的方法</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
       
     </div>
@@ -1443,7 +1459,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:50" itemprop="dateModified" datetime="2025-12-02T01:15:50+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1489,6 +1505,10 @@
 <li>制作template 把句型提取出来 用n种方式补全 (I haven’t ··· yet today )</li>
 </ol>
 <p>关于步骤一,平时没有积累,不知道弱项怎么办的?<br>网上找篇文章,读个2-3遍,用自己的英语写一遍,丢给AI</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
       
     </div>

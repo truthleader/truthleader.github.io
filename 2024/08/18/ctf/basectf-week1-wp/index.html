@@ -63,7 +63,7 @@
 <meta property="og:image" content="https://truthleader.github.io/2024/08/18/ctf/basectf-week1-wp/re_base2.png">
 <meta property="og:image" content="https://truthleader.github.io/2024/08/18/ctf/basectf-week1-wp/re_base3.png">
 <meta property="article:published_time" content="2024-08-18T12:01:06.000Z">
-<meta property="article:modified_time" content="2025-12-02T01:09:20.098Z">
+<meta property="article:modified_time" content="2025-12-02T01:15:49.902Z">
 <meta property="article:author" content="truthleader">
 <meta property="article:tag" content="writeup - basectf">
 <meta name="twitter:card" content="summary">
@@ -296,7 +296,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-02 01:09:20" itemprop="dateModified" datetime="2025-12-02T01:09:20+00:00">2025-12-02</time>
+      <time title="Modified: 2025-12-02 01:15:49" itemprop="dateModified" datetime="2025-12-02T01:15:49+00:00">2025-12-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -410,6 +410,10 @@ n的欧拉函数是(p-1)*(q-1)=p</code>*`q-p-q+1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 一个字符有8bit</span><br><span class="line">(unsigned __int8)v15 &gt;&gt; 2 // 第一个字符的前6个bit</span><br><span class="line">(HIBYTE(v15) &gt;&gt; 4) | (16 * v15) &amp; 0x30 // 第二个字符的前4bit和第一个字符的后2bit</span><br><span class="line">(v16 &gt;&gt; 6) | (4 * HIBYTE(v15)) &amp; 0x3C // 第三个字符的前2个bit和第二哥字符的后4bit</span><br><span class="line">v16 &amp; 0x3F // 第三个字符的后6bit</span><br></pre></td></tr></table></figure>
 <p>总之,我们只要把所有的bit拼回去,就能得到flag</p>
 <p>exp如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">flag = &quot;lvfzBiZiOw7&lt;lhF8dDOfEbmI]i@bdcZfEc^z&gt;aD!&quot;</span><br><span class="line">secret=&quot;/128GhIoPQROSTeUbADfgHijKLM+n0pFWXY456xyzB7=39VaqrstJklmNuZvwcdEC&quot;</span><br><span class="line">flag = list(flag)</span><br><span class="line">for i in range(len(flag)):</span><br><span class="line">    flag[i] = ord(flag[i]) ^ 0xE</span><br><span class="line"></span><br><span class="line">for i in range(0, len(flag),4):</span><br><span class="line">    a1=secret.index(chr(flag[i])) # v15 前6位 为00111111</span><br><span class="line">    a2=secret.index(chr(flag[i+1])) # v16的前4位和v15后2位为00001111和00110000</span><br><span class="line">    a3=secret.index(chr(flag[i+2])) # v16的后4位和v17的前2位00111100 00000011</span><br><span class="line">    a4=secret.index(chr(flag[i+3])) # v17的后6位00111111</span><br><span class="line">    v15_1 = (a2 &amp; 0b00110000)&gt;&gt;4</span><br><span class="line">    v15_2 = a1&lt;&lt; 2</span><br><span class="line">    v15 = v15_1 | v15_2</span><br><span class="line">    v16_1 = (a2 &amp; 0b00001111) &lt;&lt; 4</span><br><span class="line">    v16_2 = (a3&amp;0b00111100) &gt;&gt; 2</span><br><span class="line">    v16=v16_1|v16_2</span><br><span class="line">    v17_1=(a3&amp;0b00000011)&lt;&lt;6</span><br><span class="line">    v17_2=(a4 &amp; 0b00111111)</span><br><span class="line">    v17=v17_1|v17_2</span><br><span class="line"></span><br><span class="line">    print(chr(v15),end=&#x27;&#x27;)</span><br><span class="line">    print(chr(v16),end= &#x27;&#x27;)</span><br><span class="line">    print(chr(v17),end= &#x27;&#x27;)</span><br></pre></td></tr></table></figure></p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
 
     </div>
 
