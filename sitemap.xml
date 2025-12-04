@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://truthleader.github.io/about/index.html</loc>
-    
-    <lastmod>2025-12-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://truthleader.github.io/categories/index.html</loc>
     
     <lastmod>2025-12-04</lastmod>
@@ -39,6 +30,15 @@
   
   <url>
     <loc>https://truthleader.github.io/tags/index.html</loc>
+    
+    <lastmod>2025-12-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://truthleader.github.io/about/index.html</loc>
     
     <lastmod>2025-12-04</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://truthleader.github.io/2024/08/05/other/how-to-correct-grammar-effectively/</loc>
+    <loc>https://truthleader.github.io/2024/11/23/other/arl-web-add-cTask-quickly/</loc>
     
     <lastmod>2025-12-04</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://truthleader.github.io/2024/11/23/other/arl-web-add-cTask-quickly/</loc>
+    <loc>https://truthleader.github.io/2024/08/05/other/how-to-correct-grammar-effectively/</loc>
     
     <lastmod>2025-12-04</lastmod>
     
