@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>发现的有趣博客</title>
+    <url>/2025/12/10/%E5%8F%91%E7%8E%B0%E7%9A%84%E6%9C%89%E8%B6%A3%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>我感觉有意思的博客,单纯的搜集下来<br><a href="https://benpaodewoniu.github.io/">https://benpaodewoniu.github.io/</a></p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据结构复习</title>
+    <url>/2025/12/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树：是由n个节点构成的有限集合T，n=0为空树，n!=0,满足</p>
+<ol>
+<li>有root</li>
+<li>除root外，其他节点被分成互不相交的有限集合，每个集合也是树</li>
+</ol>
+<p>结点的度：拥有的子树数目，即有几个分支</p>
+<p>叶结点：度为0<br>分支节点：度不为0<br>孩子节点：某一结点的直接后继<br>父亲结点：某一结点的直接前继</p>
+<p>结点的层次：root为1层<br>书的高度：最大层次</p>
+<p>有序树：从左到右子树有序，不可交换<br>无序树：次序不重要<br>森林：互不相交的树的集合</p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><ol>
+<li>有序树</li>
+<li>左右之分</li>
+</ol>
+<h3 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h3><p>任意一层的节点个数达到了最大值<br>高度为k的二叉树有$2^k-1$个结点</p>
+<h3 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h3><p>只有最下面两层结点的可以小于2，且最下面一层的结点都在最左边的连续位置</p>
+<h3 id="正则二叉树"><a href="#正则二叉树" class="headerlink" title="正则二叉树"></a>正则二叉树</h3><p>除了叶节点，所有分支节点度为2</p>
+<h3 id="扩充二叉树"><a href="#扩充二叉树" class="headerlink" title="扩充二叉树"></a>扩充二叉树</h3><p>在出现空子树的位置填充叶结点</p>
+<h2 id="二叉树性质"><a href="#二叉树性质" class="headerlink" title="二叉树性质"></a>二叉树性质</h2><ol>
+<li>非空二叉树的i层最多有$2^{i-1}$个结点</li>
+<li>深度为k的二叉树最多有，${2^{k}-1}$个节点</li>
+<li>任意二叉树,叶节点个数为$n_0$,度为2的分支结点为$n_2$个,则$n_0=n_2-1$</li>
+</ol>
+<h2 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h2><h3 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h3><h3 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h3><h2 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h2><h3 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h3><p>D表示访问根节点<br>R表示遍历右子树<br>L表示遍历左子树</p>
+<h4 id="前序"><a href="#前序" class="headerlink" title="前序"></a>前序</h4><p>DLR</p>
+<h4 id="中序"><a href="#中序" class="headerlink" title="中序"></a>中序</h4><p>LDR</p>
+<h4 id="后序"><a href="#后序" class="headerlink" title="后序"></a>后序</h4><p>LRD</p>
+<h3 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h3><ol>
+<li>根结点入队</li>
+<li>队列非空循环3~5</li>
+<li>出队一个结点并访问</li>
+<li>左孩子入队</li>
+<li>右孩子入队</li>
+</ol>
+<h2 id="树的存储结构"><a href="#树的存储结构" class="headerlink" title="树的存储结构"></a>树的存储结构</h2><h3 id="双亲表示法"><a href="#双亲表示法" class="headerlink" title="双亲表示法"></a>双亲表示法</h3><h3 id="孩子表示法"><a href="#孩子表示法" class="headerlink" title="孩子表示法"></a>孩子表示法</h3><h3 id="孩子兄弟表示法"><a href="#孩子兄弟表示法" class="headerlink" title="孩子兄弟表示法"></a>孩子兄弟表示法</h3><h2 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h2><h3 id="深度优先-1"><a href="#深度优先-1" class="headerlink" title="深度优先"></a>深度优先</h3><h3 id="广度优先-1"><a href="#广度优先-1" class="headerlink" title="广度优先"></a>广度优先</h3><h1 id="树和二叉树的应用"><a href="#树和二叉树的应用" class="headerlink" title="树和二叉树的应用"></a>树和二叉树的应用</h1><h2 id="表达式树"><a href="#表达式树" class="headerlink" title="表达式树"></a>表达式树</h2><h2 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><ol>
+<li>路径:从一个结点到另一个节点的分支序列</li>
+<li>路径长度</li>
+<li>结点权值</li>
+<li>结点的加权路径长度:从根节点到某个结点的路径长度与该结点的权值的乘积</li>
+<li>树的加长路径长度WPL:$\sum_{i=1}^{n}w_i l_i$</li>
+<li>n个具有权值的叶节点构成的二叉树中,WPL最小的那个</li>
+</ol>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li>有n个叶结点的,总共结点2n-1</li>
+<li>权值越大的结点离根节点跃进</li>
+<li>正则二叉树</li>
+<li>左右子树交换仍然是哈夫曼树</li>
+<li></li>
+</ol>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
+    <title>概率论复习</title>
+    <url>/2025/12/09/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="随机变量的数字特征"><a href="#随机变量的数字特征" class="headerlink" title="随机变量的数字特征"></a>随机变量的数字特征</h1><h2 id="数学期望"><a href="#数学期望" class="headerlink" title="数学期望"></a>数学期望</h2><script type="math/tex; mode=display">
+E(X)=\sum_{k=1}^{\infin}x_k\times p_x</script><p>或</p>
+<script type="math/tex; mode=display">
+E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随机变量的平均值</p>
+<h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h2><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
     <title>第四周</title>
     <url>/2025/12/08/%E7%AC%AC%E5%9B%9B%E5%91%A8/</url>
     <content><![CDATA[<span id="more"></span>
@@ -21,7 +101,11 @@
 <p>我只是想治疗我自己的神经症，思绪怎么飘到那么远的地方，好像我的人生就成了打扫屋子里满地的活的大便，然后传承给后来人，他们继续扫</p>
 <hr>
 <p>如果生活是一种斗争，那么我需要纲领，就好像挑大粪有省力的窍门和方法一样</p>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<hr>
+<h1 id="12月10号-周三"><a href="#12月10号-周三" class="headerlink" title="12月10号 周三"></a>12月10号 周三</h1><p>今天早起发现身体有点累，用还阳卧缓解一二</p>
+<hr>
+<p>想在hexo里添加动画功能,不然某些东西我不方便表达</p>
+<iframe src="https://docs.google.com/presentation/d/1Uk-jnTt9zCVUeVEaeb7CBjYCOhPeFzjmMn-xguNaW1o/embed" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
