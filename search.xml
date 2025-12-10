@@ -3,7 +3,9 @@
   <entry>
     <title>发现的有趣博客</title>
     <url>/2025/12/10/%E5%8F%91%E7%8E%B0%E7%9A%84%E6%9C%89%E8%B6%A3%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>我感觉有意思的博客,单纯的搜集下来<br><a href="https://benpaodewoniu.github.io/">https://benpaodewoniu.github.io/</a></p>
+    <content><![CDATA[<p>我感觉有意思的博客,单纯的搜集下来</p>
+<span id="more"></span>
+<p><a href="https://benpaodewoniu.github.io/">https://benpaodewoniu.github.io/</a></p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
@@ -13,7 +15,8 @@
   <entry>
     <title>数据结构复习</title>
     <url>/2025/12/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树：是由n个节点构成的有限集合T，n=0为空树，n!=0,满足</p>
+    <content><![CDATA[<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><span id="more"></span>
+<p>树：是由n个节点构成的有限集合T，n=0为空树，n!=0,满足</p>
 <ol>
 <li>有root</li>
 <li>除root外，其他节点被分成互不相交的有限集合，每个集合也是树</li>
@@ -70,7 +73,8 @@
   <entry>
     <title>概率论复习</title>
     <url>/2025/12/09/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="随机变量的数字特征"><a href="#随机变量的数字特征" class="headerlink" title="随机变量的数字特征"></a>随机变量的数字特征</h1><h2 id="数学期望"><a href="#数学期望" class="headerlink" title="数学期望"></a>数学期望</h2><script type="math/tex; mode=display">
+    <content><![CDATA[<h1 id="随机变量的数字特征"><a href="#随机变量的数字特征" class="headerlink" title="随机变量的数字特征"></a>随机变量的数字特征</h1><span id="more"></span>
+<h2 id="数学期望"><a href="#数学期望" class="headerlink" title="数学期望"></a>数学期望</h2><script type="math/tex; mode=display">
 E(X)=\sum_{k=1}^{\infin}x_k\times p_x</script><p>或</p>
 <script type="math/tex; mode=display">
 E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随机变量的平均值</p>
@@ -83,8 +87,8 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   <entry>
     <title>第四周</title>
     <url>/2025/12/08/%E7%AC%AC%E5%9B%9B%E5%91%A8/</url>
-    <content><![CDATA[<span id="more"></span>
-<h1 id="12月8号-周一"><a href="#12月8号-周一" class="headerlink" title="12月8号 周一"></a>12月8号 周一</h1><p>我去，这个ICSim怎么这么难装</p>
+    <content><![CDATA[<h1 id="12月8号-周一"><a href="#12月8号-周一" class="headerlink" title="12月8号 周一"></a>12月8号 周一</h1><span id="more"></span>
+<p>我去，这个ICSim怎么这么难装</p>
 <hr>
 <p>我是我的敌人，我的阴影，最讨厌的一切事物照出是我的脸<br>我可以选择忽视、选择做出将它抹除的努力，但我想，我不该忘记</p>
 <p>想想我的未来和未来的社会<br>当下有什么力量，在引导着社会前进的方向？</p>
@@ -105,7 +109,36 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
 <h1 id="12月10号-周三"><a href="#12月10号-周三" class="headerlink" title="12月10号 周三"></a>12月10号 周三</h1><p>今天早起发现身体有点累，用还阳卧缓解一二</p>
 <hr>
 <p>想在hexo里添加动画功能,不然某些东西我不方便表达</p>
-<iframe src="https://docs.google.com/presentation/d/1Uk-jnTt9zCVUeVEaeb7CBjYCOhPeFzjmMn-xguNaW1o/embed" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<iframe src="https://docs.google.com/presentation/d/1Uk-jnTt9zCVUeVEaeb7CBjYCOhPeFzjmMn-xguNaW1o/embed" width="100%" height="300" frameborder="0" loading="lazy" allowfullscreen></iframe>
+<hr>
+<p>一个被我忘记的困扰</p>
+<p><a href="https://www.bilibili.com/video/BV1iddQYQE7D">https://www.bilibili.com/video/BV1iddQYQE7D</a></p>
+<p>我本来在想两个问题:</p>
+<ol>
+<li>有性欲了怎么办?肆意释放?压抑?有规律的节制的定期释放? 我没有看到任何的理念去为任何选择背书</li>
+<li>是否要提升性能力?不论是或否,我都不清楚为什么?</li>
+</ol>
+<p>很奇怪的一点是<br>如果性欲是一种身体官能(而它看起来确实是这样),那么有很多身体官能,我为什么不对那些官能产生和疑问</p>
+<p>例如运动<br>想运动了怎么办?那就去运动,场地时间不合适就等<br>是否要提升运动能力,当然</p>
+<p>还比如拉屎<br>想拉屎怎么办,那就去上厕所,脱不开身就憋<br>是否要提升拉屎能力,卧槽这个问题好恶心</p>
+<p>我能感受到,我在看到”提升性功能”之类的话语时会感到兴奋,虽然我基本上不承认或者摒弃,但我下意识地会对雄竞胜出的想象图景感到兴奋,尽管那个图景其实只有我一个人</p>
+<hr>
+<p>哦,我想起来了,意识光谱有自我阶层和存在阶层(即机体意识)<br>冥想以回到大心可以实现整合,但是毕竟人的能力就是二分法和符号运动<br>而存在阶层的产生,可以体见为所谓注意力,而其上的所有阶层的产生都靠所谓符号系统,而无刺激的性欲,欲望,情绪,感知都属于存在阶层</p>
+<p>解决方式在于注意力的分配,即冥想技巧之类的<br>我能想到的是真气运行法,意守丹田之类的东西</p>
+<p>我目前想到的具体心法有:</p>
+<ol>
+<li>平时意守丹田</li>
+<li>导时控鹤擒龙</li>
+<li>贤者时间猛虎自观兽性</li>
+</ol>
+<p>还有另一些性欲,跟社会意象挂钩了,例如我的性癖,我对性关系的理念之类的<br>目前不需要担心这些问题,能欣赏美丽的女子,但是没有过怦然心动</p>
+<hr>
+<p>该补习概率论了</p>
+<hr>
+<p>我又想起来了,那什么内功心法,讲的都是炼精化气,炼气化神,炼神返虚什么的<br>精好像就是性能量(什么东西?)来着</p>
+<p>那么提高性能力,这种想法就显得low了<br>要不要练内功?当然</p>
+<p>还有一点<br>性欲,粗浅的说,来自于注意力导致的主客体分离,即二分法,从而激活了身体的功能博奇<br>那么其他的次级二分法也有可能激活身体的其他隐藏功能<br>基于这种推理,一些事情可解释了</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
@@ -170,8 +203,8 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   <entry>
     <title>第三周</title>
     <url>/2025/12/01/%E7%AC%AC%E4%B8%89%E5%91%A8/</url>
-    <content><![CDATA[<span id="more"></span>
-<h1 id="12月1日-周一"><a href="#12月1日-周一" class="headerlink" title="12月1日 周一"></a>12月1日 周一</h1><p>吃了冷水配油条，现在我感觉快死了</p>
+    <content><![CDATA[<h1 id="12月1日-周一"><a href="#12月1日-周一" class="headerlink" title="12月1日 周一"></a>12月1日 周一</h1><span id="more"></span>
+<p>吃了冷水配油条，现在我感觉快死了</p>
 <hr>
 <p>我是蝙蝠侠<br>因为一我在发烧，二我觉得虽然我现在头痛体虚又冷又热，但我挺适应的<br>而蝙蝠是发烧常态化</p>
 <h1 id="12月2日-周二"><a href="#12月2日-周二" class="headerlink" title="12月2日 周二"></a>12月2日 周二</h1><p>物理书似乎没了</p>
@@ -374,8 +407,8 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   <entry>
     <title>第二周</title>
     <url>/2025/11/24/%E7%AC%AC%E4%BA%8C%E5%91%A8/</url>
-    <content><![CDATA[<span id="more"></span>
-<h1 id="11月24日-周一"><a href="#11月24日-周一" class="headerlink" title="11月24日 周一"></a>11月24日 周一</h1><p>先继续列昨天没列完的</p>
+    <content><![CDATA[<h1 id="11月24日-周一"><a href="#11月24日-周一" class="headerlink" title="11月24日 周一"></a>11月24日 周一</h1><span id="more"></span>
+<p>先继续列昨天没列完的</p>
 <ul>
 <li>[ ] authentication</li>
 <li>[ ] business logic</li>
@@ -506,7 +539,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   <entry>
     <title>第一周</title>
     <url>/2025/11/19/%E7%AC%AC%E4%B8%80%E5%91%A8/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<h1 id="11月19日"><a href="#11月19日" class="headerlink" title="11月19日"></a>11月19日</h1><span id="more"></span>
 <p>我现在需要发展以下能力：</p>
 <ol>
 <li>精通web全部种类的漏洞</li>
