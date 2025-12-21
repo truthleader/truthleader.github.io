@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>1. Andriod初探 从编写到发布</title>
+    <url>/2025/12/21/1-Andriod%E5%88%9D%E6%8E%A2-%E4%BB%8E%E7%BC%96%E5%86%99%E5%88%B0%E5%8F%91%E5%B8%83/</url>
+    <content><![CDATA[<h1 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h1><p>kotlin语言: <a href="https://www.runoob.com/kotlin/kotlin-tutorial.html">https://www.runoob.com/kotlin/kotlin-tutorial.html</a><br>创建您的首个andriod应用: <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?hl=zh-cn#1">https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?hl=zh-cn#1</a><br>怎么弄andriod虚拟机:<a href="https://developer.android.com/studio/run/managing-avds?hl=zh-cn">https://developer.android.com/studio/run/managing-avds?hl=zh-cn</a></p>
+<h1 id="安装-android-studio"><a href="#安装-android-studio" class="headerlink" title="安装 android studio"></a>安装 android studio</h1><p>重要的是科学上网<br>下载官网上的安装包,跟着提示走就行了</p>
+<h1 id="运行apk"><a href="#运行apk" class="headerlink" title="运行apk"></a>运行apk</h1><p>把该开的开开<br><img src="/2025/12/21/1-Andriod%E5%88%9D%E6%8E%A2-%E4%BB%8E%E7%BC%96%E5%86%99%E5%88%B0%E5%8F%91%E5%B8%83/image.png" alt="alt text"><br>然后装好这个<br><a href="https://blog.csdn.net/HFJsjsn/article/details/133281243">https://blog.csdn.net/HFJsjsn/article/details/133281243</a><br>之后就能在真机上运行apk了</p>
+<p><img src="/2025/12/21/1-Andriod%E5%88%9D%E6%8E%A2-%E4%BB%8E%E7%BC%96%E5%86%99%E5%88%B0%E5%8F%91%E5%B8%83/image-1.png" alt="alt text"></p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
+    <title>软件逆向比赛搜集</title>
+    <url>/2025/12/17/%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/%E8%BD%AF%E4%BB%B6%E9%80%86%E5%90%91%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/</url>
+    <content><![CDATA[<p>www.ccsssc.com</p>
+<p>腾讯游戏安全竞赛</p>
+<p>Pwn2Own</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
+    <title>web安全学习资料搜集</title>
+    <url>/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/web%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
+    <title>二进制安全学习资料搜集</title>
+    <url>/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</url>
+    <content><![CDATA[<0day安全软件漏洞分析技术（第二版）></0day安全软件漏洞分析技术（第二版）><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
+    <title>安卓逆向学习资料搜集</title>
+    <url>/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</url>
+    <content><![CDATA[<h1 id="相关教程或博客"><a href="#相关教程或博客" class="headerlink" title="相关教程或博客"></a>相关教程或博客</h1><p><a href="https://github.com/ZJ595/AndroidReverse">https://github.com/ZJ595/AndroidReverse</a><br><a href="https://wizardforcel.gitbooks.io/fl-android-re-tut/content/">https://wizardforcel.gitbooks.io/fl-android-re-tut/content/</a></p>
+<h1 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h1><p><a href="https://bbs.kanxue.com/forum-161.htm">https://bbs.kanxue.com/forum-161.htm</a></p>
+<h1 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h1><h1 id="靶场"><a href="#靶场" class="headerlink" title="靶场"></a>靶场</h1><p><a href="https://github.com/OWASP/MASTG-Hacking-Playground">https://github.com/OWASP/MASTG-Hacking-Playground</a><br><a href="https://github.com/rewanthtammana/Damn-Vulnerable-Bank">https://github.com/rewanthtammana/Damn-Vulnerable-Bank</a><br><a href="https://github.com/B3nac/InjuredAndroid">https://github.com/B3nac/InjuredAndroid</a></p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
     <title>第五周</title>
-    <url>/2025/12/16/%E7%AC%AC%E4%BA%94%E5%91%A8/</url>
+    <url>/2025/12/16/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%BA%94%E5%91%A8/</url>
     <content><![CDATA[<h1 id="12月16日-周二"><a href="#12月16日-周二" class="headerlink" title="12月16日 周二"></a>12月16日 周二</h1><span id="more"></span>
 <p>解决过剩享乐(所有享乐都只是过剩享乐,没有基本享乐)的目前唯一的方法<br>就是寻找痛苦,盯着痛苦,感受痛苦,成为痛苦,安静的看着,而不是以某种精神多动症的状态盯着</p>
 <p>当盯着痛苦时,痛苦会被消解从而不存在,只要不盯,就一定会产生过剩享乐产生的痛苦和其他无意义的无用痛苦<br>有时没有痛苦,继续盯着,那时痛苦等于空虚<br>有时会有痛苦,例如外界的变化影响到了内心的藩篱(经常发生),继续盯着<br>有时会有痛苦,因为正在做某种强制性行为,可能是别人让做的,可能是我想做的(尽管欲望的塑造起源于外界),都是认识的反映的能动作用产生的,那是也会有痛苦,盯着</p>
@@ -11,6 +66,23 @@
 <p>思考以上内容的原因是沉迷worldbox<br>尽管这游戏的内容表现了我的某些情节,但我对此没有思考的欲望<br>重要的是如何处理享乐冲动,解决方案就是盯着自己的痛苦,把得到的快乐和意义,对思考的沉溺放到余光里</p>
 <hr>
 <p>有两种盯着痛苦的姿态:冷静的和狂热的<br>前者通常在累的时候发生,后者通常在我玩黄油时,舍友路过时出现</p>
+<h1 id="12月17日"><a href="#12月17日" class="headerlink" title="12月17日"></a>12月17日</h1><p>我想我昨天领悟的奇怪东西可以称之为炼神返虚</p>
+<hr>
+<p>说实话,到晚上有点累了,不想做事情</p>
+<h1 id="12月18号-周四"><a href="#12月18号-周四" class="headerlink" title="12月18号 周四"></a>12月18号 周四</h1><p>还精补脑原来是这样</p>
+<hr>
+<p>原来还有微国这种东西</p>
+<hr>
+<p>应当分配一定时间在自学的专业上,那会给我活力</p>
+<h1 id="12月19号"><a href="#12月19号" class="headerlink" title="12月19号"></a>12月19号</h1><p>回家的时候,发现地铁门口左边的小拐角有个人乞讨,说是火灾了(我印象里确实有天整个学校几乎都能闻到烟味,但看不到哪里着火了),没钱吃饭,我转了5块钱,后来一想不对</p>
+<ol>
+<li>骗子怎么办</li>
+<li>5块前顶啥用啊</li>
+</ol>
+<p>于是我告知了地铁的辅警<br>想来这才是正确做法</p>
+<h1 id="12月20号"><a href="#12月20号" class="headerlink" title="12月20号"></a>12月20号</h1><p>偷懒真好啊</p>
+<hr>
+<p>apktool产生的是smali,可以再打包回apk<br>jadx-gui产生的是java代码,因为只是近似的,不能打包回去</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
@@ -103,7 +175,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   </entry>
   <entry>
     <title>第四周</title>
-    <url>/2025/12/08/%E7%AC%AC%E5%9B%9B%E5%91%A8/</url>
+    <url>/2025/12/08/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E5%91%A8/</url>
     <content><![CDATA[<h1 id="12月8号-周一"><a href="#12月8号-周一" class="headerlink" title="12月8号 周一"></a>12月8号 周一</h1><span id="more"></span>
 <p>我去，这个ICSim怎么这么难装</p>
 <hr>
@@ -168,7 +240,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   </entry>
   <entry>
     <title>车联网比赛搜集</title>
-    <url>/2025/12/06/%E8%BD%A6%E8%81%94%E7%BD%91%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/</url>
+    <url>/2025/12/06/%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/%E8%BD%A6%E8%81%94%E7%BD%91%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/</url>
     <content><![CDATA[<p>上海”铸盾2025”车联网攻防演练<br>NVDB-CAVD 2025汽车信息安全</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
@@ -224,7 +296,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   </entry>
   <entry>
     <title>第三周</title>
-    <url>/2025/12/01/%E7%AC%AC%E4%B8%89%E5%91%A8/</url>
+    <url>/2025/12/01/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%B8%89%E5%91%A8/</url>
     <content><![CDATA[<h1 id="12月1日-周一"><a href="#12月1日-周一" class="headerlink" title="12月1日 周一"></a>12月1日 周一</h1><span id="more"></span>
 <p>吃了冷水配油条，现在我感觉快死了</p>
 <hr>
@@ -310,7 +382,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   </entry>
   <entry>
     <title>车联网学习资料搜集</title>
-    <url>/2025/11/30/%E8%BD%A6%E8%81%94%E7%BD%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</url>
+    <url>/2025/11/30/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E8%BD%A6%E8%81%94%E7%BD%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</url>
     <content><![CDATA[<p><a href="https://www.iotsec-zone.com/">https://www.iotsec-zone.com/</a></p>
 <p><a href="https://www.iotsec-zone.com/article/79">https://www.iotsec-zone.com/article/79</a></p>
 <p><a href="https://forum.butian.net/share/4288">https://forum.butian.net/share/4288</a></p>
@@ -428,7 +500,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   </entry>
   <entry>
     <title>第二周</title>
-    <url>/2025/11/24/%E7%AC%AC%E4%BA%8C%E5%91%A8/</url>
+    <url>/2025/11/24/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E5%91%A8/</url>
     <content><![CDATA[<h1 id="11月24日-周一"><a href="#11月24日-周一" class="headerlink" title="11月24日 周一"></a>11月24日 周一</h1><span id="more"></span>
 <p>先继续列昨天没列完的</p>
 <ul>
@@ -525,7 +597,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
 <hr>
 <h2 id="车联网属于物联网，而物联网大多属于二进制，所以我要学二进制"><a href="#车联网属于物联网，而物联网大多属于二进制，所以我要学二进制" class="headerlink" title="车联网属于物联网，而物联网大多属于二进制，所以我要学二进制"></a>车联网属于物联网，而物联网大多属于二进制，所以我要学二进制</h2><p>在zlib上下了《物联网安全漏洞挖掘实战》<br>portswigger就往后放放吧</p>
 <hr>
-<p><img src="/2025/11/24/%E7%AC%AC%E4%BA%8C%E5%91%A8/image.png" alt="alt text"></p>
+<p><img src="/2025/11/24/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E5%91%A8/image.png" alt="alt text"></p>
 <p>车的问题解决思路之一</p>
 <hr>
 <p>没有绝对的安全，网安发展的实质是提升攻击成本和难度，那么，当目标行业本身没有发展时，该行业的总体攻击成本和难度必然趋于一个极限而相对停滞</p>
@@ -560,7 +632,7 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
   </entry>
   <entry>
     <title>第一周</title>
-    <url>/2025/11/19/%E7%AC%AC%E4%B8%80%E5%91%A8/</url>
+    <url>/2025/11/19/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%B8%80%E5%91%A8/</url>
     <content><![CDATA[<h1 id="11月19日"><a href="#11月19日" class="headerlink" title="11月19日"></a>11月19日</h1><span id="more"></span>
 <p>我现在需要发展以下能力：</p>
 <ol>
@@ -610,7 +682,7 @@ N_a = 6.022\times10^{23}\quad mol^{-1}</script><p>微观量一般不可测，所
 </ol>
 <p>标准状态</p>
 <p>0摄氏度，1个atm标准大气压（$1.01325\times10^{5}\quad $$Pa$）<br>回家了</p>
-<p>测试一下图片顶不顶用<br><img src="/2025/11/19/%E7%AC%AC%E4%B8%80%E5%91%A8/Snipaste_2025-11-21_19-51-04.png" alt="alt text"></p>
+<p>测试一下图片顶不顶用<br><img src="/2025/11/19/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%B8%80%E5%91%A8/Snipaste_2025-11-21_19-51-04.png" alt="alt text"></p>
 <p>哦，回家路上看了个讲贝叶斯主义的书，完全看不懂</p>
 <h2 id="考完了，结果是开卷，那么物理什么的以后再学吧"><a href="#考完了，结果是开卷，那么物理什么的以后再学吧" class="headerlink" title="考完了，结果是开卷，那么物理什么的以后再学吧"></a>考完了，结果是开卷，那么物理什么的以后再学吧</h2><p>捣鼓了那个winget</p>
 <ol>
