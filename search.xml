@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2-逆向Simple-Notes-以了解apk的结构</title>
+    <url>/2025/12/24/2-%E9%80%86%E5%90%91Simple-Notes-%E4%BB%A5%E4%BA%86%E8%A7%A3apk%E7%9A%84%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="有帮助的资料"><a href="#有帮助的资料" class="headerlink" title="有帮助的资料"></a>有帮助的资料</h1><p><a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/">https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/</a></p>
+<h1 id="apk"><a href="#apk" class="headerlink" title="apk?"></a>apk?</h1><p>apk本质上是zip</p>
+<p>其构建过程大概是这样</p>
+<p>源代码 (.java/.kt)<br>    ↓ 编译<br>字节码 (.class)<br>    ↓ dx/r8<br>DEX文件 (.dex)<br>    ↓ 打包<br>APK (ZIP) ← 加入资源、清单等<br>    ↓ 签名<br>签名APK ← 加入META-INF/<br>    ↓ 对齐<br>发布APK ← 优化文件对齐</p>
+<h1 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml?"></a>AndroidManifest.xml?</h1><p>该文件记录了app的信息,版本号,名称,权限之类的,由手机操作系统读取</p>
+<h1 id="META-INF"><a href="#META-INF" class="headerlink" title="META-INF?"></a>META-INF?</h1><p>存放了<br>CERT.RSA<br>CERT.SF<br>MANIFEST.MF</p>
+<p>我简单理解为<br>MANIFEST.MF 验证所有程序文件未被篡改,对每个文件都做了hash散列<br>CERT.SF 验证MANIFEST.MF,给MANIFEST.MF作一次散列,然后文件条目的散列做二次散列,最后这些东西用私钥加密存放到CERT.RSA<br>CERT.RSA 验证开发者和CERT.SF的可靠真实,存放了对应的公钥</p>
+<p>设备验证时：</p>
+<ol>
+<li>从CERT.RSA提取证书和公钥</li>
+<li>用公钥解密CERT.SF的签名，得到预期哈希H1</li>
+<li>计算CERT.SF的实际哈希H2</li>
+<li>如果 H1 == H2，证明CERT.SF是可信的</li>
+<li>再用CERT.SF验证MANIFEST.MF</li>
+<li>最后用MANIFEST.MF验证所有文件</li>
+</ol>
+<p>那么为什么这个能保证apk不被篡改呢?<br>因为如果篡改了文件,那么MANIFEST.MF就必须改变<br>然后就需要重新计算CERT.SF<br>但是CERT.RSA的伪造,需要私钥对新的CERT.SF的签名,而私钥只在开发者的电脑上</p>
+<h1 id="res"><a href="#res" class="headerlink" title="res?"></a>res?</h1><p>存放了非代码的文件,主要是图片和xml</p>
+<h1 id="unknown"><a href="#unknown" class="headerlink" title="unknown?"></a>unknown?</h1><p>unknown/<br>├── ezvcard/          # 第三方vCard库的资源<br>├── freemarker/       # FreeMarker模板引擎<br>├── kotlin/          # Kotlin标准库资源<br>└── org/joda/time/   # Joda-Time时区数据</p>
+<h1 id="assets-dexopt"><a href="#assets-dexopt" class="headerlink" title="assets/dexopt"></a>assets/dexopt</h1><p>好像是,apk里的dex要即时编译才能在cpu的层面被执行,而这中间会有时间,因此预先编译部分重要信息作为缓存</p>
+<h1 id="classes-dex"><a href="#classes-dex" class="headerlink" title="classes.dex?"></a>classes.dex?</h1><p>这个就是程序的核心了<br>我猜,对andriod的漏洞的挖掘,主要从这里着手<br>不过,如果是分析apk病毒之类的,可能要加大分析范围</p>
+<p>如果apktool 不加—no-src 选项,就不会有这个文件,取而代之的是smali文件夹</p>
+<h1 id="dex"><a href="#dex" class="headerlink" title="dex?"></a>dex?</h1><p>字节码<br>我对它的理解</p>
+<p>类似于.class 对于java虚拟机<br>类似于.pyc 对于python虚拟机<br>类似于机器码 对于真机<br>这个运行在andriod虚拟机上</p>
+<hr>
+<p>收工</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
     <title>2-Reverse Simple-Notes-learn structure of apk</title>
     <url>/2025/12/24/2-Reverse-Simple-Notes-learn-structure-of-apk/</url>
-    <content><![CDATA[<p>Because I will show my learning to the author of this app, so I will firstly write the English version of the article.</p>
+    <content><![CDATA[<p>Because I will show my learning to the author of this app, so I will write the English version of the article.</p>
 <p>The app we will reverse below.<br><a href="https://github.com/SimpleMobileTools/Simple-Notes">https://github.com/SimpleMobileTools/Simple-Notes</a></p>
 <hr>
 <p><del>if you find my English mistakes, just tell me and I will appreciate your feedbacks.</del></p>
-<span id="more"></span><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<hr>
+<span id="more"></span>
+<p>use <code>apktool d Simple-Notes.apk -o unpacked</code> to unpack and decomplie apk</p>
+<p>use <code>apktool d Simple-Notes.apk -o no_src_unpacked --no-src</code> to unpack but not decomplie</p>
+<h1 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml?"></a>AndroidManifest.xml?</h1><p><a href="https://developer.aliyun.com/article/1122024">https://developer.aliyun.com/article/1122024</a></p>
+<p>It tells phone informations so phone will give the app permissions or other things.</p>
+<h1 id="META-INF"><a href="#META-INF" class="headerlink" title="META-INF?"></a>META-INF?</h1><h1 id="res"><a href="#res" class="headerlink" title="res?"></a>res?</h1><h1 id="unknown"><a href="#unknown" class="headerlink" title="unknown?"></a>unknown?</h1><h1 id="assets-dexopt"><a href="#assets-dexopt" class="headerlink" title="assets/dexopt"></a>assets/dexopt</h1><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
@@ -50,6 +91,19 @@
 <p>经过实践证明,不应该把r18 asmr作为番茄钟的白噪音</p>
 <hr>
 <h1 id="12月24日-周三"><a href="#12月24日-周三" class="headerlink" title="12月24日 周三"></a>12月24日 周三</h1><p>周记没什么动力写了<br>因为沉迷 Todo清单了<br>大概是好事</p>
+<hr>
+<p>好吧,打脸了,突然很有动力写了</p>
+<p>民族,种族,我以为是都是某种虚假的概念罢了<br>我其实还是很天真的,并没有想过,那些并不是虚的东西,而有可能是一种令人绝望的又高又厚的铁壁</p>
+<p><a href="https://space.bilibili.com/3546724557654138">https://space.bilibili.com/3546724557654138</a></p>
+<p>稍微看了些视频吧,我虽然我无法考证,但我想,我也不想考证</p>
+<ol>
+<li>因为里面的故事实在是吓人了</li>
+<li>似乎在情理之中,是合乎某些我说不上来的常理的,我潜意识觉得,可能会发生,而且已经发生了</li>
+</ol>
+<p>嘿,假设我现在告诉你,你这辈子可能就会活到20岁,而你没有接受任何的教育,你爹死了因为你爹被人用枪干掉或者被车撞了<br>你会如何打算你的生活<br>对我来说,如果是以穿越的形式过去,那么我可能会对食肉者宣泄愤怒的子弹<br>但从幼儿园开始,我就会不自觉的想象,如果我失去记忆,变成另一个人了,我会如何,如果我经历了我妈,我小学同学,小学老师的一生,我会表现得如何?<br>那是一种很玄妙的想象,但深邃而黑暗,是我儿时会有的一种噩梦<br>人和人的差别,可能人和猪的差别一样大<br>如果是我,我可能只会成为一种我虽然没有见过,但是互联网告诉我的,其实常见的那种,速生速死的灵长类浮游罢了<br>有的人或许会成为统计学里的数字,但已经很好了</p>
+<p>世界是一抹刺眼的灰</p>
+<hr>
+<p>thinking and writing in English make me painful. It sucks.</p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
