@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>discord bot 部署流程</title>
+    <url>/2025/12/22/discord-bot-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p><a href="https://bot-hosting.net/">https://bot-hosting.net/</a> 这个是免费的24/7的服务器,专供discord bot<br><a href="https://wiki.bot-hosting.net/guides/hosting-your-first-bot">https://wiki.bot-hosting.net/guides/hosting-your-first-bot</a> # 如何部署bot-hosting</p>
+<p><a href="https://hackmd.io/@smallshawn95/python_discord_bot_base">https://hackmd.io/@smallshawn95/python_discord_bot_base</a> # 教程<br><a href="https://www.youtube.com/watch?v=26Sj5hJFqUs">https://www.youtube.com/watch?v=26Sj5hJFqUs</a> # 如何写slash命令</p>
+<ol>
+<li><p>先在discord developers注册app <a href="https://discord.com/developers/applications">https://discord.com/developers/applications</a></p>
+</li>
+<li><p>复制 settings-&gt;Bot-&gt;Token里的值</p>
+</li>
+<li><p>以下的脚本放在本机上执行</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import discord</span><br><span class="line">from discord.ext import commands</span><br><span class="line"></span><br><span class="line">BOT_TOKEN = # 填写刚刚复制的</span><br><span class="line">GUILD_ID = # 填写服务器的server id,discord 个人设置 开发者模式打开,再右键伺服器的图标,最下面就能复制了</span><br><span class="line"></span><br><span class="line">class Client(commands.Bot):</span><br><span class="line">    async def on_ready(self):</span><br><span class="line">        print(f&quot;已&#123;self.user&#125;的身份登录!&quot;)</span><br><span class="line">        try:</span><br><span class="line">            guild = discord.Object(id = GUILD_ID)</span><br><span class="line"></span><br><span class="line">            synced= await self.tree.sync(guild=guild)</span><br><span class="line">            print(f&quot;同步了&#123;len(synced)&#125;条命令在&#123;guild.id&#125;&quot;)</span><br><span class="line">        except Exception as e:</span><br><span class="line">            print(f&quot;error syncing commands: &#123;e&#125;&quot;)</span><br><span class="line">    async def on_message(self, message):</span><br><span class="line">        if message.content.startswith(&quot;Lusalia&quot;):</span><br><span class="line">            await message.channel.send(f&#x27;Hi there &#123;message.author&#125;, what can I help you?&#x27;)</span><br><span class="line"></span><br><span class="line">    async def on_reaction_add(self, reaction, user):</span><br><span class="line">        await reaction.message.channel.send(&quot;you reacted&quot;)</span><br><span class="line"></span><br><span class="line">intents = discord.Intents.default()</span><br><span class="line">intents.message_content = True</span><br><span class="line">client = Client(command_prefix=&quot;!&quot;, intents=intents)</span><br><span class="line"></span><br><span class="line">guild = discord.Object(id = GUILD_ID)</span><br><span class="line">@client.tree.command(name=&quot;hello&quot;, description=&quot;问好&quot;, guild=guild)</span><br><span class="line">async def sayHello(interaction: discord.Interaction):</span><br><span class="line">    await interaction.response.send_message(&quot;Hello world!&quot;)</span><br><span class="line"></span><br><span class="line">@client.tree.command(name=&quot;say&quot;, description=&quot;say something&quot;, guild=guild)</span><br><span class="line">async def say(interaction: discord.Interaction, text: str):</span><br><span class="line">    await interaction.response.send_message(f&quot;You just said &#123;text&#125;!&quot;)</span><br><span class="line"></span><br><span class="line">client.run(BOT_TOKEN)</span><br></pre></td></tr></table></figure>
+<p>然后将bot添加到伺服器里,就算在本地部署成功了</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+  </entry>
+  <entry>
+    <title>第六周</title>
+    <url>/2025/12/22/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%85%AD%E5%91%A8/</url>
+    <content><![CDATA[<h1 id="12月22日-周一"><a href="#12月22日-周一" class="headerlink" title="12月22日 周一"></a>12月22日 周一</h1><span id="more"></span>
+<p>经过实践证明,不应该把r18 asmr作为番茄钟的白噪音</p>
+<hr>
+<h1 id="12月24日-周三"><a href="#12月24日-周三" class="headerlink" title="12月24日 周三"></a>12月24日 周三</h1><p>周记没什么动力写了<br>因为沉迷 Todo清单了<br>大概是好事</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+      <categories>
+        <category>周记</category>
+      </categories>
+  </entry>
+  <entry>
     <title>1. Andriod初探 从编写到发布</title>
     <url>/2025/12/21/1-Andriod%E5%88%9D%E6%8E%A2-%E4%BB%8E%E7%BC%96%E5%86%99%E5%88%B0%E5%8F%91%E5%B8%83/</url>
     <content><![CDATA[<h1 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h1><p>kotlin语言: <a href="https://www.runoob.com/kotlin/kotlin-tutorial.html">https://www.runoob.com/kotlin/kotlin-tutorial.html</a><br>创建您的首个andriod应用: <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?hl=zh-cn#1">https://developer.android.com/codelabs/basic-android-kotlin-compose-first-app?hl=zh-cn#1</a><br>怎么弄andriod虚拟机:<a href="https://developer.android.com/studio/run/managing-avds?hl=zh-cn">https://developer.android.com/studio/run/managing-avds?hl=zh-cn</a></p>
@@ -46,7 +83,7 @@
   <entry>
     <title>安卓逆向学习资料搜集</title>
     <url>/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</url>
-    <content><![CDATA[<h1 id="相关教程或博客"><a href="#相关教程或博客" class="headerlink" title="相关教程或博客"></a>相关教程或博客</h1><p><a href="https://github.com/ZJ595/AndroidReverse">https://github.com/ZJ595/AndroidReverse</a><br><a href="https://wizardforcel.gitbooks.io/fl-android-re-tut/content/">https://wizardforcel.gitbooks.io/fl-android-re-tut/content/</a></p>
+    <content><![CDATA[<h1 id="相关教程或博客"><a href="#相关教程或博客" class="headerlink" title="相关教程或博客"></a>相关教程或博客</h1><p><a href="https://github.com/ZJ595/AndroidReverse">https://github.com/ZJ595/AndroidReverse</a><br><a href="https://wizardforcel.gitbooks.io/fl-android-re-tut/content/">https://wizardforcel.gitbooks.io/fl-android-re-tut/content/</a><br><a href="https://github.com/Evil0ctal/AndroidReverse101">https://github.com/Evil0ctal/AndroidReverse101</a></p>
 <h1 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h1><p><a href="https://bbs.kanxue.com/forum-161.htm">https://bbs.kanxue.com/forum-161.htm</a></p>
 <h1 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h1><h1 id="靶场"><a href="#靶场" class="headerlink" title="靶场"></a>靶场</h1><p><a href="https://github.com/OWASP/MASTG-Hacking-Playground">https://github.com/OWASP/MASTG-Hacking-Playground</a><br><a href="https://github.com/rewanthtammana/Damn-Vulnerable-Bank">https://github.com/rewanthtammana/Damn-Vulnerable-Bank</a><br><a href="https://github.com/B3nac/InjuredAndroid">https://github.com/B3nac/InjuredAndroid</a></p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
@@ -88,6 +125,9 @@
 
 <script src="/js/markmap.js"></script>
 ]]></content>
+      <categories>
+        <category>周记</category>
+      </categories>
   </entry>
   <entry>
     <title>发现的有趣博客</title>
@@ -237,6 +277,9 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
 
 <script src="/js/markmap.js"></script>
 ]]></content>
+      <categories>
+        <category>周记</category>
+      </categories>
   </entry>
   <entry>
     <title>车联网比赛搜集</title>
@@ -379,6 +422,9 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
 
 <script src="/js/markmap.js"></script>
 ]]></content>
+      <categories>
+        <category>周记</category>
+      </categories>
   </entry>
   <entry>
     <title>车联网学习资料搜集</title>
@@ -629,6 +675,9 @@ E(X)=\int_{-\infin}^{\infin}x\times f(x) dx</script><p>意思可以理解为随�
 
 <script src="/js/markmap.js"></script>
 ]]></content>
+      <categories>
+        <category>周记</category>
+      </categories>
   </entry>
   <entry>
     <title>第一周</title>
@@ -713,6 +762,9 @@ N_a = 6.022\times10^{23}\quad mol^{-1}</script><p>微观量一般不可测，所
 
 <script src="/js/markmap.js"></script>
 ]]></content>
+      <categories>
+        <category>周记</category>
+      </categories>
   </entry>
   <entry>
     <title>modular_arithmetic</title>

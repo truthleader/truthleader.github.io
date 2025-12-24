@@ -175,13 +175,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -220,6 +220,219 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2025/12/22/discord-bot-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar/avatar.jpg">
+      <meta itemprop="name" content="truthleader">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TruLead">
+      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | TruLead">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/12/22/discord-bot-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">discord bot 部署流程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-12-22 20:36:42" itemprop="dateCreated datePublished" datetime="2025-12-22T20:36:42+00:00">2025-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>287</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://bot-hosting.net/">https://bot-hosting.net/</a> 这个是免费的24/7的服务器,专供discord bot<br><a target="_blank" rel="noopener" href="https://wiki.bot-hosting.net/guides/hosting-your-first-bot">https://wiki.bot-hosting.net/guides/hosting-your-first-bot</a> # 如何部署bot-hosting</p>
+<p><a target="_blank" rel="noopener" href="https://hackmd.io/@smallshawn95/python_discord_bot_base">https://hackmd.io/@smallshawn95/python_discord_bot_base</a> # 教程<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=26Sj5hJFqUs">https://www.youtube.com/watch?v=26Sj5hJFqUs</a> # 如何写slash命令</p>
+<ol>
+<li><p>先在discord developers注册app <a target="_blank" rel="noopener" href="https://discord.com/developers/applications">https://discord.com/developers/applications</a></p>
+</li>
+<li><p>复制 settings-&gt;Bot-&gt;Token里的值</p>
+</li>
+<li><p>以下的脚本放在本机上执行</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import discord</span><br><span class="line">from discord.ext import commands</span><br><span class="line"></span><br><span class="line">BOT_TOKEN = # 填写刚刚复制的</span><br><span class="line">GUILD_ID = # 填写服务器的server id,discord 个人设置 开发者模式打开,再右键伺服器的图标,最下面就能复制了</span><br><span class="line"></span><br><span class="line">class Client(commands.Bot):</span><br><span class="line">    async def on_ready(self):</span><br><span class="line">        print(f&quot;已&#123;self.user&#125;的身份登录!&quot;)</span><br><span class="line">        try:</span><br><span class="line">            guild = discord.Object(id = GUILD_ID)</span><br><span class="line"></span><br><span class="line">            synced= await self.tree.sync(guild=guild)</span><br><span class="line">            print(f&quot;同步了&#123;len(synced)&#125;条命令在&#123;guild.id&#125;&quot;)</span><br><span class="line">        except Exception as e:</span><br><span class="line">            print(f&quot;error syncing commands: &#123;e&#125;&quot;)</span><br><span class="line">    async def on_message(self, message):</span><br><span class="line">        if message.content.startswith(&quot;Lusalia&quot;):</span><br><span class="line">            await message.channel.send(f&#x27;Hi there &#123;message.author&#125;, what can I help you?&#x27;)</span><br><span class="line"></span><br><span class="line">    async def on_reaction_add(self, reaction, user):</span><br><span class="line">        await reaction.message.channel.send(&quot;you reacted&quot;)</span><br><span class="line"></span><br><span class="line">intents = discord.Intents.default()</span><br><span class="line">intents.message_content = True</span><br><span class="line">client = Client(command_prefix=&quot;!&quot;, intents=intents)</span><br><span class="line"></span><br><span class="line">guild = discord.Object(id = GUILD_ID)</span><br><span class="line">@client.tree.command(name=&quot;hello&quot;, description=&quot;问好&quot;, guild=guild)</span><br><span class="line">async def sayHello(interaction: discord.Interaction):</span><br><span class="line">    await interaction.response.send_message(&quot;Hello world!&quot;)</span><br><span class="line"></span><br><span class="line">@client.tree.command(name=&quot;say&quot;, description=&quot;say something&quot;, guild=guild)</span><br><span class="line">async def say(interaction: discord.Interaction, text: str):</span><br><span class="line">    await interaction.response.send_message(f&quot;You just said &#123;text&#125;!&quot;)</span><br><span class="line"></span><br><span class="line">client.run(BOT_TOKEN)</span><br></pre></td></tr></table></figure>
+<p>然后将bot添加到伺服器里,就算在本地部署成功了</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2025/12/22/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%85%AD%E5%91%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar/avatar.jpg">
+      <meta itemprop="name" content="truthleader">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TruLead">
+      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | TruLead">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/12/22/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%85%AD%E5%91%A8/" class="post-title-link" itemprop="url">第六周</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-12-22 09:35:50" itemprop="dateCreated datePublished" datetime="2025-12-22T09:35:50+00:00">2025-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%91%A8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">周记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>56</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="12月22日-周一"><a href="#12月22日-周一" class="headerlink" title="12月22日 周一"></a>12月22日 周一</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/12/22/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%85%AD%E5%91%A8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2025/12/21/1-Andriod%E5%88%9D%E6%8E%A2-%E4%BB%8E%E7%BC%96%E5%86%99%E5%88%B0%E5%8F%91%E5%B8%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,9 +461,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-12-21 15:31:25 / Modified: 08:27:35" itemprop="dateCreated datePublished" datetime="2025-12-21T15:31:25+00:00">2025-12-21</time>
+      <time title="Created: 2025-12-21 15:31:25" itemprop="dateCreated datePublished" datetime="2025-12-21T15:31:25+00:00">2025-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
     </span>
 
   
@@ -348,7 +567,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
     </span>
 
   
@@ -445,7 +664,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
     </span>
 
   
@@ -539,7 +758,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
     </span>
 
   
@@ -633,7 +852,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
     </span>
 
   
@@ -643,7 +862,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>45</span>
+      <span>49</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -661,7 +880,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="相关教程或博客"><a href="#相关教程或博客" class="headerlink" title="相关教程或博客"></a>相关教程或博客</h1><p><a target="_blank" rel="noopener" href="https://github.com/ZJ595/AndroidReverse">https://github.com/ZJ595/AndroidReverse</a><br><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/fl-android-re-tut/content/">https://wizardforcel.gitbooks.io/fl-android-re-tut/content/</a></p>
+          <h1 id="相关教程或博客"><a href="#相关教程或博客" class="headerlink" title="相关教程或博客"></a>相关教程或博客</h1><p><a target="_blank" rel="noopener" href="https://github.com/ZJ595/AndroidReverse">https://github.com/ZJ595/AndroidReverse</a><br><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/fl-android-re-tut/content/">https://wizardforcel.gitbooks.io/fl-android-re-tut/content/</a><br><a target="_blank" rel="noopener" href="https://github.com/Evil0ctal/AndroidReverse101">https://github.com/Evil0ctal/AndroidReverse101</a></p>
 <h1 id="论坛"><a href="#论坛" class="headerlink" title="论坛"></a>论坛</h1><p><a target="_blank" rel="noopener" href="https://bbs.kanxue.com/forum-161.htm">https://bbs.kanxue.com/forum-161.htm</a></p>
 <h1 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h1><h1 id="靶场"><a href="#靶场" class="headerlink" title="靶场"></a>靶场</h1><p><a target="_blank" rel="noopener" href="https://github.com/OWASP/MASTG-Hacking-Playground">https://github.com/OWASP/MASTG-Hacking-Playground</a><br><a target="_blank" rel="noopener" href="https://github.com/rewanthtammana/Damn-Vulnerable-Bank">https://github.com/rewanthtammana/Damn-Vulnerable-Bank</a><br><a target="_blank" rel="noopener" href="https://github.com/B3nac/InjuredAndroid">https://github.com/B3nac/InjuredAndroid</a></p>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
@@ -730,7 +949,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%91%A8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">周记</span></a>
+        </span>
     </span>
 
   
@@ -828,7 +1056,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
     </span>
 
   
@@ -926,7 +1154,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
+      <time title="Modified: 2025-12-24 09:32:38" itemprop="dateModified" datetime="2025-12-24T09:32:38+00:00">2025-12-24</time>
     </span>
 
   
@@ -980,202 +1208,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2025/12/09/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/avatar/avatar.jpg">
-      <meta itemprop="name" content="truthleader">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TruLead">
-      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | TruLead">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/12/09/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">概率论复习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-12-09 22:13:11" itemprop="dateCreated datePublished" datetime="2025-12-09T22:13:11+00:00">2025-12-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>51</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="随机变量的数字特征"><a href="#随机变量的数字特征" class="headerlink" title="随机变量的数字特征"></a>随机变量的数字特征</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/12/09/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2025/12/08/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E5%91%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/avatar/avatar.jpg">
-      <meta itemprop="name" content="truthleader">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TruLead">
-      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | TruLead">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/12/08/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E5%91%A8/" class="post-title-link" itemprop="url">第四周</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2025-12-08 08:08:07" itemprop="dateCreated datePublished" datetime="2025-12-08T08:08:07+00:00">2025-12-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-21 08:27:35" itemprop="dateModified" datetime="2025-12-21T08:27:35+00:00">2025-12-21</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.6k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>5 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="12月8号-周一"><a href="#12月8号-周一" class="headerlink" title="12月8号 周一"></a>12月8号 周一</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/12/08/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E5%91%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1205,7 +1237,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:56</span>
+    <span title="Reading time total">1:57</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>

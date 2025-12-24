@@ -10,7 +10,7 @@
   <link href="https://truthleader.github.io/atom.xml" rel="self"/>
   
   <link href="https://truthleader.github.io/"/>
-  <updated>2025-12-21T08:27:35.318Z</updated>
+  <updated>2025-12-24T09:32:38.053Z</updated>
   <id>https://truthleader.github.io/</id>
   
   <author>
@@ -21,11 +21,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>discord bot 部署流程</title>
+    <link href="https://truthleader.github.io/2025/12/22/discord-bot-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"/>
+    <id>https://truthleader.github.io/2025/12/22/discord-bot-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</id>
+    <published>2025-12-22T20:36:42.000Z</published>
+    <updated>2025-12-24T09:32:38.053Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>第六周</title>
+    <link href="https://truthleader.github.io/2025/12/22/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%85%AD%E5%91%A8/"/>
+    <id>https://truthleader.github.io/2025/12/22/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%85%AD%E5%91%A8/</id>
+    <published>2025-12-22T09:35:50.000Z</published>
+    <updated>2025-12-24T09:32:38.209Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;12月22日-周一&quot;&gt;&lt;a href=&quot;#12月22日-周一&quot; class=&quot;headerlink&quot; title=&quot;12月22日 周一&quot;&gt;&lt;/a&gt;12月22日 周一&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="周记" scheme="https://truthleader.github.io/categories/%E5%91%A8%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>1. Andriod初探 从编写到发布</title>
     <link href="https://truthleader.github.io/2025/12/21/1-Andriod%E5%88%9D%E6%8E%A2-%E4%BB%8E%E7%BC%96%E5%86%99%E5%88%B0%E5%8F%91%E5%B8%83/"/>
     <id>https://truthleader.github.io/2025/12/21/1-Andriod%E5%88%9D%E6%8E%A2-%E4%BB%8E%E7%BC%96%E5%86%99%E5%88%B0%E5%8F%91%E5%B8%83/</id>
     <published>2025-12-21T15:31:25.000Z</published>
-    <updated>2025-12-21T08:27:35.318Z</updated>
+    <updated>2025-12-24T09:32:38.033Z</updated>
     
     
       
@@ -46,7 +84,7 @@
     <link href="https://truthleader.github.io/2025/12/17/%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/%E8%BD%AF%E4%BB%B6%E9%80%86%E5%90%91%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/"/>
     <id>https://truthleader.github.io/2025/12/17/%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/%E8%BD%AF%E4%BB%B6%E9%80%86%E5%90%91%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/</id>
     <published>2025-12-17T11:14:18.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
       
@@ -67,7 +105,7 @@
     <link href="https://truthleader.github.io/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/web%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/"/>
     <id>https://truthleader.github.io/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/web%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</id>
     <published>2025-12-17T11:08:41.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
       
@@ -88,7 +126,7 @@
     <link href="https://truthleader.github.io/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/"/>
     <id>https://truthleader.github.io/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</id>
     <published>2025-12-17T11:08:36.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
       
@@ -109,7 +147,7 @@
     <link href="https://truthleader.github.io/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/"/>
     <id>https://truthleader.github.io/2025/12/17/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</id>
     <published>2025-12-17T11:08:26.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
       
@@ -130,12 +168,14 @@
     <link href="https://truthleader.github.io/2025/12/16/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%BA%94%E5%91%A8/"/>
     <id>https://truthleader.github.io/2025/12/16/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%BA%94%E5%91%A8/</id>
     <published>2025-12-16T21:49:19.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.209Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;12月16日-周二&quot;&gt;&lt;a href=&quot;#12月16日-周二&quot; class=&quot;headerlink&quot; title=&quot;12月16日 周二&quot;&gt;&lt;/a&gt;12月16日 周二&lt;/h1&gt;</summary>
     
     
+    
+    <category term="周记" scheme="https://truthleader.github.io/categories/%E5%91%A8%E8%AE%B0/"/>
     
     
   </entry>
@@ -145,7 +185,7 @@
     <link href="https://truthleader.github.io/2025/12/10/%E5%8F%91%E7%8E%B0%E7%9A%84%E6%9C%89%E8%B6%A3%E5%8D%9A%E5%AE%A2/"/>
     <id>https://truthleader.github.io/2025/12/10/%E5%8F%91%E7%8E%B0%E7%9A%84%E6%9C%89%E8%B6%A3%E5%8D%9A%E5%AE%A2/</id>
     <published>2025-12-10T09:25:15.000Z</published>
-    <updated>2025-12-21T08:27:35.476Z</updated>
+    <updated>2025-12-24T09:32:38.207Z</updated>
     
     
     <summary type="html">&lt;p&gt;我感觉有意思的博客,单纯的搜集下来&lt;/p&gt;</summary>
@@ -160,7 +200,7 @@
     <link href="https://truthleader.github.io/2025/12/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/"/>
     <id>https://truthleader.github.io/2025/12/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/</id>
     <published>2025-12-10T08:43:22.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;树&quot;&gt;&lt;a href=&quot;#树&quot; class=&quot;headerlink&quot; title=&quot;树&quot;&gt;&lt;/a&gt;树&lt;/h1&gt;</summary>
@@ -175,7 +215,7 @@
     <link href="https://truthleader.github.io/2025/12/09/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0/"/>
     <id>https://truthleader.github.io/2025/12/09/%E6%A6%82%E7%8E%87%E8%AE%BA%E5%A4%8D%E4%B9%A0/</id>
     <published>2025-12-09T22:13:11.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;随机变量的数字特征&quot;&gt;&lt;a href=&quot;#随机变量的数字特征&quot; class=&quot;headerlink&quot; title=&quot;随机变量的数字特征&quot;&gt;&lt;/a&gt;随机变量的数字特征&lt;/h1&gt;</summary>
@@ -190,12 +230,14 @@
     <link href="https://truthleader.github.io/2025/12/08/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E5%91%A8/"/>
     <id>https://truthleader.github.io/2025/12/08/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E5%91%A8/</id>
     <published>2025-12-08T08:08:07.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;12月8号-周一&quot;&gt;&lt;a href=&quot;#12月8号-周一&quot; class=&quot;headerlink&quot; title=&quot;12月8号 周一&quot;&gt;&lt;/a&gt;12月8号 周一&lt;/h1&gt;</summary>
     
     
+    
+    <category term="周记" scheme="https://truthleader.github.io/categories/%E5%91%A8%E8%AE%B0/"/>
     
     
   </entry>
@@ -205,7 +247,7 @@
     <link href="https://truthleader.github.io/2025/12/06/%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/%E8%BD%A6%E8%81%94%E7%BD%91%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/"/>
     <id>https://truthleader.github.io/2025/12/06/%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/%E8%BD%A6%E8%81%94%E7%BD%91%E6%AF%94%E8%B5%9B%E6%90%9C%E9%9B%86/</id>
     <published>2025-12-06T11:09:35.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
       
@@ -226,7 +268,7 @@
     <link href="https://truthleader.github.io/2025/12/02/markmap-test/"/>
     <id>https://truthleader.github.io/2025/12/02/markmap-test/</id>
     <published>2025-12-02T09:47:10.000Z</published>
-    <updated>2025-12-21T08:27:35.339Z</updated>
+    <updated>2025-12-24T09:32:38.053Z</updated>
     
     
       
@@ -247,7 +289,7 @@
     <link href="https://truthleader.github.io/2025/12/02/%E9%A9%AC%E5%8E%9F%E5%A4%8D%E4%B9%A0/"/>
     <id>https://truthleader.github.io/2025/12/02/%E9%A9%AC%E5%8E%9F%E5%A4%8D%E4%B9%A0/</id>
     <published>2025-12-02T08:23:26.000Z</published>
-    <updated>2025-12-21T08:27:35.480Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
       
@@ -268,12 +310,14 @@
     <link href="https://truthleader.github.io/2025/12/01/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%B8%89%E5%91%A8/"/>
     <id>https://truthleader.github.io/2025/12/01/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%B8%89%E5%91%A8/</id>
     <published>2025-12-01T08:27:54.000Z</published>
-    <updated>2025-12-21T08:27:35.478Z</updated>
+    <updated>2025-12-24T09:32:38.208Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;12月1日-周一&quot;&gt;&lt;a href=&quot;#12月1日-周一&quot; class=&quot;headerlink&quot; title=&quot;12月1日 周一&quot;&gt;&lt;/a&gt;12月1日 周一&lt;/h1&gt;</summary>
     
     
+    
+    <category term="周记" scheme="https://truthleader.github.io/categories/%E5%91%A8%E8%AE%B0/"/>
     
     
   </entry>
@@ -283,7 +327,7 @@
     <link href="https://truthleader.github.io/2025/11/30/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E8%BD%A6%E8%81%94%E7%BD%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/"/>
     <id>https://truthleader.github.io/2025/11/30/%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/%E8%BD%A6%E8%81%94%E7%BD%91%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%90%9C%E9%9B%86/</id>
     <published>2025-11-30T14:24:47.000Z</published>
-    <updated>2025-12-21T08:27:35.480Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
       
@@ -304,7 +348,7 @@
     <link href="https://truthleader.github.io/2025/11/26/%E7%A2%8E%E7%89%87%E6%97%B6%E9%97%B4%E8%A1%A8/"/>
     <id>https://truthleader.github.io/2025/11/26/%E7%A2%8E%E7%89%87%E6%97%B6%E9%97%B4%E8%A1%A8/</id>
     <published>2025-11-26T08:53:38.000Z</published>
-    <updated>2025-12-21T08:27:35.479Z</updated>
+    <updated>2025-12-24T09:32:38.210Z</updated>
     
     
     <summary type="html">&lt;p&gt;让我看看我能在碎片时间里干什么&lt;/p&gt;</summary>
@@ -319,7 +363,7 @@
     <link href="https://truthleader.github.io/2025/11/24/portswigger-authentication/"/>
     <id>https://truthleader.github.io/2025/11/24/portswigger-authentication/</id>
     <published>2025-11-24T08:57:12.000Z</published>
-    <updated>2025-12-21T08:27:35.467Z</updated>
+    <updated>2025-12-24T09:32:38.196Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;漏洞产生原因&quot;&gt;&lt;a href=&quot;#漏洞产生原因&quot; class=&quot;headerlink&quot; title=&quot;漏洞产生原因&quot;&gt;&lt;/a&gt;漏洞产生原因&lt;/h1&gt;&lt;ol&gt;
@@ -339,53 +383,15 @@
     <link href="https://truthleader.github.io/2025/11/24/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E5%91%A8/"/>
     <id>https://truthleader.github.io/2025/11/24/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E5%91%A8/</id>
     <published>2025-11-24T08:38:25.000Z</published>
-    <updated>2025-12-21T08:27:35.478Z</updated>
+    <updated>2025-12-24T09:32:38.208Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;11月24日-周一&quot;&gt;&lt;a href=&quot;#11月24日-周一&quot; class=&quot;headerlink&quot; title=&quot;11月24日 周一&quot;&gt;&lt;/a&gt;11月24日 周一&lt;/h1&gt;</summary>
     
     
     
+    <category term="周记" scheme="https://truthleader.github.io/categories/%E5%91%A8%E8%AE%B0/"/>
     
-  </entry>
-  
-  <entry>
-    <title>第一周</title>
-    <link href="https://truthleader.github.io/2025/11/19/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%B8%80%E5%91%A8/"/>
-    <id>https://truthleader.github.io/2025/11/19/%E5%91%A8%E8%AE%B0/%E7%AC%AC%E4%B8%80%E5%91%A8/</id>
-    <published>2025-11-19T13:45:51.000Z</published>
-    <updated>2025-12-21T08:27:35.476Z</updated>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;11月19日&quot;&gt;&lt;a href=&quot;#11月19日&quot; class=&quot;headerlink&quot; title=&quot;11月19日&quot;&gt;&lt;/a&gt;11月19日&lt;/h1&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>modular_arithmetic</title>
-    <link href="https://truthleader.github.io/2025/04/18/modular-arithmetic/"/>
-    <id>https://truthleader.github.io/2025/04/18/modular-arithmetic/</id>
-    <published>2025-04-18T10:03:11.000Z</published>
-    <updated>2025-12-21T08:27:35.339Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="math" scheme="https://truthleader.github.io/categories/math/"/>
-    
-    
-    <category term="笔记" scheme="https://truthleader.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
