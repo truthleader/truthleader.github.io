@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2-Reverse Simple-Notes-learn structure of apk</title>
+    <url>/2025/12/24/2-Reverse-Simple-Notes-learn-structure-of-apk/</url>
+    <content><![CDATA[<p>Because I will show my learning to the author of this app, so I will firstly write the English version of the article.</p>
+<p>The app we will reverse below.<br><a href="https://github.com/SimpleMobileTools/Simple-Notes">https://github.com/SimpleMobileTools/Simple-Notes</a></p>
+<hr>
+<p><del>if you find my English mistakes, just tell me and I will appreciate your feedbacks.</del></p>
+<span id="more"></span><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>discord bot 部署流程</title>
     <url>/2025/12/22/discord-bot-%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<p><a href="https://bot-hosting.net/">https://bot-hosting.net/</a> 这个是免费的24/7的服务器,专供discord bot<br><a href="https://wiki.bot-hosting.net/guides/hosting-your-first-bot">https://wiki.bot-hosting.net/guides/hosting-your-first-bot</a> # 如何部署bot-hosting</p>
@@ -10,7 +29,7 @@
 </li>
 <li><p>复制 settings-&gt;Bot-&gt;Token里的值</p>
 </li>
-<li><p>以下的脚本放在本机上执行</p>
+<li><p>以下的脚本放在电脑上执行(记得先pip install discord)</p>
 </li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import discord</span><br><span class="line">from discord.ext import commands</span><br><span class="line"></span><br><span class="line">BOT_TOKEN = # 填写刚刚复制的</span><br><span class="line">GUILD_ID = # 填写服务器的server id,discord 个人设置 开发者模式打开,再右键伺服器的图标,最下面就能复制了</span><br><span class="line"></span><br><span class="line">class Client(commands.Bot):</span><br><span class="line">    async def on_ready(self):</span><br><span class="line">        print(f&quot;已&#123;self.user&#125;的身份登录!&quot;)</span><br><span class="line">        try:</span><br><span class="line">            guild = discord.Object(id = GUILD_ID)</span><br><span class="line"></span><br><span class="line">            synced= await self.tree.sync(guild=guild)</span><br><span class="line">            print(f&quot;同步了&#123;len(synced)&#125;条命令在&#123;guild.id&#125;&quot;)</span><br><span class="line">        except Exception as e:</span><br><span class="line">            print(f&quot;error syncing commands: &#123;e&#125;&quot;)</span><br><span class="line">    async def on_message(self, message):</span><br><span class="line">        if message.content.startswith(&quot;Lusalia&quot;):</span><br><span class="line">            await message.channel.send(f&#x27;Hi there &#123;message.author&#125;, what can I help you?&#x27;)</span><br><span class="line"></span><br><span class="line">    async def on_reaction_add(self, reaction, user):</span><br><span class="line">        await reaction.message.channel.send(&quot;you reacted&quot;)</span><br><span class="line"></span><br><span class="line">intents = discord.Intents.default()</span><br><span class="line">intents.message_content = True</span><br><span class="line">client = Client(command_prefix=&quot;!&quot;, intents=intents)</span><br><span class="line"></span><br><span class="line">guild = discord.Object(id = GUILD_ID)</span><br><span class="line">@client.tree.command(name=&quot;hello&quot;, description=&quot;问好&quot;, guild=guild)</span><br><span class="line">async def sayHello(interaction: discord.Interaction):</span><br><span class="line">    await interaction.response.send_message(&quot;Hello world!&quot;)</span><br><span class="line"></span><br><span class="line">@client.tree.command(name=&quot;say&quot;, description=&quot;say something&quot;, guild=guild)</span><br><span class="line">async def say(interaction: discord.Interaction, text: str):</span><br><span class="line">    await interaction.response.send_message(f&quot;You just said &#123;text&#125;!&quot;)</span><br><span class="line"></span><br><span class="line">client.run(BOT_TOKEN)</span><br></pre></td></tr></table></figure>
@@ -20,6 +39,9 @@
 
 <script src="/js/markmap.js"></script>
 ]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>第六周</title>
@@ -49,6 +71,12 @@
 
 <script src="/js/markmap.js"></script>
 ]]></content>
+      <categories>
+        <category>Andriod</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
   </entry>
   <entry>
     <title>软件逆向比赛搜集</title>
@@ -2693,7 +2721,6 @@ n的欧拉函数是(p-1)*(q-1)=p</code>*`q-p-q+1</p>
 <h2 id="关于我的名字和这个教会"><a href="#关于我的名字和这个教会" class="headerlink" title="关于我的名字和这个教会"></a>关于我的名字和这个教会</h2><p>我是truthleader，也可以叫我真理教教主</p>
 <span id="more"></span>
 <p>我本来给自己设计的网名就是真理教教主，但是truthleader听上去更朗朗上口</p>
-<p>所以我用google翻译得到了truthleader，（很遗憾现在不是这样的翻法了）😭</p>
 <p>这是一个教会的官方网站，但是注意，这是一个私人的教会，我的意识是教会成员只有一个人，我兼任教主、圣战委员会常务委员长、自我教育局局长······</p>
 <p>总之，这个网站代表着我想要公之于众的自我内心世界，我的初心就是把我最真实的精神世界裸露出来，不论祂是否让人感到愉悦好玩、恶心厌恶————I don’t care a fuck</p>
 <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>我学习的专业是信息安全，我将此看作我主要的经济来源，这是我的爱好</p>
