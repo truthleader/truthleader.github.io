@@ -3,7 +3,8 @@
   <entry>
     <title>2-逆向Simple-Notes-以了解apk的结构</title>
     <url>/2025/12/24/2-%E9%80%86%E5%90%91Simple-Notes-%E4%BB%A5%E4%BA%86%E8%A7%A3apk%E7%9A%84%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="有帮助的资料"><a href="#有帮助的资料" class="headerlink" title="有帮助的资料"></a>有帮助的资料</h1><p><a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/">https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/</a></p>
+    <content><![CDATA[<p><a href="https://github.com/SimpleMobileTools/Simple-Notes">https://github.com/SimpleMobileTools/Simple-Notes</a><br><span id="more"></span></p>
+<h1 id="有帮助的资料"><a href="#有帮助的资料" class="headerlink" title="有帮助的资料"></a>有帮助的资料</h1><p><a href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/">https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/</a></p>
 <h1 id="apk"><a href="#apk" class="headerlink" title="apk?"></a>apk?</h1><p>apk本质上是zip</p>
 <p>其构建过程大概是这样</p>
 <p>源代码 (.java/.kt)<br>    ↓ 编译<br>字节码 (.class)<br>    ↓ dx/r8<br>DEX文件 (.dex)<br>    ↓ 打包<br>APK (ZIP) ← 加入资源、清单等<br>    ↓ 签名<br>签名APK ← 加入META-INF/<br>    ↓ 对齐<br>发布APK ← 优化文件对齐</p>

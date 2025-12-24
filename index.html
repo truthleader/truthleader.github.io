@@ -250,7 +250,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-12-24 22:22:09 / Modified: 15:01:32" itemprop="dateCreated datePublished" datetime="2025-12-24T22:22:09+00:00">2025-12-24</time>
+      <time title="Created: 2025-12-24 22:22:09 / Modified: 15:05:44" itemprop="dateCreated datePublished" datetime="2025-12-24T22:22:09+00:00">2025-12-24</time>
     </span>
 
   
@@ -260,7 +260,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>581</span>
+      <span>587</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -278,37 +278,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="有帮助的资料"><a href="#有帮助的资料" class="headerlink" title="有帮助的资料"></a>有帮助的资料</h1><p><a target="_blank" rel="noopener" href="https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/">https://blog.huli.tw/2023/04/27/android-apk-decompile-intro-1/</a></p>
-<h1 id="apk"><a href="#apk" class="headerlink" title="apk?"></a>apk?</h1><p>apk本质上是zip</p>
-<p>其构建过程大概是这样</p>
-<p>源代码 (.java/.kt)<br>    ↓ 编译<br>字节码 (.class)<br>    ↓ dx/r8<br>DEX文件 (.dex)<br>    ↓ 打包<br>APK (ZIP) ← 加入资源、清单等<br>    ↓ 签名<br>签名APK ← 加入META-INF/<br>    ↓ 对齐<br>发布APK ← 优化文件对齐</p>
-<h1 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml?"></a>AndroidManifest.xml?</h1><p>该文件记录了app的信息,版本号,名称,权限之类的,由手机操作系统读取</p>
-<h1 id="META-INF"><a href="#META-INF" class="headerlink" title="META-INF?"></a>META-INF?</h1><p>存放了<br>CERT.RSA<br>CERT.SF<br>MANIFEST.MF</p>
-<p>我简单理解为<br>MANIFEST.MF 验证所有程序文件未被篡改,对每个文件都做了hash散列<br>CERT.SF 验证MANIFEST.MF,给MANIFEST.MF作一次散列,然后文件条目的散列做二次散列,最后这些东西用私钥加密存放到CERT.RSA<br>CERT.RSA 验证开发者和CERT.SF的可靠真实,存放了对应的公钥</p>
-<p>设备验证时：</p>
-<ol>
-<li>从CERT.RSA提取证书和公钥</li>
-<li>用公钥解密CERT.SF的签名，得到预期哈希H1</li>
-<li>计算CERT.SF的实际哈希H2</li>
-<li>如果 H1 == H2，证明CERT.SF是可信的</li>
-<li>再用CERT.SF验证MANIFEST.MF</li>
-<li>最后用MANIFEST.MF验证所有文件</li>
-</ol>
-<p>那么为什么这个能保证apk不被篡改呢?<br>因为如果篡改了文件,那么MANIFEST.MF就必须改变<br>然后就需要重新计算CERT.SF<br>但是CERT.RSA的伪造,需要私钥对新的CERT.SF的签名,而私钥只在开发者的电脑上</p>
-<h1 id="res"><a href="#res" class="headerlink" title="res?"></a>res?</h1><p>存放了非代码的文件,主要是图片和xml</p>
-<h1 id="unknown"><a href="#unknown" class="headerlink" title="unknown?"></a>unknown?</h1><p>unknown/<br>├── ezvcard/          # 第三方vCard库的资源<br>├── freemarker/       # FreeMarker模板引擎<br>├── kotlin/          # Kotlin标准库资源<br>└── org/joda/time/   # Joda-Time时区数据</p>
-<h1 id="assets-dexopt"><a href="#assets-dexopt" class="headerlink" title="assets/dexopt"></a>assets/dexopt</h1><p>好像是,apk里的dex要即时编译才能在cpu的层面被执行,而这中间会有时间,因此预先编译部分重要信息作为缓存</p>
-<h1 id="classes-dex"><a href="#classes-dex" class="headerlink" title="classes.dex?"></a>classes.dex?</h1><p>这个就是程序的核心了<br>我猜,对andriod的漏洞的挖掘,主要从这里着手<br>不过,如果是分析apk病毒之类的,可能要加大分析范围</p>
-<p>如果apktool 不加—no-src 选项,就不会有这个文件,取而代之的是smali文件夹</p>
-<h1 id="dex"><a href="#dex" class="headerlink" title="dex?"></a>dex?</h1><p>字节码<br>我对它的理解</p>
-<p>类似于.class 对于java虚拟机<br>类似于.pyc 对于python虚拟机<br>类似于机器码 对于真机<br>这个运行在andriod虚拟机上</p>
-<hr>
-<p>收工</p>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
-
-<script src="/js/markmap.js"></script>
-
+          <p><a target="_blank" rel="noopener" href="https://github.com/SimpleMobileTools/Simple-Notes">https://github.com/SimpleMobileTools/Simple-Notes</a><br></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2025/12/24/2-%E9%80%86%E5%90%91Simple-Notes-%E4%BB%A5%E4%BA%86%E8%A7%A3apk%E7%9A%84%E7%BB%93%E6%9E%84/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -364,7 +342,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-12-24 17:52:59 / Modified: 15:01:32" itemprop="dateCreated datePublished" datetime="2025-12-24T17:52:59+00:00">2025-12-24</time>
+      <time title="Created: 2025-12-24 17:52:59 / Modified: 15:05:44" itemprop="dateCreated datePublished" datetime="2025-12-24T17:52:59+00:00">2025-12-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -475,7 +453,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
 
   
@@ -581,7 +559,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -688,7 +666,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -795,7 +773,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
 
   
@@ -892,7 +870,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
 
   
@@ -986,7 +964,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
 
   
@@ -1080,7 +1058,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
 
   
@@ -1177,7 +1155,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-24 15:01:32" itemprop="dateModified" datetime="2025-12-24T15:01:32+00:00">2025-12-24</time>
+      <time title="Modified: 2025-12-24 15:05:44" itemprop="dateModified" datetime="2025-12-24T15:05:44+00:00">2025-12-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
