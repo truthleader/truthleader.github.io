@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>倒霉率是什么?</title>
+    <url>/2025/12/27/%E5%80%92%E9%9C%89%E7%8E%87%E6%98%AF%E4%BB%80%E4%B9%88/</url>
+    <content><![CDATA[<p>对该视频的学习总结<br><a href="https://www.bilibili.com/video/BV1FYBYBWEcw">https://www.bilibili.com/video/BV1FYBYBWEcw</a><br><a href="https://www.zhihu.com/question/1986615844910932809/answer/1987230940272013480?share_code=vQ5iVqNeTEis&amp;utm_psn=1987981320136193499">https://www.zhihu.com/question/1986615844910932809/answer/1987230940272013480?share_code=vQ5iVqNeTEis&amp;utm_psn=1987981320136193499</a></p>
+<p>假设,抽奖,抽n次,概率为<script type="math/tex">\frac{1}{n}</script></p>
+<p>当<script type="math/tex">n\to \infin</script></p>
+<p>则抽奖一次不中的概率,为</p>
+<script type="math/tex; mode=display">\lim_{n \to \infin}(1-\frac{1}{n})^{n}</script><p>即</p>
+<script type="math/tex; mode=display">e^{-1}</script><p>即约等于0.36788</p>
+<script type="math/tex; mode=display">\lim_{n \to \infin}(1-\frac{1}{n})^{2n}</script><p>约等于0.13534</p>
+<p>人生就是这样的,很多事件发生的概率极小,但是抽奖的次数一直在增加</p>
+<p>赞美社会主义吧</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2-逆向Simple-Notes-以了解apk的结构</title>
     <url>/2025/12/24/2-%E9%80%86%E5%90%91Simple-Notes-%E4%BB%A5%E4%BA%86%E8%A7%A3apk%E7%9A%84%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<p><a href="https://github.com/SimpleMobileTools/Simple-Notes">https://github.com/SimpleMobileTools/Simple-Notes</a><br><span id="more"></span></p>
@@ -105,7 +126,18 @@
 <p>世界是一抹刺眼的灰</p>
 <hr>
 <p>thinking and writing in English make me painful. It sucks.</p>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<h1 id="12月26日-周五"><a href="#12月26日-周五" class="headerlink" title="12月26日 周五"></a>12月26日 周五</h1><p>看了up斯奎奇大王的一系列的视频<br>我从早上到现在的将近凌晨的感受是一样的<br>清醒,悲伤,痛苦,本能的自救式的意守丹田,恍惚,长时间沉思,偶尔的那种”他妈的那种事不重要”的对别人的想法</p>
+<p>感受到强烈的不安,如果别人受苦,那么,我就觉得,我的身边人,我自己也有可能受苦,只要我稀里糊涂,无所作为</p>
+<p>但无论如何,并没有脱离我的框架,我仍然是我的恐惧,我对我所知晓的那些感到厌恶和敌意,并想要改变,但我现在能做的仍然是登高而望远<br>但为了自己的精神健康着想,应该思考一下已知与未知的矛盾,不要突然被牛鬼蛇神jump scare</p>
+<p>更实际一点的,就是,永远不要欠债,保养好身体和精神健康,不要吸毒喝酒抽烟</p>
+<h1 id="12月27日-周六"><a href="#12月27日-周六" class="headerlink" title="12月27日 周六"></a>12月27日 周六</h1><p>目前没有什么很好的回复san值的手段,事已至此,先睡觉吧</p>
+<hr>
+<p>原来人可以做的更北京烤鸭一样<br>他妈的傻逼b站,怎么评论是先发布再审核的</p>
+<p>还有一件事,脏话只是提醒我应该愤怒和恐惧,但我的内心却毫无波澜,只是单纯的感觉不对劲而已<br>这可不好</p>
+<p>我估计应该只是不太想人也不太恶心罢了</p>
+<hr>
+<p>模糊的正确好过精确的错误</p>
+<h1 id="12月28-周日"><a href="#12月28-周日" class="headerlink" title="12月28 周日"></a>12月28 周日</h1><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
 <link rel="stylesheet" href="/css/markmap.css">
 
 <script src="/js/markmap.js"></script>
