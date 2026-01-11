@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -211,6 +211,226 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/03/09/old/gigachad-1-writeup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar/avatar.jpg">
+      <meta itemprop="name" content="truthleader">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TruLead">
+      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | TruLead">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/03/09/old/gigachad-1-writeup/" class="post-title-link" itemprop="url">gigachad:1-writeup</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-03-09 16:41:28" itemprop="dateCreated datePublished" datetime="2024-03-09T16:41:28+00:00">2024-03-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>306</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>靶机地址:<a target="_blank" rel="noopener" href="https://www.vulnhub.com/entry/gigachad-1,657/">https://www.vulnhub.com/entry/gigachad-1,657/</a></p>
+<h1 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h1><ol>
+<li>开启的ftp服务是能匿名登录的</li>
+<li>根据ftp里那个的提示，了解了一个username，可以从web上获取一张藏有密码提示的图片</li>
+<li>图片里没有用到隐写，应该去google上搜图</li>
+<li>find可以找到，靶机里有个s-nail-privsec的SUID文件，在exploitdb上找相关的exp就能提权</li>
+</ol>
+<p>文章讲解：<br><a target="_blank" rel="noopener" href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a><br><a target="_blank" rel="noopener" href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-5899</a></p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2024/03/09/old/gigachad-1-writeup/drippinchad.png" alt><br><img src="/2024/03/09/old/gigachad-1-writeup/flag.png" alt><br><img src="/2024/03/09/old/gigachad-1-writeup/chad_real_identity.png" alt></p>
+<h1 id="有趣的东西"><a href="#有趣的东西" class="headerlink" title="有趣的东西"></a>有趣的东西</h1><h2 id="the-real-gigachad"><a href="#the-real-gigachad" class="headerlink" title="the real gigachad"></a>the real gigachad</h2><p>关于靶机根目录里留下的图片，可以获取一下信息：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">演员的维基介绍 https://tr.wikipedia.org/wiki/Sefa_Zengin</span><br><span class="line"></span><br><span class="line">2003-2004 - Kurtlar Vadisi - Erdal Kömürcü</span><br><span class="line"></span><br><span class="line">土耳其惡狼谷 英文名:Valley of the Wolves 土耳其名:Kurtlar Vadisi</span><br><span class="line">Erdal Kömürcü是该系列的一名角色</span><br></pre></td></tr></table></figure><br>大多数是土耳其语，并且目前的翻译软件比较垃圾，又懒得看，就只能给出这点东西了</p>
+<h2 id="rabbit-hole"><a href="#rabbit-hole" class="headerlink" title="rabbit hole"></a>rabbit hole</h2><p>dirsearch 扫描web的时候会冒出来一堆莫名其妙的东西，我也不知道这个叫什么，在 <a target="_blank" rel="noopener" href="https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/">https://nepcodex.com/2021/07/gigachad-walkthrough-vulnhub-writeup/</a> 里被叫做兔子洞，但我直接搜会搜到别的东西</p>
+<p><a target="_blank" rel="noopener" href="https://rabbithole.gg/">https://rabbithole.gg/</a><br>web3，学不会一点（−＿−；）</p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2024/01/30/old/javadoc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar/avatar.jpg">
+      <meta itemprop="name" content="truthleader">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TruLead">
+      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | TruLead">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/30/old/javadoc/" class="post-title-link" itemprop="url">javadoc</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-30 21:10:00" itemprop="dateCreated datePublished" datetime="2024-01-30T21:10:00+00:00">2024-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>32</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>运行命令，生成文档注释对应的技术文档<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc 文件名 -d 指定目录</span><br></pre></td></tr></table></figure></p>
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
+<link rel="stylesheet" href="/css/markmap.css">
+
+<script src="/js/markmap.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -256,7 +476,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -386,7 +606,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -501,7 +721,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -609,7 +829,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -719,7 +939,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -826,7 +1046,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -933,7 +1153,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1040,7 +1260,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
+      <time title="Modified: 2026-01-11 01:52:33" itemprop="dateModified" datetime="2026-01-11T01:52:33+00:00">2026-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1103,242 +1323,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/avatar/avatar.jpg">
-      <meta itemprop="name" content="truthleader">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TruLead">
-      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | TruLead">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">RFC4251阅后总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-11-11 14:55:44" itemprop="dateCreated datePublished" datetime="2023-11-11T14:55:44+00:00">2023-11-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="index"><span itemprop="name">网络协议</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>4 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>ps: 线索里的tab键都被吞了，正在处理中</p>
-<hr>
-<h1 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h1><p>来源 <a target="_blank" rel="noopener" href="https://datatracker.ietf.org">https://datatracker.ietf.org</a></p>
-<ul>
-<li>IETF Internet Engineering Task Force</li>
-<li>RFC Request for Comment<h1 id="线索"><a href="#线索" class="headerlink" title="线索"></a>线索</h1></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/11/old/RFC4251%E9%98%85%E5%90%8E%E6%80%BB%E7%BB%93/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://truthleader.github.io/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/avatar/avatar.jpg">
-      <meta itemprop="name" content="truthleader">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TruLead">
-      <meta itemprop="description" content="在恐惧中前行，在沉默中永恒">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | TruLead">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/05/old/%E7%9C%8B%E5%9B%BE%E8%AF%86%E5%9C%B0%E7%82%B9/" class="post-title-link" itemprop="url">看图识地点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-11-05 19:49:20" itemprop="dateCreated datePublished" datetime="2023-11-05T19:49:20+00:00">2023-11-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-12-29 03:27:54" itemprop="dateModified" datetime="2025-12-29T03:27:54+00:00">2025-12-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">网络安全</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">社会工程学</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>207</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一个极度简单普通的技术，但其揭示并隐含着通向一条知识的大道<br>这篇文章本身也是极度简陋的，会时不时更新</p>
-<h1 id="训练处"><a href="#训练处" class="headerlink" title="训练处"></a>训练处</h1><p>(暂时不知道有什么比赛)</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://ctf.show">https://ctf.show</a> 其中的网络迷踪里的题目很多很有趣，尽管csdn近乎毁了其中的乐趣，不过技术还是值得学习的</li>
-<li><a target="_blank" rel="noopener" href="https://www.geoguessr.com">https://www.geoguessr.com</a> 根据某地的360度图猜地点的游戏</li>
-</ol>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>百度识图<br>搜狗识图<br>google识图 lens.google.com<br>yandox识图 yandox.com/images</p>
-<h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><p>得到一张图片，通常要获得该图片所在地址，难一点就是拍摄时间</p>
-<ol>
-<li>识图工具找到图片来源或者以图搜图的找线索</li>
-<li>找的到或找不到，这都是有可能的</li>
-</ol>
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><script src="https://fastly.jsdelivr.net/npm/d3@7"></script><script src="https://fastly.jsdelivr.net/npm/markmap-view@0.18.10"></script><script src="https://fastly.jsdelivr.net/npm/markmap-toolbar@0.18.10"></script>
-<link rel="stylesheet" href="/css/markmap.css">
-
-<script src="/js/markmap.js"></script>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1351,7 +1335,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2025</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -1362,13 +1346,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">37k</span>
+    <span title="Word count total">39k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:02</span>
+    <span title="Reading time total">2:11</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
